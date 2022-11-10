@@ -7,12 +7,9 @@ import {
   Categories 
 } from '../components'
 
-const posts = [
-  { title: 'Primeiro Post', excerpt: 'Lorem ipsum dollar sign' },
-  { title: 'Segundo Post', excerpt: 'Lorem ipsum dollar sign' },
-];
+import { getPosts } from '../services'
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ posts }: any) => {
   return (
    <div className='container mx-auto px-10 mb-8'>
       <Head>
@@ -21,9 +18,9 @@ const Home: NextPage = () => {
       </Head>
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
         <div className='lg:col-span-8 col-span-1'>
-          { posts?.map((i, idx) => (
+          { posts?.map((i: any, idx: number) => (
             <div key={idx}>
-              <PostCard post={i} key={i.title} />
+              <PostCard post={i.node} key={i.title} />
             </div>
           ))}
         </div>
@@ -36,6 +33,14 @@ const Home: NextPage = () => {
       </div>
    </div>
   )
+}
+
+export const getStaticProps =  async () => {
+  const posts = (await getPosts()) || [];
+
+  return {
+    props: { posts }
+  }
 }
 
 export default Home
