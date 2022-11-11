@@ -7,6 +7,7 @@ export const getPosts = async () => {
     query MyQuery {
       postsConnection {
         edges {
+          cursor
           node {
             author {
               bio
@@ -24,20 +25,65 @@ export const getPosts = async () => {
               url
             }
             categories {
-              slug
               name
+              slug
             }
           }
         }
       }
     }
-  
-  `;
+  `
 
-  const result = await request(graphqlAPI, query);
+  const result = await request(graphqlAPI, query)
 
-  return result.postsConnection.edges;
+  return result.postsConnection.edges
 }
+
+export const getPostDetails = async (slug) => {
+  const query = gql`
+    query GetPostDetails($slug : String!) {
+      post(where: {slug: $slug}) {
+        title
+        excerpt
+        featuredImage {
+          url
+        }
+        author{
+          name
+          bio
+          photo {
+            url
+          }
+        }
+        createdAt
+        slug
+        content {
+          raw
+        }
+        categories {
+          name
+          slug
+        }
+      }
+    }
+  `
+
+  const result = await request(graphqlAPI, query, { slug })
+
+  return result.post
+};
+
+export const submitComment = async (obj) => {
+  const result = await fetch('/api/comments', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(obj),
+  });
+
+  return result.json();
+};
 
 export const getRecentPost = async () => {
   const query = gql`
@@ -61,7 +107,7 @@ export const getRecentPost = async () => {
   return result.posts;
 }
 
-export const getSimilarPost = async () => {
+export const getSimilarPost = async (categories, slug) => {
   const query = gql`
     query GetPostDetails($slug: String!, $categories: [String!]) {
       posts(
@@ -78,7 +124,7 @@ export const getSimilarPost = async () => {
     }
   `
   
-  const result = await request(graphqlAPI, query);
+  const result = await request(graphqlAPI, query, { categories, slug });
 
   return result.posts;
 }
