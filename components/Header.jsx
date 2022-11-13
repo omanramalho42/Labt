@@ -39,21 +39,21 @@ const Header = () => {
         </div>
       ))}
 
-      <div className="w-full inline-block py-8">
+      <div className="w-full py-8 flex justify-between items-center">
         
           <div className="md:float-left">
             <Link href="/">
               <span className='cursor-pointer font-bold text-4xl text-black'>
-                <img src='./logo.png' alt="logo labtempo" width="300" height="100" />
+                <img src='/logo.png' alt="logo labtempo" width="300" height="100" />
               </span>
             </Link>
           </div>
           
-          <div className='mt-14'>
+          <div className=''>
             <div className="hidden md:float-right md:contents">
               {categories.map((i) => (
                 <Link key={i.slug} href={`/category/${i.slug}`}>
-                  <span className="md:float-right mt-2 align-middle text-black ml-4 font-semibold cursor-pointer">
+                  <span className="md:float-right mt-2 align-middle text-black ml-4 font-semibold cursor-pointer border-separate">
                     { i.name }
                   </span>
                 </Link>

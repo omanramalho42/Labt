@@ -4,10 +4,16 @@ import Head from 'next/head'
 import { 
   PostCard, 
   PostWidget, 
-  Categories
+  Categories,
+  Footer
 } from '../components'
 
-import { FeaturedPosts, FeaturedLastPost } from '../sections'
+import { 
+  FeaturedPosts, 
+  FeaturedLastPost, 
+  FeaturedMeet 
+} from '../sections'
+
 import { getPosts } from '../services'
 
 const Home: NextPage = ({ posts }: any) => {
@@ -20,6 +26,7 @@ const Home: NextPage = ({ posts }: any) => {
       
       <FeaturedLastPost />
       <FeaturedPosts />
+      <FeaturedMeet />
 
       {/* <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
         <div className='lg:col-span-12 col-span-1'>
@@ -36,6 +43,9 @@ const Home: NextPage = ({ posts }: any) => {
           </div>
         </div>
       </div> */}
+
+      <Footer />
+      
    </div>
   )
 }

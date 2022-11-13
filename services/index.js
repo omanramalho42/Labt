@@ -281,3 +281,28 @@ export const getLastPost = async () => {
 
   return result.posts;
 };
+
+export const getLastestPostsCategorie = async () => {
+  const query = gql`
+    query getLastestPostsCategorie {
+      categoriesConnection(orderBy: publishedAt_ASC, first: 4) {
+        edges {
+          node {
+            id
+            name
+            posts(orderBy: publishedAt_DESC, first: 1) {
+              slug
+              featuredImage {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+  
+  const result = await request(graphqlAPI, query);
+
+  return result.categoriesConnection.edges;
+}
