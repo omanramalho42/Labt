@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import moment from 'moment';
-import parse from 'html-react-parser';
+import React, { useEffect, useState } from 'react'
+import moment from 'moment'
+import parse from 'html-react-parser'
 
-import { getComments } from '../services';
+import { getComments } from '../services'
 
 const Comments = ({ slug }) => {
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState([])
 
   useEffect(() => {
     getComments(slug).then((result) => {
-      setComments(result);
-    });
-  }, []);
+      setComments(result)
+    })
+  }, [])
 
   return (
     <>
@@ -37,7 +37,7 @@ const Comments = ({ slug }) => {
         </div>
       )}
     </>
-  );
-};
+  )
+}
 
-export default Comments;
+export default Comments

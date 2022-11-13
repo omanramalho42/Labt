@@ -16,7 +16,7 @@ const Home: NextPage = ({ posts }: any) => {
    <div className='container mx-auto px-10 mb-8'>
       <Head>
         <title>Laboratório Temporal</title>
-        <link rel="stylesheet" href="favicon.ico" />
+        <link rel="stylesheet" href="icon.png" />
       </Head>
       <FeaturedPosts />
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
