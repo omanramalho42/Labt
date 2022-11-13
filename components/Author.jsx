@@ -16,10 +16,10 @@ const Author = ({ author }) => (
         src={author.photo.url}
       />
     </div>
-    <h3 className="text-white mt-4 mb-4 text-xl font-bold">
+    <h3 className="text-black mt-4 mb-4 text-xl font-bold">
       { author.name }
     </h3>
-    <p className="text-white text-ls">
+    <p className="text-black text-ls">
       { author.bio }
     </p>
   </div>

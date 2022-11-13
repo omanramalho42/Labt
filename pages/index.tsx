@@ -7,7 +7,7 @@ import {
   Categories 
 } from '../components'
 
-import { FeaturedPosts } from '../sections';
+import { FeaturedPosts } from '../sections'
 
 import { getPosts } from '../services'
 
