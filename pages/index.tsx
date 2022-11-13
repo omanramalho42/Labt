@@ -4,23 +4,25 @@ import Head from 'next/head'
 import { 
   PostCard, 
   PostWidget, 
-  Categories 
+  Categories
 } from '../components'
 
-import { FeaturedPosts } from '../sections'
-
+import { FeaturedPosts, FeaturedLastPost } from '../sections'
 import { getPosts } from '../services'
 
 const Home: NextPage = ({ posts }: any) => {
   return (
    <div className='container mx-auto px-10 mb-8'>
       <Head>
-        <title>Laboratório Temporal</title>
+        <title>Laboratório Temp</title>
         <link rel="stylesheet" href="icon.png" />
       </Head>
+      
+      <FeaturedLastPost />
       <FeaturedPosts />
-      <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
-        <div className='lg:col-span-8 col-span-1'>
+
+      {/* <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
+        <div className='lg:col-span-12 col-span-1'>
           { posts?.map((i: any, idx: number) => (
             <div key={idx}>
               <PostCard post={i.node} key={i.title} />
@@ -28,12 +30,12 @@ const Home: NextPage = ({ posts }: any) => {
           ))}
         </div>
         <div className="lg:col-span-4 col-span-1">
-            <div className="lg:sticky relative top-8">
-              <PostWidget categories={posts} slug="" />
-              <Categories />
-            </div>
+          <div className="lg:sticky relative top-8">
+            <PostWidget categories={posts} slug="" />
+            <Categories />
+          </div>
         </div>
-      </div>
+      </div> */}
    </div>
   )
 }
