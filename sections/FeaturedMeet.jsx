@@ -102,7 +102,7 @@ const FeaturedMeet = () => {
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
                   transition: '0.325s',
-                  outline: '2px solid red',
+                  outline: '2.5px solid red',
                   outlineOffset: '10px',
                   gridColumnStart: 
                     categorieName === 'Bahia' 
