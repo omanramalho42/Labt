@@ -15,6 +15,8 @@ import {
   FeaturedMeet 
 } from '../sections'
 
+import { motion } from 'framer-motion'
+
 import { toast } from 'react-hot-toast'
 import { getPosts } from '../services'
 
@@ -25,8 +27,9 @@ const Home: NextPage = ({ posts }: any) => {
         <title>Laboratório Temp</title>
         <link rel="stylesheet" href="icon.png" />
       </Head>
-    
+      
       <FeaturedLastPost />
+      
       <FeaturedPosts />
       <div className='mt-14'>
         <FeaturedMeet />

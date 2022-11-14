@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { toast, Toaster } from 'react-hot-toast'
+import Skeleton from 'react-loading-skeleton';
 import { getLastestPostsCategorie } from '../services'
 
 
 const FeaturedMeet = () => {
   const [latestPostCategories, setLatestPostCategories] = useState();
   const [lastPosts, setLastPosts] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   let categoriesMeet = [];
 
@@ -15,8 +15,6 @@ const FeaturedMeet = () => {
       .then((res) => { setLatestPostCategories(res) }
     );
   },[]);
-
-  useEffect(() => { console.log({loading}, 'loading')},[loading])
 
   useEffect(() => {
     try {
@@ -45,15 +43,16 @@ const FeaturedMeet = () => {
 
     } catch (error) {
       throw error;
+
     } finally {
       return () => {
-        setLoading(true);
+        setLoading(false);
       }
     }
   },[latestPostCategories]);
 
 
-  const [mobile, setMobile] = useState(1960);
+  const [mobile, setMobile] = useState(0);
 
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
@@ -73,59 +72,84 @@ const FeaturedMeet = () => {
   },[]);
 
   if(lastPosts.length > 0) {
-    
     return (
       <div className='flex flex-col items-center'>
         <h1 className='text-4xl uppercase font-bold text-center tracking-widest mb-8'>
           ENCONTRO
         </h1>
-
         <div className="grid">
-          {lastPosts.map(({ categorieName, slug }, idx) => categorieName && (
+          {lastPosts.map(({ categorieName }, idx) => categorieName && !loading ? (
             <div 
-                key={idx}
-                data-tooltip-target="tooltip-top" data-tooltip-placement="top"
-                className={`
-                ${categorieName === 'Salvador'
-                ? 'col-start-3' 
-                : categorieName === 'Estar' 
-                ? 'col-start-2' 
-                : categorieName === 'Bahia' 
-                ? 'col-start-1' 
-                : 'col-start-2'
-              } border-2 rounded-full mx-auto`} 
+              className='rounded-full mx-auto' 
               style={{
                 width: `${
                   mobile.innerWidth < 1000 
                   ? '120px' 
                   : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
                   ? '180px' 
-                    : '250px'
-                  }`, 
-                  height: `${
-                    mobile.innerWidth < 1000 
-                    ? '120px' 
-                    : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
-                    ? '180px' 
-                    : '250px'
-                  }`, 
-                  backgroundImage: `url(${lastPosts[idx].featuredImage || ''})`,
-                  boxShadow: '2px 3px 10px 1px rgba(0, 0, 0, 0.1)',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'cover',
-                  transition: '0.325s',
-                  cursor: 'pointer'
-                }}
-              />
+                  : '250px'
+                }`, 
+                height: `${
+                  mobile.innerWidth < 1000 
+                  ? '120px' 
+                  : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
+                  ? '180px' 
+                  : '250px'
+                }`,
+                backgroundImage: `url(${lastPosts[idx].featuredImage || ''})`,
+                boxShadow: '2px 3px 10px 1px rgba(0, 0, 0, 0.1)',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                transition: '0.325s',
+                gridColumnStart: 
+                  categorieName === 'Bahia' 
+                  ? 1 
+                  : categorieName === 'Salvador' 
+                  ? 3 
+                  : categorieName === 'Estar'
+                  ? 2
+                  : 2
+              }}
+            />
+          ) : (
+            <div
+              className='rounded-full mx-auto' 
+              style={{
+                width: `${
+                  mobile.innerWidth < 1000 
+                  ? '120px' 
+                  : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
+                  ? '180px' 
+                  : '250px'
+                }`, 
+                height: `${
+                  mobile.innerWidth < 1000 
+                  ? '120px' 
+                  : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
+                  ? '180px' 
+                  : '250px'
+                }`,
+                transition: '0.325s',
+                gridColumnStart: 
+                  categorieName === 'Bahia' 
+                  ? 1 
+                  : categorieName === 'Salvador' 
+                  ? 3 
+                  : categorieName === 'Estar'
+                  ? 2
+                  : 2
+              }}
+            >
+              <Skeleton style={{ height: '250px', borderRadius: '50%' }}/>
+            </div>
           ))}
-        
-        </div>
       </div>
+    </div>
     )
   } else {
     return (
       <div>
-        Loading...
+        <Skeleton />
       </div>
     )
   }

@@ -2,6 +2,7 @@ import React from 'react'
 import moment from 'moment'
 
 import { getPostDetails } from '../services'
+import Skeleton from 'react-loading-skeleton'
 
 const PostDetail = ({ post }) => {
 
@@ -24,11 +25,11 @@ const PostDetail = ({ post }) => {
 
     switch (type) {
       case 'heading-three':
-        return <h3 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
+        return <h3 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{ item }</React.Fragment>)}</h3>;
       case 'paragraph':
-        return <p key={index} className="mb-8">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
+        return <p key={index} className="mb-8">{modifiedText.map((item, i) => <React.Fragment key={i}>{ item }</React.Fragment>)}</p>;
       case 'heading-four':
-        return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
+        return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{ item }</React.Fragment>)}</h4>;
       case 'image':
         return (
           <img
@@ -48,24 +49,32 @@ const PostDetail = ({ post }) => {
   return (
     <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
       <div className="relative overflow-hidden shadow-md mb-6">
-        <img 
-          src={post.featuredImage.url}
-          alt={post.title}
-          className="object-top h-full rounded-t-lg"
-        />
+        {post.featuredImage.url ? (
+          <img 
+            src={post.featuredImage.url}
+            alt={post.title}
+            className="object-top h-full rounded-t-lg"
+          />
+        ) : (
+          <Skeleton height={300} />
+        )}
       </div>
       <div className="px-4 lg:px-0">
         <div className="flex items-center mb-8 w-full">
           <div className='flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8'>
-            <img 
-              src={post.author.photo.url} 
-              alt={post.author.name} 
-              height="30px" 
-              width="30px" 
-              className="align-middle rounded-full" 
-            />
+            {post.author.photo.url ? (
+              <img 
+                src={post.author.photo.url} 
+                alt={post.author.name} 
+                height="30px" 
+                width="30px" 
+                className="align-middle rounded-full" 
+              />
+            ) : (
+              <Skeleton height={240} />
+            )}
             <p className='inline align-middle text-gray-700 ml-2 text-lg'>
-              { post.author.name }
+              { post.author.name || <Skeleton count={1} /> } 
             </p>
           </div>
           <div className='font-medium text-gray-700'>
@@ -73,14 +82,14 @@ const PostDetail = ({ post }) => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
             <span>
-              {moment(post.createdAt).format('MMM DD, YYYY')}
+              {moment(post.createdAt).format('MMM DD, YYYY') || <Skeleton count={1} />}
             </span>
           </div>
         </div>
         <h1 className="mb-8 text-3xl font-semibold"> 
-          { post.title } 
+          { post.title || <Skeleton />} 
         </h1>
-        {console.log(post.content.raw)}
+        {/* {console.log(post.content.raw)} */}
         {post.content.raw.children.map((typeObj, index) => {
           const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
 
@@ -91,4 +100,4 @@ const PostDetail = ({ post }) => {
   )
 }
 
-export default PostDetail
+export default PostDetail;
