@@ -44,55 +44,48 @@ const FeaturedMeet = () => {
 
   if(lastPosts.length > 0) {
     return (
-      <div className='grid gap-4 grid-cols-2 grid-rows-2'>
+      <div className=''>
   
         <h1 className='text-4xl uppercase font-bold text-center tracking-widest mb-8'>
           ENCONTRO
         </h1>
   
-        <div className='flex-1'>
-          <div className='flex justify-center'> 
+        <div className='flex flex-col items-center'>
+          <div className='flex flex-wrap w-96 h-96 border-2 rounded-full'> 
             <img 
               src={lastPosts[0].featuredImage || ''} 
               alt="" 
-              width={400}
-              height={400}
-              className="rounded-full max-w-xs" 
+              className="max-w-full h-auto rounded-full" 
             />
           </div>
-          
-          <div className='flex justify-between'>
-            <div className=''>
+
+          <div className='flex w-full justify-between items-center'>
+            <div className='flex w-96 h-96 border-2 rounded-full'>
               <img 
-              src={lastPosts[1].featuredImage || ''}
-              alt="" 
-              width={400}
-              height={400}
-              className="rounded-full max-w-xs" 
-            />
-           </div>
-            <div>
+                src={lastPosts[1].featuredImage || ''}
+                alt="" 
+                className="max-w-full h-auto rounded-full" 
+              />
+            </div>
+            <div className='flex w-96 h-96 border-2 rounded-full'>
               <img 
-              src={lastPosts[2].featuredImage || ''} 
-              alt="" 
-              width={400}
-              height={400}
-              className="rounded-full max-w-xs" 
-            />
+                src={lastPosts[2].featuredImage || ''} 
+                alt=""
+                className="max-w-full h-auto rounded-full" 
+              />
             </div>
           </div>
           
-          <div className='flex justify-center'>
+          <div className='flex flex-wrap justify-center w-96 h-96 border-2 rounded-full'>
             <img 
               src={lastPosts[3].featuredImage || ''} 
-              alt="" 
-              width={400}
-              height={400}
-              className="rounded-full max-w-xs" 
+              alt=""
+              className="max-w-full h-auto rounded-full" 
             />
           </div>
         </div>
-  
+
+        
       </div>
     )
   } else {

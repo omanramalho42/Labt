@@ -23,10 +23,12 @@ const Home: NextPage = ({ posts }: any) => {
         <title>Laboratório Temp</title>
         <link rel="stylesheet" href="icon.png" />
       </Head>
-      
+    
       <FeaturedLastPost />
       <FeaturedPosts />
-      <FeaturedMeet />
+      <div className='mt-14'>
+        <FeaturedMeet />
+      </div>
 
       {/* <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
         <div className='lg:col-span-12 col-span-1'>
