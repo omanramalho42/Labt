@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import Skeleton from 'react-loading-skeleton';
+import Skeleton from 'react-loading-skeleton'
+
 import { submitComment } from '../services'
 
 const CommentsForm = ({ slug }) => {
-  const[load, setLoad] = useState(true);
-  const [error, setError] = useState(false);
-  const [localStorage, setLocalStorage] = useState(null);
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [formData, setFormData] = useState({ name: null, email: null, comment: null, storeData: false });
+  const[load, setLoad] = useState(true)
+  const [error, setError] = useState(false)
+  const [localStorage, setLocalStorage] = useState(null)
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false)
+  const [formData, setFormData] = useState({ name: null, email: null, comment: null, storeData: false })
 
   useEffect(() => {
     setLocalStorage(window.localStorage);
@@ -15,13 +16,15 @@ const CommentsForm = ({ slug }) => {
       name: window.localStorage.getItem('name'),
       email: window.localStorage.getItem('email'),
       storeData: window.localStorage.getItem('name') || window.localStorage.getItem('email'),
-    };
-    setFormData(initalFormData);
+    }
+    setFormData(initalFormData)
+  }, []);
 
+  useEffect(() => {
     return () => {
       setLoad(false);
     }
-  }, []);
+  },[]);
 
   const onInputChange = (e) => {
     const { target } = e;

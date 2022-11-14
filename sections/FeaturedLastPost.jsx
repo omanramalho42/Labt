@@ -47,8 +47,7 @@ const FeaturedLastPost = () => {
         </div>
         
         <figure className='mt-3'>
-          {loading && (<Skeleton height={200} />)}
-          <img src={lastPost[0].featuredImage.url} alt="" width={2000} height={"600"} />
+          <img src={lastPost[0].featuredImage.url} alt="" className='rounded-md' width="3000px" height={"600"} />
         </figure>
 
       </section>
