@@ -78,10 +78,10 @@ const FeaturedMeet = () => {
           ENCONTRO
         </h1>
         <div className="grid">
-          {lastPosts.map(({ categorieName }, idx) => categorieName && !loading ? (
+          {lastPosts.map(({ categorieName, slug }, idx) => categorieName && !loading ? (
             <>
               <div 
-                className='meet rounded-full mx-auto' 
+                className='rounded-full mx-auto' 
                 style={{
                   width: `${
                     mobile.innerWidth < 1000 
@@ -102,6 +102,8 @@ const FeaturedMeet = () => {
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
                   transition: '0.325s',
+                  outline: '2px solid red',
+                  outlineOffset: '10px',
                   gridColumnStart: 
                     categorieName === 'Bahia' 
                     ? 1 
@@ -112,11 +114,14 @@ const FeaturedMeet = () => {
                     : 2
                 }}
               >
-                <div 
-                  className='meet relative rounded-full hover:bg-blue-700 transition duration-150 ease-in-out'
+                <a 
+                  href={`/post/${slug}`}
+                  className='relative rounded-full'
                   style={{ 
-                    width: 40,
-                    height: 40, 
+                    flex: 1,
+                    display: 'flex',
+                    width: '60px',
+                    height: '60px', 
                     backgroundColor: 'red',
                     left: 
                       categorieName === 'Bahia' 
@@ -139,14 +144,7 @@ const FeaturedMeet = () => {
                   // (bottom-right): left: 220, bottom: -170
                   // top-right: left: 220, bottom: -70
                   // top-left: left: -15, bottom: -70
-                >
-                  <a 
-                    href="#"
-                    data-bs-toggle="tooltip" 
-                    title="Hi! I'm tooltip"
-                  >
-                  </a>
-                </div>
+                />
               </div>
             </>
           ) : (

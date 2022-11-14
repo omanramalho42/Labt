@@ -15,9 +15,6 @@ import {
   FeaturedMeet 
 } from '../sections'
 
-import { motion } from 'framer-motion'
-
-import { toast } from 'react-hot-toast'
 import { getPosts } from '../services'
 
 const Home: NextPage = ({ posts }: any) => {

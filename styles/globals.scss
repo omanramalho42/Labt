@@ -43,13 +43,6 @@ body {
   }
 }
 
-div.meet {
-  transition: 0.325s;
-  &:hover {
-    background-color: blue
-  };
-}
-
 .react-multi-carousel-list {
   & .arrow-btn{
     transition: width 300ms ease;
@@ -58,7 +51,13 @@ div.meet {
       width: 60px;
     }
   }
-  
+}
+
+.meet {
+  transition: 0.325s;
+  &:hover {
+    background-color: blue
+  };
 }
 
 a {
