@@ -44,49 +44,65 @@ const FeaturedMeet = () => {
 
   if(lastPosts.length > 0) {
     return (
-      <div className=''>
-  
-        <h1 className='text-4xl uppercase font-bold text-center tracking-widest mb-8'>
-          ENCONTRO
-        </h1>
-  
-        <div className='flex flex-col items-center'>
-          <div className='flex flex-wrap w-96 h-96 border-2 rounded-full'> 
-            <img 
-              src={lastPosts[0].featuredImage || ''} 
-              alt="" 
-              className="max-w-full h-auto rounded-full" 
-            />
-          </div>
+      <>
+        
+      </>
 
-          <div className='flex w-full justify-between items-center'>
-            <div className='flex w-96 h-96 border-2 rounded-full'>
-              <img 
-                src={lastPosts[1].featuredImage || ''}
-                alt="" 
-                className="max-w-full h-auto rounded-full" 
-              />
-            </div>
-            <div className='flex w-96 h-96 border-2 rounded-full'>
-              <img 
-                src={lastPosts[2].featuredImage || ''} 
-                alt=""
-                className="max-w-full h-auto rounded-full" 
-              />
-            </div>
-          </div>
+      // <div className='flex flex-col px-8'>
+  
+      //   <h1 className='text-4xl uppercase font-bold text-center tracking-widest mb-8'>
+      //     ENCONTRO
+      //   </h1>
+  
+      //   <div className='flex flex-col items-center px-10 py-8'>
+      //     <div 
+      //       className='flex flex-wrap border-2 rounded-full' 
+      //       style={{ maxWidth: '400px' }}
+      //     > 
+      //       <img 
+      //         src={lastPosts[0].featuredImage || ''} 
+      //         alt="" 
+      //         className="max-w-full h-auto rounded-full" 
+      //       />
+      //     </div>
+
+      //     <div className='container flex w-full justify-between items-center'>
+      //       <div 
+      //         className='flex border-2 rounded-full' 
+      //         style={{ maxWidth: '400px', borderRadius: '50%' }}
+      //       >
+      //         <img 
+      //           src={lastPosts[1].featuredImage || ''}
+      //           alt="" 
+      //           className="max-w-full h-auto rounded-full" 
+      //         />
+      //       </div>
+      //       <div 
+      //         className='flex border-2 rounded-full' 
+      //         style={{ maxWidth: '400px' }}
+      //       >
+      //         <img 
+      //           src={lastPosts[2].featuredImage || ''} 
+      //           alt=""
+      //           className="max-w-full h-auto rounded-full" 
+      //         />
+      //       </div>
+      //     </div>
           
-          <div className='flex flex-wrap justify-center w-96 h-96 border-2 rounded-full'>
-            <img 
-              src={lastPosts[3].featuredImage || ''} 
-              alt=""
-              className="max-w-full h-auto rounded-full" 
-            />
-          </div>
-        </div>
+      //     <div 
+      //       className='flex flex-wrap justify-center border-2 rounded-full' 
+      //       style={{ maxWidth: '400px' }}
+      //     >
+      //       <img 
+      //         src={lastPosts[3].featuredImage || ''} 
+      //         alt=""
+      //         className="max-w-full h-auto rounded-full" 
+      //       />
+      //     </div>
+      //   </div>
 
         
-      </div>
+      // </div>
     )
   } else {
     return (

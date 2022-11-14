@@ -18,7 +18,7 @@ import { getPosts } from '../services'
 
 const Home: NextPage = ({ posts }: any) => {
   return (
-   <div className='container mx-auto px-10 mb-8'>
+   <div className='mx-auto px-10 mb-8'>
       <Head>
         <title>Laboratório Temp</title>
         <link rel="stylesheet" href="icon.png" />

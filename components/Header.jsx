@@ -14,7 +14,7 @@ const Header = () => {
   },[]);
 
   return (
-    <div className='container mx-auto px-10 mb-8'>
+    <div className='mx-auto px-10 mb-8'>
         
       {categories.map(({ name, slug }, idx) => (
         <div key={idx}>

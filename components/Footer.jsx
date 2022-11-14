@@ -2,8 +2,8 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer class="text-cente text-black mt-14">
-      <div class="container px-6 pt-6">
+    <footer class="text-center text-black mt-14">
+      <div class="px-6 pt-6">
         <div className='text-center mb-4'>
           <h3 className='font-bold text-3xl uppercase'>Contato</h3>
           <p>escrevapara@labtempo.com.br</p>
