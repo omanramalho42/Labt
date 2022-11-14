@@ -114,9 +114,9 @@ const FeaturedMeet = () => {
                     : 2
                 }}
               >
-                <a 
+                {/* <a 
                   href={`/post/${slug}`}
-                  className='relative rounded-full'
+                  className='absolute rounded-full'
                   style={{ 
                     flex: 1,
                     display: 'flex',
@@ -144,7 +144,7 @@ const FeaturedMeet = () => {
                   // (bottom-right): left: 220, bottom: -170
                   // top-right: left: 220, bottom: -70
                   // top-left: left: -15, bottom: -70
-                />
+                /> */}
               </div>
             </>
           ) : (
