@@ -20,7 +20,7 @@ const FeaturedLastPost = () => {
   if(lastPost[0]) {
     return (
       <section className='lg:flex py-3 mb-8'>
-        <div className='d-flex'>
+        <div className='d-flex flex-col' style={{ width: '65%' }}>
 
           <span className='text-xl font-light uppercase'>
             { lastPost[0].categories[0].name.toString() || <Skeleton count={1} /> }
@@ -47,7 +47,7 @@ const FeaturedLastPost = () => {
         </div>
         
         <figure className='mt-3'>
-          <img src={lastPost[0].featuredImage.url} alt="" className='rounded-md' width="3000px" height={"600"} />
+          <img src={lastPost[0].featuredImage.url} alt="" className='rounded-md' width="800px" height={"600"} />
         </figure>
 
       </section>

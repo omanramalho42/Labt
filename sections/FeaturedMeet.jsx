@@ -81,7 +81,7 @@ const FeaturedMeet = () => {
           {lastPosts.map(({ categorieName }, idx) => categorieName && !loading ? (
             <>
               <div 
-                className='rounded-full mx-auto' 
+                className='meet rounded-full mx-auto' 
                 style={{
                   width: `${
                     mobile.innerWidth < 1000 
@@ -112,35 +112,41 @@ const FeaturedMeet = () => {
                     : 2
                 }}
               >
-                <div className='relative z-10 rounded-full'
-                style={{ 
-                  width: 40,
-                  height: 40, 
-                  backgroundColor: 'red',
-                  left: 
-                    categorieName === 'Bahia' 
-                    ? '-15px'
-                    ? categorieName === 'Salvador'
-                    : '110px'
-                    ? categorieName === 'Ser'
-                    : '220px'
-                    : '230px',
-                  bottom: 
-                    categorieName === 'Bahia' 
-                    ? '-230'
-                    ? categorieName === 'Salvador'
-                    : '-170px'
-                    ? categorieName === 'Ser'
-                    : '-70px'
-                    : '-70px',
-                }}
-                //left: 100, bottom: -230 (bottom)
-                // (bottom-right): left: 220, bottom: -170
-                // top-right: left: 220, bottom: -70
-                // top-left: left: -15, bottom: -70
-              >
-                oi
-              </div>
+                <div 
+                  className='meet relative rounded-full hover:bg-blue-700 transition duration-150 ease-in-out'
+                  style={{ 
+                    width: 40,
+                    height: 40, 
+                    backgroundColor: 'red',
+                    left: 
+                      categorieName === 'Bahia' 
+                      ? '-15px'
+                      ? categorieName === 'Salvador'
+                      : '110px'
+                      ? categorieName === 'Ser'
+                      : '220px'
+                      : '230px',
+                    bottom: 
+                      categorieName === 'Bahia' 
+                      ? '-230'
+                      ? categorieName === 'Salvador'
+                      : '-170px'
+                      ? categorieName === 'Ser'
+                      : '-70px'
+                      : '-70px',
+                  }}
+                  //left: 100, bottom: -230 (bottom)
+                  // (bottom-right): left: 220, bottom: -170
+                  // top-right: left: 220, bottom: -70
+                  // top-left: left: -15, bottom: -70
+                >
+                  <a 
+                    href="#"
+                    data-bs-toggle="tooltip" 
+                    title="Hi! I'm tooltip"
+                  >
+                  </a>
+                </div>
               </div>
             </>
           ) : (
