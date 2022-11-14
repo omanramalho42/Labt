@@ -31,7 +31,7 @@ const FeaturedMeet = () => {
         })
       };
 
-      console.log({categoriesMeet});
+      console.log({ categoriesMeet });
       
       if(categoriesMeet.length > 0) {
         setLastPosts(categoriesMeet);
@@ -42,67 +42,72 @@ const FeaturedMeet = () => {
     }
   },[latestPostCategories]);
 
+
+  const [mobile, setMobile] = useState(1960);
+
+  const getWindowSize = () => {
+    const { innerWidth, innerHeight } = window;
+    return { innerHeight, innerWidth };
+  }
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setMobile(getWindowSize());
+    }
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    }
+  },[]);
+
   if(lastPosts.length > 0) {
+    
     return (
-      <>
+      <div className='flex flex-col items-center'>
+        <h1 className='text-4xl uppercase font-bold text-center tracking-widest mb-8'>
+          ENCONTRO
+        </h1>
+
+        <div className="grid">
+          {lastPosts.map(({ categorieName }, idx) => categorieName && (
+            <div 
+              className={`
+                ${categorieName === 'Salvador'
+                ? 'col-start-3' 
+                : categorieName === 'Estar' 
+                ? 'col-start-2' 
+                : categorieName === 'Bahia' 
+                ? 'col-start-1' 
+                : 'col-start-2'
+              } border-2 rounded-full mx-auto`} 
+              style={{
+                width: `${
+                  mobile.innerWidth < 1000 
+                  ? '120px' 
+                  : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
+                  ? '180px' 
+                  : '250px'
+                }`, 
+                height: `${
+                  mobile.innerWidth < 1000 
+                  ? '120px' 
+                  : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
+                  ? '180px' 
+                  : '250px'
+                }`, 
+                backgroundImage: `url(${lastPosts[idx].featuredImage || ''})`,
+                boxShadow: '2px 3px 10px 1px rgba(0, 0, 0, 0.1)',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                transition: '0.325s',
+              }}
+            />
+          ))}
         
-      </>
-
-      // <div className='flex flex-col px-8'>
-  
-      //   <h1 className='text-4xl uppercase font-bold text-center tracking-widest mb-8'>
-      //     ENCONTRO
-      //   </h1>
-  
-      //   <div className='flex flex-col items-center px-10 py-8'>
-      //     <div 
-      //       className='flex flex-wrap border-2 rounded-full' 
-      //       style={{ maxWidth: '400px' }}
-      //     > 
-      //       <img 
-      //         src={lastPosts[0].featuredImage || ''} 
-      //         alt="" 
-      //         className="max-w-full h-auto rounded-full" 
-      //       />
-      //     </div>
-
-      //     <div className='container flex w-full justify-between items-center'>
-      //       <div 
-      //         className='flex border-2 rounded-full' 
-      //         style={{ maxWidth: '400px', borderRadius: '50%' }}
-      //       >
-      //         <img 
-      //           src={lastPosts[1].featuredImage || ''}
-      //           alt="" 
-      //           className="max-w-full h-auto rounded-full" 
-      //         />
-      //       </div>
-      //       <div 
-      //         className='flex border-2 rounded-full' 
-      //         style={{ maxWidth: '400px' }}
-      //       >
-      //         <img 
-      //           src={lastPosts[2].featuredImage || ''} 
-      //           alt=""
-      //           className="max-w-full h-auto rounded-full" 
-      //         />
-      //       </div>
-      //     </div>
-          
-      //     <div 
-      //       className='flex flex-wrap justify-center border-2 rounded-full' 
-      //       style={{ maxWidth: '400px' }}
-      //     >
-      //       <img 
-      //         src={lastPosts[3].featuredImage || ''} 
-      //         alt=""
-      //         className="max-w-full h-auto rounded-full" 
-      //       />
-      //     </div>
-      //   </div>
-
-        
-      // </div>
+        </div>
+      </div>
     )
   } else {
     return (
