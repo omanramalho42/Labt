@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import { toast, Toaster } from 'react-hot-toast'
 import { getLastestPostsCategorie } from '../services'
+
 
 const FeaturedMeet = () => {
   const [latestPostCategories, setLatestPostCategories] = useState();
   const [lastPosts, setLastPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   let categoriesMeet = [];
 
   useEffect(() => {
@@ -11,6 +15,8 @@ const FeaturedMeet = () => {
       .then((res) => { setLatestPostCategories(res) }
     );
   },[]);
+
+  useEffect(() => { console.log({loading}, 'loading')},[loading])
 
   useEffect(() => {
     try {
@@ -39,6 +45,10 @@ const FeaturedMeet = () => {
 
     } catch (error) {
       throw error;
+    } finally {
+      return () => {
+        setLoading(true);
+      }
     }
   },[latestPostCategories]);
 
@@ -71,9 +81,11 @@ const FeaturedMeet = () => {
         </h1>
 
         <div className="grid">
-          {lastPosts.map(({ categorieName }, idx) => categorieName && (
+          {lastPosts.map(({ categorieName, slug }, idx) => categorieName && (
             <div 
-              className={`
+                key={idx}
+                data-tooltip-target="tooltip-top" data-tooltip-placement="top"
+                className={`
                 ${categorieName === 'Salvador'
                 ? 'col-start-3' 
                 : categorieName === 'Estar' 
@@ -88,22 +100,23 @@ const FeaturedMeet = () => {
                   ? '120px' 
                   : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
                   ? '180px' 
-                  : '250px'
-                }`, 
-                height: `${
-                  mobile.innerWidth < 1000 
-                  ? '120px' 
-                  : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
-                  ? '180px' 
-                  : '250px'
-                }`, 
-                backgroundImage: `url(${lastPosts[idx].featuredImage || ''})`,
-                boxShadow: '2px 3px 10px 1px rgba(0, 0, 0, 0.1)',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                transition: '0.325s',
-              }}
-            />
+                    : '250px'
+                  }`, 
+                  height: `${
+                    mobile.innerWidth < 1000 
+                    ? '120px' 
+                    : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
+                    ? '180px' 
+                    : '250px'
+                  }`, 
+                  backgroundImage: `url(${lastPosts[idx].featuredImage || ''})`,
+                  boxShadow: '2px 3px 10px 1px rgba(0, 0, 0, 0.1)',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
+                  transition: '0.325s',
+                  cursor: 'pointer'
+                }}
+              />
           ))}
         
         </div>
@@ -112,7 +125,7 @@ const FeaturedMeet = () => {
   } else {
     return (
       <div>
-          Loading...
+        Loading...
       </div>
     )
   }

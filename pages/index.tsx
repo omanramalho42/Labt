@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { useEffect } from 'react'
 
 import { 
   PostCard, 
@@ -14,6 +15,7 @@ import {
   FeaturedMeet 
 } from '../sections'
 
+import { toast } from 'react-hot-toast'
 import { getPosts } from '../services'
 
 const Home: NextPage = ({ posts }: any) => {

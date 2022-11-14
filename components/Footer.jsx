@@ -2,21 +2,21 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer class="text-center text-black mt-14">
-      <div class="px-6 pt-6">
+    <footer className="text-center text-black mt-14">
+      <div className="px-6 pt-6">
         <div className='text-center mb-4'>
           <h3 className='font-bold text-3xl uppercase'>Contato</h3>
           <p>escrevapara@labtempo.com.br</p>
           <p>+55 (71) 9 9261-4841</p>
         </div>
 
-        <div class="flex justify-center mb-1">
-          <a href="#!" type="button" class="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+        <div className="flex justify-center mb-1">
+          <a href="#!" type="button" className="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
             <svg aria-hidden="true"
               focusable="false"
               data-prefix="fab"
               data-icon="facebook-f"
-              class="w-2 h-full mx-auto"
+              className="w-2 h-full mx-auto"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 320 512"
@@ -28,12 +28,12 @@ const Footer = () => {
             </svg>
           </a>
 
-          <a href="#!" type="button" class="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+          <a href="#!" type="button" className="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
             <svg aria-hidden="true"
               focusable="false"
               data-prefix="fab"
               data-icon="twitter"
-              class="w-3 h-full mx-auto"
+              className="w-3 h-full mx-auto"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
@@ -45,12 +45,12 @@ const Footer = () => {
             </svg>
           </a>
 
-          <a href="#!" type="button" class="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+          <a href="#!" type="button" className="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
             <svg aria-hidden="true"
               focusable="false"
               data-prefix="fab"
               data-icon="google"
-              class="w-3 h-full mx-auto"
+              className="w-3 h-full mx-auto"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 488 512"
@@ -62,12 +62,12 @@ const Footer = () => {
             </svg>
           </a>
 
-          <a href="#!" type="button" class="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+          <a href="#!" type="button" className="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
             <svg aria-hidden="true"
               focusable="false"
               data-prefix="fab"
               data-icon="instagram"
-              class="w-3 h-full mx-auto"
+              className="w-3 h-full mx-auto"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 448 512"
@@ -79,12 +79,12 @@ const Footer = () => {
             </svg>
           </a>
 
-          <a href="#!" type="button" class="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+          <a href="#!" type="button" className="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
             <svg aria-hidden="true"
               focusable="false"
               data-prefix="fab"
               data-icon="linkedin-in"
-              class="w-3 h-full mx-auto"
+              className="w-3 h-full mx-auto"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 448 512"
@@ -96,12 +96,12 @@ const Footer = () => {
             </svg>
           </a>
 
-          <a href="#!" type="button" class="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+          <a href="#!" type="button" className="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
             <svg aria-hidden="true"
               focusable="false"
               data-prefix="fab"
               data-icon="github"
-              class="w-3 h-full mx-auto"
+              className="w-3 h-full mx-auto"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 496 512"
@@ -115,9 +115,9 @@ const Footer = () => {
         </div>
       </div>
 
-      <div class="text-center p-4">
+      <div className="text-center p-4">
         © 2022 Copyright:
-        <a class="text-whitehite" href="https://tailwind-elements.com/"> Oman Company with Konda store </a>
+        <a className="text-whitehite" href="https://tailwind-elements.com/"> Oman Company with Konda store </a>
       </div>
     </footer>
   )
