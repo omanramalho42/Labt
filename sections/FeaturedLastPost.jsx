@@ -55,11 +55,11 @@ const FeaturedLastPost = () => {
   } else {
     
     return (
-      <>
+      <div className=''>
         <Skeleton />
         <Skeleton count={10} />
-        <Skeleton height={200} />
-      </>  
+        <Skeleton height={100} />
+      </div>  
     )
 
   }

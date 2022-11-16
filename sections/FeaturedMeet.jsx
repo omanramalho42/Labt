@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import Skeleton from 'react-loading-skeleton';
 import { getLastestPostsCategorie } from '../services'
 
-
 const FeaturedMeet = () => {
   const [latestPostCategories, setLatestPostCategories] = useState();
   const [lastPosts, setLastPosts] = useState([]);
@@ -19,23 +18,24 @@ const FeaturedMeet = () => {
   useEffect(() => {
     try {
       if(latestPostCategories) {
+        console.log({latestPostCategories});
         latestPostCategories.map(({ node: { posts, name } }) => { 
           let featuredImage = null;
           let slug = null;
           let categorieName = null;
+          let excerpt = null;
       
           if(posts[0]) {
             return (
                 featuredImage = posts[0].featuredImage.url,
                 slug = posts[0].slug,
                 categorieName = name,
-                categoriesMeet.push({ slug, categorieName, featuredImage })
+                excerpt = posts[0].excerpt,
+                categoriesMeet.push({ slug, categorieName, featuredImage, excerpt })
             );
           }
         })
       };
-
-      console.log({ categoriesMeet });
       
       if(categoriesMeet.length > 0) {
         setLastPosts(categoriesMeet);
@@ -70,18 +70,31 @@ const FeaturedMeet = () => {
       window.removeEventListener('resize', handleWindowResize);
     }
   },[]);
-
+  
   if(lastPosts.length > 0) {
     return (
-      <div className='flex flex-col items-center'>
-        <h1 className='text-4xl uppercase font-bold text-center tracking-widest mb-8'>
+      <div 
+        className='flex flex-col items-center'>
+        <h1 
+          className='text-4xl uppercase font-bold text-center'
+          style={{ letterSpacing: '15px', zIndex: 21, marginBottom: '60px' }}
+        >
           ENCONTRO
         </h1>
-        <div className="grid">
-          {lastPosts.map(({ categorieName, slug }, idx) => categorieName && !loading ? (
+        <div 
+          className="grid"
+          style={{ 
+            backgroundImage: `url(${'/aspiral.jpg'})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            // backgroundAttachment: 'fixed',
+            backgroundPosition: 'center'
+          }}
+        >
+          {lastPosts.map(({ categorieName, slug, excerpt }, idx) => categorieName && !loading ? (
             <>
               <div 
-                className='rounded-full mx-auto' 
+                className='rounded-full mx-auto outline outline-2 outline-slate-600 -outline-offset-8' 
                 style={{
                   width: `${
                     mobile.innerWidth < 1000 
@@ -102,7 +115,15 @@ const FeaturedMeet = () => {
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
                   transition: '0.325s',
-                  outline: '2.5px solid red',
+                  outline: `4.5px solid 
+                  ${categorieName === 'Salvador'
+                      ? 'blue'
+                      : categorieName === 'Bahia'
+                      ? 'red' 
+                      : categorieName === 'Ser'
+                      ? 'green'
+                      : 'yellow'
+                  }`,
                   outlineOffset: '10px',
                   gridColumnStart: 
                     categorieName === 'Bahia' 
@@ -114,37 +135,46 @@ const FeaturedMeet = () => {
                     : 2
                 }}
               >
-                {/* <a 
+                <a 
                   href={`/post/${slug}`}
-                  className='absolute rounded-full'
+                  className='box relative rounded-full tooltip z-10'
                   style={{ 
                     flex: 1,
                     display: 'flex',
-                    width: '60px',
-                    height: '60px', 
-                    backgroundColor: 'red',
+                    width: mobile.innerWidth < 1000 ? '40px' : '60px',
+                    height: mobile.innerWidth < 1000 ? '40px' : '60px',
+                    backgroundColor: 
+                      categorieName === 'Salvador'
+                      ? 'blue'
+                      : categorieName === 'Bahia'
+                      ? 'red' 
+                      : categorieName === 'Ser'
+                      ? 'green'
+                      : 'yellow',
                     left: 
-                      categorieName === 'Bahia' 
-                      ? '-15px'
-                      ? categorieName === 'Salvador'
-                      : '110px'
-                      ? categorieName === 'Ser'
-                      : '220px'
-                      : '230px',
-                    bottom: 
-                      categorieName === 'Bahia' 
-                      ? '-230'
-                      ? categorieName === 'Salvador'
-                      : '-170px'
-                      ? categorieName === 'Ser'
-                      : '-70px'
-                      : '-70px',
+                      mobile.innerWidth < 1000 
+                      ? -25 
+                      : mobile.innerWidth < 1200 
+                      ? -20 
+                      : -5,
+                      zIndex: 1
                   }}
-                  //left: 100, bottom: -230 (bottom)
-                  // (bottom-right): left: 220, bottom: -170
-                  // top-right: left: 220, bottom: -70
-                  // top-left: left: -15, bottom: -70
-                /> */}
+                >
+                  <span 
+                    class="tooltiptext" 
+                    style={{ 
+                      left:
+                      categorieName === 'Salvador'
+                      ? '-200px'
+                      : categorieName === 'Bahia'
+                      ? '50px' 
+                      : categorieName === 'Ser'
+                      ? '50px'
+                      : '50px',
+                    }}>
+                      {excerpt || 'text dont avaliable'}
+                    </span>
+                </a>
               </div>
             </>
           ) : (

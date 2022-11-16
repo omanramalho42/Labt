@@ -297,6 +297,7 @@ export const getLastestPostsCategorie = async () => {
               featuredImage {
                 url
               }
+              excerpt
             }
           }
         }

@@ -67,7 +67,9 @@ const FeaturedPosts = () => {
         {dataLoaded ? featuredPosts.map((post, index) => (
           <FeaturedPostCard key={index} post={post} />
         )) : (
-          <Skeleton height={250} />
+          <div className='d-flex flex-row justify-between'>
+            <Skeleton height={250} />
+          </div>
         )}
       </Carousel>
     </div>
