@@ -161,7 +161,7 @@ const FeaturedMeet = () => {
                   }}
                 >
                   <span 
-                    class="tooltiptext" 
+                    className="tooltiptext" 
                     style={{ 
                       left:
                       categorieName === 'Salvador'

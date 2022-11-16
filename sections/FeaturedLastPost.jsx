@@ -22,7 +22,21 @@ const FeaturedLastPost = () => {
       <section className='lg:flex py-3 mb-8'>
         <div className='d-flex flex-col' style={{ width: '65%' }}>
 
-          <span className='text-xl font-light uppercase'>
+          <span 
+            className='text-xl font-light uppercase'
+            style={{ 
+              color: `
+                ${lastPost[0].categories[0].name.toString() === 'Bahia'
+                  ? 'red' 
+                  : lastPost[0].categories[0].name.toString() === 'Salvador'
+                  ? 'blue'
+                  : lastPost[0].categories[0].name.toString() === 'Ser'
+                  ? 'green'
+                  : 'brown'  
+                }
+              `
+            }}
+          >
             { lastPost[0].categories[0].name.toString() || <Skeleton count={1} /> }
           </span>
           
@@ -39,7 +53,7 @@ const FeaturedLastPost = () => {
           <figcaption className='mt-3'>
             <a 
               href={`post/${lastPost[0].slug}`} 
-              className='text-xl underline underline-offset-8'
+              className='text-xl underline underline-offset-6 uppercase'
             >
               leia mais
             </a>

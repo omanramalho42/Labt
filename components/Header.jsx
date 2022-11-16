@@ -9,18 +9,23 @@ const Header = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    getCategories()
-      .then((newCategories) => setCategories(newCategories));
+    try {
+      getCategories()
+        .then((newCategories) => setCategories(newCategories));
+    } catch (error) {
+       throw error;
+    }
+
   },[]);
 
   return (
     <div className='mx-auto px-10 mb-8'>
         
       {categories.map(({ name, slug }, idx) => (
-        <div key={idx}>
+        <div key={`${slug}-${idx}`}>
           <Link href={`/category/${slug}`}>
             <span className={
-              `md: float-right mr-2 
+              `md: float-right mr-1 rounded-b-sm 
               ${name === 'Estar' 
               ? 'bg-yellow-500'
               : name === 'Salvador'
@@ -30,7 +35,7 @@ const Header = () => {
               : name === 'Labt'
               ?  'bg-black-500'
               : 'bg-pink-600'
-              } w-5 h-8 p-1`}
+              } w-6 h-8 p-1`}
             >
             </span>  
           </Link>
@@ -38,7 +43,6 @@ const Header = () => {
       ))}
 
       <div className="w-full py-8 flex justify-between items-center">
-        
           <div className="md:float-left">
             <Link href="/">
               <motion.div
@@ -64,15 +68,28 @@ const Header = () => {
             </Link>
           </div>
           
-          <div className=''>
+          <div className='flex align-middle justify-center items-center'>
             <div className="hidden md:float-right md:contents">
+              <a
+                href='/' 
+                className='md:float-right flex items-center mt-2 text-black ml-4 font-semibold cursor-pointer'
+              >
+                Labt
+              <div style={{ borderRight: '2px solid black', height: '13px' }} className="ml-2" />
+              </a>
               {categories.map((i) => (
                 <Link key={i.slug} href={`/category/${i.slug}`}>
-                  <span className="md:float-right mt-2 align-middle text-black ml-4 font-semibold cursor-pointer border-separate">
-                    { i.name }
+                  <span className="flex items-center md:float-right mt-2 align-middle text-black ml-4 font-semibold cursor-pointer border-separate">
+                    { i.name } <div style={{ borderRight: '2px solid black', height: '13px' }} className="ml-2" />
                   </span>
                 </Link>
               ))}
+              <a 
+                href='/banca'
+                className='md:float-right mt-2 disabled:opacity-25 text-black ml-4 font-semibold cursor-pointer border-separate'
+              >
+                Banca
+              </a>
             </div>
           </div>
         
