@@ -54,7 +54,8 @@ const PostDetail = ({ post }) => {
           <img 
             src={post.featuredImage.url}
             alt={post.title}
-            className="object-top h-full rounded-t-lg"
+            style={{ maxHeight: 800 }}
+            className="object-top w-full rounded-t-lg"
           />
         ) : (
           <Skeleton height={300} />

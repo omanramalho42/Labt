@@ -4,7 +4,7 @@ import Skeleton from 'react-loading-skeleton'
 import { submitComment } from '../services'
 
 const CommentsForm = ({ slug }) => {
-  const[load, setLoad] = useState(true)
+  const[load, setLoad] = useState(false)
   const [error, setError] = useState(false)
   const [localStorage, setLocalStorage] = useState(null)
   const [showSuccessMessage, setShowSuccessMessage] = useState(false)
