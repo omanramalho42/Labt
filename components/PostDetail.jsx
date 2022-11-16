@@ -33,6 +33,7 @@ const PostDetail = ({ post }) => {
       case 'image':
         return (
           <img
+            className='mx-auto rounded-md'
             key={index}
             alt={obj.title}
             height={obj.height}
