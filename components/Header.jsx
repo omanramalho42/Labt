@@ -3,10 +3,12 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 import { getCategories } from '../services'
+import Skeleton from 'react-loading-skeleton'
 
 
 const Header = () => {
   const [categories, setCategories] = useState([]);
+  const [load ,setLoad] = useState(true);
 
   useEffect(() => {
     try {
@@ -14,13 +16,31 @@ const Header = () => {
         .then((newCategories) => setCategories(newCategories));
     } catch (error) {
        throw error;
+    } finally {
+      setLoad(false);
     }
 
   },[]);
 
+  if(load) {
+    return (
+      <div className="mx-auto mb-12 container">
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Skeleton height={100} width={200} style={{ borderRadius: '25%', marginRight: 200 }} />
+          <div style={{ display: 'flex' }}>
+            <Skeleton height={32} width={22} style={{ marginRight: '1px' }} />
+            <Skeleton height={32} width={22} style={{ marginRight: '1px' }} />
+            <Skeleton height={32} width={22} style={{ marginRight: '1px' }} />
+            <Skeleton height={32} width={22} style={{ marginRight: '1px' }} />
+          </div>
+        </div>
+        <Skeleton count={1} />
+      </div>
+    )
+  }
+
   return (
     <div className='mx-auto px-10 mb-8'>
-        
       {categories.map(({ name, slug }, idx) => (
         <div key={`${slug}-${idx}`}>
           <Link href={`/category/${slug}`}>
