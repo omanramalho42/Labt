@@ -32,7 +32,7 @@ export default async function asynchandler(req, res) {
     return res.status(200).send(result);
 
   } catch(error) {
-    throw error;
+    // throw error;
     return res.status(500).send(error);
   }
 
