@@ -3,6 +3,7 @@ import { getLastPost } from '../services'
 
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import Image from 'next/image'
 
 const FeaturedLastPost = () => {
   const [lastPost, setLastPost] = useState([]);
@@ -19,9 +20,10 @@ const FeaturedLastPost = () => {
 
   if(lastPost[0]) {
     return (
-      <section className='lg:flex py-3 mb-8'>
-        <div className='d-flex flex-col' style={{ width: '65%' }}>
-
+      <section className='lg:flex py-3 mb-8 items-top justify-between'>
+        <div 
+          className='d-flex flex-col'
+        >
           <span 
             className='text-xl font-light uppercase'
             style={{ 
@@ -44,7 +46,9 @@ const FeaturedLastPost = () => {
             { lastPost[0].title || <Skeleton /> }
           </h1>
           
-          <blockquote className='text-left mt-3 mr-3'>
+          <blockquote 
+            className='lg:text-left mt-3 mr-3'
+          >
             <p className='text-lg font-medium leading-loose tracking-tight hover:tracking-wide'>
               {lastPost[0].excerpt || <Skeleton count={12} />}
             </p>
@@ -54,15 +58,24 @@ const FeaturedLastPost = () => {
             <a 
               href={`post/${lastPost[0].slug}`} 
               className='text-xl underline underline-offset-6 uppercase'
+              style={{ textUnderlineOffset: 10, textDecorationThickness: 2 }}
             >
               leia mais
             </a>
           </figcaption>
         </div>
         
-        <figure className='mt-3'>
-          <img src={lastPost[0].featuredImage.url} alt="" className='rounded-md' width="800px" height={"600"} />
-        </figure>
+        <div className='d-flex justify-center items-center'>
+          <figure className='mt-3'>
+            <img
+              src={lastPost[0].featuredImage.url} 
+              alt="imagem do último post" 
+              className='rounded-md'
+              width={3000}
+              height={3000} 
+            />
+          </figure>
+        </div>
 
       </section>
     )

@@ -22,7 +22,7 @@ const Home: NextPage = ({ posts }: any) => {
    <div className='mx-auto px-10 mb-8'>
       <Head>
         <title>Laboratório Temp</title>
-        <link rel="stylesheet" href="icon.png" />
+        <link rel="stylesheet" href="../public/icon.png" />
       </Head>
       
       <FeaturedLastPost />

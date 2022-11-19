@@ -8,7 +8,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Arlita', 'gotham-bold', 'Montserrat', 'Roboto', Helvetica, sans-serif;
   &:before{
     content:'';
     content: "";
@@ -76,8 +76,8 @@ a {
 
 /* Tooltip text */
 .tooltip .tooltiptext {
+  z-index: 999999999 !important;
   visibility: hidden;
-  z-index: 999 !important;
   
   background-color: black;
   color: #fff;

@@ -94,7 +94,7 @@ const FeaturedMeet = () => {
           {lastPosts.map(({ categorieName, slug, excerpt }, idx) => categorieName && !loading ? (
             <>
               <div 
-                className='rounded-full mx-auto outline outline-2 outline-slate-600 -outline-offset-8' 
+                className='rounded-full mx-auto tooltip' 
                 style={{
                   width: `${
                     mobile.innerWidth < 1000 
@@ -115,7 +115,7 @@ const FeaturedMeet = () => {
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
                   transition: '0.325s',
-                  outline: `4.5px solid 
+                  outline: mobile.innerWidth > 800 ?  `4.5px solid 
                   ${categorieName === 'Salvador'
                       ? 'blue'
                       : categorieName === 'Bahia'
@@ -123,7 +123,17 @@ const FeaturedMeet = () => {
                       : categorieName === 'Ser'
                       ? 'green'
                       : 'yellow'
-                  }`,
+                  }` : 0,
+                  padding: '1px',
+                  border: mobile.innerWidth < 800 ? `4.5px solid 
+                  ${categorieName === 'Salvador'
+                      ? 'blue'
+                      : categorieName === 'Bahia'
+                      ? 'red' 
+                      : categorieName === 'Ser'
+                      ? 'green'
+                      : 'yellow'
+                  }` : 0,
                   outlineOffset: '10px',
                   gridColumnStart: 
                     categorieName === 'Bahia' 
@@ -137,7 +147,7 @@ const FeaturedMeet = () => {
               >
                 <a 
                   href={`/post/${slug}`}
-                  className='box relative rounded-full tooltip z-10'
+                  className='box relative rounded-full z-10'
                   style={{ 
                     flex: 1,
                     display: 'flex',
@@ -163,16 +173,26 @@ const FeaturedMeet = () => {
                   <span 
                     className="tooltiptext" 
                     style={{ 
+                      zIndex: 2,
                       left:
-                      categorieName === 'Salvador'
-                      ? '-200px'
-                      : categorieName === 'Bahia'
-                      ? '50px' 
-                      : categorieName === 'Ser'
-                      ? '50px'
-                      : '50px',
-                    }}>
-                      {excerpt || 'text dont avaliable'}
+                        categorieName === 'Salvador'
+                        ? '-50px'
+                        : categorieName === 'Bahia'
+                        ? '50px' 
+                        : categorieName === 'Ser'
+                        ? '50px'
+                        : '50px',
+                      top:
+                        categorieName === 'Salvador'
+                        ? '40px'
+                        : categorieName === 'Bahia'
+                        ? '50px' 
+                        : categorieName === 'Ser'
+                        ? '50px'
+                        : '50px',
+                    }}
+                    >
+                      { excerpt || 'text dont avaliable' }
                     </span>
                 </a>
               </div>

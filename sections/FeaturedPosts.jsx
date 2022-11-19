@@ -64,13 +64,9 @@ const FeaturedPosts = () => {
         responsive={responsive} 
         itemClass="px-4"
       >
-        {dataLoaded ? featuredPosts.map((post, index) => (
+        {dataLoaded && featuredPosts.map((post, index) => (
           <FeaturedPostCard key={index} post={post} />
-        )) : (
-          <div className='d-flex flex-row justify-between'>
-            <Skeleton height={250} />
-          </div>
-        )}
+        ))}
       </Carousel>
     </div>
   );
