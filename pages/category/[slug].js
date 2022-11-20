@@ -49,9 +49,9 @@ const CategoryPost = ({ posts }) => {
       <div className="grid grid-cols-1 lg:grid-cols-9 gap-12">
           {posts.map((post, index) => (
             <div className="col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-3">
-              <Link href={`/post/${post.slug}`}>
+              {/* <Link href={`/post/${post.slug}`}> */}
                 <PostCard key={index} post={post.node} />
-              </Link>
+              {/* </Link> */}
             </div>
           ))}
           {/* <div className="col-span-1 lg:col-span-4">
