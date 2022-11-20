@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
+import { Link } from 'next/link'
+
 import { getCategories, getCategoryPost } from '../../services'
 import { PostCard, Categories, Loader } from '../../components'
 
@@ -46,9 +48,11 @@ const CategoryPost = ({ posts }) => {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-9 gap-12">
           {posts.map((post, index) => (
-            <Link href={`/post/${post.slug}`} className="col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-3">
-              <PostCard key={index} post={post.node} />
-            </Link>
+            <div className="col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-3">
+              <Link href={`/post/${post.slug}`}>
+                <PostCard key={index} post={post.node} />
+              </Link>
+            </div>
           ))}
           {/* <div className="col-span-1 lg:col-span-4">
           <div className="relative lg:sticky top-8">
