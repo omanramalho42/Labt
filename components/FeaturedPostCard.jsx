@@ -16,7 +16,7 @@ const FeaturedPostCard = ({ post }) => {
   
     return () => {
       setTimeout(() => {
-        setLoading((value) => !value) 
+        setLoading(true) 
       }, 500);
     }
   }, []);
