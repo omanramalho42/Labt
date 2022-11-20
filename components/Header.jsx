@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { getCategories } from '../services'
 import Skeleton from 'react-loading-skeleton'
 
-
 const Header = () => {
   const [categories, setCategories] = useState([]);
   const [load ,setLoad] = useState(true);
@@ -24,7 +23,7 @@ const Header = () => {
 
   if(load) {
     return (
-      <div className="mx-auto mb-12 container">
+      <div className="mx-auto mb-12 container dark:bg-black dark:text-white">
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <Skeleton height={100} width={200} style={{ borderRadius: '25%', marginRight: 200 }} />
           <div style={{ display: 'flex' }}>
@@ -40,7 +39,7 @@ const Header = () => {
   }
 
   return (
-    <div className='mx-auto px-10 mb-8'>
+    <div className='mx-auto px-10 mb-8 dark:bg-black'>
       {categories.map(({ name, slug }, idx) => (
         <div key={`${slug}-${idx}`}>
           <Link href={`/category/${slug}`}>
@@ -92,21 +91,21 @@ const Header = () => {
             <div className="hidden md:float-right md:contents">
               <a
                 href='/' 
-                className='md:float-right flex items-center mt-2 text-black ml-4 font-semibold cursor-pointer'
+                className='md:float-right flex items-center mt-2 text-black dark:text-white ml-4 font-semibold cursor-pointer'
               >
                 Labt
               <div style={{ borderRight: '2px solid black', height: '13px' }} className="ml-2" />
               </a>
               {categories.map((i) => (
                 <Link key={i.slug} href={`/category/${i.slug}`}>
-                  <span className="flex items-center md:float-right mt-2 align-middle text-black ml-4 font-semibold cursor-pointer border-separate">
+                  <span className="flex items-center md:float-right mt-2 align-middle text-black dark:text-white ml-4 font-semibold cursor-pointer border-separate">
                     { i.name } <div style={{ borderRight: '2px solid black', height: '13px' }} className="ml-2" />
                   </span>
                 </Link>
               ))}
               <a 
                 href='/banca'
-                className='md:float-right mt-2 disabled:opacity-25 text-black ml-4 font-semibold cursor-pointer border-separate'
+                className='md:float-right mt-2 disabled:opacity-25 text-black dark:text-white ml-4 font-semibold cursor-pointer border-separate'
               >
                 Banca
               </a>

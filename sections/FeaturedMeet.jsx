@@ -51,9 +51,7 @@ const FeaturedMeet = () => {
     }
   },[latestPostCategories]);
 
-
-  const [mobile, setMobile] = useState(1000);
-
+  const [mobile, setMobile] = useState(0);  
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
     return { innerHeight, innerWidth };
@@ -74,7 +72,8 @@ const FeaturedMeet = () => {
   if(lastPosts.length > 0) {
     return (
       <div 
-        className='flex flex-col items-center'>
+        className='flex flex-col items-center mx-auto'
+      >
         <h1 
           className='text-4xl uppercase font-bold text-center'
           style={{ letterSpacing: '15px', zIndex: 21, marginBottom: '60px' }}
@@ -147,10 +146,11 @@ const FeaturedMeet = () => {
               >
                 <a 
                   href={`/post/${slug}`}
-                  className='box relative rounded-full z-10'
+                  className='box relative rounded-full'
                   style={{ 
                     flex: 1,
                     display: 'flex',
+                    zIndex: 1,
                     width: mobile.innerWidth < 1000 ? '40px' : '60px',
                     height: mobile.innerWidth < 1000 ? '40px' : '60px',
                     backgroundColor: 
@@ -162,18 +162,18 @@ const FeaturedMeet = () => {
                       ? 'green'
                       : 'yellow',
                     left: 
-                      mobile.innerWidth < 1000 
-                      ? -25 
+                     mobile.innerWidth < 1000 
+                      ? -15 
                       : mobile.innerWidth < 1200 
                       ? -20 
                       : -5,
-                      zIndex: 1
+                      // left: categorieName === 'Bahia' || categorieName === 'Ser' ? 140 : -25,
                   }}
                 >
                   <span 
-                    className="tooltiptext" 
-                    style={{ 
-                      zIndex: 2,
+                    className="tooltiptext z-50" 
+                    style={{
+                      zIndex: 9,
                       left:
                         categorieName === 'Salvador'
                         ? '-50px'

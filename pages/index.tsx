@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import { 
   PostCard, 
@@ -18,11 +18,38 @@ import {
 import { getPosts } from '../services'
 
 const Home: NextPage = ({ posts }: any) => {
+  const [dark, setDark] = useState(false);
+  useEffect(() => {
+    try {
+      if(localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+  
+      // Whenever the user explicitly chooses light mode
+      localStorage.theme = 'light'
+  
+      // Whenever the user explicitly chooses dark mode
+      localStorage.theme = 'dark'
+  
+      // Whenever the user explicitly chooses to respect the OS preference
+      localStorage.removeItem('theme');
+    } catch (error) {
+      throw error;
+    } finally {
+      console.log(localStorage.theme);
+    }
+
+    return () => {
+      setDark(true);
+    }
+  },[])
   return (
-   <div className='mx-auto px-10 mb-8'>
+   <div className='mx-auto px-10 mb-8 dark:bg-black dark:text-white'>
       <Head>
         <title>Laboratório Temp</title>
-        <link rel="stylesheet" href="../public/icon.png" />
+        <link rel="stylesheet" href="/icon.png" />
       </Head>
       
       <FeaturedLastPost />

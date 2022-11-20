@@ -88,7 +88,7 @@ const PostDetail = ({ post }) => {
             </span>
           </div>
         </div>
-        <h1 className="mb-8 text-3xl font-semibold"> 
+        <h1 className="mb-8 text-3xl font-semibold" style={{ fontFamily: 'Arlita'}}> 
           { post.title || <Skeleton />} 
         </h1>
         {/* {console.log(post.content.raw)} */}
