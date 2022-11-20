@@ -7,7 +7,7 @@ import Link from 'next/link'
 import Skeleton from 'react-loading-skeleton'
 
 const FeaturedPostCard = ({ post }) => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if(!post) {
