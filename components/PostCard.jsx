@@ -6,7 +6,7 @@ const PostCard = ({ post }) => {
   // console.log({ post });
 
   return (
-    <Link href={`/post/${post.slug}`}>
+    // <Link href={`/post/${post.slug}`}>
     <div className='bg-white shadow-lg rounded-lg p-0'>
       <div className="content relative overflow-hidden shadow-md pb-80">
         <img 
@@ -60,7 +60,7 @@ const PostCard = ({ post }) => {
       </div>
     </div> */}
     </div>
-    </Link>
+    // </Link>
   )
 }
 
