@@ -23,13 +23,13 @@ const FeaturedPostCard = ({ post }) => {
   
 
 
-  if(loading) {
-    return (
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Skeleton height={ 300 } width={220} style={{ marginRight: 10 }} />
-      </div>
-    )
-  }
+  // if(loading) {
+  //   return (
+  //     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+  //       <Skeleton height={ 300 } width={220} style={{ marginRight: 10 }} />
+  //     </div>
+  //   )
+  // }
 
   return (
     <div className="relative h-72">
