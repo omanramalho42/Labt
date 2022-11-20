@@ -7,16 +7,16 @@ import Link from 'next/link'
 import Skeleton from 'react-loading-skeleton'
 
 const FeaturedPostCard = ({ post }) => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if(!post) {
-      setLoading(false);
-    }
+    // if(!post) {
+    //   setLoading(true);
+    // }
   
     return () => {
       setTimeout(() => {
-        setLoading(true) 
+        setLoading(false) 
       }, 500);
     }
   }, []);
