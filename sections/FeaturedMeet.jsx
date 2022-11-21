@@ -51,7 +51,7 @@ const FeaturedMeet = () => {
     }
   },[latestPostCategories]);
 
-  const [mobile, setMobile] = useState(600);  
+  const [mobile, setMobile] = useState(0);  
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
     return { innerHeight, innerWidth };
