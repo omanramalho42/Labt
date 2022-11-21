@@ -90,7 +90,7 @@ const FeaturedMeet = () => {
             backgroundPosition: 'center'
           }}
         >
-          {lastPosts.map(({ categorieName, slug, excerpt }, idx) => categorieName && !loading ? (
+          {lastPosts.map(({ categorieName, slug, excerpt, title }, idx) => categorieName && !loading ? (
             <>
               <div 
                 className='rounded-full mx-auto tooltip' 
@@ -174,14 +174,16 @@ const FeaturedMeet = () => {
                     className="tooltiptext z-50" 
                     style={{
                       zIndex: 9,
+                      color: 'black',
+                      fontWeight: 'bold',
                       left:
                         categorieName === 'Salvador'
-                        ? '-50px'
+                        ? '-150px'
                         : categorieName === 'Bahia'
-                        ? '50px' 
+                        ? '250px' 
                         : categorieName === 'Ser'
-                        ? '50px'
-                        : '50px',
+                        ? '250px'
+                        : '250px',
                       top:
                         categorieName === 'Salvador'
                         ? '40px'
@@ -192,7 +194,20 @@ const FeaturedMeet = () => {
                         : '50px',
                     }}
                     >
-                      { excerpt || 'text dont avaliable' }
+                      <p 
+                        className='font-medium'
+                        style={{
+                          color: 
+                          categorieName === 'Salvador'
+                          ? 'blue'
+                          : categorieName === 'Bahia'
+                          ? 'red' 
+                          : categorieName === 'Ser'
+                          ? 'green'
+                          : 'yellow',    
+                        }}
+                      >{ categorieName }</p>
+                      { title || 'text dont avaliable' }
                     </span>
                 </a>
               </div>
