@@ -51,7 +51,7 @@ const FeaturedMeet = () => {
     }
   },[latestPostCategories]);
 
-  const [mobile, setMobile] = useState(0);  
+  const [mobile, setMobile] = useState(600);  
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
     return { innerHeight, innerWidth };
@@ -93,7 +93,7 @@ const FeaturedMeet = () => {
           {lastPosts.map(({ categorieName, slug, excerpt, title }, idx) => categorieName && !loading ? (
             <>
               <div 
-                className='rounded-full mx-auto tooltip' 
+                className='rounded-full mx-auto' 
                 style={{
                   width: `${
                     mobile.innerWidth < 1000 
@@ -146,7 +146,7 @@ const FeaturedMeet = () => {
               >
                 <a 
                   href={`/post/${slug}`}
-                  className='box relative rounded-full'
+                  className='box relative rounded-full tooltip'
                   style={{ 
                     flex: 1,
                     display: 'flex',

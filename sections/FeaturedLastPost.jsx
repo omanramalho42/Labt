@@ -17,14 +17,40 @@ const FeaturedLastPost = () => {
     }    
   },[]);
 
+  const [mobile, setMobile] = useState(600);  
+  const getWindowSize = () => {
+    const { innerWidth, innerHeight } = window;
+    return { innerHeight, innerWidth };
+  }
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setMobile(getWindowSize());
+    }
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    }
+  },[]);
+
+  useEffect(() => { console.log(mobile,'mobile')},[mobile])
+
   if(lastPost[0]) {
     return (
-      <section className='lg:flex py-3 mb-8 items-center justify-between'>
+      <section className='py-3 mb-8 items-center justify-between' 
+        style={{ 
+          display: 'grid', 
+          gridTemplateColumns: mobile.innerWidth > 1200 ? 'repeat(2,1fr)' : '1fr', 
+          gridColumnGap: '10px'
+        }}
+      >
         <div 
-          className='d-flex flex-col'
+          className='grid col-span-1'
         >
           <span 
-            className='text-xl font-light uppercase'
+            className='text-3xl font-light uppercase'
             style={{ 
               color: `
                 ${lastPost[0].categories[0].name.toString() === 'Bahia'
@@ -41,14 +67,14 @@ const FeaturedLastPost = () => {
             { lastPost[0].categories[0].name.toString() || <Skeleton count={1} /> }
           </span>
           
-          <h1 className='text-2xl font-bold mt-1 text-cyan-600'>
+          <h1 className='text-4xl font-bold mt-2 text-cyan-600'>
             { lastPost[0].title || <Skeleton /> }
           </h1>
           
           <blockquote 
             className='lg:text-left mt-3 mr-3'
           >
-            <p className='text-lg font-medium leading-loose tracking-tight hover:tracking-wide'>
+            <p className='text-xl font-medium leading-loose tracking-tight hover:tracking-wide'>
               {lastPost[0].excerpt || <Skeleton count={12} />}
             </p>
           </blockquote>

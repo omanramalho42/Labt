@@ -61,57 +61,57 @@ const Header = () => {
         </div>
       ))}
 
-      <div className="w-full py-8 flex justify-between items-center">
-          <div className="md:float-left">
-            <Link href="/">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  default: {
-                    duration: 0.3,
-                    ease: [0, 0.71, 0.2, 1.01]
-                  },
-                  scale: {
-                    type: "spring",
-                    damping: 5,
-                    stiffness: 100,
-                    restDelta: 0.001
-                  }
-                }}
-              >
-                <span className='cursor-pointer font-bold text-4xl text-black'>
-                  <img src='/logo.png' alt="logo labtempo" width="300" height="100" />
-                </span>
-              </motion.div>
-            </Link>
-          </div>
-          
-          <div className='flex align-middle justify-center items-center'>
-            <div className="hidden md:float-right md:contents">
-              <a
-                href='/' 
-                className='md:float-right flex items-center mt-2 text-black dark:text-white ml-4 font-semibold cursor-pointer text-2xl'
-              >
-                Labt
-              <div style={{ borderRight: '2px solid black', height: '13px' }} className="ml-2" />
-              </a>
-              {categories.map((i) => (
-                <Link key={i.slug} href={`/category/${i.slug}`}>
-                  <span className="flex items-center md:float-right mt-2 align-middle text-black dark:text-white ml-4 font-semibold cursor-pointer border-separate text-2xl">
-                    { i.name } <div style={{ borderRight: '2px solid black', height: '13px' }} className="ml-2" />
-                  </span>
-                </Link>
-              ))}
-              <a 
-                href='/banca'
-                className='md:float-right mt-2 disabled:opacity-25 text-black dark:text-white ml-4 font-semibold cursor-pointer border-separate text-2xl'
-              >
-                Banca
-              </a>
-            </div>
-          </div>
+      <div className="py-8 justify-between items-center" style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)' }}>
+        <div className="md:float-left">
+          <Link href="/">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                default: {
+                  duration: 0.3,
+                  ease: [0, 0.71, 0.2, 1.01]
+                },
+                scale: {
+                  type: "spring",
+                  damping: 5,
+                  stiffness: 100,
+                  restDelta: 0.001
+                }
+              }}
+            >
+              <span className='cursor-pointer font-bold text-4xl text-black'>
+                <img src='/logo.png' alt="logo labtempo" width="300" height="100" />
+              </span>
+            </motion.div>
+          </Link>
+        </div>
         
+        <div className='w-full flex align-middle justify-center items-center'>
+          <div className="hidden md:float-right md:contents">
+            <a
+              href='/' 
+              className='md:float-right flex items-center mt-2 text-black dark:text-white ml-4 font-semibold cursor-pointer text-2xl'
+            >
+              Labt
+            <div style={{ borderRight: '2px solid black', height: '13px' }} className="ml-2" />
+            </a>
+            {categories.map((i) => (
+              <Link key={i.slug} href={`/category/${i.slug}`}>
+                <span className="flex items-center md:float-right mt-2 align-middle text-black dark:text-white ml-4 font-semibold cursor-pointer border-separate text-2xl">
+                  { i.name } <div style={{ borderRight: '2px solid black', height: '13px' }} className="ml-2" />
+                </span>
+              </Link>
+            ))}
+            <a 
+              href='/banca'
+              className='md:float-right mt-2 disabled:opacity-25 text-black dark:text-white ml-4 font-semibold cursor-pointer border-separate text-2xl'
+            >
+              Banca
+            </a>
+          </div>
+        </div>
+      
       </div>
     </div>
   )
