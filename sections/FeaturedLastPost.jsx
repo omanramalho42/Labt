@@ -3,7 +3,6 @@ import { getLastPost } from '../services'
 
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-import Image from 'next/image'
 
 const FeaturedLastPost = () => {
   const [lastPost, setLastPost] = useState([]);
@@ -20,7 +19,7 @@ const FeaturedLastPost = () => {
 
   if(lastPost[0]) {
     return (
-      <section className='lg:flex py-3 mb-8 items-top justify-between'>
+      <section className='lg:flex py-3 mb-8 items-center justify-between'>
         <div 
           className='d-flex flex-col'
         >
@@ -65,14 +64,13 @@ const FeaturedLastPost = () => {
           </figcaption>
         </div>
         
-        <div className='d-flex justify-center items-center'>
+        <div className='d-flex lg:justify-center items-center'>
           <figure className='mt-3'>
             <img
-              src={lastPost[0].featuredImage.url} 
+              src={lastPost[0].featuredImage.url || ''} 
               alt="imagem do último post" 
               className='rounded-md'
-              width={3000}
-              height={3000} 
+              width={'8000px'}
             />
           </figure>
         </div>
