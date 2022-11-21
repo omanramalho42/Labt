@@ -8,22 +8,7 @@ const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 *************************************************************** */
 
 // export a default function for API route to work
-export default async function asynchandler(req, res) {
-  app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-    );
-    if (req.method == "OPTIONS") {
-      res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
-      return res.status(200).json({});
-    }
-
-    next();
-  });
-  
-  
+export default async function asynchandler(req, res) {  
   const graphQLClient = new GraphQLClient((graphqlAPI), {
     headers: {
       authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
@@ -43,6 +28,8 @@ export default async function asynchandler(req, res) {
       comment: req.body.comment,
       slug: req.body.slug,
     });
+
+    console.log({ result }, 'result');
   
     return res.status(200).send(result);
 
