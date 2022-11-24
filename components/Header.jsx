@@ -62,8 +62,7 @@ const Header = () => {
       ))}
 
       <div 
-        className="py-8 justify-between items-center" 
-        style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)' }}
+        className="grid grid-cols-2 py-8 space-x-10 items-center" 
       >
         <div className="md:float-left">
           <Link href="/">
@@ -90,25 +89,28 @@ const Header = () => {
           </Link>
         </div>
         
-        <div className='w-full flex align-middle justify-center items-center'>
-          <div className="hidden md:float-right md:contents">
+        <div className='w-full flex align-middle justify-between items-center'>
+          <div className="hidden md:float-right md:contents items-center">
             <a
               href='/' 
-              className='md:float-right flex items-center mt-2 text-black dark:text-white ml-4 font-semibold cursor-pointer text-2xl'
+              className='md:float-right flex items-center mt-2 text-black dark:text-white font-semibold cursor-pointer lg:text-2xl'
             >
               Labt
-            <div style={{ borderRight: '2px solid black', height: '13px' }} className="ml-2" />
             </a>
+            <div style={{ borderRight: '2px solid black', height: '20px' }} className="ml-2 mt-2 h-full" />
             {categories.map((i) => (
-              <Link key={i.slug} href={`/category/${i.slug}`}>
-                <span className="flex items-center md:float-right mt-2 align-middle text-black dark:text-white ml-4 font-semibold cursor-pointer border-separate text-2xl">
-                  { i.name } <div style={{ borderRight: '2px solid black', height: '13px' }} className="ml-2" />
-                </span>
-              </Link>
+              <>
+                <Link key={i.slug} href={`/category/${i.slug}`}>
+                  <span className="flex items-center md:float-right mt-2 align-middle text-black dark:text-white ml-4 font-semibold cursor-pointer lg:text-2xl">
+                    { i.name }
+                  </span>
+                </Link>
+                <div style={{ borderRight: '2px solid black', height: '20px' }} className="ml-2 mt-2 h-full" />
+              </>
             ))}
             <a 
               href='/banca'
-              className='md:float-right mt-2 disabled:opacity-25 text-black dark:text-white ml-4 font-semibold cursor-pointer border-separate text-2xl'
+              className='md:float-right mt-2 disabled:opacity-25 text-black dark:text-white ml-4 font-semibold cursor-pointer border-separate lg:text-2xl'
             >
               Banca
             </a>
