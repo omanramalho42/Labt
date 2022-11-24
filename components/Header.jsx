@@ -48,12 +48,12 @@ const Header = () => {
               ${name === 'Estar' 
               ? 'bg-yellow-500'
               : name === 'Salvador'
-              ? 'bg-green-900'
+              ? 'bg-blue-600'
               : name === 'Bahia'
-              ?  'bg-purple-700'
+              ?  'bg-red-600'
               : name === 'Labt'
               ?  'bg-black-500'
-              : 'bg-pink-600'
+              : 'bg-green-600'
               } w-6 h-8 p-1`}
             >
             </span>  
@@ -61,7 +61,10 @@ const Header = () => {
         </div>
       ))}
 
-      <div className="py-8 justify-between items-center" style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)' }}>
+      <div 
+        className="py-8 justify-between items-center" 
+        style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)' }}
+      >
         <div className="md:float-left">
           <Link href="/">
             <motion.div

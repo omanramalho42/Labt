@@ -178,12 +178,12 @@ const FeaturedMeet = () => {
                       fontWeight: 'bold',
                       left:
                         categorieName === 'Salvador'
-                        ? '-150px'
+                        ? '-300%'
                         : categorieName === 'Bahia'
-                        ? '250px' 
+                        ? '300%' 
                         : categorieName === 'Ser'
-                        ? '250px'
-                        : '250px',
+                        ? '200%'
+                        : '200%',
                       top:
                         categorieName === 'Salvador'
                         ? '40px'

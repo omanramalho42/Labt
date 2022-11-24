@@ -20,12 +20,12 @@ const CategoryPost = ({ posts }) => {
           style={{
             color: 
               posts[0].node.categories[0].name === 'Salvador' 
-              ? 'blue' 
+              ? '#2563EB' 
               : posts[0].node.categories[0].name === 'Bahia' 
-              ? 'red' 
+              ? '#DC2626' 
               : posts[0].node.categories[0].name === 'Ser' 
-              ? 'green' 
-              : 'brown'            
+              ? '#16A34A' 
+              : '#EAB308'            
           }}
         >
           {posts[0].node.categories[0].name}
@@ -37,12 +37,12 @@ const CategoryPost = ({ posts }) => {
             margin: 'auto',
             backgroundColor: 
               posts[0].node.categories[0].name === 'Salvador' 
-              ? 'blue' 
+              ? '#2563EB' 
               : posts[0].node.categories[0].name === 'Bahia' 
-              ? 'red' 
+              ? '#DC2626' 
               : posts[0].node.categories[0].name === 'Ser' 
-              ? 'green' 
-              : 'brown'
+              ? '#16A34A' 
+              : '#EAB308'
           }}
         />
       </div>

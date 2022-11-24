@@ -17,7 +17,7 @@ const FeaturedLastPost = () => {
     }    
   },[]);
 
-  const [mobile, setMobile] = useState(600);  
+  const [mobile, setMobile] = useState(0);  
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
     return { innerHeight, innerWidth };
@@ -35,31 +35,27 @@ const FeaturedLastPost = () => {
     }
   },[]);
 
-  useEffect(() => { console.log(mobile,'mobile')},[mobile])
+  useEffect(() => { 
+    console.log(mobile,'mobile')
+  },[mobile])
 
   if(lastPost[0]) {
     return (
-      <section className='py-3 mb-8 items-center justify-between' 
-        style={{ 
-          display: 'grid', 
-          gridTemplateColumns: mobile.innerWidth > 1200 ? 'repeat(2,1fr)' : '1fr', 
-          gridColumnGap: '10px'
-        }}
-      >
+      <section className='grid lg:grid-cols-2 gap-4 sm:grid-cols-1 py-3 mb-8 md:items-top justify-between' >
         <div 
-          className='grid col-span-1'
+          className=''
         >
           <span 
             className='text-3xl font-light uppercase'
             style={{ 
               color: `
                 ${lastPost[0].categories[0].name.toString() === 'Bahia'
-                  ? 'red' 
+                  ? '#DC2626' 
                   : lastPost[0].categories[0].name.toString() === 'Salvador'
-                  ? 'blue'
+                  ? '#2563EB'
                   : lastPost[0].categories[0].name.toString() === 'Ser'
-                  ? 'green'
-                  : 'brown'  
+                  ? '#16A34A'
+                  : '#EAB308'  
                 }
               `
             }}
@@ -73,6 +69,7 @@ const FeaturedLastPost = () => {
           
           <blockquote 
             className='lg:text-left mt-3 mr-3'
+            // style={{ width: '65%' }}
           >
             <p className='text-xl font-medium leading-loose tracking-tight hover:tracking-wide'>
               {lastPost[0].excerpt || <Skeleton count={12} />}
@@ -95,8 +92,7 @@ const FeaturedLastPost = () => {
             <img
               src={lastPost[0].featuredImage.url || ''} 
               alt="imagem do último post" 
-              className='rounded-md'
-              width={'8000px'}
+              className='w-full rounded-md'
             />
           </figure>
         </div>
