@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Skeleton from 'react-loading-skeleton';
+import Skeleton from 'react-loading-skeleton'
 import { getLastestPostsCategorie } from '../services'
 
 const FeaturedMeet = () => {
@@ -18,7 +18,7 @@ const FeaturedMeet = () => {
   useEffect(() => {
     try {
       if(latestPostCategories) {
-        console.log({latestPostCategories});
+        // console.log({latestPostCategories});
         latestPostCategories.map(({ node: { posts, name } }) => { 
           let featuredImage = null;
           let slug = null;
@@ -83,7 +83,7 @@ const FeaturedMeet = () => {
         <div 
           className="grid"
           style={{ 
-            backgroundImage: `url(${'/aspiral.jpg'})`,
+            backgroundImage: `url(${'/aspiral.png'})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             // backgroundAttachment: 'fixed',

@@ -17,7 +17,7 @@ const FeaturedLastPost = () => {
     }    
   },[]);
 
-  const [mobile, setMobile] = useState(600);  
+  const [mobile, setMobile] = useState(0);
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
     return { innerHeight, innerWidth };
@@ -35,9 +35,9 @@ const FeaturedLastPost = () => {
     }
   },[]);
 
-  useEffect(() => { 
-    console.log(mobile,'mobile')
-  },[mobile])
+  // useEffect(() => { 
+  //   console.log(mobile,'mobile')
+  // },[mobile]);
 
   if(lastPost[0]) {
     return (
