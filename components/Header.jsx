@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
@@ -98,15 +98,15 @@ const Header = () => {
               Labt
             </a>
             <div style={{ borderRight: '2px solid black', height: '20px' }} className="ml-2 mt-2 h-full" />
-            {categories.map((i) => (
-              <>
-                <Link key={i.slug} href={`/category/${i.slug}`}>
+            {categories.map((i, idx) => (
+              <Fragment key={`${i.slug}-${idx}`}>
+                <Link href={`/category/${i.slug}`}>
                   <span className="flex items-center md:float-right mt-2 align-middle text-black dark:text-white ml-4 font-semibold cursor-pointer lg:text-2xl">
                     { i.name }
                   </span>
                 </Link>
                 <div style={{ borderRight: '2px solid black', height: '20px' }} className="ml-2 mt-2 h-full" />
-              </>
+              </Fragment>
             ))}
             <a 
               href='/banca'

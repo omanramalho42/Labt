@@ -92,7 +92,8 @@ const FeaturedMeet = () => {
         >
           {lastPosts.map(({ categorieName, slug, excerpt, title }, idx) => categorieName && !loading ? (
             <>
-              <div 
+              <div
+                key={`${idx}-${slug}`} 
                 className='rounded-full mx-auto' 
                 style={{
                   width: `${
@@ -116,22 +117,22 @@ const FeaturedMeet = () => {
                   transition: '0.325s',
                   outline: mobile.innerWidth > 800 ?  `4.5px solid 
                   ${categorieName === 'Salvador'
-                      ? 'blue'
-                      : categorieName === 'Bahia'
-                      ? 'red' 
-                      : categorieName === 'Ser'
-                      ? 'green'
-                      : 'yellow'
+                    ? '#2563EB'
+                    : categorieName === 'Bahia'
+                    ? '#DC2626' 
+                    : categorieName === 'Ser'
+                    ? '#16A34A'
+                    : '#EAB308'
                   }` : 0,
                   padding: '1px',
                   border: mobile.innerWidth < 800 ? `4.5px solid 
                   ${categorieName === 'Salvador'
-                      ? 'blue'
+                      ? '#2563EB'
                       : categorieName === 'Bahia'
-                      ? 'red' 
+                      ? '#DC2626' 
                       : categorieName === 'Ser'
-                      ? 'green'
-                      : 'yellow'
+                      ? '#16A34A'
+                      : '#EAB308'
                   }` : 0,
                   outlineOffset: '10px',
                   gridColumnStart: 
@@ -155,35 +156,34 @@ const FeaturedMeet = () => {
                     height: mobile.innerWidth < 1000 ? '40px' : '60px',
                     backgroundColor: 
                       categorieName === 'Salvador'
-                      ? 'blue'
+                      ? '#2563EB'
                       : categorieName === 'Bahia'
-                      ? 'red' 
+                      ? '#DC2626' 
                       : categorieName === 'Ser'
-                      ? 'green'
-                      : 'yellow',
+                      ? '#16A34A'
+                      : '#EAB308',
                     left: 
                      mobile.innerWidth < 1000 
                       ? -15 
                       : mobile.innerWidth < 1200 
                       ? -20 
                       : -5,
-                      // left: categorieName === 'Bahia' || categorieName === 'Ser' ? 140 : -25,
                   }}
                 >
                   <span 
-                    className="tooltiptext z-50" 
+                    className="tooltiptext" 
                     style={{
                       zIndex: 9,
                       color: 'black',
                       fontWeight: 'bold',
                       left:
                         categorieName === 'Salvador'
-                        ? '-300%'
+                        ? '-250%'
                         : categorieName === 'Bahia'
-                        ? '300%' 
+                        ? '250%' 
                         : categorieName === 'Ser'
-                        ? '200%'
-                        : '200%',
+                        ? '150%'
+                        : '150%',
                       top:
                         categorieName === 'Salvador'
                         ? '40px'
@@ -198,15 +198,17 @@ const FeaturedMeet = () => {
                         className='font-medium'
                         style={{
                           color: 
-                          categorieName === 'Salvador'
-                          ? 'blue'
-                          : categorieName === 'Bahia'
-                          ? 'red' 
-                          : categorieName === 'Ser'
-                          ? 'green'
-                          : 'yellow',    
+                            categorieName === 'Salvador'
+                            ? '#2563EB'
+                            : categorieName === 'Bahia'
+                            ? '#DC2626' 
+                            : categorieName === 'Ser'
+                            ? '#16A34A'
+                            : '#EAB308',    
                         }}
-                      >{ categorieName }</p>
+                      >
+                        { categorieName }
+                      </p>
                       { title || 'text dont avaliable' }
                     </span>
                 </a>
