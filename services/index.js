@@ -1,4 +1,5 @@
 import { request, gql } from 'graphql-request';
+import { axios } from 'axios';
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
@@ -207,15 +208,20 @@ export const getFeaturedPosts = async () => {
 };
 
 export const submitComment = async (obj) => {
-  const result = await fetch('/api/comments', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(obj),
-  });
-
-  return result.json();
+  try {
+    const result = await fetch('/api/comments', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify(obj),
+    });
+  
+    return result.json();
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const getComments = async (slug) => {

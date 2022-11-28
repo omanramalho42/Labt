@@ -28,13 +28,10 @@ export default async function asynchandler(req, res) {
       comment: req.body.comment,
       slug: req.body.slug,
     });
-
-    console.log({ result }, 'result');
   
     return res.status(200).send(result);
 
   } catch(error) {
-    // throw error;
     return res.status(500).send(error);
   }
 

@@ -113,7 +113,14 @@ const CommentsForm = ({ slug }) => {
           </div>
           <div className="grid grid-cols-1 gap-4 mb-4">
             <div>
-              <input checked={formData.storeData} onChange={onInputChange} type="checkbox" id="storeData" name="storeData" value="true" />
+              <input 
+                checked={formData.storeData} 
+                onChange={onInputChange} 
+                type="checkbox" 
+                id="storeData" 
+                name="storeData" 
+                value="true" 
+              />
               <label className="text-gray-500 cursor-pointer" htmlFor="storeData"> 
                 Salve meu nome, email no navegador para um próximo comentário.
               </label>
@@ -123,7 +130,11 @@ const CommentsForm = ({ slug }) => {
             Todos os campos são obrigatórios
           </p>}
           <div className="mt-8">
-            <button type="button" onClick={handlePostSubmission} className="transition duration-500 ease hover:bg-indigo-900 inline-block bg-pink-600 text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer">
+            <button 
+              type="button" 
+              onClick={handlePostSubmission} 
+              className="transition duration-500 ease hover:bg-indigo-900 inline-block bg-pink-600 text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer"
+            >
               Postar Comentário
             </button>
             {showSuccessMessage && <span className="text-xl float-right font-semibold mt-3 text-green-500">
