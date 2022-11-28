@@ -209,7 +209,7 @@ export const getFeaturedPosts = async () => {
 
 export const submitComment = async (obj) => {
   try {
-    const result = await fetch('/api/comments', {
+    const result = await axios.get('/api/comments', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

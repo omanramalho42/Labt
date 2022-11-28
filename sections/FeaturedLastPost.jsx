@@ -3,6 +3,7 @@ import { getLastPost } from '../services'
 
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import Link from 'next/link'
 
 const FeaturedLastPost = () => {
   const [lastPost, setLastPost] = useState([]);
@@ -74,13 +75,13 @@ const FeaturedLastPost = () => {
           </blockquote>
 
           <figcaption className='mt-3'>
-            <a 
+            <Link
               href={`post/${lastPost[0].slug}`} 
               className='text-xl underline underline-offset-6 uppercase'
               style={{ textUnderlineOffset: 10, textDecorationThickness: 2 }}
             >
               leia mais
-            </a>
+            </Link>
           </figcaption>
         </div>
         
