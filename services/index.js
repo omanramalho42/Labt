@@ -209,14 +209,17 @@ export const getFeaturedPosts = async () => {
 
 export const submitComment = async (obj) => {
   try {
-    const result = await axios.get('/api/comments', {
+    const result = await fetch('/api/comments', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
       },
       body: JSON.stringify(obj),
-    });
+    }).then((res) => console.log(res)).catch(error => console.log(error));
   
     return result.json();
   } catch (error) {
