@@ -62,7 +62,7 @@ const Header = () => {
       ))}
 
       <div 
-        className="grid grid-cols-2 py-8 space-x-10 items-center" 
+        className="grid grid-cols-2 py-8 space-x-16 items-center" 
       >
         <div className="md:float-left">
           <Link href="/">
@@ -83,34 +83,34 @@ const Header = () => {
               }}
             >
               <span className='cursor-pointer font-bold text-4xl text-black'>
-                <img src='/logo.png' alt="logo labtempo" width="300" height="100" />
+                <img src='/logo.png' alt="logo labtempo" width="600" height="600" />
               </span>
             </motion.div>
           </Link>
         </div>
         
-        <div className='w-full flex align-middle justify-between items-center'>
-          <div className="hidden md:float-right md:contents items-center" style={{ fontFamily: 'Arlita'}}>
+        <div className='w-full flex justify-between items-center'>
+          <div className="hidden md:float-right md:contents items-center" style={{ fontFamily: 'Arlita' }}>
             <a
               href='/' 
               className='md:float-right flex items-center mt-2 text-black dark:text-white font-semibold cursor-pointer lg:text-2xl'
             >
               Labt
             </a>
-            <div style={{ borderRight: '2px solid black', height: '20px' }} className="ml-2 mt-2 h-full" />
+            <div style={{ borderRight: '2px solid black', height: '20px' }} className="mt-2 h-full" />
             {categories.map((i, idx) => (
               <Fragment key={`${i.slug}-${idx}`}>
                 <Link href={`/category/${i.slug}`}>
-                  <span className="flex items-center md:float-right mt-2 align-middle text-black dark:text-white ml-4 font-semibold cursor-pointer lg:text-2xl">
+                  <span className="flex items-center md:float-right mt-2 align-middle text-black dark:text-white font-semibold cursor-pointer lg:text-2xl">
                     { i.name }
                   </span>
                 </Link>
-                <div style={{ borderRight: '2px solid black', height: '20px' }} className="ml-2 mt-2 h-full" />
+                <div style={{ borderRight: '2px solid black', height: '20px' }} className="mt-2 h-full" />
               </Fragment>
             ))}
             <a 
               href='/banca'
-              className='md:float-right mt-2 disabled:opacity-25 text-black dark:text-white ml-4 font-semibold cursor-pointer border-separate lg:text-2xl'
+              className='md:float-right mt-2 disabled:opacity-25 text-black dark:text-white font-semibold cursor-pointer border-separate lg:text-2xl'
             >
               Banca
             </a>

@@ -99,7 +99,13 @@ const CommentsForm = ({ slug }) => {
       {!load ? (
         <>
           <div className="grid grid-cols-1 gap-4 mb-4">
-            <textarea value={formData.comment} onChange={onInputChange} className="p-4 outline-none w-full rounded-lg h-40 focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" name="comment" placeholder="Comentário" />
+            <textarea 
+              value={formData.comment || ''} 
+              onChange={onInputChange} 
+              className="p-4 outline-none w-full rounded-lg h-40 focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" 
+              name="comment" 
+              placeholder="Comentário" 
+            />
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
             <input type="text" value={formData.name} onChange={onInputChange} className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" placeholder="Nome" name="name" />
@@ -108,15 +114,21 @@ const CommentsForm = ({ slug }) => {
           <div className="grid grid-cols-1 gap-4 mb-4">
             <div>
               <input checked={formData.storeData} onChange={onInputChange} type="checkbox" id="storeData" name="storeData" value="true" />
-              <label className="text-gray-500 cursor-pointer" htmlFor="storeData"> Salve meu nome, email no navegador para um próximo comentário.</label>
+              <label className="text-gray-500 cursor-pointer" htmlFor="storeData"> 
+                Salve meu nome, email no navegador para um próximo comentário.
+              </label>
             </div>
           </div>
-          {error && <p className="text-xs text-red-500">All fields are mandatory</p>}
+          {error && <p className="text-xs text-red-500">
+            Todos os campos são obrigatórios
+          </p>}
           <div className="mt-8">
             <button type="button" onClick={handlePostSubmission} className="transition duration-500 ease hover:bg-indigo-900 inline-block bg-pink-600 text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer">
               Postar Comentário
             </button>
-            {showSuccessMessage && <span className="text-xl float-right font-semibold mt-3 text-green-500">Comment submitted for review</span>}
+            {showSuccessMessage && <span className="text-xl float-right font-semibold mt-3 text-green-500">
+              O comentário foi submetido a análise.
+            </span>}
           </div>
         </>
       ) : (

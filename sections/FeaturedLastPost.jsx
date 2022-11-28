@@ -35,10 +35,6 @@ const FeaturedLastPost = () => {
     }
   },[]);
 
-  // useEffect(() => { 
-  //   console.log(mobile,'mobile')
-  // },[mobile]);
-
   if(lastPost[0]) {
     return (
       <section className='grid lg:grid-cols-2 gap-4 sm:grid-cols-1 py-3 mb-8 md:items-top justify-between' >
@@ -48,6 +44,7 @@ const FeaturedLastPost = () => {
           <span 
             className='text-3xl font-light uppercase'
             style={{ 
+              fontFamily: 'Luam-Light',
               color: `
                 ${lastPost[0].categories[0].name.toString() === 'Bahia'
                   ? '#DC2626' 
@@ -63,7 +60,7 @@ const FeaturedLastPost = () => {
             { lastPost[0].categories[0].name.toString() || <Skeleton count={1} /> }
           </span>
           
-          <h1 className='text-4xl font-bold mt-2 text-cyan-600'>
+          <h1 className='text-4xl font-bold mt-2 text-cyan-600' style={{ fontFamily: 'Arlita' }}>
             { lastPost[0].title || <Skeleton /> }
           </h1>
           

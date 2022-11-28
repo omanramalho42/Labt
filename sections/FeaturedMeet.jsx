@@ -18,20 +18,21 @@ const FeaturedMeet = () => {
   useEffect(() => {
     try {
       if(latestPostCategories) {
-        // console.log({latestPostCategories});
         latestPostCategories.map(({ node: { posts, name } }) => { 
           let featuredImage = null;
           let slug = null;
           let categorieName = null;
           let excerpt = null;
+          let title = null;
       
           if(posts[0]) {
             return (
                 featuredImage = posts[0].featuredImage.url,
+                title = posts[0].title,
                 slug = posts[0].slug,
                 categorieName = name,
                 excerpt = posts[0].excerpt,
-                categoriesMeet.push({ slug, categorieName, featuredImage, excerpt })
+                categoriesMeet.push({ slug, categorieName, featuredImage, excerpt, title })
             );
           }
         })
@@ -51,11 +52,12 @@ const FeaturedMeet = () => {
     }
   },[latestPostCategories]);
 
-  const [mobile, setMobile] = useState(0);  
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
     return { innerHeight, innerWidth };
   }
+
+  const [mobile, setMobile] = useState(0);  
 
   useEffect(() => {
     const handleWindowResize = () => {
@@ -76,17 +78,28 @@ const FeaturedMeet = () => {
       >
         <h1 
           className='text-4xl uppercase font-bold text-center'
-          style={{ letterSpacing: '15px', zIndex: 21, marginBottom: '60px' }}
+          style={{ 
+            letterSpacing: mobile.innerWidth < 1000 ? '10px' : '40px', 
+            zIndex: 21,
+            marginBottom: '30px'
+          }}
         >
           ENCONTRO
         </h1>
         <div 
+          style={{ 
+            borderBottom: '2.5px solid #000', 
+            width: mobile.innerWidth < 1000 ? '200px' : '350px',
+            marginBottom: '80px',
+            marginRight: mobile.innerWidth < 1000 ? '0px' : '30px'
+          }}
+        />
+        <div 
           className="grid"
           style={{ 
-            backgroundImage: `url(${'/aspiral.png'})`,
+            backgroundImage: `url(${'/sectionmeet.png'})`,
             backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            // backgroundAttachment: 'fixed',
+            backgroundSize: 'contain',
             backgroundPosition: 'center'
           }}
         >
@@ -98,17 +111,17 @@ const FeaturedMeet = () => {
                 style={{
                   width: `${
                     mobile.innerWidth < 1000 
-                    ? '120px' 
+                    ? '120px'
                     : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
                     ? '180px' 
-                    : '250px'
+                    : categorieName === 'Estar' || categorieName === 'Ser' ? '300px' : '250px'
                   }`, 
                   height: `${
                     mobile.innerWidth < 1000 
                     ? '120px' 
                     : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
                     ? '180px' 
-                    : '250px'
+                    : categorieName === 'Estar' || categorieName === 'Ser' ? '300px' : '250px'
                   }`,
                   backgroundImage: `url(${lastPosts[idx].featuredImage || ''})`,
                   boxShadow: '2px 3px 10px 1px rgba(0, 0, 0, 0.1)',
@@ -209,7 +222,9 @@ const FeaturedMeet = () => {
                       >
                         { categorieName }
                       </p>
-                      { title || 'text dont avaliable' }
+                      <p>
+                        { title  || 'dont avaliable'}
+                      </p>
                     </span>
                 </a>
               </div>

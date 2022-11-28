@@ -298,6 +298,7 @@ export const getLastestPostsCategorie = async () => {
                 url
               }
               excerpt
+              title
             }
           }
         }
