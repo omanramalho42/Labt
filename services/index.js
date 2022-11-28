@@ -219,7 +219,7 @@ export const submitComment = async (obj) => {
         },
       },
       body: JSON.stringify(obj),
-    }).then((res) => console.log(res)).catch(error => console.log(error));
+    });
   
     return result.json();
   } catch (error) {
