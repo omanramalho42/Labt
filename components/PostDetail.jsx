@@ -54,7 +54,6 @@ const PostDetail = ({ post }) => {
           <img 
             src={post.featuredImage.url}
             alt={post.title}
-            style={{ maxHeight: 800 }}
             className="object-top w-full rounded-t-lg"
           />
         ) : (
@@ -78,6 +77,7 @@ const PostDetail = ({ post }) => {
             <p className='inline align-middle text-gray-700 ml-2 text-lg'>
               { post.author.name || <Skeleton count={1} /> } 
             </p>
+            
           </div>
           <div className='font-medium text-gray-700'>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -87,7 +87,24 @@ const PostDetail = ({ post }) => {
               {moment(post.createdAt).format('MMM DD, YYYY') || <Skeleton count={1} />}
             </span>
           </div>
+          <p 
+            className='inline align-middle ml-5 text-lg' 
+            style={{
+              color: ` 
+                ${post.categories[0].name === 'Salvador'
+                  ? '#2563EB'
+                  : post.categories[0].name === 'Bahia'
+                  ? '#DC2626' 
+                  : post.categories[0].name === 'Ser'
+                  ? '#16A34A'
+                  : '#EAB308'
+                }`,
+            }}   
+          >
+            { post.categories[0].name || <Skeleton count={1} /> } 
+          </p>
         </div>
+        
         <h1 className="mb-8 text-3xl font-semibold" style={{ fontFamily: 'Arlita'}}> 
           { post.title || <Skeleton />} 
         </h1>

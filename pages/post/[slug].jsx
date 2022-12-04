@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
 import { 
@@ -16,7 +16,24 @@ import { AdjacentPosts } from '../../sections'
 
 const PostDetails = ({ post }) => {
   const router = useRouter();
-
+  
+  const [color,setColor] = useState('');
+  useEffect(() => {
+    if(post.categories[0].name === 'Bahia') {
+      setColor('#DC2626');
+      return;
+    } else if(post.categories[0].name === 'Salvador') {
+      setColor('#2563EB');
+      return;
+    } else if (post.categories[0].name === 'Ser') {
+      setColor('#16A34A');
+      return;
+    } else  {
+      setColor('#EAB308');
+      return;
+    }
+  },[post]);
+  
   if (router.isFallback) {
     return <Loader />;
   }
@@ -28,8 +45,8 @@ const PostDetails = ({ post }) => {
           <div className="col-span-1 lg:col-span-12">
             <PostDetail post={post} />
             {/* <Author author={post.author} /> */}
-            <AdjacentPosts slug={post.slug} createdAt={post.createdAt} />
-            <CommentsForm slug={post.slug} />
+            <AdjacentPosts slug={post.slug} createdAt={post.createdAt} color={color} />
+            <CommentsForm slug={post.slug} color={color} />
             <Comments slug={post.slug} />
           </div>
           <div className="col-span-1 lg:col-span-4">

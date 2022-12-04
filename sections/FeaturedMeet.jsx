@@ -165,8 +165,8 @@ const FeaturedMeet = () => {
                     flex: 1,
                     display: 'flex',
                     zIndex: 1,
-                    width: mobile.innerWidth < 1000 ? '40px' : '60px',
-                    height: mobile.innerWidth < 1000 ? '40px' : '60px',
+                    width: mobile.innerWidth < 1000 ? '30px' : '40px',
+                    height: mobile.innerWidth < 1000 ? '30px' : '40px',
                     backgroundColor: 
                       categorieName === 'Salvador'
                       ? '#2563EB'
@@ -180,7 +180,7 @@ const FeaturedMeet = () => {
                       ? -15 
                       : mobile.innerWidth < 1200 
                       ? -20 
-                      : -5,
+                      : 15,
                   }}
                 >
                   <span 

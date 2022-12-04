@@ -3,7 +3,7 @@ import Skeleton from 'react-loading-skeleton'
 
 import { submitComment } from '../services'
 
-const CommentsForm = ({ slug }) => {
+const CommentsForm = ({ slug, color }) => {
   const[load, setLoad] = useState(false)
   const [error, setError] = useState(false)
   const [localStorage, setLocalStorage] = useState(null)
@@ -133,7 +133,10 @@ const CommentsForm = ({ slug }) => {
             <button 
               type="button" 
               onClick={handlePostSubmission} 
-              className="transition duration-500 ease hover:bg-indigo-900 inline-block bg-pink-600 text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer"
+              className="transition duration-500 ease hover:bg-indigo-900 inline-block text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer"
+              style={{
+                backgroundColor: color
+              }}
             >
               Postar Comentário
             </button>

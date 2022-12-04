@@ -9,6 +9,8 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Luam-Regular', 'gotham-bold', 'Montserrat', 'Roboto', Helvetica, sans-serif;
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;
   &:before{
     content:'';
     content: "";
