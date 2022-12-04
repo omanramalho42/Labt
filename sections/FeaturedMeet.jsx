@@ -11,7 +11,9 @@ const FeaturedMeet = () => {
 
   useEffect(() => {
     getLastestPostsCategorie()
-      .then((res) => { setLatestPostCategories(res) }
+      .then((res) => { 
+        setLatestPostCategories(res) 
+      }
     );
   },[]);
 
@@ -75,6 +77,10 @@ const FeaturedMeet = () => {
     return (
       <div 
         className='flex flex-col items-center mx-auto'
+        style={{
+          height: '-webkit-fill-available',
+          width: '-webkit-fill-available'
+        }}
       >
         <h1 
           className='text-4xl uppercase font-bold text-center'
