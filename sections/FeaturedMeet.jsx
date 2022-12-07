@@ -171,8 +171,12 @@ const FeaturedMeet = () => {
                     flex: 1,
                     display: 'flex',
                     zIndex: 1,
-                    width: mobile.innerWidth < 1000 ? '30px' : '40px',
-                    height: mobile.innerWidth < 1000 ? '30px' : '40px',
+                    width: mobile.innerWidth < 1000 
+                      ? '30px' 
+                      : '40px',
+                    height: mobile.innerWidth < 1000 
+                      ? '30px' 
+                      : '40px',
                     backgroundColor: 
                       categorieName === 'Salvador'
                       ? '#2563EB'
@@ -197,20 +201,20 @@ const FeaturedMeet = () => {
                       fontWeight: 'bold',
                       left:
                         categorieName === 'Salvador'
-                        ? '-250%'
+                        ? '-300%'
                         : categorieName === 'Bahia'
-                        ? '250%' 
+                        ? '5em' 
                         : categorieName === 'Ser'
                         ? '150%'
                         : '150%',
                       top:
                         categorieName === 'Salvador'
-                        ? '40px'
+                        ? '1em'
                         : categorieName === 'Bahia'
-                        ? '50px' 
+                        ? '0.5em' 
                         : categorieName === 'Ser'
-                        ? '50px'
-                        : '50px',
+                        ? '0.5em'
+                        : '0.5em',
                     }}
                     >
                       <p 
