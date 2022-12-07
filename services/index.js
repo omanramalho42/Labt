@@ -212,7 +212,6 @@ export const submitComment = async (obj) => {
     const result = await fetch('/api/comments', {
       method: 'POST',
       headers: {
-        authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },  
