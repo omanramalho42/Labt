@@ -69,6 +69,7 @@ const FeaturedMeet = () => {
     window.addEventListener('resize', handleWindowResize);
 
     return () => {
+      console.log(mobile.innerHeight,'width');
       window.removeEventListener('resize', handleWindowResize);
     }
   },[]);
@@ -202,53 +203,54 @@ const FeaturedMeet = () => {
                       : 15,
                   }}
                 >
-                  <span 
-                    className="tooltiptext" 
-                    style={{
-                      zIndex: 9,
-                      visibility: mobile.innerWidth < 1200 && 'none',
-                      color: 'black',
-                      fontWeight: 'bold',
-                      left:
-                        categorieName === 'Salvador'
-                        ? '-500%'
-                        : categorieName === 'Bahia'
-                        ? '15em' 
-                        : categorieName === 'Ser'
-                        ? '18em'
-                        : categorieName === 'Estar' 
-                        ? '18em'
-                        : 0,
-                      top:
-                        categorieName === 'Salvador'
-                        ? '-8em'
-                        : categorieName === 'Bahia'
-                        ? '-8em' 
-                        : categorieName === 'Ser'
-                        ? '2.5em'
-                        : categorieName === 'Ser'
-                        ? '2.5em' : 0,
-                    }}
-                    >
-                      <p 
-                        className='font-medium'
-                        style={{
-                          color: 
-                            categorieName === 'Salvador'
-                            ? '#2563EB'
-                            : categorieName === 'Bahia'
-                            ? '#DC2626' 
-                            : categorieName === 'Ser'
-                            ? '#16A34A'
-                            : '#EAB308',    
-                        }}
+                  {mobile.innerWidth > 1200 && (
+                    <span 
+                      className="tooltiptext" 
+                      style={{
+                        zIndex: 9,
+                        color: 'black',
+                        fontWeight: 'bold',
+                        left:
+                          categorieName === 'Salvador'
+                          ? '-500%'
+                          : categorieName === 'Bahia'
+                          ? '15em' 
+                          : categorieName === 'Ser'
+                          ? '18em'
+                          : categorieName === 'Estar' 
+                          ? '18em'
+                          : 0,
+                        top:
+                          categorieName === 'Salvador'
+                          ? '-8em'
+                          : categorieName === 'Bahia'
+                          ? '-8em' 
+                          : categorieName === 'Ser'
+                          ? '2.5em'
+                          : categorieName === 'Ser'
+                          ? '2.5em' : 0,
+                      }}
                       >
-                        { categorieName }
-                      </p>
-                      <p>
-                        { title  || 'dont avaliable'}
-                      </p>
-                    </span>
+                        <p 
+                          className='font-medium'
+                          style={{
+                            color: 
+                              categorieName === 'Salvador'
+                              ? '#2563EB'
+                              : categorieName === 'Bahia'
+                              ? '#DC2626' 
+                              : categorieName === 'Ser'
+                              ? '#16A34A'
+                              : '#EAB308',    
+                          }}
+                        >
+                          { categorieName }
+                        </p>
+                        <p>
+                          { title  || 'dont avaliable'}
+                        </p>
+                      </span>
+                  )}
                 </a>
               </div>
             </>

@@ -51,6 +51,8 @@ const Home: NextPage = ({ posts }: any) => {
       <Head>
         <title>Laboratório Temp</title>
         <link rel="stylesheet" href="/icon.png" />
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       
       <FeaturedLastPost />
