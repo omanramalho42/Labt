@@ -87,7 +87,7 @@ a {
   border-radius: 6px;
   width: 175px;
   text-align: left;
-  /* Position the tooltip text - see examples below! */
+
   position: absolute;
 }
 
@@ -95,6 +95,27 @@ a {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
+.box1, .box2 {
+  position: relative;
+  background-color: red;
+}
+
+.box1 {
+    top: 13em;
+    transition: 0.325s;
+    @media only screen and (max-width: 1200px) {
+      top: 8em;
+    }
+
+    @media only screen and (max-width: 1000px) {
+      top: 4.8em;
+    }
+  }
+
+  .box2 {
+    right: 10px;
+  }
 
 .overlay {
   position: absolute;

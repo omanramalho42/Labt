@@ -166,7 +166,11 @@ const FeaturedMeet = () => {
               >
                 <a 
                   href={`/post/${slug}`}
-                  className='box relative rounded-full tooltip'
+                  className={`box relative rounded-full tooltip 
+                    ${categorieName === 'Bahia' || categorieName === 'Salvador' 
+                    ? 'box1' 
+                    : 'box2'
+                  }`}
                   style={{ 
                     flex: 1,
                     display: 'flex',
@@ -197,24 +201,28 @@ const FeaturedMeet = () => {
                     className="tooltiptext" 
                     style={{
                       zIndex: 9,
+                      visibility: mobile.innerWidth < 1200 && 'hidden',
                       color: 'black',
                       fontWeight: 'bold',
                       left:
                         categorieName === 'Salvador'
-                        ? '-300%'
+                        ? '-500%'
                         : categorieName === 'Bahia'
-                        ? '5em' 
+                        ? '15em' 
                         : categorieName === 'Ser'
-                        ? '150%'
-                        : '150%',
+                        ? '18em'
+                        : categorieName === 'Estar' 
+                        ? '18em'
+                        : 0,
                       top:
                         categorieName === 'Salvador'
-                        ? '1em'
+                        ? '-8em'
                         : categorieName === 'Bahia'
-                        ? '0.5em' 
+                        ? '-8em' 
                         : categorieName === 'Ser'
-                        ? '0.5em'
-                        : '0.5em',
+                        ? '2.5em'
+                        : categorieName === 'Ser'
+                        ? '2.5em' : 0,
                     }}
                     >
                       <p 
