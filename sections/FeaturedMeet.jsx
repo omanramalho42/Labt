@@ -206,7 +206,7 @@ const FeaturedMeet = () => {
                     className="tooltiptext" 
                     style={{
                       zIndex: 9,
-                      visibility: mobile.innerWidth < 1200 && 'hidden',
+                      visibility: mobile.innerWidth < 1200 && 'none',
                       color: 'black',
                       fontWeight: 'bold',
                       left:
