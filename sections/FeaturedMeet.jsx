@@ -69,8 +69,15 @@ const FeaturedMeet = () => {
     window.addEventListener('resize', handleWindowResize);
 
     return () => {
-      console.log(mobile.innerHeight,'width');
       window.removeEventListener('resize', handleWindowResize);
+    }
+  },[]);
+
+  useEffect(() => {
+    if(document.documentElement.clientWidth !== undefined ) {
+      setMobile({ innerWidth: 
+        document.documentElement.clientWidth
+      });
     }
   },[]);
   
@@ -83,6 +90,7 @@ const FeaturedMeet = () => {
           width: '-webkit-fill-available'
         }}
       >
+
         <h1 
           className='text-4xl uppercase font-bold text-center'
           style={{ 
