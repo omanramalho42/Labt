@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
+import { toast } from 'react-hot-toast'
 
 import { 
   PostCard, 
@@ -44,7 +45,7 @@ const Home: NextPage = ({ posts }: any) => {
     return () => {
       setDark(true);
     }
-  },[])
+  },[]);
   return (
    <div className='mx-auto px-10 mb-8 dark:bg-black dark:text-white'>
       <Head>

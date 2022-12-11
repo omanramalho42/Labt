@@ -109,7 +109,12 @@ const FeaturedMeet = () => {
             backgroundPosition: 'center'
           }}
         >
-          {lastPosts.map(({ categorieName, slug, excerpt, title }, idx) => categorieName && !loading ? (
+          {lastPosts.map(({ 
+            categorieName, 
+            slug, 
+            excerpt, 
+            title 
+          }, idx) => categorieName && !loading ? (
             <>
               <div
                 key={`${idx}-${slug}`} 
@@ -134,7 +139,7 @@ const FeaturedMeet = () => {
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
                   transition: '0.325s',
-                  outline: mobile.innerWidth > 800 ?  `4.5px solid 
+                  outline: mobile.innerWidth > 800 || mobile.innerWidth === undefined ?  `4.5px solid 
                   ${categorieName === 'Salvador'
                     ? '#2563EB'
                     : categorieName === 'Bahia'
