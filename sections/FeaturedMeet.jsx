@@ -181,20 +181,18 @@ const FeaturedMeet = () => {
                 <a 
                   href={`/post/${slug}`}
                   className={`box relative rounded-full tooltip 
-                    ${categorieName === 'Bahia' || categorieName === 'Salvador' 
+                    ${categorieName === 'Bahia' 
                     ? 'box1' 
-                    : 'box2'
+                    : categorieName === 'Salvador' 
+                    ? 'box2'  
+                    : categorieName === 'Estar'
+                    ? 'box3'
+                    : 'box4'
                   }`}
                   style={{ 
                     flex: 1,
                     display: 'flex',
                     zIndex: 1,
-                    width: mobile.innerWidth < 1000 
-                      ? '30px' 
-                      : '40px',
-                    height: mobile.innerWidth < 1000 
-                      ? '30px' 
-                      : '40px',
                     backgroundColor: 
                       categorieName === 'Salvador'
                       ? '#2563EB'
@@ -203,15 +201,9 @@ const FeaturedMeet = () => {
                       : categorieName === 'Ser'
                       ? '#16A34A'
                       : '#EAB308',
-                    left: 
-                     mobile.innerWidth < 1000 
-                      ? -15 
-                      : mobile.innerWidth < 1200 
-                      ? -20 
-                      : 15,
                   }}
                 >
-                  {mobile.innerWidth > 1200 && (
+                  {mobile.innerWidth > 1000 && (
                     <span 
                       className="tooltiptext" 
                       style={{
@@ -220,23 +212,23 @@ const FeaturedMeet = () => {
                         fontWeight: 'bold',
                         left:
                           categorieName === 'Salvador'
-                          ? '-500%'
+                          ? '4em'
                           : categorieName === 'Bahia'
-                          ? '15em' 
+                          ? '-12em' 
                           : categorieName === 'Ser'
-                          ? '18em'
+                          ? '-10em'
                           : categorieName === 'Estar' 
-                          ? '18em'
+                          ? '6em'
                           : 0,
                         top:
                           categorieName === 'Salvador'
-                          ? '-8em'
+                          ? '-2em'
                           : categorieName === 'Bahia'
-                          ? '-8em' 
+                          ? '-2em' 
                           : categorieName === 'Ser'
-                          ? '2.5em'
-                          : categorieName === 'Ser'
-                          ? '2.5em' : 0,
+                          ? '-2em'
+                          : categorieName === 'Estar'
+                          ? '0' : 0,
                       }}
                       >
                         <p 
@@ -291,7 +283,7 @@ const FeaturedMeet = () => {
                   : 2
               }}
             >
-              <Skeleton style={{ height: '250px', borderRadius: '50%' }}/>
+              <Skeleton style={{ height: '250px', borderRadius: '50%' }} />
             </div>
           ))}
       </div>

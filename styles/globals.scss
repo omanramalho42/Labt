@@ -106,25 +106,124 @@ a {
   visibility: visible;
 }
 
-.box1, .box2 {
+.box1, .box2, .box3, .box4 {
   position: relative;
-  background-color: red;
 }
 
 .box1 {
     top: 13em;
+    right: -0.8em;
     transition: 0.325s;
+
+    height: 45px !important;
+    width: 45px !important;
+
     @media only screen and (max-width: 1200px) {
       top: 8em;
-    }
+      right: 1.2em;
 
+      height: 40px !important;
+      width: 40px !important;
+    }
     @media only screen and (max-width: 1000px) {
       top: 4.8em;
+      right: 1.3em;
+
+      height: 35px !important;
+      width: 35px !important;
+  
+    }
+    @media only screen and (max-width: 800px) {
+      top: 4.8em;
+      right: 0.6em;
     }
   }
 
 .box2 {
-  right: 10px;
+  left: 12.5em;
+
+  height: 35px !important;
+  width: 35px !important;
+  
+  @media only screen and (max-width: 1200px) {
+    left: 9em;
+
+    height: 30px !important;
+    width: 30px !important;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    left: 6.5em;
+
+    height: 25px !important;
+    width: 25px !important;
+  }
+
+  @media only screen and (max-width: 800px) {
+    left: 5.2em;
+
+    height: 25px !important;
+    width: 25px !important;
+  }
+}
+
+.box3 {
+  top: 5em;
+  right: -17.8em;
+
+  height: 70px !important;
+  width: 70px !important;
+
+  @media only screen and (max-width: 1200px) {
+    top: 2em;
+    right: -10.7em;
+
+    height: 60px !important;
+    width: 60px !important;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    top: 1.1em;
+    right: -7.2em;
+
+    height: 50px !important;
+    width: 50px !important;
+  }
+
+  @media only screen and (max-width: 800px) {
+    right: -6.2em;
+
+    height: 45px !important;
+    width: 45px !important;
+  }
+}
+
+.box4 {
+  top: 15em;
+  height: 55px !important;
+  width: 55px !important;
+
+  @media only screen and (max-width: 1200px) {
+    top: 9em;
+    right: 0.4em;
+
+    height: 50px !important;
+    width: 50px !important;
+  }
+  @media only screen and (max-width: 1000px) {
+    top: 5.4em;
+    right: 1em;
+
+    height: 45px !important;
+    width: 45px !important;
+  }
+  @media only screen and (max-width: 800px) {
+    top: 5em;
+    right: 0.3em;
+
+    height: 40px !important;
+    width: 40px !important;
+  }
 }
 
 .overlay {
