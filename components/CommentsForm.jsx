@@ -121,7 +121,7 @@ const CommentsForm = ({ slug, color }) => {
                 name="storeData" 
                 value="true" 
               />
-              <label className="text-gray-500 cursor-pointer" htmlFor="storeData"> 
+              <label className="text-gray-500 cursor-pointer ml-2" htmlFor="storeData"> 
                 Salve meu nome, email no navegador para um próximo comentário.
               </label>
             </div>
