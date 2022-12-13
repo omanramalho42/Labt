@@ -5,16 +5,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 
 @font-face {
-  font-family: 'Luam-Regular', 'gotham-bold', 'Montserrat', 'Roboto', Helvetica, sans-serif;
-  src: url('/fonts/Arlita.ttf');
-  src: url('/fonts/gotham-bold.ttf');
-  src: url('/fonts/Luam-Bold.ttf');
-  src: url('/fonts/Luam-Light.ttf');
-  src: url('/fonts/Luam-Regular.ttf');
+  src: url('./public/fonts/Arlita.otf');
+  font-family: 'Arlita'
+}
+
+@font-face {
+  font-family: 'Luam-Regular';
+  src: url('./public/fonts/Luam-Regular.otf');
+}
+
+@font-face {
+  font-family: 'gotham-bold';
+  src: url('./public/fonts/gotham-bold.otf');
 }
 
 html,
 body {
+  font-family: 'Luam-Regular', 'gotham-bold', 'Montserrat', 'Roboto', Helvetica, sans-serif;;
   padding: 0;
   margin: 0;
   height: -webkit-fill-available;
