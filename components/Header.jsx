@@ -90,7 +90,7 @@ const Header = () => {
         </div>
         
         <div className='w-full flex justify-between items-center'>
-          <div className="hidden md:float-right md:contents items-center" style={{ fontFamily: 'Arlita' }}>
+          <div className="hidden md:float-right md:contents items-center" style={{ fontFamily: 'Luam-Regular' }}>
             <a
               href='/' 
               className='md:float-right flex items-center mt-2 text-black dark:text-white font-semibold cursor-pointer lg:text-2xl'

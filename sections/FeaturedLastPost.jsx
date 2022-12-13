@@ -39,13 +39,11 @@ const FeaturedLastPost = () => {
   if(lastPost[0]) {
     return (
       <section className='grid lg:grid-cols-2 gap-4 sm:grid-cols-1 py-3 mb-8 md:items-top justify-between' >
-        <div 
-          className=''
-        >
+        <div>
           <span 
             className='text-3xl font-light uppercase'
             style={{ 
-              fontFamily: 'Luam-Light',
+              fontFamily: 'Luam-Regular',
               color: `
                 ${lastPost[0].categories[0].name.toString() === 'Bahia'
                   ? '#DC2626' 
@@ -69,7 +67,7 @@ const FeaturedLastPost = () => {
             className='lg:text-left mt-3 mr-3'
             // style={{ width: '65%' }}
           >
-            <p className='text-xl font-medium leading-loose tracking-tight hover:tracking-wide'>
+            <p className='text-xl font-medium leading-loose tracking-tight hover:tracking-wide' style={{ fontFamily: 'Luam-bold' }}>
               {lastPost[0].excerpt || <Skeleton count={12} />}
             </p>
           </blockquote>
