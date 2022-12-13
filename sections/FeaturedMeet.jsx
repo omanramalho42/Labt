@@ -118,7 +118,6 @@ const FeaturedMeet = () => {
             backgroundPosition: 'center'
           }}
         >
-          {console.log(lastPosts,'last posts')}
           {lastPosts.map(({ 
             categorieName, 
             slug, 

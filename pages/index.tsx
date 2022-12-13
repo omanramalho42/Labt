@@ -39,7 +39,7 @@ const Home: NextPage = ({ posts }: any) => {
     } catch (error) {
       throw error;
     } finally {
-      console.log(localStorage.theme);
+      // console.log(localStorage.theme);
     }
 
     return () => {
