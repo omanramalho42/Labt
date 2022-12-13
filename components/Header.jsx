@@ -18,7 +18,6 @@ const Header = () => {
     } finally {
       setLoad(false);
     }
-
   },[]);
 
   if(load) {

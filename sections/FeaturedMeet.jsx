@@ -216,7 +216,7 @@ const FeaturedMeet = () => {
                           : categorieName === 'Bahia'
                           ? '-12em' 
                           : categorieName === 'Ser'
-                          ? '-10em'
+                          ? '-11em'
                           : categorieName === 'Estar' 
                           ? '6em'
                           : 0,

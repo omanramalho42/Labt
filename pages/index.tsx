@@ -1,8 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
-import { toast } from 'react-hot-toast'
-
 import { 
   PostCard, 
   PostWidget, 
@@ -38,14 +36,13 @@ const Home: NextPage = ({ posts }: any) => {
       localStorage.removeItem('theme');
     } catch (error) {
       throw error;
-    } finally {
-      // console.log(localStorage.theme);
-    }
+    } finally { }
 
     return () => {
       setDark(true);
     }
   },[]);
+  
   return (
    <div className='mx-auto px-10 mb-8 dark:bg-black dark:text-white'>
       <Head>

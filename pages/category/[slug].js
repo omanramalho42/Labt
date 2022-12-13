@@ -3,6 +3,8 @@ import { useRouter } from 'next/router'
 
 import { Link } from 'next/link'
 
+import { Toaster, toast } from 'react-hot-toast'
+
 import { getCategories, getCategoryPost } from '../../services'
 import { PostCard, Categories, Loader } from '../../components'
 
@@ -11,6 +13,12 @@ const CategoryPost = ({ posts }) => {
   if (router.isFallback) {
     return <Loader />;
   }
+
+  useEffect(() => {
+    toast.success(`Categoria selecionada: 
+      ${posts[0].node.categories[0].name}`
+    );
+  },[posts]);
 
   return (
     <div className="mx-auto px-10">
@@ -30,6 +38,11 @@ const CategoryPost = ({ posts }) => {
         >
           {posts[0].node.categories[0].name}
         </span>
+        
+        <Toaster 
+          position='top-center'
+          reverseOrder={false}
+        />
 
         <div 
           className='flex-1 rounded-md mb-8 p-1'
