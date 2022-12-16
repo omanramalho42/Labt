@@ -94,6 +94,7 @@ const FeaturedMeet = () => {
         <h1 
           className='text-4xl uppercase font-bold text-center'
           style={{ 
+            fontFamily: 'Luam-Regular',
             letterSpacing: mobile.innerWidth < 1000 ? '10px' : '40px', 
             zIndex: 21,
             marginBottom: '30px'

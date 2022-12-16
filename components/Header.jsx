@@ -82,7 +82,7 @@ const Header = () => {
               }}
             >
               <span className='cursor-pointer font-bold text-4xl text-black'>
-                <img src='/logo.png' alt="logo labtempo" width="600" height="600" />
+                <img src='/logo.png' alt="logo labtempo" width="300" height="300" />
               </span>
             </motion.div>
           </Link>

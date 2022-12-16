@@ -41,7 +41,7 @@ const FeaturedLastPost = () => {
       <section className='grid lg:grid-cols-2 gap-4 sm:grid-cols-1 py-3 mb-8 md:items-top justify-between' >
         <div>
           <span 
-            className='text-3xl font-light uppercase'
+            className='text-4xl font-light uppercase'
             style={{ 
               fontFamily: 'Luam-Regular',
               color: `
@@ -59,26 +59,40 @@ const FeaturedLastPost = () => {
             { lastPost[0].categories[0].name.toString() || <Skeleton count={1} /> }
           </span>
           
-          <h1 className='text-4xl font-bold mt-2 text-cyan-600' style={{ fontFamily: 'Arlita' }}>
+          <h1 className='text-4xl font-bold mt-2 text-cyan-600'>
             { lastPost[0].title || <Skeleton /> }
           </h1>
           
           <blockquote 
             className='lg:text-left mt-3 mr-3'
-            // style={{ width: '65%' }}
           >
             <p className='text-xl font-medium leading-loose tracking-tight hover:tracking-wide' style={{ fontFamily: 'Luam-bold' }}>
               {lastPost[0].excerpt || <Skeleton count={12} />}
             </p>
           </blockquote>
 
-          <figcaption className='mt-3'>
+          <figcaption style={{ display: 'flex', flexDirection: 'column' }} className='mt-3 mb-6'>
             <Link
               href={`post/${lastPost[0].slug}`} 
-              className='text-xl underline underline-offset-6 uppercase'
-              style={{ textUnderlineOffset: 10, textDecorationThickness: 2 }}
+              className='text-2xl uppercase mx-auto'
+              style={{ position: 'absolute', left: '40px' }}
             >
-              leia mais
+              <p 
+                style={{ 
+                  fontFamily: 'Luam-Regular', 
+                  fontSize: '1.2em', 
+                  color: '#a6a6a6' 
+                }}
+              >
+                leia mais
+              </p>
+              <span
+                style={{
+                  display: 'flex',
+                  borderBottom: '1px solid #a6a6a6',
+                  margin: '5px 20px',
+                }}
+              />
             </Link>
           </figcaption>
         </div>

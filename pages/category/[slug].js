@@ -38,11 +38,6 @@ const CategoryPost = ({ posts }) => {
         >
           {posts[0].node.categories[0].name}
         </span>
-        
-        <Toaster 
-          position='top-center'
-          reverseOrder={false}
-        />
 
         <div 
           className='flex-1 rounded-md mb-8 p-1'
@@ -59,6 +54,12 @@ const CategoryPost = ({ posts }) => {
           }}
         />
       </div>
+    
+      <Toaster 
+        position='top-center'
+        reverseOrder={false}
+      />
+
       <div className="grid grid-cols-1 lg:grid-cols-9 gap-12">
           {posts.map((post, index) => (
             <div className="col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-3" key={index}>

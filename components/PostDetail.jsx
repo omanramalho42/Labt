@@ -26,7 +26,7 @@ const PostDetail = ({ post }) => {
       case 'heading-three':
         return <h3 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{ item }</React.Fragment>)}</h3>;
       case 'paragraph':
-        return <p key={index} style={{ fontFamily: 'Luam-Bold' }} className="mb-8">{modifiedText.map((item, i) => <React.Fragment key={i}>{ item }</React.Fragment>)}</p>;
+        return <p key={index} className="mb-8">{modifiedText.map((item, i) => <React.Fragment key={i}>{ item }</React.Fragment>)}</p>;
       case 'heading-four':
         return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{ item }</React.Fragment>)}</h4>;
       case 'image':
@@ -48,6 +48,39 @@ const PostDetail = ({ post }) => {
 
   return (
     <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
+      <div style={{ display: 'flex', flexDirection: 'row', marginBottom: 20 }}>
+        <span 
+            className='text-3xl mr-4 font-medium uppercase'
+            style={{
+              color: 
+                post.categories[0].name === 'Salvador' 
+                ? '#2563EB' 
+                : post.categories[0].name === 'Bahia' 
+                ? '#DC2626' 
+                : post.categories[0].name === 'Ser' 
+                ? '#16A34A' 
+                : '#EAB308'            
+            }}
+          >
+          { post.categories[0].name || <Skeleton count={1} /> } 
+        </span>
+
+        <div 
+          className='flex-1 rounded-md mb-8 p-1'
+          style={{
+            margin: 'auto',
+            backgroundColor: 
+              post.categories[0].name === 'Salvador' 
+              ? '#2563EB' 
+              : post.categories[0].name === 'Bahia' 
+              ? '#DC2626' 
+              : post.categories[0].name === 'Ser' 
+              ? '#16A34A' 
+              : '#EAB308'
+          }}
+        />
+      </div>
+
       <div className="relative overflow-hidden shadow-md mb-6">
         {post.featuredImage.url ? (
           <img 
@@ -79,14 +112,14 @@ const PostDetail = ({ post }) => {
             
           </div>
           <div className='font-medium text-gray-700'>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            {/* <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-            <span>
+            </svg> */}
+            {/* <span>
               {moment(post.createdAt).format('MMM DD, YYYY') || <Skeleton count={1} />}
-            </span>
+            </span> */}
           </div>
-          <p 
+          {/* <p 
             className='inline align-middle ml-5 text-lg' 
             style={{
               color: ` 
@@ -101,10 +134,10 @@ const PostDetail = ({ post }) => {
             }}   
           >
             { post.categories[0].name || <Skeleton count={1} /> } 
-          </p>
+          </p> */}
         </div>
         
-        <h1 className="mb-8 text-3xl font-semibold" style={{ fontFamily: 'Arlita'}}> 
+        <h1 className="mb-8 text-3xl font-semibold"> 
           { post.title || <Skeleton />} 
         </h1>
         {post.content.raw.children.map((typeObj, index) => {
