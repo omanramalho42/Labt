@@ -92,26 +92,28 @@ const CommentsForm = ({ slug, color }) => {
   }
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
-      <h3 className="text-xl mb-8 font-semibold border-b pb-4">
+    <div className="bg-white rounded-lg p-6 pb-12 mb-8">
+      <h3 className="text-4xl font-bold">
         Deixe um comentário
       </h3>
+      <p className='font-medium'>O seu endereço de e-mail não será publicado</p>
+      <p className='font-medium'>Campos obrigatórios serão marcados com *</p>
       {!load ? (
         <>
-          <div className="grid grid-cols-1 gap-4 mb-4">
+          <div className="grid grid-cols-1 gap-4 mb-4 mt-4">
             <textarea 
               value={formData.comment || ''} 
               onChange={onInputChange} 
-              className="p-4 outline-none w-full rounded-lg h-40 focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" 
-              name="comment" 
+              className="p-4 outline-none w-full h-60 focus:ring-2 focus:ring-gray-200 border border-black placeholder:text-black" 
+              name="comment"
               placeholder="Comentário" 
             />
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
-            <input type="text" value={formData.name} onChange={onInputChange} className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" placeholder="Nome" name="name" />
-            <input type="email" value={formData.email} onChange={onInputChange} className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" placeholder="Email" name="email" />
+            <input type="text" value={formData.name} onChange={onInputChange} className="py-2 px-4 outline-none w-full focus:ring-2 focus:ring-gray-200 border border-black placeholder:text-black" placeholder="Nome *" name="name" />
+            <input type="email" value={formData.email} onChange={onInputChange} className="py-2 px-4 outline-none w-full focus:ring-2 focus:ring-gray-200 border border-black placeholder:text-black" placeholder="Email *" name="email" />
           </div>
-          <div className="grid grid-cols-1 gap-4 mb-4">
+          {/* <div className="grid grid-cols-1 gap-4 mb-4">
             <div>
               <input 
                 checked={formData.storeData} 
@@ -125,20 +127,24 @@ const CommentsForm = ({ slug, color }) => {
                 Salve meu nome, email no navegador para um próximo comentário.
               </label>
             </div>
-          </div>
+          </div> */}
           {error && <p className="text-xs text-red-500">
             Todos os campos são obrigatórios
           </p>}
-          <div className="mt-8">
+          <div className="flex mt-8 justify-end">
             <button 
               type="button" 
               onClick={handlePostSubmission} 
-              className="transition duration-500 ease hover:bg-indigo-900 inline-block text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer"
+              className="text-sm uppercase text-white text-center px-8 py-1 cursor-pointer"
               style={{
-                backgroundColor: color
+                backgroundColor: '#000',
+                // height: '50px',
+                // width: '200px'
               }}
             >
-              Postar Comentário
+              <p style={{ width: '100px' }}>
+                Publicar Comentário
+              </p>
             </button>
             {showSuccessMessage && <span className="text-xl float-right font-semibold mt-3 text-green-500">
               O comentário foi submetido a análise.

@@ -15,16 +15,23 @@ const AdjacentPosts = ({ createdAt, slug, color }) => {
   }, [slug]);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-8 gap-12 mb-8">
+    // <div className="grid grid-cols-1 lg:grid-cols-8 gap-12 mb-8">
+    <div className='flex mb-8 items-center' style={{ justifyContent: 'space-around' }}>
       {dataLoaded && (
         <>
           {adjacentPost.previous && (
-            <div className={`${adjacentPost.next ? 'col-span-1 lg:col-span-4' : 'col-span-1 lg:col-span-8'} adjacent-post rounded-lg relative h-72`}>
+            // <div className={`${adjacentPost.next ? 'col-span-1 lg:col-span-4' : 'col-span-1 lg:col-span-8'} adjacent-post rounded-lg relative h-72`}>
+            //   <AdjacentPostCard post={adjacentPost.previous} position="LEFT" color={color} />
+            // </div>
+            <div className='relative'>
               <AdjacentPostCard post={adjacentPost.previous} position="LEFT" color={color} />
             </div>
           )}
           {adjacentPost.next && (
-            <div className={`${adjacentPost.previous ? 'col-span-1 lg:col-span-4' : 'col-span-1 lg:col-span-8'} adjacent-post rounded-lg relative h-72`}>
+            // <div className={`${adjacentPost.previous ? 'col-span-1 lg:col-span-4' : 'col-span-1 lg:col-span-8'} adjacent-post rounded-lg relative h-72`}>
+            //   <AdjacentPostCard post={adjacentPost.next} position="RIGHT" color={color}/>
+            // </div>
+            <div className='relative'>
               <AdjacentPostCard post={adjacentPost.next} position="RIGHT" color={color}/>
             </div>
           )}

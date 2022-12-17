@@ -38,7 +38,9 @@ const FeaturedLastPost = () => {
 
   if(lastPost[0]) {
     return (
-      <section className='grid lg:grid-cols-2 gap-4 sm:grid-cols-1 py-3 mb-8 md:items-top justify-between' >
+      <section 
+        className='grid lg:grid-cols-2 gap-4 sm:grid-cols-1 py-3 mb-8 md:items-top justify-between'
+      >
         <div>
           <span 
             className='text-4xl font-light uppercase'
@@ -71,7 +73,14 @@ const FeaturedLastPost = () => {
             </p>
           </blockquote>
 
-          <figcaption style={{ display: 'flex', flexDirection: 'column' }} className='mt-3 mb-6'>
+          <figcaption 
+            style={{ 
+              display: 'flex', 
+              flexDirection: 'column',
+              marginBottom: '40px'
+            }} 
+            className='mt-3 mb-6'
+            >
             <Link
               href={`post/${lastPost[0].slug}`} 
               className='text-2xl uppercase mx-auto'
@@ -81,7 +90,7 @@ const FeaturedLastPost = () => {
                 style={{ 
                   fontFamily: 'Luam-Regular', 
                   fontSize: '1.2em', 
-                  color: '#a6a6a6' 
+                  color: '#a6a6a6',
                 }}
               >
                 leia mais

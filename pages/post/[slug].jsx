@@ -8,7 +8,8 @@ import {
   Author, 
   Comments, 
   CommentsForm, 
-  Loader 
+  Loader, 
+  Footer
 } from '../../components'
 
 import { getPosts, getPostDetails } from '../../services'
@@ -45,9 +46,9 @@ const PostDetails = ({ post }) => {
           <div className="col-span-1 lg:col-span-12">
             <PostDetail post={post} />
             {/* <Author author={post.author} /> */}
-            <AdjacentPosts slug={post.slug} createdAt={post.createdAt} color={color} />
             <CommentsForm slug={post.slug} color={color} />
             <Comments slug={post.slug} />
+            <AdjacentPosts slug={post.slug} createdAt={post.createdAt} color={color} />
           </div>
           <div className="col-span-1 lg:col-span-4">
             <div className="relative lg:sticky top-8">
@@ -56,6 +57,7 @@ const PostDetails = ({ post }) => {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     </>
   );

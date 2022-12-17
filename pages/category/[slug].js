@@ -33,7 +33,8 @@ const CategoryPost = ({ posts }) => {
               ? '#DC2626' 
               : posts[0].node.categories[0].name === 'Ser' 
               ? '#16A34A' 
-              : '#EAB308'            
+              : '#EAB308',
+              fontFamily: 'Luam-Regular'       
           }}
         >
           {posts[0].node.categories[0].name}
