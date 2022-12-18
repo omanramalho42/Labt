@@ -8,11 +8,6 @@ import Skeleton from 'react-loading-skeleton'
 
 const PostDetail = ({ post }) => {
 
-  useEffect(() => {
-    console.log(post.carousel,'carousel');
-    console.log(post,'post');
-  },[post]);
-
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 1024 },
@@ -235,14 +230,16 @@ const PostDetail = ({ post }) => {
           <Carousel
             infinite
             responsive={responsive}
+            autoPlay
           >
-            {post.carousel.map((i) => (
+            {post.carousel.map((i, idx) => (
                <Image
-                width={300}
-                height={300}
+                key={idx}
                 unoptimized
+                width="600"
+                height="600"
                 alt="imagem carousel"
-                className="align-middle h-60 w-60 drop-shadow-lg"
+                className="w-full h-full align-middle drop-shadow-lg"
                 src={i.url}
               />
             ))}
