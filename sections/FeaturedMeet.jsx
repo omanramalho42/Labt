@@ -135,14 +135,14 @@ const FeaturedMeet = () => {
                     ? '120px'
                     : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
                     ? '180px' 
-                    : categorieName === 'Estar' || categorieName === 'Ser' ? '300px' : '250px'
+                    : categorieName === 'Estar' || categorieName === 'Bahia' ? '300px' : '250px'
                   }`, 
                   height: `${
                     mobile.innerWidth < 1000 
                     ? '120px' 
                     : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
                     ? '180px' 
-                    : categorieName === 'Estar' || categorieName === 'Ser' ? '300px' : '250px'
+                    : categorieName === 'Estar' || categorieName === 'Bahia' ? '300px' : '250px'
                   }`,
                   backgroundImage: `url(${lastPosts[idx].featuredImage || ''})`,
                   boxShadow: '2px 3px 10px 1px rgba(0, 0, 0, 0.1)',
@@ -170,23 +170,23 @@ const FeaturedMeet = () => {
                   }` : 0,
                   outlineOffset: '10px',
                   gridColumnStart: 
-                    categorieName === 'Bahia' 
-                    ? 1 
+                    categorieName === 'Estar' 
+                    ? 2 
                     : categorieName === 'Salvador' 
                     ? 3 
-                    : categorieName === 'Estar'
+                    : categorieName === 'Bahia'
                     ? 2
-                    : 2
+                    : 1
                 }}
               >
                 <a 
                   href={`/post/${slug}`}
                   className={`box relative rounded-full tooltip 
-                    ${categorieName === 'Bahia' 
+                    ${categorieName === 'Ser' 
                     ? 'box1' 
                     : categorieName === 'Salvador' 
                     ? 'box2'  
-                    : categorieName === 'Estar'
+                    : categorieName === 'Bahia'
                     ? 'box3'
                     : 'box4'
                   }`}
@@ -214,21 +214,21 @@ const FeaturedMeet = () => {
                         left:
                           categorieName === 'Salvador'
                           ? '4em'
-                          : categorieName === 'Bahia'
+                          : categorieName === 'Estar'
                           ? '-12em' 
                           : categorieName === 'Ser'
                           ? '-11em'
-                          : categorieName === 'Estar' 
+                          : categorieName === 'Bahia' 
                           ? '6em'
                           : 0,
                         top:
                           categorieName === 'Salvador'
                           ? '-2em'
-                          : categorieName === 'Bahia'
+                          : categorieName === 'Estar'
                           ? '-2em' 
                           : categorieName === 'Ser'
                           ? '-2em'
-                          : categorieName === 'Estar'
+                          : categorieName === 'Bahia'
                           ? '0' : 0,
                       }}
                       >
@@ -250,7 +250,7 @@ const FeaturedMeet = () => {
                         <p>
                           { title  || 'dont avaliable'}
                         </p>
-                      </span>
+                    </span>
                   )}
                 </a>
               </div>
