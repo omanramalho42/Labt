@@ -96,7 +96,7 @@ const CommentsForm = ({ slug, color }) => {
   }
 
   return (
-    <div className="bg-white rounded-lg p-6 pb-12 mb-8">
+    <div className="bg-white rounded-lg lg:px-16 p-6 pb-12 mb-8">
       <h3 className="text-4xl font-bold">
         Deixe um comentário
       </h3>
