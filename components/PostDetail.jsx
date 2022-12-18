@@ -238,9 +238,11 @@ const PostDetail = ({ post }) => {
           >
             {post.carousel.map((i) => (
                <Image
+                width={300}
+                height={300}
                 unoptimized
                 alt="imagem carousel"
-                className="align-middle h-60 w-60 drop-shadow-lg rounded-full"
+                className="align-middle h-60 w-60 drop-shadow-lg"
                 src={i.url}
               />
             ))}
