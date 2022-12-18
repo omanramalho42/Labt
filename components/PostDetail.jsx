@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import moment from 'moment'
 import Carousel from 'react-multi-carousel'
 
+import Image from 'next/image'
+
 import Skeleton from 'react-loading-skeleton'
 
 const PostDetail = ({ post }) => {
@@ -236,11 +238,11 @@ const PostDetail = ({ post }) => {
           >
             {post.carousel.map((i) => (
                <Image
-               unoptimized
-               alt="imagem carousel"
-               className="align-middle h-60 w-60 drop-shadow-lg rounded-full"
-               src={i.url}
-             />
+                unoptimized
+                alt="imagem carousel"
+                className="align-middle h-60 w-60 drop-shadow-lg rounded-full"
+                src={i.url}
+              />
             ))}
           </Carousel>
         )}
