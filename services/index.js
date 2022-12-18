@@ -61,6 +61,9 @@ export const getPostDetails = async (slug) => {
       post(where: {slug: $slug}) {
         title
         excerpt
+        carousel {
+          url
+        }
         featuredImage {
           url
         }

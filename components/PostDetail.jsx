@@ -1,9 +1,34 @@
 import React, { useEffect, useState } from 'react'
 import moment from 'moment'
+import Carousel from 'react-multi-carousel'
 
 import Skeleton from 'react-loading-skeleton'
 
 const PostDetail = ({ post }) => {
+
+  useEffect(() => {
+    console.log(post.carousel,'carousel');
+    console.log(post,'post');
+  },[post]);
+
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 1024 },
+      items: 5,
+    },
+    desktop: {
+      breakpoint: { max: 1024, min: 768 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 768, min: 640 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 640, min: 0 },
+      items: 1,
+    },
+  };
 
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
@@ -74,6 +99,7 @@ const PostDetail = ({ post }) => {
 
   return (
     <div className="bg-white rounded-lg lg:p-8 pb-12">
+      
       <div 
         style={{
           position: 'absolute', 
@@ -180,6 +206,7 @@ const PostDetail = ({ post }) => {
           ) : (
             <Skeleton height={240} />
           )} */}
+          
           <p className='inline w-60 text-gray-600 text-lg border-t-2 mb-8' 
             style={{ 
               borderColor: 
@@ -202,7 +229,23 @@ const PostDetail = ({ post }) => {
           return getContentFragment(index, children, typeObj, typeObj.type);
         })}
 
-        <div className='flex flex-col font-bold' style={{ marginTop: '50px'}}>
+        {post.carousel && (
+          <Carousel
+            infinite
+            responsive={responsive}
+          >
+            {post.carousel.map((i) => (
+               <Image
+               unoptimized
+               alt="imagem carousel"
+               className="align-middle h-60 w-60 drop-shadow-lg rounded-full"
+               src={i.url}
+             />
+            ))}
+          </Carousel>
+        )}
+
+        <div className='flex flex-col font-bold' style={{ marginTop: '50px' }}>
           <h5>Compartilhe</h5>     
           <div className='flex row'>
             <a href="https://www.facebook.com/profile.php?id=100088693333749" type="button" className="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
@@ -243,8 +286,7 @@ const PostDetail = ({ post }) => {
             <svg 
               className="w-4 h-full mx-auto" 
               xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor" 
-              class="bi bi-whatsapp" 
+              fill="currentColor"
               viewBox="0 0 16 16"
             > 
               <path 

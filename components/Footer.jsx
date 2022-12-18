@@ -51,7 +51,6 @@ const Footer = () => {
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
             className="w-4 h-full mx-auto"
-            class="bi bi-youtube"
             viewBox="0 0 16 16"
           > 
             <path

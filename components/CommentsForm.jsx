@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Skeleton from 'react-loading-skeleton'
-
+import { toast, Toaster } from 'react-hot-toast'
 import { submitComment } from '../services'
 
 const CommentsForm = ({ slug, color }) => {
@@ -44,12 +44,15 @@ const CommentsForm = ({ slug, color }) => {
   const handlePostSubmission = () => {
     setLoad(true);
     
-    setError(false);
     const { name, email, comment, storeData } = formData;
     if (!name || !email || !comment) {
       setError(true);
+      setLoad(false);
+      toast.error("Os campos nome e email são obrigatórios");
       return;
     }
+
+    setError(false);
     const commentObj = {
       name,
       email,
@@ -81,9 +84,10 @@ const CommentsForm = ({ slug, color }) => {
             setShowSuccessMessage(true);
             setTimeout(() => {
               setShowSuccessMessage(false);
+              toast.success("Seu comentário foi submetido a análise");
             }, 3000);
           }
-        });
+        }).catch((error) => console.log(error));
     } catch(error) {
       throw error
     } finally {
@@ -128,6 +132,8 @@ const CommentsForm = ({ slug, color }) => {
               </label>
             </div>
           </div> */}
+          
+          <Toaster position='top-center' />
           {error && <p className="text-xs text-red-500">
             Todos os campos são obrigatórios
           </p>}
@@ -146,10 +152,10 @@ const CommentsForm = ({ slug, color }) => {
                 Publicar Comentário
               </p>
             </button>
-            {showSuccessMessage && <span className="text-xl float-right font-semibold mt-3 text-green-500">
-              O comentário foi submetido a análise.
-            </span>}
           </div>
+          {/* {showSuccessMessage && <span className="display-block text-xl float-right font-semibold mt-3 text-green-500">
+            O comentário foi submetido a análise.
+          </span>} */}
         </>
       ) : (
         <>

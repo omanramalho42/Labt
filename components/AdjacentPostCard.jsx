@@ -38,18 +38,16 @@ const AdjacentPostCard = ({ post, position, color }) => (
   //     </div>
   //   )}
   // </>
-  <div className='d-flex'>
-    <div>
-      {position === 'RIGHT' ? (
-        <Link href={`/post/${post.slug}`}><span className="z-10 cursor-pointer absolute w-full h-full" />
-          <p className='font-bold'>Matéria seguinte{">>"}</p>
-        </Link>
-      ) : (
-        <Link href={`/post/${post.slug}`}><span className="z-10 cursor-pointer absolute w-full h-full" />
-          <p className='font-bold'>{"<<"} Matéria anterior</p>
-        </Link>
-      )}
-    </div>
+  <div className='d-flex w-full'>
+    {position === 'RIGHT' ? (
+      <Link href={`/post/${post.slug}`} className="justify-end" style={{ display: 'flex', marginLeft: '100px', justifyContent: 'flex-end' }}>
+        <p className='font-bold'>Matéria seguinte{">>"}</p>
+      </Link>
+    ) : (
+      <Link href={`/post/${post.slug}`}>
+        <p className='font-bold'>{"<<"} Matéria anterior</p>
+      </Link>
+    )}
   </div>
 );
 

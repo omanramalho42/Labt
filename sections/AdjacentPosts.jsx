@@ -16,7 +16,7 @@ const AdjacentPosts = ({ createdAt, slug, color }) => {
 
   return (
     // <div className="grid grid-cols-1 lg:grid-cols-8 gap-12 mb-8">
-    <div className='flex mb-8 items-center' style={{ justifyContent: 'space-around' }}>
+    <div className='flex mb-8 items-center justify-center' style={{ justifyContent: 'space-around' }}>
       {dataLoaded && (
         <>
           {adjacentPost.previous && (
