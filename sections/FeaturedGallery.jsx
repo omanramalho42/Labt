@@ -38,12 +38,12 @@ const FeaturedGallery = () => {
         }}
       >
         <h1 
-          className='text-4xl uppercase font-bold text-center'
+          className='relative top-8 text-4xl uppercase font-bold text-center'
           style={{ 
-            marginTop: '2%',
+            left: '2%',
             color: '#FFF',
-            fontFamily: 'Luam-Regular',
-            letterSpacing: '30px', 
+            fontFamily: 'gotham-bold',
+            letterSpacing: '35px', 
             zIndex: 21,
             marginBottom: '10px'
           }}
