@@ -95,26 +95,27 @@ const FeaturedMeet = () => {
           backgroundPosition: 'center',
         }}
       >
-        <h1 
-          className='relative text-4xl uppercase font-bold text-center'
-          style={{ 
-            top: '-40px',
-            fontFamily: 'Luam-Regular',
-            letterSpacing: mobile.innerWidth < 1000 ? '10px' : '40px', 
-            zIndex: 21,
-            marginBottom: '30px'
-          }}
-        >
-          ENCONTRO
-        </h1>
-        <div 
-          style={{ 
-            borderBottom: '2.5px solid #000', 
-            width: mobile.innerWidth < 1000 ? '200px' : '350px',
-            marginBottom: '80px',
-            marginRight: mobile.innerWidth < 1000 ? '0px' : '30px',
-          }}
-        />
+        <div className='relative flex flex-col items-center' style={{ top: '-55px' }}>
+          <h1 
+            className='text-4xl uppercase font-bold text-center'
+            style={{ 
+              fontFamily: 'Luam-Regular',
+              letterSpacing: mobile.innerWidth < 1000 ? '10px' : '40px', 
+              zIndex: 21,
+              marginBottom: '30px'
+            }}
+          >
+            ENCONTRO
+          </h1>
+          <div 
+            style={{ 
+              borderBottom: '2.5px solid #000', 
+              width: mobile.innerWidth < 1000 ? '200px' : '350px',
+              marginBottom: '80px',
+              marginRight: mobile.innerWidth < 1000 ? '0px' : '30px',
+            }}
+          />
+        </div>
         <div 
           className="grid"
         >
