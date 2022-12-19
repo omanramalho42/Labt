@@ -38,7 +38,7 @@ const Header = () => {
   }
 
   return (
-    <div className='mx-auto px-10 mb-8 dark:bg-black'>
+    <div className='mx-auto px-10 dark:bg-black'>
       {categories.map(({ name, slug }, idx) => (
         <div key={`${slug}-${idx}`}>
           <Link href={`/category/${slug}`}>
@@ -61,7 +61,7 @@ const Header = () => {
       ))}
 
       <div 
-        className="grid grid-cols-2 py-8 space-x-16 items-center" 
+        className="grid grid-cols-2 space-x-16 items-center" 
       >
         <div className="md:float-left">
           <Link href="/">
@@ -82,7 +82,7 @@ const Header = () => {
               }}
             >
               <span className='cursor-pointer font-bold text-4xl text-black'>
-                <img src='/logo.png' alt="logo labtempo" width="300" height="300" />
+                <img src='/logo.png' alt="logo labtempo" width="500" height="500" />
               </span>
             </motion.div>
           </Link>

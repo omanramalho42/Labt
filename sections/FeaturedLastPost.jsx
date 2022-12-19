@@ -39,7 +39,7 @@ const FeaturedLastPost = () => {
   if(lastPost[0]) {
     return (
       <section 
-        className='grid lg:grid-cols-2 gap-4 sm:grid-cols-1 py-3 mb-8 md:items-top justify-between'
+        className='grid lg:grid-cols-2 gap-4 sm:grid-cols-1 mb-8 md:items-top justify-between'
       >
         <div>
           <span 
