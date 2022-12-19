@@ -143,7 +143,7 @@ const CommentsForm = ({ slug, color }) => {
               onClick={handlePostSubmission} 
               className="text-sm uppercase text-white text-center px-8 py-1 cursor-pointer"
               style={{
-                backgroundColor: '#000',
+                backgroundColor: color,
                 // height: '50px',
                 // width: '200px'
               }}
