@@ -166,7 +166,7 @@ const PostDetail = ({ post }) => {
           </p>
         </div> */}
         
-        <h1 className="px-10 mb-2 text-5xl font-semibold"> 
+        <h1 className="lg:px-10 mb-2 lg:text-5xl sm:text-4xl font-semibold"> 
           { post.title || <Skeleton />} 
         </h1>
         

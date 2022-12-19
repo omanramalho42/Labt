@@ -82,7 +82,7 @@ const Home: NextPage = ({ posts }: any) => {
         </div>
       </div> */}
 
-      <div className='fixed-bottom relative' style={{ bottom: '-80px'}}>
+      <div className='fixed-bottom relative'>
         <Footer />
       </div>
       

@@ -45,7 +45,8 @@ const FeaturedLastPost = () => {
           <span 
             className='text-4xl font-light uppercase'
             style={{ 
-              fontFamily: 'Luam-Regular',
+              fontFamily: 'Luam-Light',
+              fontWeight: 300,
               color: `
                 ${lastPost[0].categories[0].name.toString() === 'Bahia'
                   ? '#DC2626' 
@@ -88,8 +89,8 @@ const FeaturedLastPost = () => {
             >
               <p 
                 style={{ 
-                  fontFamily: 'Luam-Regular',
-                  fontWeight: 400,
+                  fontFamily: 'Luam-Light',
+                  fontWeight: 300,
                   fontSize: '1.2em', 
                   color: '#a6a6a6',
                 }}

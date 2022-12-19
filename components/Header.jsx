@@ -38,7 +38,7 @@ const Header = () => {
   }
 
   return (
-    <div className='mx-auto px-10 dark:bg-black'>
+    <div className='mx-auto px-10 dark:bg-black pb-2'>
       {categories.map(({ name, slug }, idx) => (
         <div key={`${slug}-${idx}`}>
           <Link href={`/category/${slug}`}>
