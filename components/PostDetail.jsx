@@ -131,7 +131,8 @@ const PostDetail = ({ post }) => {
                 : post.categories[0].name === 'Ser' 
                 ? '#16A34A' 
                 : '#EAB308',
-                fontFamily: 'Luam-Regular'   
+                fontFamily: 'Luam-Light',
+                fontWeight: 300
             }}
           >
           { post.categories[0].name || <Skeleton count={1} /> } 

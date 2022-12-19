@@ -88,7 +88,8 @@ const FeaturedLastPost = () => {
             >
               <p 
                 style={{ 
-                  fontFamily: 'Luam-Regular', 
+                  fontFamily: 'Luam-Regular',
+                  fontWeight: 400,
                   fontSize: '1.2em', 
                   color: '#a6a6a6',
                 }}
