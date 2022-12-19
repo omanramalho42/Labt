@@ -11,7 +11,8 @@ import {
 import { 
   FeaturedPosts, 
   FeaturedLastPost, 
-  FeaturedMeet 
+  FeaturedMeet,
+  FeaturedGallery 
 } from '../sections'
 
 import { getPosts } from '../services'
@@ -44,19 +45,25 @@ const Home: NextPage = ({ posts }: any) => {
   },[]);
   
   return (
-   <div className='mx-auto px-10 mb-8 dark:bg-black dark:text-white'>
+   <div className='mx-auto mb-8 dark:bg-black dark:text-white'>
       <Head>
         <title>Laboratório Temp</title>
         <link rel="stylesheet" href="/icon.png" />
         
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
+
+      <div className='px-10'>
+        <FeaturedLastPost />
+        
+        <FeaturedPosts />
+        <div className='mt-14'>
+          <FeaturedMeet />
+        </div>
+      </div>
       
-      <FeaturedLastPost />
-      
-      <FeaturedPosts />
-      <div className='mt-14'>
-        <FeaturedMeet />
+      <div style={{ marginBottom: '20%' }} id="banca">
+        <FeaturedGallery />
       </div>
 
       {/* <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
@@ -75,7 +82,9 @@ const Home: NextPage = ({ posts }: any) => {
         </div>
       </div> */}
 
-      <Footer />
+      <div className='fixed-bottom relative' style={{ bottom: '-80px'}}>
+        <Footer />
+      </div>
       
    </div>
   )

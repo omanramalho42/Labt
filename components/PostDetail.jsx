@@ -11,15 +11,15 @@ const PostDetail = ({ post }) => {
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 1024 },
-      items: 5,
+      items: 1,
     },
     desktop: {
       breakpoint: { max: 1024, min: 768 },
-      items: 3,
+      items: 1,
     },
     tablet: {
       breakpoint: { max: 768, min: 640 },
-      items: 2,
+      items: 1,
     },
     mobile: {
       breakpoint: { max: 640, min: 0 },
@@ -224,13 +224,11 @@ const PostDetail = ({ post }) => {
               autoPlay
             >
               {post.carousel.map((i, idx) => (
-                <Image
+                <img
                   key={idx}
                   unoptimized
-                  width="600"
-                  height="600"
                   alt="imagem carousel"
-                  className="w-full h-full align-middle drop-shadow-lg"
+                  className="w-full drop-shadow-lg"
                   src={i.url}
                 />
               ))}
