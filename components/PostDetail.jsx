@@ -102,6 +102,7 @@ const PostDetail = ({ post }) => {
           marginRight: '1em',
           display: 'flex', 
           flexDirection: 'row', 
+          marginBottom: '3em'
         }}
       >
         <div 

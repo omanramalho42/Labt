@@ -6,7 +6,7 @@ import { Link } from 'next/link'
 import { Toaster, toast } from 'react-hot-toast'
 
 import { getCategories, getCategoryPost } from '../../services'
-import { PostCard, Categories, Loader } from '../../components'
+import { PostCard, Categories, Loader, Footer } from '../../components'
 
 const CategoryPost = ({ posts }) => {
   const router = useRouter();
@@ -75,6 +75,8 @@ const CategoryPost = ({ posts }) => {
           </div>
         </div> */}
       </div>
+
+      <Footer />
     </div>
   );
 };
