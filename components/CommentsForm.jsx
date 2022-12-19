@@ -97,7 +97,7 @@ const CommentsForm = ({ slug, color }) => {
 
   return (
     <div className="bg-white rounded-lg lg:px-16 p-6 pb-12 mb-8">
-      <h3 className="text-4xl font-bold">
+      <h3 className="text-4xl font-bold" style={{ fontFamily: 'gotham-bold' }}>
         Deixe um comentário
       </h3>
       <p className='font-medium'>O seu endereço de e-mail não será publicado</p>

@@ -62,7 +62,7 @@ const FeaturedLastPost = () => {
             { lastPost[0].categories[0].name.toString() || <Skeleton count={1} /> }
           </span>
           
-          <h1 className='text-4xl font-bold mt-2 text-cyan-600'>
+          <h1 className='text-4xl font-bold mt-2 text-cyan-600' style={{ fontFamily: 'gotham-bold' }}>
             { lastPost[0].title || <Skeleton /> }
           </h1>
           

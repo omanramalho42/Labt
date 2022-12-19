@@ -166,7 +166,7 @@ const PostDetail = ({ post }) => {
           </p>
         </div> */}
         
-        <h1 className="lg:px-10 mb-2 lg:text-5xl sm:text-4xl font-semibold"> 
+        <h1 className="lg:px-10 mb-2 lg:text-5xl sm:text-4xl font-semibold" style={{ fontFamily: 'gotham-bold' }}> 
           { post.title || <Skeleton />} 
         </h1>
         
@@ -238,7 +238,9 @@ const PostDetail = ({ post }) => {
           )}
 
           <div className='flex flex-col font-bold' style={{ marginTop: '50px' }}>
-            <h5>Compartilhe</h5>     
+            <h5 style={{ fontFamily: 'gotham-bold' }}>
+              •Compartilhe
+            </h5>     
             <div className='flex row'>
               <a href="https://www.facebook.com/profile.php?id=100088693333749" type="button" className="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                 <svg aria-hidden="true"
