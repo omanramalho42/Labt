@@ -108,7 +108,7 @@ const Header = () => {
               </Fragment>
             ))}
             <a 
-              href='#banca'
+              href='/#banca'
               className='md:float-right mt-2 disabled:opacity-25 text-black dark:text-white font-semibold cursor-pointer border-separate lg:text-2xl'
             >
               Banca
