@@ -166,11 +166,11 @@ const PostDetail = ({ post }) => {
           </p>
         </div> */}
         
-        <h1 className="lg:px-10 mb-2 lg:text-5xl sm:text-4xl font-semibold" style={{ fontFamily: 'gotham-bold' }}> 
+        <h1 className="lg:px-10 mb-2 text-5xl font-semibold" style={{ fontFamily: 'gotham-bold' }}> 
           { post.title || <Skeleton />} 
         </h1>
         
-        <div className='flex px-10 items-center mb-4 lg:mb-0 w-full lg:w-auto mr-8'>
+        <div className='flex lg:px-10 items-center mb-4 lg:mb-0 w-full lg:w-auto mr-8'>
           {/* {post.author.photo.url ? (
             <img 
               src={post.author.photo.url} 
