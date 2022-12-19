@@ -56,7 +56,7 @@ const FeaturedPosts = () => {
   );
 
   return (
-    <div className="mb-8">
+    <div className="" style={{ marginBottom: '8em' }}>
       <Carousel 
         infinite
         autoPlay

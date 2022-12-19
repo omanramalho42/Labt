@@ -87,13 +87,18 @@ const FeaturedMeet = () => {
         className='flex flex-col items-center mx-auto'
         style={{
           height: '-webkit-fill-available',
-          width: '-webkit-fill-available'
+          width: '-webkit-fill-available',
+          backgroundImage: `url(${'/sectionmeet.png'})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'contain',
+          backgroundOrigin: 'border-box',
+          backgroundPosition: 'center',
         }}
       >
-
         <h1 
-          className='text-4xl uppercase font-bold text-center'
+          className='relative text-4xl uppercase font-bold text-center'
           style={{ 
+            top: '-40px',
             fontFamily: 'Luam-Regular',
             letterSpacing: mobile.innerWidth < 1000 ? '10px' : '40px', 
             zIndex: 21,
@@ -107,17 +112,11 @@ const FeaturedMeet = () => {
             borderBottom: '2.5px solid #000', 
             width: mobile.innerWidth < 1000 ? '200px' : '350px',
             marginBottom: '80px',
-            marginRight: mobile.innerWidth < 1000 ? '0px' : '30px'
+            marginRight: mobile.innerWidth < 1000 ? '0px' : '30px',
           }}
         />
         <div 
           className="grid"
-          style={{ 
-            backgroundImage: `url(${'/sectionmeet.png'})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'contain',
-            backgroundPosition: 'center'
-          }}
         >
           {lastPosts.map(({ 
             categorieName, 
@@ -128,21 +127,22 @@ const FeaturedMeet = () => {
             <>
               <div
                 key={`${idx}-${slug}`} 
-                className='rounded-full mx-auto' 
+                className='relative rounded-full mx-auto' 
                 style={{
+                  top: '-80px',
                   width: `${
                     mobile.innerWidth < 1000 
                     ? '120px'
                     : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
                     ? '180px' 
-                    : categorieName === 'Estar' || categorieName === 'Bahia' ? '300px' : '250px'
+                    : categorieName === 'Estar' || categorieName === 'Bahia' ? '310px' : '250px'
                   }`, 
                   height: `${
                     mobile.innerWidth < 1000 
                     ? '120px' 
                     : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
                     ? '180px' 
-                    : categorieName === 'Estar' || categorieName === 'Bahia' ? '300px' : '250px'
+                    : categorieName === 'Estar' || categorieName === 'Bahia' ? '310px' : '250px'
                   }`,
                   backgroundImage: `url(${lastPosts[idx].featuredImage || ''})`,
                   boxShadow: '2px 3px 10px 1px rgba(0, 0, 0, 0.1)',
