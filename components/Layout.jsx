@@ -1,13 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Header } from './'
 
-const Layout = ({ children }) => {
-  useEffect(() => {
-    return () => {
-      console.log("renderizando compoennte");
-    }
-  }, [])
-  
+const Layout = ({ children }) => {  
   return (
     <>
       <Header />
