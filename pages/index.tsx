@@ -71,7 +71,7 @@ const Home: NextPage = ({ posts }: any) => {
         </div>
       </div>
       
-      <div style={{ marginBottom: '20%' }} id="banca">
+      <div style={{ marginBottom: '20%', marginTop: '10%' }} id="banca">
         <FeaturedGallery />
       </div>
 
