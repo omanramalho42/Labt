@@ -93,16 +93,6 @@ a {
   display: inline-block; /* If you want dots under the hoverable text */
 }
 
-.bgsection {
-  _::-webkit-full-page-media {
-    height: -webkit-fill-available;
-    width: -webkit-fill-available;
-    background-attachment: inherit;
-    background-size: contain;
-    background-position: center;
- }
-}
-
 /* Tooltip text */
 .tooltip .tooltiptext {
   z-index: 999999999 !important;

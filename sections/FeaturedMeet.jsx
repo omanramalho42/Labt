@@ -80,6 +80,12 @@ const FeaturedMeet = () => {
       });
     }
   },[]);
+
+  <style>
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  </style>
   
   if(lastPosts.length > 0) {
     return (
@@ -91,8 +97,8 @@ const FeaturedMeet = () => {
           backgroundImage: `url(${'/sectionmeet.png'})`,
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'inherit',
-          backgroundSize: 'contain',
-          backgroundPosition: 'center',
+          webKitBackgroundSize: 'contain',
+          webKitBackgroundPosition: 'center'
         }}
       >
         <div className='relative flex flex-col items-center' style={{ top: '-55px' }}>
