@@ -66,7 +66,7 @@ const Home: NextPage = ({ posts }: any) => {
         <FeaturedLastPost />
         
         <FeaturedPosts />
-        <div className='mt-14'>
+        <div className='relative mt-14' style={{ boxSizing: 'border-box' }}>
           <FeaturedMeet />
         </div>
       </div>
