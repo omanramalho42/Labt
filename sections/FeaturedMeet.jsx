@@ -90,8 +90,8 @@ const FeaturedMeet = () => {
           width: '-webkit-fill-available',
           backgroundImage: `url(${'/sectionmeet.png'})`,
           backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'inherit',
           backgroundSize: 'contain',
-          backgroundOrigin: 'border-box',
           backgroundPosition: 'center',
         }}
       >
