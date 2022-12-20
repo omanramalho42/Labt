@@ -88,16 +88,23 @@ const FeaturedMeet = () => {
         style={{
           position: '-webkit-sticky',
           height: '-webkit-fill-available',
-          width: '-webkit-fill-available'
+          width: '-webkit-fill-available',
+          marginBottom: 
+            navigator.userAgent.includes("Mac") 
+            || navigator.userAgent.includes("safari")
+            || navigator.userAgent.includes("ios") 
+            && '300px'
         }}
       >
-        <div style={{
-          backgroundImage: `url(${'/sectionmeet.png'})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'local',
-          backgroundSize: 'contain',
-          backgroundPosition: 'center',
-        }}>
+        <div 
+          style={{
+            backgroundImage: `url(${'/sectionmeet.png'})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundAttachment: 'local',
+            backgroundSize: 'contain',
+            backgroundPosition: 'center',
+          }}
+        >
           <div className='relative flex flex-col items-center' style={{ top: '-5em' }}>
             <h1 
               className='text-4xl uppercase font-bold text-center'
