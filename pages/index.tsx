@@ -71,9 +71,9 @@ const Home: NextPage = ({ posts }: any) => {
         </div>
       </div>
       
-      {/* <div style={{ marginBottom: '20%', marginTop: '10%' }} id="banca">
+      <div style={{ marginBottom: '20%', marginTop: '10%' }} id="banca">
         <FeaturedGallery />
-      </div> */}
+      </div>
 
       {/* <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
         <div className='lg:col-span-12 col-span-1'>
