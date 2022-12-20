@@ -86,6 +86,7 @@ const FeaturedMeet = () => {
       <div 
         className='flex flex-col items-center mx-auto w-full h-full'
         style={{
+          position: '-webkit-sticky',
           height: '-webkit-fill-available',
           width: '-webkit-fill-available',
           backgroundImage: `url(${'/sectionmeet.png'})`,
