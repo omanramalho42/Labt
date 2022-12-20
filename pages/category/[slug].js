@@ -32,7 +32,7 @@ const CategoryPost = ({ posts }) => {
     <motion.div
       initial={{ width: 0 }} 
       animate={{ width: '100%' }} 
-      transition={{ duration: 1.25, ease: "easeOut" }}
+      transition={{ duration: .75, ease: "easeOut" }}
       exit={{ x: '100%', transition: { duration: 0.1 } }} 
       className="mx-auto px-10"
     >
