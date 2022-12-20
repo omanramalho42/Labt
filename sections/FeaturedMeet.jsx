@@ -84,7 +84,7 @@ const FeaturedMeet = () => {
   if(lastPosts.length > 0) {
     return (
       <div 
-        className='flex flex-col items-center mx-auto bgsection'
+        className='flex flex-col items-center mx-auto w-full h-full'
         style={{
           height: '-webkit-fill-available',
           width: '-webkit-fill-available',
