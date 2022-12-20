@@ -96,7 +96,7 @@ const FeaturedMeet = () => {
           position: '-webkit-sticky',
           height: '-webkit-fill-available',
           width: '-webkit-fill-available',
-          marginBottom: ios && '18em',
+          marginBottom: ios ? '30em' : '10em',
         }}
       >
         <div 
