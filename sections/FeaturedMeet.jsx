@@ -89,7 +89,7 @@ const FeaturedMeet = () => {
           position: '-webkit-sticky',
           height: '-webkit-fill-available',
           width: '-webkit-fill-available',
-          marginBottom: '15em'
+          marginBottom: mobile.innerWidth < 1000 && '8em'
         }}
       >
         <div 
@@ -118,7 +118,7 @@ const FeaturedMeet = () => {
                 borderBottom: '2.5px solid #000', 
                 width: mobile.innerWidth < 1000 ? '200px' : '350px',
                 marginRight: mobile.innerWidth < 1000 ? '0px' : '30px',
-                marginBottom: '2em'
+                marginBottom: mobile.innerWidth < 1000 ? '0px' : '2em'
               }}
             />
           </div>
