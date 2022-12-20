@@ -1,6 +1,6 @@
 import '../styles/globals.scss'
-import '../styles/normalize.css'
-import '../styles/reset.css'
+// import '../styles/normalize.css'
+// import '../styles/reset.css'
 
 import type { AppProps } from 'next/app'
 

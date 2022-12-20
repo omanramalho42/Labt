@@ -117,6 +117,7 @@ const FeaturedMeet = () => {
           />
         </div>
         <div 
+          style={{ margin: '10px' }}
           className="grid"
         >
           {lastPosts.map(({ 
@@ -129,7 +130,7 @@ const FeaturedMeet = () => {
               key={`${Math.random() * 100}`} 
               className='relative rounded-full mx-auto' 
               style={{
-                top: '-80px',
+                top: '-5em',
                 width: `${
                   mobile.innerWidth < 1000 
                   ? '120px'
