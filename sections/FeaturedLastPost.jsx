@@ -69,7 +69,7 @@ const FeaturedLastPost = () => {
           <blockquote 
             className='lg:text-left mt-3 mr-3'
           >
-            <p className='text-xl font-medium leading-loose tracking-tight hover:tracking-wide' style={{ fontFamily: 'Luam-bold' }}>
+            <p className='text-xl font-medium leading-loose tracking-tight hover:tracking-wide'>
               {lastPost[0].excerpt || <Skeleton count={12} />}
             </p>
           </blockquote>
