@@ -81,6 +81,13 @@ const FeaturedMeet = () => {
     }
   },[]);
 
+  const [ios, setIos] = useState(false);
+  useEffect(() => {
+    return () => {
+      navigator.userAgent.includes("IOS" || "Safari") && setIos(true);
+    }
+  },[]);
+
   if(lastPosts.length > 0) {
     return (
       <div 
@@ -89,7 +96,7 @@ const FeaturedMeet = () => {
           position: '-webkit-sticky',
           height: '-webkit-fill-available',
           width: '-webkit-fill-available',
-          marginBottom: '10em'
+          marginBottom: ios && '10em'
         }}
       >
         <div 
