@@ -55,7 +55,7 @@ const FeaturedGallery = () => {
           style={{ 
             gridTemplateColumns: 
               mobile.innerWidth >= 1400 ? 
-              'repeat(4,1fr)' 
+              'repeat(3,1fr)' 
               : mobile.innerWidth < 1400 && mobile.innerWidth >= 1200
               ? 'repeat(3,1fr)'
               : mobile.innerWidth < 1200 && mobile.innerWidth > 1000
@@ -65,7 +65,7 @@ const FeaturedGallery = () => {
             gridRowGap: '10em',
           }}
         >
-          {['1','2','3','4'].map((i,idx) => (
+          {['1','2','3'].map((i,idx) => (
             <div 
               className='relative w-80 h-80'
               key={`${idx}`} 
@@ -77,7 +77,7 @@ const FeaturedGallery = () => {
               }}
             >
               <div className='relative flex flex-col text-center' style={{ top: '110%' }}>
-                <p>Titulo do produto</p>
+                <p>Em breve</p>
                 <strong className='text-2xl'>R$00,00</strong>
                 <button className='w-40 h-10 mx-auto rounded-lg' style={{ backgroundColor: '#ffa012' }}>
                   <a href="" className='px-4 uppercase'>Comprar</a>

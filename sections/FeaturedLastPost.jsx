@@ -92,7 +92,7 @@ const FeaturedLastPost = () => {
                   fontFamily: 'Luam-Light',
                   fontWeight: 300,
                   fontSize: '1.2em', 
-                  color: '#a6a6a6',
+                  color: '#000000',
                 }}
               >
                 leia mais
