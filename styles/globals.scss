@@ -119,8 +119,8 @@ a {
 }
 
 .box1, .box2, .box3, .box4 {
+  display: -webkit-flex;
   position: relative;
-  -webkit-appearance: none;
 }
 
 .box1 {
