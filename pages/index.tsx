@@ -1,6 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
+
+import { motion } from 'framer-motion'
+
 import { 
   PostCard, 
   PostWidget, 
@@ -45,7 +48,13 @@ const Home: NextPage = ({ posts }: any) => {
   },[]);
   
   return (
-   <div className='mx-auto mb-8 dark:bg-black dark:text-white'>
+   <motion.div
+      initial={{ width: 0 }} 
+      animate={{ width: '100%' }} 
+      transition={{ duration: 1.25, ease: "easeOut" }}
+      exit={{ x: '100%', transition: { duration: 0.1 } }}  
+      className='mx-auto mb-8 dark:bg-black dark:text-white'
+    >
       <Head>
         <title>Laboratório Temp</title>
         <link rel="stylesheet" href="/icon.png" />
@@ -86,7 +95,7 @@ const Home: NextPage = ({ posts }: any) => {
         <Footer />
       </div>
       
-   </div>
+   </motion.div>
   )
 }
 

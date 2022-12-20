@@ -46,6 +46,7 @@ const PostDetails = ({ post }) => {
       initial={{ width: 0 }} 
       animate={{ width: '100%' }} 
       transition={{ duration: 1.25, ease: "easeOut" }}
+      exit={{ x: '100%', transition: { duration: 0.1 } }} 
     >
       <div className="mx-auto mb-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
