@@ -171,7 +171,7 @@ const FeaturedMeet = () => {
                     : categorieName === 'Ser'
                     ? '#16A34A'
                     : '#EAB308'
-                  }` : 0,
+                  }` : ios ? '0' : '0',
                   padding: '1px',
                   border: mobile.innerWidth < 800 ? `4.5px solid 
                   ${categorieName === 'Salvador'
@@ -181,7 +181,19 @@ const FeaturedMeet = () => {
                       : categorieName === 'Ser'
                       ? '#16A34A'
                       : '#EAB308'
-                  }` : 0,
+                  }` : 
+                  ios ? 
+                  `4.5px solid
+                  ${categorieName === 'Salvador'
+                      ? '#2563EB'
+                      : categorieName === 'Bahia'
+                      ? '#DC2626' 
+                      : categorieName === 'Ser'
+                      ? '#16A34A'
+                      : '#EAB308'
+                  }
+                  ` 
+                  : '0',
                   outlineOffset: '10px',
                   gridColumnStart: 
                     categorieName === 'Estar' 
