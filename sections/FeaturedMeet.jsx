@@ -81,12 +81,6 @@ const FeaturedMeet = () => {
     }
   },[]);
 
-  <style>
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-  </style>
-  
   if(lastPosts.length > 0) {
     return (
       <div 
@@ -97,8 +91,8 @@ const FeaturedMeet = () => {
           backgroundImage: `url(${'/sectionmeet.png'})`,
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'inherit',
-          webKitBackgroundSize: 'contain',
-          webKitBackgroundPosition: 'center'
+          backgroundSize: 'contain',
+          backgroundPosition: 'center',
         }}
       >
         <div className='relative flex flex-col items-center' style={{ top: '-55px' }}>
