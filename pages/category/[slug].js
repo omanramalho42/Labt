@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
-import { Link } from 'next/link'
+import { motion } from 'framer-motion'
 
 import { Toaster, toast } from 'react-hot-toast'
 
@@ -29,7 +29,13 @@ const CategoryPost = ({ posts }) => {
   },[search]);
 
   return (
-    <div className="mx-auto px-10">
+    <motion.div
+      initial={{ width: 0 }} 
+      animate={{ width: '100%' }} 
+      transition={{ duration: 1.25, ease: "easeOut" }}
+      exit={{ x: '100%', transition: { duration: 0.1 } }} 
+      className="mx-auto px-10"
+    >
       <div style={{ display: 'flex', flexDirection: 'row', marginBottom: 20 }}>
         <span 
           className='text-3xl mr-4 font-medium uppercase'
@@ -93,7 +99,7 @@ const CategoryPost = ({ posts }) => {
       </div>
 
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 export default CategoryPost;

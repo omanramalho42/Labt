@@ -4,6 +4,7 @@ import Link from 'next/link'
 
 import { getCategories } from '../services'
 import Skeleton from 'react-loading-skeleton'
+import Image from 'next/image'
 
 const Header = () => {
   const [categories, setCategories] = useState([]);
@@ -82,7 +83,7 @@ const Header = () => {
               }}
             >
               <span className='cursor-pointer font-bold text-4xl text-black'>
-                <img src='/logo.png' alt="logo labtempo" width="500" height="500" />
+                <Image src='/logo.png' alt="logo labtempo" width="500" height="500" />
               </span>
             </motion.div>
           </Link>

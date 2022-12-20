@@ -125,137 +125,135 @@ const FeaturedMeet = () => {
             excerpt, 
             title 
           }, idx) => categorieName && !loading ? (
-            <>
-              <div
-                key={`${idx}-${slug}`} 
-                className='relative rounded-full mx-auto' 
-                style={{
-                  top: '-80px',
-                  width: `${
-                    mobile.innerWidth < 1000 
-                    ? '120px'
-                    : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
-                    ? '180px' 
-                    : categorieName === 'Estar' || categorieName === 'Bahia' ? '310px' : '250px'
-                  }`, 
-                  height: `${
-                    mobile.innerWidth < 1000 
-                    ? '120px' 
-                    : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
-                    ? '180px' 
-                    : categorieName === 'Estar' || categorieName === 'Bahia' ? '310px' : '250px'
-                  }`,
-                  backgroundImage: `url(${lastPosts[idx].featuredImage || ''})`,
-                  boxShadow: '2px 3px 10px 1px rgba(0, 0, 0, 0.1)',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'cover',
-                  transition: '0.325s',
-                  outline: mobile.innerWidth > 800 || mobile.innerWidth === undefined ?  `4.5px solid 
-                  ${categorieName === 'Salvador'
+            <div
+              key={`${Math.random() * 100}`} 
+              className='relative rounded-full mx-auto' 
+              style={{
+                top: '-80px',
+                width: `${
+                  mobile.innerWidth < 1000 
+                  ? '120px'
+                  : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
+                  ? '180px' 
+                  : categorieName === 'Estar' || categorieName === 'Bahia' ? '310px' : '250px'
+                }`, 
+                height: `${
+                  mobile.innerWidth < 1000 
+                  ? '120px' 
+                  : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
+                  ? '180px' 
+                  : categorieName === 'Estar' || categorieName === 'Bahia' ? '310px' : '250px'
+                }`,
+                backgroundImage: `url(${lastPosts[idx].featuredImage || ''})`,
+                boxShadow: '2px 3px 10px 1px rgba(0, 0, 0, 0.1)',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                transition: '0.325s',
+                outline: mobile.innerWidth > 800 || mobile.innerWidth === undefined ?  `4.5px solid 
+                ${categorieName === 'Salvador'
+                  ? '#2563EB'
+                  : categorieName === 'Bahia'
+                  ? '#DC2626' 
+                  : categorieName === 'Ser'
+                  ? '#16A34A'
+                  : '#EAB308'
+                }` : 0,
+                padding: '1px',
+                border: mobile.innerWidth < 800 ? `4.5px solid 
+                ${categorieName === 'Salvador'
                     ? '#2563EB'
                     : categorieName === 'Bahia'
                     ? '#DC2626' 
                     : categorieName === 'Ser'
                     ? '#16A34A'
                     : '#EAB308'
-                  }` : 0,
-                  padding: '1px',
-                  border: mobile.innerWidth < 800 ? `4.5px solid 
-                  ${categorieName === 'Salvador'
-                      ? '#2563EB'
-                      : categorieName === 'Bahia'
-                      ? '#DC2626' 
-                      : categorieName === 'Ser'
-                      ? '#16A34A'
-                      : '#EAB308'
-                  }` : 0,
-                  outlineOffset: '10px',
-                  gridColumnStart: 
-                    categorieName === 'Estar' 
-                    ? 2 
-                    : categorieName === 'Salvador' 
-                    ? 3 
+                }` : 0,
+                outlineOffset: '10px',
+                gridColumnStart: 
+                  categorieName === 'Estar' 
+                  ? 2 
+                  : categorieName === 'Salvador' 
+                  ? 3 
+                  : categorieName === 'Bahia'
+                  ? 2
+                  : 1
+              }}
+            >
+              <a 
+                href={`/post/${slug}`}
+                className={`box relative rounded-full tooltip 
+                  ${categorieName === 'Ser' 
+                  ? 'box1' 
+                  : categorieName === 'Salvador' 
+                  ? 'box2'  
+                  : categorieName === 'Bahia'
+                  ? 'box3'
+                  : 'box4'
+                }`}
+                style={{ 
+                  flex: 1,
+                  display: 'flex',
+                  zIndex: 1,
+                  backgroundColor: 
+                    categorieName === 'Salvador'
+                    ? '#2563EB'
                     : categorieName === 'Bahia'
-                    ? 2
-                    : 1
+                    ? '#DC2626' 
+                    : categorieName === 'Ser'
+                    ? '#16A34A'
+                    : '#EAB308',
                 }}
               >
-                <a 
-                  href={`/post/${slug}`}
-                  className={`box relative rounded-full tooltip 
-                    ${categorieName === 'Ser' 
-                    ? 'box1' 
-                    : categorieName === 'Salvador' 
-                    ? 'box2'  
-                    : categorieName === 'Bahia'
-                    ? 'box3'
-                    : 'box4'
-                  }`}
-                  style={{ 
-                    flex: 1,
-                    display: 'flex',
-                    zIndex: 1,
-                    backgroundColor: 
-                      categorieName === 'Salvador'
-                      ? '#2563EB'
-                      : categorieName === 'Bahia'
-                      ? '#DC2626' 
-                      : categorieName === 'Ser'
-                      ? '#16A34A'
-                      : '#EAB308',
-                  }}
-                >
-                  {mobile.innerWidth > 1000 && (
-                    <span 
-                      className="tooltiptext" 
-                      style={{
-                        zIndex: 9,
-                        color: 'black',
-                        fontWeight: 'bold',
-                        left:
-                          categorieName === 'Salvador'
-                          ? '4em'
-                          : categorieName === 'Estar'
-                          ? '-12em' 
-                          : categorieName === 'Ser'
-                          ? '-11em'
-                          : categorieName === 'Bahia' 
-                          ? '6em'
-                          : 0,
-                        top:
-                          categorieName === 'Salvador'
-                          ? '-2em'
-                          : categorieName === 'Estar'
-                          ? '-2em' 
-                          : categorieName === 'Ser'
-                          ? '-2em'
-                          : categorieName === 'Bahia'
-                          ? '0' : 0,
-                      }}
+                {mobile.innerWidth > 1000 && (
+                  <span 
+                    className="tooltiptext" 
+                    style={{
+                      zIndex: 9,
+                      color: 'black',
+                      fontWeight: 'bold',
+                      left:
+                        categorieName === 'Salvador'
+                        ? '4em'
+                        : categorieName === 'Estar'
+                        ? '-12em' 
+                        : categorieName === 'Ser'
+                        ? '-11em'
+                        : categorieName === 'Bahia' 
+                        ? '6em'
+                        : 0,
+                      top:
+                        categorieName === 'Salvador'
+                        ? '-2em'
+                        : categorieName === 'Estar'
+                        ? '-2em' 
+                        : categorieName === 'Ser'
+                        ? '-2em'
+                        : categorieName === 'Bahia'
+                        ? '0' : 0,
+                    }}
+                    >
+                      <p 
+                        className='font-medium'
+                        style={{
+                          color: 
+                            categorieName === 'Salvador'
+                            ? '#2563EB'
+                            : categorieName === 'Bahia'
+                            ? '#DC2626' 
+                            : categorieName === 'Ser'
+                            ? '#16A34A'
+                            : '#EAB308',    
+                        }}
                       >
-                        <p 
-                          className='font-medium'
-                          style={{
-                            color: 
-                              categorieName === 'Salvador'
-                              ? '#2563EB'
-                              : categorieName === 'Bahia'
-                              ? '#DC2626' 
-                              : categorieName === 'Ser'
-                              ? '#16A34A'
-                              : '#EAB308',    
-                          }}
-                        >
-                          { categorieName }
-                        </p>
-                        <p>
-                          { title  || 'dont avaliable'}
-                        </p>
-                    </span>
-                  )}
-                </a>
-              </div>
-            </>
+                        { categorieName }
+                      </p>
+                      <p>
+                        { title  || 'dont avaliable'}
+                      </p>
+                  </span>
+                )}
+              </a>
+            </div>
           ) : (
             <div
               className='rounded-full mx-auto' 

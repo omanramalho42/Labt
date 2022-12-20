@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
+import { motion } from 'framer-motion'
+
 import { 
   PostDetail, 
   Categories, 
@@ -40,7 +42,11 @@ const PostDetails = ({ post }) => {
   }
 
   return (
-    <>
+    <motion.div
+      initial={{ width: 0 }} 
+      animate={{ width: '100%' }} 
+      transition={{ duration: 1.25, ease: "easeOut" }}
+    >
       <div className="mx-auto mb-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-12">
@@ -59,7 +65,7 @@ const PostDetails = ({ post }) => {
         </div>
         <Footer />
       </div>
-    </>
+    </motion.div>
   );
 };
 

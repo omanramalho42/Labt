@@ -66,25 +66,24 @@ const FeaturedGallery = () => {
           }}
         >
           {['1','2','3','4'].map((i,idx) => (
-            <>
-              <div 
-                className='relative w-80 h-80' 
-                style={{ 
-                  top: '80px',
-                  boxShadow: '8px 12px 12px 6px rgba(0,0,0,0.3)',
-                  backgroundColor: '#FFF',
-                  borderRadius: '15px' 
-                }}
-              >
-                <div className='relative flex flex-col text-center' style={{ top: '110%' }}>
-                  <p>Titulo do produto</p>
-                  <strong className='text-2xl'>R$00,00</strong>
-                  <button className='w-40 h-10 mx-auto rounded-lg' style={{ backgroundColor: '#ffa012' }}>
-                    <a href="" className='px-4 uppercase'>Comprar</a>
-                  </button>
-                </div>
+            <div 
+              className='relative w-80 h-80'
+              key={`${idx}`} 
+              style={{ 
+                top: '80px',
+                boxShadow: '8px 12px 12px 6px rgba(0,0,0,0.3)',
+                backgroundColor: '#FFF',
+                borderRadius: '15px' 
+              }}
+            >
+              <div className='relative flex flex-col text-center' style={{ top: '110%' }}>
+                <p>Titulo do produto</p>
+                <strong className='text-2xl'>R$00,00</strong>
+                <button className='w-40 h-10 mx-auto rounded-lg' style={{ backgroundColor: '#ffa012' }}>
+                  <a href="" className='px-4 uppercase'>Comprar</a>
+                </button>
               </div>
-            </>
+            </div>
           ))}
         </div>
       </div>

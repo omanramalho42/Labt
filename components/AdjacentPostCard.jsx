@@ -40,12 +40,24 @@ const AdjacentPostCard = ({ post, position, color }) => (
   // </>
   <div className='d-flex w-full'>
     {position === 'RIGHT' ? (
-      <Link href={`/post/${post.slug}`} className="justify-end" style={{ display: 'flex', marginLeft: '100px', justifyContent: 'flex-end' }}>
-        <p className='font-bold'>Matéria seguinte{">>"}</p>
+      <Link 
+        href={`/post/${post.slug}`} 
+        className="justify-end" 
+        style={{ 
+          display: 'flex', 
+          marginLeft: '100px', 
+          justifyContent: 'flex-end' 
+        }}
+      >
+        <p className='font-bold'>
+          Matéria seguinte{">>"}
+        </p>
       </Link>
     ) : (
       <Link href={`/post/${post.slug}`}>
-        <p className='font-bold'>{"<<"} Matéria anterior</p>
+        <p className='font-bold'>
+          {"<<"} Matéria anterior
+        </p>
       </Link>
     )}
   </div>
