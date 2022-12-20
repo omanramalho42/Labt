@@ -117,8 +117,8 @@ const FeaturedMeet = () => {
           />
         </div>
         <div 
-          style={{ margin: '10px' }}
-          className="relative grid p-1"
+          className="relative grid"
+          style={{ top: '10%' }}
         >
           {lastPosts.map(({ 
             categorieName, 
