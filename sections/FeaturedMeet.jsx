@@ -163,7 +163,7 @@ const FeaturedMeet = () => {
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
                   transition: '0.325s',
-                  outline: mobile.innerWidth > 800 || mobile.innerWidth === undefined ?  `4.5px solid 
+                  outline:!ios && mobile.innerWidth > 800 || !ios && mobile.innerWidth === undefined ?  `4.5px solid 
                   ${categorieName === 'Salvador'
                     ? '#2563EB'
                     : categorieName === 'Bahia'
