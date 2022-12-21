@@ -182,7 +182,7 @@ const FeaturedMeet = () => {
                       ? '#16A34A'
                       : '#EAB308'
                   }` : 
-                  ios ? 
+                  ios ?
                   `4.5px solid
                   ${categorieName === 'Salvador'
                       ? '#2563EB'
