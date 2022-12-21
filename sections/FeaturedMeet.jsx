@@ -101,7 +101,7 @@ const FeaturedMeet = () => {
             // ? '25em'
             // : 
             mobile.innerWidth >= 500 && mobile.innerWidth <= 1400 
-            ? '23em'
+            ? '20em'
             : '1em'
         }}
       >
