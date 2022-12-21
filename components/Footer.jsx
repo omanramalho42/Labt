@@ -13,7 +13,11 @@ const Footer = () => {
         </div>
 
         <div className="flex justify-center mb-1">
-          <a href="https://www.facebook.com/profile.php?id=100088693333749" type="button" className="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+          <a 
+            href="https://www.facebook.com/profile.php?id=100088693333749" 
+            type="button" 
+            className="rounded-full border-2 border-black text-black leading-normal text-center uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1"
+          >
             <svg aria-hidden="true"
               focusable="false"
               data-prefix="fab"

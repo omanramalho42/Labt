@@ -242,7 +242,7 @@ const PostDetail = ({ post }) => {
               •Compartilhe
             </h5>     
             <div className='flex row'>
-              <a href="https://www.facebook.com/profile.php?id=100088693333749" type="button" className="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+              <a href="https://www.facebook.com/profile.php?id=100088693333749" type="button" className="rounded-full border-2 text-center border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                 <svg aria-hidden="true"
                   focusable="false"
                   data-prefix="fab"
@@ -259,7 +259,7 @@ const PostDetail = ({ post }) => {
                 </svg>
               </a>
 
-              <a href="www.instagram.com/labtempo" type="button" className="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+              <a href="www.instagram.com/labtempo" type="button" className="rounded-full border-2 text-center border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                 <svg aria-hidden="true"
                   focusable="false"
                   data-prefix="fab"
@@ -276,7 +276,7 @@ const PostDetail = ({ post }) => {
                 </svg>
               </a>
 
-              <a href="#!" type="button" className="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+              <a href="#!" type="button" className="rounded-full border-2 text-center border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
               <svg 
                 className="w-4 h-full mx-auto" 
                 xmlns="http://www.w3.org/2000/svg"

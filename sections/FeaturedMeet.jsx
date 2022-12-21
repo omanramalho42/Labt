@@ -103,7 +103,7 @@ const FeaturedMeet = () => {
           style={{
             backgroundImage: `url(${'/sectionmeet.png'})`,
             backgroundRepeat: 'no-repeat',
-            backgroundAttachment: 'local',
+            padding: mobile.innerWidth < 1000 ? '0' : '5em',
             backgroundSize: 'contain',
             backgroundPosition: 'center',
           }}
@@ -131,14 +131,14 @@ const FeaturedMeet = () => {
           </div>
           <div 
             className="relative grid"
-            style={{ top: '2em' }}
+            style={{ top: mobile.innerWidth  > 1200 ? '1em' :'2em' }}
           >
             {lastPosts.map(({ 
               categorieName, 
               slug, 
               excerpt, 
               title 
-            }, idx) => categorieName && !loading ? (
+            }, idx) => categorieName && !loading && (
               <div
                 key={`${Math.random() * 100}`} 
                 className='relative rounded-full mx-auto' 
@@ -158,22 +158,10 @@ const FeaturedMeet = () => {
                     ? '180px' 
                     : categorieName === 'Estar' || categorieName === 'Bahia' ? '310px' : '250px'
                   }`,
-                  backgroundImage: `url(${lastPosts[idx].featuredImage || ''})`,
                   boxShadow: '2px 3px 10px 1px rgba(0, 0, 0, 0.1)',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'cover',
                   transition: '0.325s',
-                  outline:!ios && mobile.innerWidth > 800 || !ios && mobile.innerWidth === undefined ?  `4.5px solid 
-                  ${categorieName === 'Salvador'
-                    ? '#2563EB'
-                    : categorieName === 'Bahia'
-                    ? '#DC2626' 
-                    : categorieName === 'Ser'
-                    ? '#16A34A'
-                    : '#EAB308'
-                  }` : ios ? '0' : '0',
-                  padding: '1px',
-                  border: mobile.innerWidth < 800 ? `4.5px solid 
+                  padding: '10px',
+                  border: `4.5px solid 
                   ${categorieName === 'Salvador'
                       ? '#2563EB'
                       : categorieName === 'Bahia'
@@ -181,20 +169,7 @@ const FeaturedMeet = () => {
                       : categorieName === 'Ser'
                       ? '#16A34A'
                       : '#EAB308'
-                  }` : 
-                  ios ?
-                  `4.5px solid
-                  ${categorieName === 'Salvador'
-                      ? '#2563EB'
-                      : categorieName === 'Bahia'
-                      ? '#DC2626' 
-                      : categorieName === 'Ser'
-                      ? '#16A34A'
-                      : '#EAB308'
-                  }
-                  ` 
-                  : '0',
-                  outlineOffset: '10px',
+                  }`,
                   gridColumnStart: 
                     categorieName === 'Estar' 
                     ? 2 
@@ -205,111 +180,90 @@ const FeaturedMeet = () => {
                     : 1
                 }}
               >
-                <a 
-                  href={`/post/${slug}`}
-                  className={`box relative rounded-full tooltip 
-                    ${categorieName === 'Ser' 
-                    ? 'box1' 
-                    : categorieName === 'Salvador' 
-                    ? 'box2'  
-                    : categorieName === 'Bahia'
-                    ? 'box3'
-                    : 'box4'
-                  }`}
-                  style={{ 
-                    flex: 1,
-                    display: 'flex',
-                    zIndex: 1,
-                    backgroundColor: 
-                      categorieName === 'Salvador'
-                      ? '#2563EB'
-                      : categorieName === 'Bahia'
-                      ? '#DC2626' 
-                      : categorieName === 'Ser'
-                      ? '#16A34A'
-                      : '#EAB308',
+                <div
+                  className='w-full h-full' 
+                  style={{
+                    borderRadius: '50%',  
+                    backgroundImage: `url(${lastPosts[idx].featuredImage || ''})`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: 'cover',
                   }}
                 >
-                  {mobile.innerWidth > 1000 && (
-                    <span 
-                      className="tooltiptext" 
-                      style={{
-                        zIndex: 9,
-                        color: 'black',
-                        fontWeight: 'bold',
-                        left:
-                          categorieName === 'Salvador'
-                          ? '4em'
-                          : categorieName === 'Estar'
-                          ? '-12em' 
-                          : categorieName === 'Ser'
-                          ? '-11em'
-                          : categorieName === 'Bahia' 
-                          ? '6em'
-                          : 0,
-                        top:
-                          categorieName === 'Salvador'
-                          ? '-2em'
-                          : categorieName === 'Estar'
-                          ? '-2em' 
-                          : categorieName === 'Ser'
-                          ? '-2em'
-                          : categorieName === 'Bahia'
-                          ? '0' : 0,
-                      }}
-                      >
-                        <p 
-                          className='font-medium'
-                          style={{
-                            color: 
-                              categorieName === 'Salvador'
-                              ? '#2563EB'
-                              : categorieName === 'Bahia'
-                              ? '#DC2626' 
-                              : categorieName === 'Ser'
-                              ? '#16A34A'
-                              : '#EAB308',    
-                          }}
+                  <a 
+                    href={`/post/${slug}`}
+                    className={`box relative rounded-full tooltip 
+                      ${categorieName === 'Ser' 
+                      ? 'box1' 
+                      : categorieName === 'Salvador' 
+                      ? 'box2'  
+                      : categorieName === 'Bahia'
+                      ? 'box3'
+                      : 'box4'
+                    }`}
+                    style={{ 
+                      flex: 1,
+                      display: 'flex',
+                      zIndex: 1,
+                      backgroundColor: 
+                        categorieName === 'Salvador'
+                        ? '#2563EB'
+                        : categorieName === 'Bahia'
+                        ? '#DC2626' 
+                        : categorieName === 'Ser'
+                        ? '#16A34A'
+                        : '#EAB308',
+                    }}
+                  >
+                    {mobile.innerWidth > 1000 && (
+                      <span 
+                        className="tooltiptext" 
+                        style={{
+                          zIndex: 9,
+                          color: 'black',
+                          fontWeight: 'bold',
+                          left:
+                            categorieName === 'Salvador'
+                            ? '4em'
+                            : categorieName === 'Estar'
+                            ? '-12em' 
+                            : categorieName === 'Ser'
+                            ? '-11em'
+                            : categorieName === 'Bahia' 
+                            ? '6em'
+                            : 0,
+                          top:
+                            categorieName === 'Salvador'
+                            ? '-2em'
+                            : categorieName === 'Estar'
+                            ? '-2em' 
+                            : categorieName === 'Ser'
+                            ? '-2em'
+                            : categorieName === 'Bahia'
+                            ? '0' : 0,
+                        }}
                         >
-                          { categorieName }
-                        </p>
-                        <p>
-                          { title  || 'dont avaliable'}
-                        </p>
-                    </span>
-                  )}
-                </a>
-              </div>
-            ) : (
-              <div
-                className='rounded-full mx-auto' 
-                style={{
-                  width: `${
-                    mobile.innerWidth < 1000 
-                    ? '120px' 
-                    : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
-                    ? '180px' 
-                    : '250px'
-                  }`, 
-                  height: `${
-                    mobile.innerWidth < 1000 
-                    ? '120px' 
-                    : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
-                    ? '180px' 
-                    : '250px'
-                  }`,
-                  transition: '0.325s',
-                  gridColumnStart: 
-                    categorieName === 'Bahia' 
-                    ? 1 
-                    : categorieName === 'Salvador' 
-                    ? 3 
-                    : categorieName === 'Estar'
-                    ? 2
-                    : 2
-                }}
-              >
-                <Skeleton style={{ height: '250px', borderRadius: '50%' }} />
+                          <p 
+                            className='font-medium'
+                            style={{
+                              color: 
+                                categorieName === 'Salvador'
+                                ? '#2563EB'
+                                : categorieName === 'Bahia'
+                                ? '#DC2626' 
+                                : categorieName === 'Ser'
+                                ? '#16A34A'
+                                : '#EAB308',    
+                            }}
+                          >
+                            { categorieName }
+                          </p>
+                          <p>
+                            { title  || 'dont avaliable'}
+                          </p>
+                      </span>
+                    )}
+                  </a>
+                </div>
               </div>
             ))}
           </div>
