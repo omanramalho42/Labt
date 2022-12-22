@@ -95,10 +95,10 @@ const FeaturedMeet = () => {
         style={{
           height: '-webkit-fill-available',
           width: '-webkit-fill-available',
-          // marginBottom: 
-          //   ios && mobile.innerHeight >= 400 && mobile.innerWidth <= 1200 
-          //   ? '25em'
-          //   : '-15em'
+          marginBottom: 
+            mobile.innerHeight >= 400 && mobile.innerWidth <= 1200 
+            ? '25em'
+            : '-15em'
             // mobile.innerWidth >= 500 && mobile.innerWidth <= 1400 
             // ? '20em'
             // : '-15em'
