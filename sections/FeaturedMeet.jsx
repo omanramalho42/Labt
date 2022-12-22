@@ -93,7 +93,6 @@ const FeaturedMeet = () => {
       <div 
         className='flex flex-col items-center mx-auto w-full h-full'
         style={{
-          position: '-webkit-sticky',
           height: '-webkit-fill-available',
           width: '-webkit-fill-available',
           marginBottom: 
@@ -107,6 +106,11 @@ const FeaturedMeet = () => {
       >
         <div 
           style={{
+            position: 'relative',
+            top: mobile.innerWidth < 1000 && mobile.innerWidth > 700 
+            ? '10em' : '0', 
+            transition: '0.325s',
+            transform: mobile.innerWidth < 1000 && mobile.innerWidth > 700 && 'scale(1.5)',
             backgroundImage: `url(${'/sectionmeet.png'})`,
             backgroundRepeat: 'no-repeat',
             padding: mobile.innerWidth < 1000 ? '0' : '5em',
@@ -137,7 +141,10 @@ const FeaturedMeet = () => {
           </div>
           <div 
             className="relative grid"
-            style={{ top: mobile.innerWidth  > 1200 ? '1em' :'2em' }}
+            style={{ 
+              top: 
+                mobile.innerWidth  > 1200 ? '1em' : '2em' 
+            }}
           >
             {lastPosts.map(({ 
               categorieName, 
