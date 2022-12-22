@@ -95,28 +95,27 @@ const FeaturedMeet = () => {
         style={{
           height: '-webkit-fill-available',
           width: '-webkit-fill-available',
-          // marginBottom: 
+          marginBottom: 
             // ios && mobile.innerHeight >= 400 && mobile.innerWidth <= 1200 
             // ? '25em'
             // : '0' 
-            // mobile.innerWidth >= 500 && mobile.innerWidth <= 1400 
-            // ? '25em'
-            // : '0em'
+            mobile.innerWidth >= 500 && mobile.innerWidth <= 1400 
+            ? '25em'
+            : '0em'
         }}
       >
         <div 
           style={{
-            // display: 'relative',
-            // top: mobile.innerWidth < 1000 && mobile.innerWidth > 700 
-            // ? '10em' : '0', 
+            position: 'relative',
+            top: mobile.innerWidth < 1000 && mobile.innerWidth > 700 
+            ? '10em' : '0', 
             transition: '0.325s',
             transform: mobile.innerWidth < 1000 && mobile.innerWidth > 700 && 'scale(1.5)',
             backgroundImage: `url(${'/sectionmeet.png'})`,
             backgroundRepeat: 'no-repeat',
             padding: mobile.innerWidth < 1000 ? '0' : '10em',
             backgroundSize: 'contain',
-            backgroundPositionY: mobile.innerWidth >= 1000 ? '50%' : mobile.innerWidth < 1000 ? '1em' : '0'
-            // backgroundPosition: mobile.innerWidth < 2000 ? 'center' :  mobile.innerWidth > 2000 ? 'top' : '',
+            backgroundPosition: 'center',
           }}
         >
           <div className='relative flex flex-col items-center' style={{ top: '-5em' }}>
@@ -141,7 +140,7 @@ const FeaturedMeet = () => {
             />
           </div>
           <div 
-            className="grid"
+            className="relative grid"
             style={{ 
               top: 
                 mobile.innerWidth  > 1200 ? '1em' : '2em' 
