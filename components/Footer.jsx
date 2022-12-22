@@ -68,7 +68,7 @@ const Footer = () => {
 
       <div className="text-center p-4">
         © 2022 Copyright:
-        <a className="text-whitehite" href="https://tailwind-elements.com/"> 
+        <a className="text-whitehite ml-1" href="https://tailwind-elements.com/"> 
           Oman Company with Konda Digital.  
         </a>
         <p>

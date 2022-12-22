@@ -43,7 +43,7 @@ const FeaturedLastPost = () => {
       >
         <div>
           <span 
-            className='text-4xl font-light uppercase'
+            className='text-5xl font-light uppercase'
             style={{ 
               fontFamily: 'Luam-Light',
               fontWeight: 300,
@@ -62,14 +62,20 @@ const FeaturedLastPost = () => {
             { lastPost[0].categories[0].name.toString() || <Skeleton count={1} /> }
           </span>
           
-          <h1 className='text-4xl font-bold mt-2 text-cyan-600' style={{ fontFamily: 'gotham-bold' }}>
+          <h1 
+            className='text-4xl font-bold mt-2' 
+            style={{ fontFamily: 'gotham-bold', fontWeight: 700 }}
+          >
             { lastPost[0].title || <Skeleton /> }
           </h1>
           
           <blockquote 
             className='lg:text-left mt-3 mr-3'
           >
-            <p className='text-xl font-medium leading-loose tracking-tight hover:tracking-wide'>
+            <p 
+              className='text-xl font-medium leading-loose tracking-tight hover:tracking-wide'
+              style={{ fontWeight: '400' }}
+            >
               {lastPost[0].excerpt || <Skeleton count={12} />}
             </p>
           </blockquote>
@@ -93,6 +99,7 @@ const FeaturedLastPost = () => {
                   fontWeight: 300,
                   fontSize: '1.2em', 
                   color: '#000000',
+                  marginTop: '1em'
                 }}
               >
                 leia mais

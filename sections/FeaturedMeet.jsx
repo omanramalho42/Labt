@@ -91,17 +91,17 @@ const FeaturedMeet = () => {
   if(lastPosts.length > 0) {
     return (
       <div 
-        className='flex flex-col items-center mx-auto w-full h-full'
+        className='meet flex flex-col items-center mx-auto w-full h-full'
         style={{
           height: '-webkit-fill-available',
           width: '-webkit-fill-available',
-          marginBottom: 
-            // ios && mobile.innerHeight >= 400 && mobile.innerWidth <= 1200 
-            // ? '25em'
-            // : 
-            mobile.innerWidth >= 500 && mobile.innerWidth <= 1400 
-            ? '20em'
-            : '1em'
+          // marginBottom: 
+          //   ios && mobile.innerHeight >= 400 && mobile.innerWidth <= 1200 
+          //   ? '25em'
+          //   : '-15em'
+            // mobile.innerWidth >= 500 && mobile.innerWidth <= 1400 
+            // ? '20em'
+            // : '-15em'
         }}
       >
         <div 
@@ -113,7 +113,7 @@ const FeaturedMeet = () => {
             transform: mobile.innerWidth < 1000 && mobile.innerWidth > 700 && 'scale(1.5)',
             backgroundImage: `url(${'/sectionmeet.png'})`,
             backgroundRepeat: 'no-repeat',
-            padding: mobile.innerWidth < 1000 ? '0' : '5em',
+            padding: mobile.innerWidth < 1000 ? '0' : '10em',
             backgroundSize: 'contain',
             backgroundPosition: 'center',
           }}

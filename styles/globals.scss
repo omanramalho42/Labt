@@ -341,3 +341,17 @@ a {
   // animation-iteration-count: infinite;
   // animation-direction: alternate;
 }
+
+.meet {
+  margin-bottom: -12%;
+
+  @media only screen and (max-width: 1200px) {
+    margin-bottom: -12%;
+  }
+  @media only screen and (max-width: 1000px) {
+    margin-bottom: 40%;
+  }
+  @media only screen and (max-width: 700px) {
+    margin-bottom: 2em;
+  }
+}
