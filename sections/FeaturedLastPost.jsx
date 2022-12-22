@@ -84,9 +84,9 @@ const FeaturedLastPost = () => {
             style={{ 
               display: 'flex', 
               flexDirection: 'column',
-              marginBottom: '40px'
+              marginBottom: '6em'
             }} 
-            className='mt-3 mb-6'
+            className='mt-3'
             >
             <Link
               href={`post/${lastPost[0].slug}`} 

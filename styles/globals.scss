@@ -343,16 +343,16 @@ a {
 }
 
 .meet {
-  margin-bottom: -12%;
+  // margin-bottom: -12% !important; 
 
-  // @media only screen and (max-width: 1200px) {
-  //   margin-bottom: -12%;
-  // }
+  @media only screen and (min-width: 1200px) {
+    margin-bottom: -12% !important;
+  }
   // @media only screen and (max-width: 1000px) {
   //   margin-bottom: 40%;
   // }
   // @media only screen and (max-width: 700px) {
-  //   margin-bottom: 2em;
+  //   margin-bottom: 2em !important;
   // }
   @media only screen and (min-width: 400px) and (max-width: 1400px) {
     margin-bottom: 20em;
