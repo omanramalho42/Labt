@@ -75,14 +75,6 @@ const CategoryPost = ({ posts }) => {
         reverseOrder={false}
       />
 
-      {/* <div className='flex flex-col m-5 items-center'>
-        <label className='uppercase'>pesquisar</label>
-        <input
-          className='mx-auto border-blue-50 border-2 rounded-lg' 
-          value={search} onChange={(event) => setSearch(event.target.value)} 
-        />
-      </div> */}
-
       <div className="grid grid-cols-1 lg:grid-cols-9 gap-12">
           {posts.map((post, index) => (
             <div className="col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-3" key={index}>

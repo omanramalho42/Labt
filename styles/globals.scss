@@ -358,3 +358,31 @@ a {
   //   margin-bottom: 20em;
   // }
 }
+
+.search {
+  top: 7%;
+  right: 5em;
+  padding: 8px;
+  transition: 0.325s;
+
+  @media only screen and (min-width: 1200px) {
+    padding: 10px;
+    top: 7%;
+  }
+  @media only screen and (max-width: 1000px) {
+    padding: 8px;
+    top: 5%;
+  }
+  @media only screen and (max-width: 800px) {
+    padding: 4px;
+    top: 5%;
+  }
+  @media only screen and (max-width: 700px) {
+    padding: 5px;
+    right: 2%;
+    top: 6%;
+  }
+  @media only screen and (max-width: 600px) {
+    top: 5%;
+  }
+}

@@ -10,6 +10,8 @@ const Header = () => {
   const [categories, setCategories] = useState([]);
   const [load ,setLoad] = useState(true);
 
+  const [search, setSearch] = useState('');
+
   useEffect(() => {
     try {
       getCategories()
@@ -61,6 +63,15 @@ const Header = () => {
         </div>
       ))}
 
+      <div className='flex-col items-center'>
+        <input
+          placeholder='Pesquisa'
+          className='absolute search mx-auto p-4 text-center'
+          style={{ borderRadius: '25px', border: '1px solid #c9c9c9' }} 
+          value={search} onChange={(event) => setSearch(event.target.value)} 
+        />
+      </div>
+
       <div 
         className="grid grid-cols-2 space-x-16 items-center" 
       >
@@ -95,13 +106,13 @@ const Header = () => {
               href='/' 
               className='md:float-right flex items-center mt-2 text-black dark:text-white font-semibold cursor-pointer lg:text-2xl'
             >
-              LabT
+              labT
             </a>
             <div style={{ borderRight: '2px solid black', height: '20px' }} className="mt-2 h-full" />
             {categories.map((i, idx) => (
               <Fragment key={`${i.slug}-${idx}`}>
                 <Link href={`/category/${i.slug}`}>
-                  <span className="flex items-center md:float-right mt-2 align-middle text-black dark:text-white font-semibold cursor-pointer lg:text-2xl">
+                  <span className="flex items-center md:float-right mt-2 align-middle text-black lowercase dark:text-white font-semibold cursor-pointer lg:text-2xl">
                     { i.name }
                   </span>
                 </Link>
@@ -112,12 +123,13 @@ const Header = () => {
               href='/#banca'
               className='md:float-right mt-2 disabled:opacity-25 text-black dark:text-white font-semibold cursor-pointer border-separate lg:text-2xl'
             >
-              Banca
+              banca
             </a>
           </div>
         </div>
       
       </div>
+      
     </div>
   )
 }
