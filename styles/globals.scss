@@ -242,6 +242,25 @@ a {
   }
 }
 
+.modal-content {
+  width: 500px;
+  background-color: #FFF;
+}
+
+.modal-header, .modal-footer {
+  padding: 10px;
+}
+
+.modal-title {
+  margin: 0;
+}
+
+.modal-body {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
 .overlay {
   position: absolute;
   top: 0;
@@ -271,4 +290,54 @@ a {
 
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+}
+
+.modal {
+  top: -30%;
+  width: 60%;
+  height: 20%;
+
+  transition: 0.325s;
+
+  @media only screen and (max-width: 1200px) {
+    top: 15%;
+
+    width: 1000px;
+    height: 1000px;
+
+    left: 0;
+    right: 0;
+  }
+  @media only screen and (max-width: 1000px) {
+    width: 800px;
+    height: 800px;
+
+    left: 0;
+    right: 0;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 400px;
+    height: 400px;
+
+    left: 0;
+    right: 0;
+  }
+}
+
+@keyframes slidein {
+  from {
+    // transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    // transform: translateY(0%);
+    opacity: 1;
+  }
+}
+.rendering {
+  animation-duration: .75s;
+  animation-name: slidein;
+  // animation-iteration-count: infinite;
+  // animation-direction: alternate;
 }

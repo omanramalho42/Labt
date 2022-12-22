@@ -5,6 +5,7 @@ import Carousel from 'react-multi-carousel'
 import Image from 'next/image'
 
 import Skeleton from 'react-loading-skeleton'
+import ModalPhotos from './ModalPhotos'
 
 const PostDetail = ({ post }) => {
 
@@ -139,32 +140,6 @@ const PostDetail = ({ post }) => {
         </span>
       </div>
       <div className="px-4 lg:px-0">
-        {/* <div className="flex items-center mb-8 w-full">
-          <div className='font-medium text-gray-700'>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-            <span>
-              {moment(post.createdAt).format('MMM DD, YYYY') || <Skeleton count={1} />}
-            </span>
-          </div>
-          <p 
-            className='inline align-middle ml-5 text-lg' 
-            style={{
-              color: ` 
-                ${post.categories[0].name === 'Salvador'
-                  ? '#2563EB'
-                  : post.categories[0].name === 'Bahia'
-                  ? '#DC2626' 
-                  : post.categories[0].name === 'Ser'
-                  ? '#16A34A'
-                  : '#EAB308'
-                }`,
-            }}   
-          >
-            { post.categories[0].name || <Skeleton count={1} /> } 
-          </p>
-        </div> */}
         
         <h1 className="lg:px-10 mb-2 text-5xl font-semibold" style={{ fontFamily: 'gotham-bold' }}> 
           { post.title || <Skeleton />} 
@@ -219,7 +194,7 @@ const PostDetail = ({ post }) => {
             return getContentFragment(index, children, typeObj, typeObj.type);
           })}
 
-          {post.carousel && (
+            {/* {post.carousel && (
             <Carousel
               infinite
               responsive={responsive}
@@ -235,7 +210,9 @@ const PostDetail = ({ post }) => {
                 />
               ))}
             </Carousel>
-          )}
+          )} */}
+
+          <ModalPhotos post={post.carousel} />
 
           <div className='flex flex-col font-bold' style={{ marginTop: '50px' }}>
             <h5 style={{ fontFamily: 'gotham-bold' }}>
