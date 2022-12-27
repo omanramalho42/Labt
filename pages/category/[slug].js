@@ -26,9 +26,9 @@ const CategoryPost = ({ posts }) => {
       animate={{ width: '100%' }} 
       transition={{ duration: .75, ease: "easeOut" }}
       exit={{ x: '100%', transition: { duration: 0.1 } }} 
-      className="mx-auto px-10 sm:mt-8"
+      className="mx-auto px-10"
     >
-      <div style={{ display: 'flex', flexDirection: 'row', marginBottom: 20 }}>
+      <div style={{ display: 'flex', flexDirection: 'row', marginBottom: 20, marginTop: 20 }}>
         <span 
           className='text-3xl mr-4 font-medium uppercase'
           style={{
