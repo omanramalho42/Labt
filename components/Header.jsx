@@ -194,7 +194,7 @@ const Header = () => {
       </div>
 
       {search && ( 
-        <div className='grid grid-cols-1 lg:grid-cols-9 gap-12 pb-16'>
+        <div className='grid grid-cols-1 lg:grid-cols-9 gap-12 pb-16 mt-4'>
           {filterPost.obj?.map((i, idx) => (
             <motion.div
               initial={{ width: 0 }} 
