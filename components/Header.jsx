@@ -156,8 +156,8 @@ const Header = () => {
                 }
               }}
             >
-              <span className='cursor-pointer font-bold text-4xl text-black'>
-                <Image src='/logo.png' alt="logo labtempo" width="500" height="500" />
+              <span className='cursor-pointer font-bold text-4xl text-black border-2'>
+                <img src='/logo.png' alt="logo labtempo" className='flex w-full h-full' style={{ maxWidth: 600 }} />
               </span>
             </motion.div>
           </Link>
@@ -167,24 +167,24 @@ const Header = () => {
           <div className="hidden md:float-right md:contents items-center" style={{ fontFamily: 'Arlita'}}>
             <a
               href='/' 
-              className='md:float-right flex items-center mt-2 text-black dark:text-white font-semibold cursor-pointer lg:text-2xl'
+              className='md:float-right flex items-center mt-2 text-black dark:text-white font-semibold cursor-pointer xl:text-4xl lg:text-2xl md:text-xl'
             >
               labT
             </a>
-            <div style={{ borderRight: '2px solid black', height: '20px' }} className="mt-2 h-full" />
+            <div style={{ borderRight: '2px solid black', height: '20px' }} className="mt-2 mx-2 h-full" />
             {categories.map((i, idx) => (
               <Fragment key={`${i.slug}-${idx}`}>
                 <Link href={`/category/${i.slug}`}>
-                  <span className="flex items-center md:float-right mt-2 align-middle text-black lowercase dark:text-white font-semibold cursor-pointer lg:text-2xl">
+                  <span className="flex items-center md:float-right mt-2 align-middle text-black lowercase dark:text-white font-semibold cursor-pointer xl:text-4xl lg:text-2xl md:text-xl">
                     { i.name }
                   </span>
                 </Link>
-                <div style={{ borderRight: '2px solid black', height: '20px' }} className="mt-2 h-full" />
+                <div style={{ borderRight: '2px solid black', height: '20px' }} className="mt-2 mx-2 h-full" />
               </Fragment>
             ))}
             <a 
               href='/#banca'
-              className='md:float-right mt-2 disabled:opacity-25 text-black dark:text-white font-semibold cursor-pointer border-separate lg:text-2xl'
+              className='md:float-right mt-2 disabled:opacity-25 text-black dark:text-white font-semibold cursor-pointer border-separate xl:text-4xl lg:text-2xl md:text-xl'
             >
               banca
             </a>
