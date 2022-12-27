@@ -1,6 +1,6 @@
 
 // import { motion } from 'framer-motion'
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Carousel from 'react-multi-carousel'
 
 const responsive = {
@@ -25,6 +25,20 @@ const responsive = {
 const ModalPhotos = ({ post }) => {
   const [openModal ,setOpenModal] = useState(false);
   const [imagesSort, setImageSort] = useState([]);
+  
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        event.target.contains(ref.current) && setOpenModal((value) => !value);
+      }
+    };
+    document.addEventListener('click', handleClickOutside, true);
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true);
+    };
+  }, [ imagesSort ]);
 
   const handleSetOpenModal = async (url) => {
     try {
@@ -43,6 +57,7 @@ const ModalPhotos = ({ post }) => {
     <div className='flex justify-center'>
       <div 
         style={{
+          // flex: 1,
           display: "grid",
           gridTemplateColumns: 'repeat(2, 1fr)',
           gridTemplateRows: 'repeat(2, 1fr)',
@@ -66,7 +81,6 @@ const ModalPhotos = ({ post }) => {
 
         {openModal && (
           <div
-            onClick={() => console.log("clcik")}
             style={{ 
               position: 'fixed',
               left: 0,
@@ -80,7 +94,7 @@ const ModalPhotos = ({ post }) => {
             }}
           >
             <div className='rendering modal relative w-full h-full'>
-              <>
+              <div className=''>
               <span 
                 className='relative text-white text-3xl cursor-pointer px-2 text-center' 
                 style={{ top: '1.7em', left: '1em', zIndex: 100000000, borderRadius: '50%', backgroundColor: 'rgba(0,0,0,0.7)' }}
@@ -99,6 +113,7 @@ const ModalPhotos = ({ post }) => {
                 >
                   {imagesSort?.map((i, idx) => (
                     <img
+                      ref={ref}
                       key={idx}
                       alt="imagem carousel"
                       className="w-full drop-shadow-lg"
@@ -107,7 +122,7 @@ const ModalPhotos = ({ post }) => {
                   ))}
                 </Carousel>
               )}
-              </>
+              </div>
             </div>
           </div>
         )}
