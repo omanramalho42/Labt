@@ -156,7 +156,7 @@ const Header = () => {
                 }
               }}
             >
-              <span className='cursor-pointer font-bold text-4xl text-black border-2'>
+              <span className='cursor-pointer font-bold text-4xl text-black'>
                 <img src='/logo.png' alt="logo labtempo" className='flex w-full h-full' style={{ maxWidth: 600 }} />
               </span>
             </motion.div>
