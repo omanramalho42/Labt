@@ -20,14 +20,6 @@ const CategoryPost = ({ posts }) => {
     );
   },[posts]);
 
-  const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    return () => {
-      console.log(search);
-    }
-  },[search]);
-
   return (
     <motion.div
       initial={{ width: 0 }} 

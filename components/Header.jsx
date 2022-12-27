@@ -1,16 +1,79 @@
-import React, { useState, useEffect, Fragment } from 'react'
-import { motion } from 'framer-motion'
+import React, { 
+  useState, 
+  useEffect, 
+  Fragment 
+} from 'react'
+
 import Link from 'next/link'
+import Image from 'next/image'
+
+import { motion } from 'framer-motion'
+
+import PostCard from './PostCard'
 
 import { getCategories } from '../services'
+import { getPosts } from '../services/index'
+
 import Skeleton from 'react-loading-skeleton'
-import Image from 'next/image'
 
 const Header = () => {
   const [categories, setCategories] = useState([]);
   const [load ,setLoad] = useState(true);
 
+  const [posts, setPosts] = useState(null);
   const [search, setSearch] = useState('');
+
+  const [filterPost, setFilteredPost] = useState([{}]);
+
+  const autoFetchDataPosts = async () => {
+    
+    let success = false;
+    
+    try {
+      await getPosts()
+        .then((res) => { 
+            setPosts(res.map(({ node }, idx) => ({ node }) )), 
+            success = true
+          }).catch(
+            (error) => {
+              console.log('Ocorreu um erro: ' + error) 
+              throw error;
+            }
+          );
+    } catch(error) {
+      success = false;
+      throw error;
+    } finally {
+      console.log(posts, success, 'data');
+    }
+  }
+
+  const handleFilterPosts = (title) => {
+    if(search != "") {
+      let obj = [];
+      posts?.map(
+        (i) => {
+          i.node.title.toLowerCase().trim().includes(title)
+          &&
+          obj.push(i.node)
+          setFilteredPost(rest => { 
+            return {
+              ...rest, 
+              obj
+            } 
+          }
+        )}
+      );
+    }
+  }
+
+  useEffect(() => {
+    autoFetchDataPosts();
+  },[]);
+
+  useEffect(() => {
+    handleFilterPosts(search.toLowerCase());
+  }, [search]);
 
   useEffect(() => {
     try {
@@ -66,9 +129,9 @@ const Header = () => {
       <div className='flex-col items-center'>
         <input
           placeholder='Pesquisa'
-          className='absolute search mx-auto p-4 text-center'
+          className='absolute search mx-auto lg:p-4 sm:p-1 text-center'
           style={{ borderRadius: '25px', border: '1px solid #c9c9c9' }} 
-          value={search} onChange={(event) => setSearch(event.target.value)} 
+          value={search} onChange={(event) => setSearch(event.target.value.toUpperCase())} 
         />
       </div>
 
@@ -129,7 +192,25 @@ const Header = () => {
         </div>
       
       </div>
-      
+
+      {search && ( 
+        <div className='grid grid-cols-1 lg:grid-cols-9 gap-12 pb-16'>
+          {filterPost.obj?.map((i, idx) => (
+            <motion.div
+              initial={{ width: 0 }} 
+              animate={{ width: '100%', margin: '10px' }} 
+              transition={{ duration: .75, ease: "easeOut" }}
+              exit={{ x: '100%', transition: { duration: 0.1 } }}
+              className="col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-3"
+            >
+              <Link href={'/post/'+i.slug}>
+                <PostCard post={i} />
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      )}
+        
     </div>
   )
 }
