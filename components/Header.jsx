@@ -202,6 +202,7 @@ const Header = () => {
               transition={{ duration: .75, ease: "easeOut" }}
               exit={{ x: '100%', transition: { duration: 0.1 } }}
               className="col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-3"
+              key={idx}
             >
               <Link href={'/post/'+i.slug}>
                 <PostCard post={i} />
