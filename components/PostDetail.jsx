@@ -76,7 +76,7 @@ const PostDetail = ({ post }) => {
       case 'heading-three':
         return <h3 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{ item }</React.Fragment>)}</h3>;
       case 'paragraph':
-        return <p key={index} className="mb-8">{modifiedText.map((item, i) => <React.Fragment key={i}>{ item }</React.Fragment>)}</p>;
+        return <p key={index} className="mb-8 tracking-widest" style={{ lineHeight: '1.6em'}}>{modifiedText.map((item, i) => <React.Fragment key={i}>{ item }</React.Fragment>)}</p>;
       case 'heading-four':
         return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{ item }</React.Fragment>)}</h4>;
       case 'image':
@@ -86,7 +86,7 @@ const PostDetail = ({ post }) => {
             key={index}
             alt={obj.title}
             height={obj.height}
-            width={obj.width}
+            width={'100%'}
             src={obj.src}
           />
         );
@@ -175,7 +175,7 @@ const PostDetail = ({ post }) => {
         </div>
 
         <div className='lg:px-16'>
-          <div className="relative overflow-hidden mb-6">
+          {/* <div className="relative overflow-hidden mb-6">
             {post.featuredImage.url ? (
               <img 
                 src={post.featuredImage.url}
@@ -186,7 +186,7 @@ const PostDetail = ({ post }) => {
             ) : (
               <Skeleton height={300} />
             )}
-          </div>
+          </div> */}
           
           {post.content.raw.children.map((typeObj, index) => {
             const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
