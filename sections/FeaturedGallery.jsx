@@ -30,8 +30,7 @@ const FeaturedGallery = () => {
 
   return (
     <div 
-      className='flex-1 w-full h-full sm:mt-16'
-      style={{ marginBottom: '200px',  border: '1px solid red' }}
+      style={{ marginBottom: '200px' }}
     >
       <div  
         style={{
