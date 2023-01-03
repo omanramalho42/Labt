@@ -93,15 +93,15 @@ const FeaturedMeet = () => {
       <div 
         className='meet flex flex-col items-center mx-auto w-full h-full'
         style={{
-          height: '-webkit-fill-available',
+          height: '120%',
           width: '-webkit-fill-available',
-          // marginBottom: 
+          marginBottom: 
             // ios && mobile.innerHeight >= 400 && mobile.innerWidth <= 1200 
             // ? '25em'
             // : '0' 
-            // mobile.innerWidth >= 500 && mobile.innerWidth <= 1400 
-            // ? '28em'
-            // : '0em'
+            mobile.innerWidth >= 500 && mobile.innerWidth <= 1400 
+            ? '28em'
+            : '0em'
         }}
       >
         <div
