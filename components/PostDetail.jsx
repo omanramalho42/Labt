@@ -175,42 +175,12 @@ const PostDetail = ({ post }) => {
         </div>
 
         <div className='lg:px-16'>
-          {/* <div className="relative overflow-hidden mb-6">
-            {post.featuredImage.url ? (
-              <img 
-                src={post.featuredImage.url}
-                alt={post.title}
-                className="object-top w-full rounded-t-lg"
-                // style={{ height: '600px' }}
-              />
-            ) : (
-              <Skeleton height={300} />
-            )}
-          </div> */}
           
           {post.content.raw.children.map((typeObj, index) => {
             const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
 
             return getContentFragment(index, children, typeObj, typeObj.type);
           })}
-
-            {/* {post.carousel && (
-            <Carousel
-              infinite
-              responsive={responsive}
-              autoPlay
-            >
-              {post.carousel.map((i, idx) => (
-                <img
-                  key={idx}
-                  unoptimized
-                  alt="imagem carousel"
-                  className="w-full drop-shadow-lg"
-                  src={i.url}
-                />
-              ))}
-            </Carousel>
-          )} */}
 
           <ModalPhotos post={post.carousel} />
 

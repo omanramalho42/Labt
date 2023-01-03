@@ -29,10 +29,12 @@ const FeaturedGallery = () => {
   },[]);
 
   return (
-    <div style={{ height: '100%', marginBottom: '200px' }}>
+    <div 
+      className='flex-1 w-full h-full sm:mt-16'
+      style={{ marginBottom: '200px',  border: '1px solid red' }}
+    >
       <div  
-        style={{ 
-          marginTop: '5em',
+        style={{
           backgroundColor: '#cc2020',
           padding: '2% 10%',
         }}
