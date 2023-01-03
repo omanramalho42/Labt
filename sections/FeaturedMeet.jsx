@@ -95,13 +95,13 @@ const FeaturedMeet = () => {
         style={{
           height: '-webkit-fill-available',
           width: '-webkit-fill-available',
-          marginBottom: 
+          // marginBottom: 
             // ios && mobile.innerHeight >= 400 && mobile.innerWidth <= 1200 
             // ? '25em'
             // : '0' 
-            mobile.innerWidth >= 500 && mobile.innerWidth <= 1400 
-            ? '28em'
-            : '0em'
+            // mobile.innerWidth >= 500 && mobile.innerWidth <= 1400 
+            // ? '28em'
+            // : '0em'
         }}
       >
         <div
@@ -109,8 +109,8 @@ const FeaturedMeet = () => {
             // position: 'relative',
             // top: mobile.innerWidth < 1000 && mobile.innerWidth > 700 
             // ? '10em' : '0',
-            marginTop: mobile.innerWidth < 1000 && mobile.innerWidth > 700 
-            ? '10em' : '0',
+            // marginTop: mobile.innerWidth < 1000 && mobile.innerWidth > 700 
+            // ? '10em' : '0',
             transition: '0.325s',
             transform: mobile.innerWidth < 1000 && mobile.innerWidth > 700 && 'scale(1.5)',
             backgroundImage: `url(${'/sectionmeet.png'})`,

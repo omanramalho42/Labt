@@ -62,11 +62,11 @@ const Home: NextPage = ({ posts }: any) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <div className='px-10'>
+      <div className='px-10 mb-5'>
         <FeaturedLastPost />
         
         <FeaturedPosts />
-        <div className='relative mt-14' style={{ boxSizing: 'border-box', zIndex: -1 }}>
+        <div className='relative' style={{ boxSizing: 'border-box', zIndex: -1 }}>
           <FeaturedMeet />
         </div>
       </div>
@@ -75,7 +75,7 @@ const Home: NextPage = ({ posts }: any) => {
         <FeaturedGallery />
       </div>
 
-      <div className='fixed-bottom relative'>
+      <div className='fixed-bottom'>
         <Footer />
       </div>
       
