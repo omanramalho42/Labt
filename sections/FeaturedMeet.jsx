@@ -93,15 +93,16 @@ const FeaturedMeet = () => {
       <div 
         className='meet flex flex-col items-center mx-auto w-full h-full'
         style={{
-          height: '120%',
-          width: '-webkit-fill-available',
-          marginBottom: 
+          // border: '1px solid red',
+          // height: '-webkit-fill-available',
+          // width: '-webkit-fill-available',
+          // marginBottom: 
             // ios && mobile.innerHeight >= 400 && mobile.innerWidth <= 1200 
             // ? '25em'
             // : '0' 
-            mobile.innerWidth >= 500 && mobile.innerWidth <= 1400 
-            ? '28em'
-            : '0em'
+            // mobile.innerWidth >= 500 && mobile.innerWidth <= 1400 
+            // ? '28em'
+            // : '0em'
         }}
       >
         <div
@@ -112,7 +113,7 @@ const FeaturedMeet = () => {
             // marginTop: mobile.innerWidth < 1000 && mobile.innerWidth > 700 
             // ? '10em' : '0',
             transition: '0.325s',
-            transform: mobile.innerWidth < 1000 && mobile.innerWidth > 700 && 'scale(1.5)',
+            // transform: mobile.innerWidth < 1000 && mobile.innerWidth > 700 && 'scale(1.5)',
             backgroundImage: `url(${'/sectionmeet.png'})`,
             backgroundRepeat: 'no-repeat',
             padding: mobile.innerWidth < 1000 ? '0' : '10em',
@@ -120,7 +121,7 @@ const FeaturedMeet = () => {
             backgroundPosition: 'center',
           }}
         >
-          <div className='relative flex flex-col items-center' style={{ top: '-5em' }}>
+          <div className='relative flex flex-col items-center' style={{ top: '-7em' }}>
             <h1 
               className='text-4xl uppercase font-bold text-center'
               style={{ 
@@ -142,11 +143,11 @@ const FeaturedMeet = () => {
             />
           </div>
           <div 
-            className="relative grid"
-            style={{ 
-              top: 
-                mobile.innerWidth  > 1200 ? '1em' : '2em' 
-            }}
+            className="grid"
+            // style={{ 
+            //   top: 
+            //     mobile.innerWidth  > 1200 ? '1em' : '2em' 
+            // }}
           >
             {lastPosts.map(({ 
               categorieName, 
