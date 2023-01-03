@@ -113,12 +113,13 @@ const FeaturedMeet = () => {
             // marginTop: mobile.innerWidth < 1000 && mobile.innerWidth > 700 
             // ? '10em' : '0',
             transition: '0.325s',
-            // transform: mobile.innerWidth < 1000 && mobile.innerWidth > 700 && 'scale(1.5)',
+            transform: mobile.innerWidth < 1000 && mobile.innerWidth > 700 && 'scale(1.5)',
             backgroundImage: `url(${'/sectionmeet.png'})`,
             backgroundRepeat: 'no-repeat',
             padding: mobile.innerWidth < 1000 ? '0' : '10em',
             backgroundSize: 'contain',
             backgroundPosition: 'center',
+            backgroundPositionY:  mobile.innerWidth < 1000 ? '5%' : '50%'
           }}
         >
           <div className='relative flex flex-col items-center' style={{ top: '-7em' }}>
@@ -203,7 +204,7 @@ const FeaturedMeet = () => {
                     backgroundImage: `url(${lastPosts[idx].featuredImage || ''})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
-                  }}
+                   }}
                 >
                   <a 
                     href={`/post/${slug}`}
