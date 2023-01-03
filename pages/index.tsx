@@ -75,22 +75,6 @@ const Home: NextPage = ({ posts }: any) => {
         <FeaturedGallery />
       </div>
 
-      {/* <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
-        <div className='lg:col-span-12 col-span-1'>
-          { posts?.map((i: any, idx: number) => (
-            <div key={idx}>
-              <PostCard post={i.node} key={i.title} />
-            </div>
-          ))}
-        </div>
-        <div className="lg:col-span-4 col-span-1">
-          <div className="lg:sticky relative top-8">
-            <PostWidget categories={posts} slug="" />
-            <Categories />
-          </div>
-        </div>
-      </div> */}
-
       <div className='fixed-bottom relative'>
         <Footer />
       </div>

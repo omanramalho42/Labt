@@ -136,7 +136,7 @@ const Header = () => {
       </div>
 
       <div 
-        className="grid grid-cols-2 space-x-16 items-center" 
+        className="grid grid-cols-2 space-x-16 items-center"
       >
         <div className="md:float-left">
           <Link href="/">
@@ -164,10 +164,10 @@ const Header = () => {
         </div>
         
         <div className='w-full flex justify-between items-center'>
-          <div className="hidden md:float-right md:contents items-center" style={{ fontFamily: 'Arlita'}}>
+          <div className="hidden md:float-right md:contents items-center" style={{ fontFamily: 'Arlita' }}>
             <a
               href='/' 
-              className='md:float-right flex items-center mt-2 text-black dark:text-white font-semibold cursor-pointer xl:text-4xl lg:text-2xl md:text-xl'
+              className='md:float-right flex items-center mt-2 text-black dark:text-white font-semibold cursor-pointer xl:text-2xl lg:text-2xl md:text-xl'
             >
               labT
             </a>
@@ -175,7 +175,7 @@ const Header = () => {
             {categories.map((i, idx) => (
               <Fragment key={`${i.slug}-${idx}`}>
                 <Link href={`/category/${i.slug}`}>
-                  <span className="flex items-center md:float-right mt-2 align-middle text-black lowercase dark:text-white font-semibold cursor-pointer xl:text-4xl lg:text-2xl md:text-xl">
+                  <span className="flex items-center md:float-right mt-2 align-middle text-black lowercase dark:text-white font-semibold cursor-pointer xl:text-2xl lg:text-2xl md:text-xl">
                     { i.name }
                   </span>
                 </Link>
@@ -184,7 +184,7 @@ const Header = () => {
             ))}
             <a 
               href='/#banca'
-              className='md:float-right mt-2 disabled:opacity-25 text-black dark:text-white font-semibold cursor-pointer border-separate xl:text-4xl lg:text-2xl md:text-xl'
+              className='md:float-right mt-2 disabled:opacity-25 text-black dark:text-white font-semibold cursor-pointer border-separate xl:text-2xl lg:text-2xl md:text-xl'
             >
               banca
             </a>
