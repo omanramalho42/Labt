@@ -157,7 +157,7 @@ const FeaturedMeet = () => {
                   boxShadow: '2px 3px 10px 1px rgba(0, 0, 0, 0.1)',
                   transition: '0.325s',
                   padding: '10px',
-                  border: `4.5px solid 
+                  border: `3.5px solid 
                   ${categorieName === 'Salvador'
                       ? '#2563EB'
                       : categorieName === 'Bahia'
