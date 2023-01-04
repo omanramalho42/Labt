@@ -67,8 +67,7 @@ const Home: NextPage = ({ posts }: any) => {
         
         <FeaturedPosts />
         <div 
-          className='relative' 
-          style={{ boxSizing: 'border-box', zIndex: -1 }}
+          className='relative'
         >
           <FeaturedMeet />
         </div>
@@ -76,9 +75,10 @@ const Home: NextPage = ({ posts }: any) => {
       
       <div
         style={{ 
+          position: 'relative',
           marginBottom: '20%', 
           marginTop: '5%', 
-          zIndex: 2 
+          zIndex: 2
         }} 
         id="banca"
       >

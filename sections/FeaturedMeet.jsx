@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Skeleton from 'react-loading-skeleton'
 import { getLastestPostsCategorie } from '../services'
 
@@ -6,6 +6,12 @@ const FeaturedMeet = () => {
   const [latestPostCategories, setLatestPostCategories] = useState();
   const [lastPosts, setLastPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const badge = useRef(null);
+
+  useEffect(() => {
+    console.log(badge.className,'anchor');
+  },[badge]);
 
   let categoriesMeet = [];
 
@@ -96,7 +102,6 @@ const FeaturedMeet = () => {
         <div
           style={{
             transition: '0.325s',
-            // transform: mobile.innerWidth < 1000 && mobile.innerWidth > 700 && 'scale(1.1)',
             backgroundImage: `url(${'/sectionmeet.png'})`,
             backgroundRepeat: 'no-repeat',
             padding: mobile.innerWidth < 1000 ? '0' : '10em',
@@ -105,7 +110,10 @@ const FeaturedMeet = () => {
             backgroundPositionY:  mobile.innerWidth < 1000 ? '5%' : '50%'
           }}
         >
-          <div className='relative flex flex-col items-center' style={{ top: mobile.innerWidth > 1000  ? '-10em' : '-7em' }}>
+          <div 
+            className='relative flex flex-col items-center' 
+            style={{ top: mobile.innerWidth > 1000  ? '-10em' : '-7em' }}
+          >
             <h1 
               className='text-4xl uppercase font-bold text-center'
               style={{ 
@@ -187,7 +195,7 @@ const FeaturedMeet = () => {
                 >
                   <a 
                     href={`/post/${slug}`}
-                    className={`box relative rounded-full tooltip 
+                    className={`box rounded-full tooltip
                       ${categorieName === 'Ser' 
                       ? 'box1' 
                       : categorieName === 'Salvador' 
@@ -197,8 +205,6 @@ const FeaturedMeet = () => {
                       : 'box4'
                     }`}
                     style={{ 
-                      flex: 1,
-                      display: 'flex',
                       zIndex: 1,
                       backgroundColor: 
                         categorieName === 'Salvador'

@@ -82,8 +82,11 @@ a {
 }
 
 .box {
+  cursor: pointer;
+
   transition: 0.325s;
 }
+
 .box:hover {
   transform: scale(1.1);
 }
@@ -116,10 +119,24 @@ a {
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
   visibility: visible;
+
+  // @media only screen and (max-width: 1000px) {
+  //   top: -2em !important;
+  //   left: 100% !important;
+
+
+  //   font-size: 0.6em !important; 
+
+  //   height: 35px !important;
+  //   width: 35px !important;
+
+  // }
 }
 
 .box1, .box2, .box3, .box4 {
   display: -webkit-flex;
+  
+  cursor: pointer !important;
   position: relative;
 }
 
@@ -352,20 +369,9 @@ a {
 }
 
 .meet {
-  // margin-bottom: -12% !important; 
-
   @media only screen and (min-width: 1200px) {
     margin-bottom: -12% !important;
   }
-  // @media only screen and (max-width: 1000px) {
-  //   margin-bottom: 40%;
-  // }
-  // @media only screen and (max-width: 700px) {
-  //   margin-bottom: 2em !important;
-  // }
-  // @media only screen and (min-width: 400px) and (max-width: 1400px) {
-  //   margin-bottom: 20em;
-  // }
 }
 
 .search {
