@@ -24,9 +24,14 @@ const Header = () => {
   const [search, setSearch] = useState('');
 
   const [filterPost, setFilteredPost] = useState([{}]);
+  const [headerNav] = useState([
+    { name: 'Ser', slug: 'ser' },
+    { name: 'Estar', slug: 'estar' },
+    { name: 'Salvador', slug: 'salvador' },
+    { name: 'Bahia', slug: 'bahia' }
+  ]);
 
   const autoFetchDataPosts = async () => {
-    
     let success = false;
     
     try {
@@ -43,8 +48,6 @@ const Header = () => {
     } catch(error) {
       success = false;
       throw error;
-    } finally {
-      console.log(posts, success, 'data');
     }
   }
 
@@ -105,7 +108,7 @@ const Header = () => {
 
   return (
     <div className='mx-auto px-10 dark:bg-black pb-2'>
-      {categories.map(({ name, slug }, idx) => (
+      {headerNav.map(({ name, slug }, idx) => (
         <div key={`${slug}-${idx}`}>
           <Link href={`/category/${slug}`}>
             <span className={
@@ -121,7 +124,7 @@ const Header = () => {
               : 'bg-green-600'
               } w-6 h-8 p-1`}
             >
-            </span>  
+            </span>
           </Link>
         </div>
       ))}
@@ -172,7 +175,7 @@ const Header = () => {
               labT
             </a>
             <div style={{ borderRight: '2px solid black', height: '20px' }} className="mt-2 mx-2 h-full" />
-            {categories.map((i, idx) => (
+            {headerNav.map((i, idx) => (
               <Fragment key={`${i.slug}-${idx}`}>
                 <Link href={`/category/${i.slug}`}>
                   <span className="flex items-center md:float-right mt-2 align-middle text-black lowercase dark:text-white font-semibold cursor-pointer xl:text-2xl lg:text-2xl md:text-xl">
