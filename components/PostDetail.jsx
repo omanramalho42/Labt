@@ -141,7 +141,7 @@ const PostDetail = ({ post }) => {
       </div>
       <div className="px-4 lg:px-0">
         
-        <h1 className="lg:px-10 mb-2 text-5xl font-semibold" style={{ fontFamily: 'gotham-bold' }}> 
+        <h1 className="lg:px-10 mb-2 text-5xl font-semibold" style={{ fontFamily: 'Arlita' }}> 
           { post.title || <Skeleton />} 
         </h1>
         
