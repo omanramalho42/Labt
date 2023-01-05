@@ -96,7 +96,7 @@ const PostDetail = ({ post }) => {
   }
 
   return (
-    <div className="bg-white rounded-lg pb-12">
+    <div className="bg-white rounded-lg pb-12 mt3">
       
       <div 
         style={{
