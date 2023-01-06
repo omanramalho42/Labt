@@ -6,12 +6,18 @@ const FeaturedMeet = () => {
   const [latestPostCategories, setLatestPostCategories] = useState();
   const [lastPosts, setLastPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  
+  const insertEffect = (idx) => {
+    let circle = document.getElementById(`circle${idx}`);
+  
+    circle.classList.add('scalling');
+  }
 
-  const badge = useRef(null);
-
-  useEffect(() => {
-    console.log(badge.className,'anchor');
-  },[badge]);
+  const removeEffect = (idx) => {
+    let circle = document.getElementById(`circle${idx}`);
+    
+    circle.classList.remove('scalling');
+  }
 
   let categoriesMeet = [];
 
@@ -185,15 +191,18 @@ const FeaturedMeet = () => {
                 }}
               >
                 <div
-                  className='w-full h-full' 
+                  onMouseEnter={() => insertEffect(idx)}
+                  onMouseLeave={() => removeEffect(idx)}
+                  className='w-full h-full tooltip' 
                   style={{
-                    borderRadius: '50%',  
+                    borderRadius: '50%',
                     backgroundImage: `url(${lastPosts[idx].featuredImage || ''})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
                    }}
                 >
-                  <a 
+                  <a
+                    id={`circle${idx}`}
                     href={`/post/${slug}`}
                     className={`box rounded-full tooltip
                       ${categorieName === 'Ser' 
@@ -217,8 +226,8 @@ const FeaturedMeet = () => {
                     }}
                   >
                     {mobile.innerWidth > 1000 && (
-                      <span 
-                        className="tooltiptext" 
+                      <span
+                        className="tooltiptext rendering" 
                         style={{
                           zIndex: 9,
                           color: 'black',

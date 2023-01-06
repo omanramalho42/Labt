@@ -87,7 +87,7 @@ a {
   transition: 0.325s;
 }
 
-.box:hover {
+.box:hover,.box:focus, .scalling {
   transform: scale(1.1);
 }
 
