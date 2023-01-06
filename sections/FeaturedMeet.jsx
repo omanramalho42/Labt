@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react'
 import Skeleton from 'react-loading-skeleton'
 import { getLastestPostsCategorie } from '../services'
@@ -6,7 +7,7 @@ const FeaturedMeet = () => {
   const [latestPostCategories, setLatestPostCategories] = useState();
   const [lastPosts, setLastPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  
+
   const insertEffect = (idx) => {
     let circle = document.getElementById(`circle${idx}`);
   
@@ -190,7 +191,8 @@ const FeaturedMeet = () => {
                     : 1
                 }}
               >
-                <div
+                <a
+                  href={`/post/${slug}`}
                   onMouseEnter={() => insertEffect(idx)}
                   onMouseLeave={() => removeEffect(idx)}
                   className='w-full h-full tooltip' 
@@ -199,6 +201,7 @@ const FeaturedMeet = () => {
                     backgroundImage: `url(${lastPosts[idx].featuredImage || ''})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
+                    cursor: 'pointer'
                    }}
                 >
                   <a
@@ -274,7 +277,7 @@ const FeaturedMeet = () => {
                       </span>
                     )}
                   </a>
-                </div>
+                </a>
               </div>
             ))}
           </div>
