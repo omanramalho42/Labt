@@ -49,10 +49,10 @@ const Home: NextPage = ({ posts }: any) => {
   
   return (
    <motion.div
-      initial={{ width: 0 }} 
-      animate={{ width: '100%' }} 
-      transition={{ duration: .75, ease: "easeOut" }}
-      exit={{ x: '100%', transition: { duration: 0.1 } }}  
+      // initial={{ width: 0 }} 
+      // animate={{ width: '100%' }} 
+      // transition={{ duration: .75, ease: "easeOut" }}
+      // exit={{ x: '100%', transition: { duration: 0.1 } }}  
       className='mx-auto mb-8 dark:bg-black dark:text-white'
     >
       <Head>

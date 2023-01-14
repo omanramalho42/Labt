@@ -228,54 +228,52 @@ const FeaturedMeet = () => {
                         : '#EAB308',
                     }}
                   >
-                    {mobile.innerWidth > 1000 && (
-                      <span
-                        className="tooltiptext rendering" 
-                        style={{
-                          zIndex: 9,
-                          color: 'black',
-                          fontWeight: 'bold',
-                          left:
-                            categorieName === 'Salvador'
-                            ? '4em'
-                            : categorieName === 'Estar'
-                            ? '-12em' 
-                            : categorieName === 'Ser'
-                            ? '-11em'
-                            : categorieName === 'Bahia' 
-                            ? '6em'
-                            : 0,
-                          top:
-                            categorieName === 'Salvador'
-                            ? '-2em'
-                            : categorieName === 'Estar'
-                            ? '-2em' 
-                            : categorieName === 'Ser'
-                            ? '-2em'
-                            : categorieName === 'Bahia'
-                            ? '0' : 0,
-                        }}
+                    <span
+                      className={`tooltiptext ${categorieName} rendering`} 
+                      style={{
+                        zIndex: 9,
+                        color: 'black',
+                        fontWeight: 'bold',
+                        left:
+                          categorieName === 'Salvador'
+                          ? '4em'
+                          : categorieName === 'Estar'
+                          ? '-12em' 
+                          : categorieName === 'Ser'
+                          ? '-11em'
+                          : categorieName === 'Bahia' 
+                          ? '6em'
+                          : 0,
+                        top:
+                          categorieName === 'Salvador'
+                          ? '-2em'
+                          : categorieName === 'Estar'
+                          ? '-2em' 
+                          : categorieName === 'Ser'
+                          ? '-2em'
+                          : categorieName === 'Bahia'
+                          ? '0' : 0,
+                      }}
+                      >
+                        <p 
+                          className='font-medium'
+                          style={{
+                            color: 
+                              categorieName === 'Salvador'
+                              ? '#2563EB'
+                              : categorieName === 'Bahia'
+                              ? '#DC2626' 
+                              : categorieName === 'Ser'
+                              ? '#16A34A'
+                              : '#EAB308',    
+                          }}
                         >
-                          <p 
-                            className='font-medium'
-                            style={{
-                              color: 
-                                categorieName === 'Salvador'
-                                ? '#2563EB'
-                                : categorieName === 'Bahia'
-                                ? '#DC2626' 
-                                : categorieName === 'Ser'
-                                ? '#16A34A'
-                                : '#EAB308',    
-                            }}
-                          >
-                            { categorieName }
-                          </p>
-                          <p>
-                            { title  || 'dont avaliable'}
-                          </p>
-                      </span>
-                    )}
+                          { categorieName }
+                        </p>
+                        <p>
+                          { title  || 'dont avaliable'}
+                        </p>
+                    </span>
                   </a>
                 </a>
               </div>
