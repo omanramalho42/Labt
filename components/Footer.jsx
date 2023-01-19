@@ -1,8 +1,123 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
+import PostCard from './PostCard'
+import { motion } from 'framer-motion'
+import { getPosts } from '../services'
 
 const Footer = () => {
+  const [posts, setPosts] = useState(null);
+  const [search, setSearch] = useState('');
+  const [filterPost, setFilteredPost] = useState([{}]);
+
+  const autoFetchDataPosts = async () => {
+    let success = false;
+    
+    try {
+      await getPosts()
+        .then((res) => { 
+            setPosts(res.map(({ node }, idx) => ({ node }) )), 
+            success = true
+          }).catch(
+            (error) => {
+              console.log('Ocorreu um erro: ' + error) 
+              throw error;
+            }
+          );
+    } catch(error) {
+      success = false;
+      throw error;
+    }
+  }
+
+  const handleFilterPosts = (title) => {
+    if(search != "") {
+      let obj = [];
+      posts?.map(
+        (i) => {
+          i.node.title.toLowerCase().trim().includes(title)
+          &&
+          obj.push(i.node)
+          setFilteredPost(rest => { 
+            return {
+              ...rest, 
+              obj
+            } 
+          }
+        )}
+      );
+    }
+  }
+
+  useEffect(() => {
+    autoFetchDataPosts();
+  },[]);
+
+  useEffect(() => {
+    handleFilterPosts(search.toLowerCase());
+  }, [search]);
+
+  const getWindowSize = () => {
+    const { innerWidth, innerHeight } = window;
+    return { innerHeight, innerWidth };
+  }
+
+  const [mobile, setMobile] = useState(0);  
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setMobile(getWindowSize());
+    }
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    }
+  },[]);
+
+  useEffect(() => {
+    if(document.documentElement.clientWidth !== undefined ) {
+      setMobile({ innerWidth: 
+        document.documentElement.clientWidth
+      });
+    }
+  },[]);
+
   return (
     <footer className="text-center text-black mt-14">
+
+      <div className='flex flex-col'>
+        {mobile.innerWidth < 1000 && (
+          <div className='flex-col text-center'>
+            <input
+              placeholder='Pesquisa'
+              className='search'
+              style={{ borderRadius: '25px', border: '1px solid #c9c9c9' }} 
+              value={search} onChange={(event) => setSearch(event.target.value.toUpperCase())} 
+            />
+          </div>
+        )}
+
+        {search && mobile.innerWidth < 1000 && ( 
+          <div className='grid grid-cols-1 gap-12 pb-16 mt-4'>
+            {filterPost.obj?.map((i, idx) => (
+              <motion.div
+                initial={{ width: 0 }} 
+                animate={{ width: '95%', margin: '10px' }} 
+                transition={{ duration: .75, ease: "easeOut" }}
+                exit={{ x: '100%', transition: { duration: 0.1 } }}
+                className="col-span-1 sm:col-span-2"
+                key={idx}
+              >
+                <Link href={'/post/'+i.slug}>
+                  <PostCard post={i} />
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        )}
+      </div>
+      
       <div className="px-6 pt-6">
         <div className='text-center mb-4'>
           <h3 className='font-bold text-3xl uppercase'>

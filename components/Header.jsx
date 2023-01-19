@@ -5,7 +5,6 @@ import React, {
 } from 'react'
 
 import Link from 'next/link'
-import Image from 'next/image'
 
 import { motion } from 'framer-motion'
 
@@ -17,6 +16,8 @@ import { getPosts } from '../services/index'
 import Skeleton from 'react-loading-skeleton'
 
 const Header = () => {
+  const [mobile, setMobile] = useState(0);  
+
   const [categories, setCategories] = useState([]);
   const [load ,setLoad] = useState(true);
 
@@ -30,6 +31,32 @@ const Header = () => {
     { name: 'Salvador', slug: 'salvador' },
     { name: 'Bahia', slug: 'bahia' }
   ]);
+
+  const getWindowSize = () => {
+    const { innerWidth, innerHeight } = window;
+    return { innerHeight, innerWidth };
+  }
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setMobile(getWindowSize());
+    }
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    }
+  },[]);
+
+  useEffect(() => {
+    if(document.documentElement.clientWidth !== undefined ) {
+      setMobile({ innerWidth: 
+        document.documentElement.clientWidth
+      });
+    }
+  },[]);
+
 
   const autoFetchDataPosts = async () => {
     let success = false;
@@ -129,14 +156,16 @@ const Header = () => {
         </div>
       ))}
 
-      <div className='flex-col items-center'>
-        <input
-          placeholder='Pesquisa'
-          className='absolute search mx-auto lg:p-4 sm:p-1 text-center'
-          style={{ borderRadius: '25px', border: '1px solid #c9c9c9' }} 
-          value={search} onChange={(event) => setSearch(event.target.value.toUpperCase())} 
-        />
-      </div>
+      { mobile.innerWidth > 1000 && (
+        <div className='flex-col items-center'>
+          <input
+            placeholder='Pesquisa'
+            className='absolute search mx-auto lg:p-4 sm:p-1 text-center'
+            style={{ borderRadius: '25px', border: '1px solid #c9c9c9' }} 
+            value={search} onChange={(event) => setSearch(event.target.value.toUpperCase())} 
+          />
+        </div>
+      )}
 
       <div 
         className="grid grid-cols-2 space-x-16 items-center"
@@ -160,7 +189,15 @@ const Header = () => {
               }}
             >
               <span className='cursor-pointer font-bold text-4xl text-black'>
-                <img src='/logo.png' alt="logo labtempo" className='flex w-full h-full' style={{ maxWidth: 600 }} />
+                <img 
+                  src='/logo.png' 
+                  alt="logo labtempo" 
+                  className='flex w-full h-full' 
+                  style={{ 
+                    maxWidth: 600,
+                    width: mobile.innerWidth < 1000 ? 350 : '100%' 
+                  }} 
+                />
               </span>
             </motion.div>
           </Link>

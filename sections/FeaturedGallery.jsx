@@ -35,7 +35,7 @@ const FeaturedGallery = () => {
       <div  
         style={{
           backgroundColor: '#cc2020',
-          padding: '2% 10%',
+          padding: '2% 5%',
         }}
       >
         <h1 
@@ -61,20 +61,21 @@ const FeaturedGallery = () => {
               ? 'repeat(3,1fr)'
               : mobile.innerWidth < 1200 && mobile.innerWidth > 1000
               ? 'repeat(2,1fr)'
-              : 'repeat(1,1fr)',
-            gridColumnGap: '1em',
+              : 'repeat(2,1fr)',
+            gridColumnGap: '2em',
             gridRowGap: '10em',
           }}
         >
           {['1','2','3'].map((i,idx) => (
             <div 
-              className='relative w-80 h-80'
+              className='relative w-80'
               key={`${idx}`} 
               style={{ 
                 top: '80px',
-                boxShadow: '8px 12px 12px 6px rgba(0,0,0,0.3)',
+                boxShadow: '8px 12px 12px 6px rgba(0,0,0,0.6)',
                 backgroundColor: '#FFF',
-                borderRadius: '15px' 
+                borderRadius: '35px',
+                height: '170px'
               }}
             >
               <div className='relative flex flex-col text-center' style={{ top: '110%' }}>
