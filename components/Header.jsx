@@ -195,7 +195,7 @@ const Header = () => {
                   className='flex w-full h-full' 
                   style={{ 
                     maxWidth: 600,
-                    width: mobile.innerWidth < 1000 ? 350 : '100%' 
+                    width: mobile.innerWidth < 1000 ? 320 : '90%' 
                   }} 
                 />
               </span>

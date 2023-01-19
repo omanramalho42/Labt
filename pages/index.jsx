@@ -130,10 +130,6 @@ const Home = () => {
   
   return (
    <motion.div
-      // initial={{ width: 0 }} 
-      // animate={{ width: '100%' }} 
-      // transition={{ duration: .75, ease: "easeOut" }}
-      // exit={{ x: '100%', transition: { duration: 0.1 } }}  
       className='mx-auto mb-8 dark:bg-black dark:text-white'
     >
       <Head>
@@ -143,7 +139,7 @@ const Home = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <div className=''>
+      <div>
         {mobile.innerWidth > 1000 ? (
           <div className='px-10 mb-4'>
             <FeaturedLastPost />

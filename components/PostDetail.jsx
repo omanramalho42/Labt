@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
-import moment from 'moment'
-import Carousel from 'react-multi-carousel'
-
-import Image from 'next/image'
 
 import Skeleton from 'react-loading-skeleton'
 import ModalPhotos from './ModalPhotos'
@@ -114,8 +110,7 @@ const PostDetail = ({ post }) => {
   }
 
   return (
-    <div className="bg-white rounded-lg pb-12 mt3">
-      
+    <div className="bg-white rounded-lg pb-12 mt-3">   
       <div 
         style={{
           marginRight: '1em',

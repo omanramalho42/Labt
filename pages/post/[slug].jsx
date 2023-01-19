@@ -42,12 +42,7 @@ const PostDetails = ({ post }) => {
   }
 
   return (
-    <motion.div
-      // initial={{ width: 0 }} 
-      // animate={{ width: '100%' }} 
-      // transition={{ duration: .75, ease: "easeOut" }}
-      // exit={{ x: '100%', transition: { duration: 0.1 } }} 
-    >
+    <motion.div>
       <div className="mx-auto mb-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-12">
