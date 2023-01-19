@@ -151,7 +151,7 @@ const Home = () => {
               className='relative' 
               style={{ 
                 top: '-50px', 
-                left: '40%', 
+                left: mobile.innerWidth < 580 ? '38%' : '45%',
                 backgroundColor: '#000', 
                 width: '100px', 
                 padding: '10px', 
