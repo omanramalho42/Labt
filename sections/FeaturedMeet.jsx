@@ -255,6 +255,7 @@ const FeaturedMeet = () => {
                           ? '0' : 0,
                       }}
                       >
+                        {/* {mobile.innerWidth < 1000 && ( <span style={{ position: 'absolute', right: '20px', top: '5px', fontSize: '.9em'}}>x</span> ) } */}
                         <p 
                           className={`font-medium ${mobile.innerWidth < 1000 && 'tooltip__title'}`}
                           style={{
@@ -267,10 +268,12 @@ const FeaturedMeet = () => {
                               ? '#16A34A'
                               : mobile.innerWidth > 1000 && '#EAB308',    
                           }}
-                        >
+                        > 
                           { categorieName }
                         </p>
-                        <p className={`${mobile.innerWidth < 1000 && 'tooltip_excerpt'}`} style={{ color: mobile.innerWidth < 1000 && '#FFF' }}>
+                        <p 
+                          className={`${mobile.innerWidth < 1000 && 'tooltip_excerpt'}`}
+                        >
                           { title  || 'dont avaliable'}
                         </p>
                     </span>
