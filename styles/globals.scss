@@ -117,18 +117,21 @@ a {
 }
 
 .tooltiptext__mobile {
-  width: 260px !important;
-  height: 180px !important;
+  width: auto !important;
+  height: auto !important;
 
-  padding: 0 !important;
+  padding-bottom: 20px !important;
+  padding-top: 20px !important;
+  padding-right: 30px !important;
+  padding-left: 0 !important;
 
   border-radius: 25px !important;
 }
 
 .Salvador {
   @media only screen and (max-width: 1000px) {
-    top: -3em !important;
-    left: -265px !important;
+    top: -2em !important;
+    left: -280px !important;
 
     background-color: #2563EB;
     color: #FFF;
@@ -170,6 +173,9 @@ a {
 .tooltip__title {
   font-size: 6em;
   font-weight: bold;
+  
+  margin-top: 20px;
+  line-height: .5px;
 
   text-transform: lowercase;
   
@@ -178,8 +184,8 @@ a {
 
 
 .tooltip_excerpt {
+  margin-top: 50px;
   margin-left: 80px;
-  margin-top: 1px;
 
   text-transform: uppercase;
 

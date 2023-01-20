@@ -69,7 +69,7 @@ const FeaturedLastPost = () => {
           <span 
             className='relative text-2xl font-light uppercase'
             style={{ 
-              top: 10,
+              top: 15,
               fontFamily: 'Luam-Light',
               fontWeight: 300,
               color: '#fff'
@@ -78,16 +78,17 @@ const FeaturedLastPost = () => {
             { lastPost[0].categories[0].name.toString() || <Skeleton count={1} /> }
           </span>
             
-          <div className='flex' style={{ alignItems: 'self-end' }}>
+          <div className='flex' style={{ alignItems: 'self-end', justifyContent: 'space-between' }}>
             <h1 
               className='text-2xl font-bold'
-              style={{ fontFamily: 'gotham-bold', fontWeight: 700, width: '75%', color: '#FFF' }}
+              style={{ fontFamily: 'gotham-bold', fontWeight: 700, width: '65%', color: '#FFF' }}
             >
               { lastPost[0].title || <Skeleton /> }
             </h1>
             
             <figcaption 
               className='flex w-75 h-full'
+              style={{ justifyContent: 'flex-end' }}
             >
               <Link
                 href={`post/${lastPost[0].slug}`}
