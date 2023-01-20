@@ -229,7 +229,7 @@ const FeaturedMeet = () => {
                     }}
                   >
                     <span
-                      className={`tooltiptext ${categorieName} rendering`} 
+                      className={`tooltiptext ${categorieName} rendering ${mobile.innerWidth < 1000 && 'tooltiptext__mobile'}`} 
                       style={{
                         zIndex: 9,
                         color: 'black',
@@ -256,21 +256,21 @@ const FeaturedMeet = () => {
                       }}
                       >
                         <p 
-                          className='font-medium'
+                          className={`font-medium ${mobile.innerWidth < 1000 && 'tooltip__title'}`}
                           style={{
                             color: 
-                              categorieName === 'Salvador'
+                              categorieName === 'Salvador' && mobile.innerWidth > 1000
                               ? '#2563EB'
-                              : categorieName === 'Bahia'
+                              : categorieName === 'Bahia' && mobile.innerWidth > 1000
                               ? '#DC2626' 
-                              : categorieName === 'Ser'
+                              : categorieName === 'Ser' && mobile.innerWidth > 1000
                               ? '#16A34A'
-                              : '#EAB308',    
+                              : mobile.innerWidth > 1000 && '#EAB308',    
                           }}
                         >
                           { categorieName }
                         </p>
-                        <p>
+                        <p className={`${mobile.innerWidth < 1000 && 'tooltip_excerpt'}`} style={{ color: mobile.innerWidth < 1000 && '#FFF' }}>
                           { title  || 'dont avaliable'}
                         </p>
                     </span>

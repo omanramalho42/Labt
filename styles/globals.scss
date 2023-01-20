@@ -116,12 +116,21 @@ a {
   position: absolute;
 }
 
+.tooltiptext__mobile {
+  width: 260px !important;
+  height: 180px !important;
+
+  padding: 0 !important;
+
+  border-radius: 25px !important;
+}
+
 .Salvador {
   @media only screen and (max-width: 1000px) {
-    top: 2em !important;
-    left: -230px !important;
+    top: -3em !important;
+    left: -265px !important;
 
-    background-color: white;
+    background-color: #2563EB;
     color: #FFF;
 
     box-shadow: 0 3px 12px 6px rgba(0,0,0,0.3);
@@ -132,43 +141,67 @@ a {
 
 .Bahia {
   @media only screen and (max-width: 1000px) {
-    top: 12em !important;
-    left: -120px !important;
+    top: 5em !important;
+    left: -155px !important;
 
-    background-color: white;
+    background-color: #DC2626;
     color: #FFF;
 
     box-shadow: 0 3px 12px 6px rgba(0,0,0,0.3);
 
-    font-size: 0.6em !important; 
+    font-size: .8em !important; 
   }
 }
 
 .Ser {
   @media only screen and (max-width: 1000px) {
-    top: -4.5em !important;
-    left: 80px !important;
+    top: -6.5em !important;
+    left: 40px !important;
 
-    background-color: white;
+    background-color: #16A34A;
     color: #FFF;
 
     box-shadow: 0 3px 12px 6px rgba(0,0,0,0.3);
 
-    font-size: 0.6em !important; 
+    font-size: 1em !important; 
   }
+}
+
+.tooltip__title {
+  font-size: 6em;
+  font-weight: bold;
+
+  text-transform: lowercase;
+  
+  color: #fff;
+}
+
+
+.tooltip_excerpt {
+  margin-left: 80px;
+  margin-top: 1px;
+
+  text-transform: uppercase;
+
+  width: 150px;
+  
+  font-size: 1em;
 }
 
 .Estar {
   @media only screen and (max-width: 1000px) {
-    top: -16em !important;
-    left: -30px !important;
+    top: -15em !important;
+    left: -75px !important;
 
-    background-color: white;
+    background-color: #EAB308;
+
+    height: 160px;
+
     color: #FFF;
-
     box-shadow: 0 3px 12px 6px rgba(0,0,0,0.3);
 
-    font-size: 0.6em !important; 
+    font-size: .9em !important;
+    text-transform: uppercase;
   }
 }
 
