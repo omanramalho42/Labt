@@ -67,9 +67,9 @@ const FeaturedLastPost = () => {
           }}
         >
           <span 
-            className='relative text-2xl font-light uppercase'
+            className='relative text-3xl font-light uppercase'
             style={{ 
-              top: 15,
+              top: 13,
               fontFamily: 'Luam-Light',
               fontWeight: 300,
               color: '#fff'
@@ -94,7 +94,7 @@ const FeaturedLastPost = () => {
                 href={`post/${lastPost[0].slug}`}
               >
                 <p
-                  className='mb-4 text-xl uppercase'
+                  className='mb-4 text-2xl uppercase'
                   style={{
                     fontFamily: 'Luam-Light', 
                     color: '#FFF',

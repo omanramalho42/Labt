@@ -109,6 +109,7 @@ const FeaturedMeet = () => {
         <div
           style={{
             transition: '0.325s',
+            objectFit: 'contain',
             backgroundImage: `url(${'/sectionmeet.png'})`,
             backgroundRepeat: 'no-repeat',
             padding: mobile.innerWidth < 1000 ? '0' : '10em',
@@ -141,9 +142,7 @@ const FeaturedMeet = () => {
               }}
             />
           </div>
-          <div 
-            className="grid"
-          >
+          <div className="grid">
             {lastPosts.map(({ 
               categorieName, 
               slug, 
@@ -154,14 +153,14 @@ const FeaturedMeet = () => {
                 key={`${Math.random() * 100}`} 
                 className='relative rounded-full mx-auto' 
                 style={{
-                  top: '-5em',
+                  top: mobile.innerWidth < 1000 ? '-5.5em' : '-5em',
                   width: `${
                     mobile.innerWidth < 1000 
                     ? '120px'
                     : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
                     ? '180px' 
                     : categorieName === 'Estar' || categorieName === 'Bahia' ? '310px' : '250px'
-                  }`, 
+                  }`,
                   height: `${
                     mobile.innerWidth < 1000 
                     ? '120px' 
@@ -171,15 +170,19 @@ const FeaturedMeet = () => {
                   }`,
                   boxShadow: '2px 3px 10px 1px rgba(0, 0, 0, 0.1)',
                   transition: '0.325s',
-                  padding: '10px',
-                  border: `3.5px solid 
+                  padding: mobile.innerWidth < 1000 ? '5px' : '10px',
+                  transform: 
+                    mobile.innerWidth < 1000 
+                    && categorieName === 'Estar' || categorieName === 'Bahia' 
+                    ? 'scale(1.2)' : 'none',
+                  border: `${mobile.innerWidth < 1000 ? '6' : '3.5'}px solid 
                   ${categorieName === 'Salvador'
-                      ? '#2563EB'
-                      : categorieName === 'Bahia'
-                      ? '#DC2626' 
-                      : categorieName === 'Ser'
-                      ? '#16A34A'
-                      : '#EAB308'
+                    ? '#2563EB'
+                    : categorieName === 'Bahia'
+                    ? '#DC2626' 
+                    : categorieName === 'Ser'
+                    ? '#16A34A'
+                    : '#EAB308'
                   }`,
                   gridColumnStart: 
                     categorieName === 'Estar' 
