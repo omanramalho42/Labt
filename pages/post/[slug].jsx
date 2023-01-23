@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
+import { Helmet } from 'react-helmet'
+
 import { motion } from 'framer-motion'
 
 import { 
@@ -26,13 +28,13 @@ const PostDetails = ({ post }) => {
       setColor('#DC2626');
       return;
     } else if(post.categories[0].name === 'Salvador') {
-      setColor('#2563EB');
+      setColor('#2f53a1');
       return;
     } else if (post.categories[0].name === 'Ser') {
-      setColor('#16A34A');
+      setColor('#3fbb5a');
       return;
     } else  {
-      setColor('#EAB308');
+      setColor('#d5b035');
       return;
     }
   },[post]);
@@ -41,8 +43,17 @@ const PostDetails = ({ post }) => {
     return <Loader />;
   }
 
+  useEffect(() => {
+    console.log(post);
+  },[post]);
+  
   return (
     <motion.div>
+      <Helmet>
+        <title>Postagem: {post.title || ''}</title>
+        <meta charSet='utf-8'/>
+        {/* <meta desc={post} /> */}
+      </Helmet>
       <div className="mx-auto mb-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-12">

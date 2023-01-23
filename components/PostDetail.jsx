@@ -12,13 +12,13 @@ const PostDetail = ({ post }) => {
       setColor('#DC2626');
       return;
     } else if(post.categories[0].name === 'Salvador') {
-      setColor('#2563EB');
+      setColor('#2f53a1');
       return;
     } else if (post.categories[0].name === 'Ser') {
-      setColor('#16A34A');
+      setColor('#3fbb5a');
       return;
     } else  {
-      setColor('#EAB308');
+      setColor('#d5b035');
       return;
     }
   },[post]);
@@ -205,12 +205,12 @@ const PostDetail = ({ post }) => {
               style={{ 
                 borderColor: 
                 `${post.categories[0].name === 'Salvador' 
-                ? '#2563EB'
+                ? '#2f53a1'
                 :  post.categories[0].name === 'Bahia'
                 ? '#DC2626'
                 : post.categories[0].name === 'Ser'
-                ?  '#16A34A'
-                : '#EAB308'
+                ?  '#3fbb5a'
+                : '#d5b035'
                 }` 
               }}>
               { post.author.name || <Skeleton count={1} /> } 

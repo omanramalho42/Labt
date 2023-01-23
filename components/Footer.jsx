@@ -93,7 +93,10 @@ const Footer = () => {
               placeholder='Pesquisa'
               className='search'
               style={{ borderRadius: '25px', border: '1px solid #c9c9c9' }} 
-              value={search} onChange={(event) => setSearch(event.target.value.toUpperCase())} 
+              value={search} 
+              onChange={
+                (event) => setSearch(event.target.value.toUpperCase())
+              } 
             />
           </div>
         )}

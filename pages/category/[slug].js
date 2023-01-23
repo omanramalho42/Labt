@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
+
+import { Helmet } from 'react-helmet'
+
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -18,13 +21,13 @@ const CategoryPost = ({ posts }) => {
   const [color, setColor] = useState("");
   useEffect(() => {
     if(posts[0].node.categories[0].name === 'Salvador') {
-      setColor('#2563EB');
+      setColor('#2f53a1');
     } else if (posts[0].node.categories[0].name === 'Bahia') {
       setColor('#DC2626');
     } else if (posts[0].node.categories[0].name === 'Ser') {
-      setColor('#16A34A')
+      setColor('#3fbb5a')
     } else {
-      setColor('#EAB308')
+      setColor('#d5b035')
     }
   },[posts]);
 
@@ -61,6 +64,13 @@ const CategoryPost = ({ posts }) => {
     }
   },[]);
 
+  const [categorieName, setCategorieName] = useState("");
+  useMemo(() => {
+    if(posts) {
+      setCategorieName(posts[0].node.categories[0].name);
+    }
+  },[posts]);
+
   return (
     <motion.div
       className="mx-auto px-10"
@@ -74,6 +84,11 @@ const CategoryPost = ({ posts }) => {
         )`
       }}
     >
+      <Helmet>
+        <title>Categorias: {categorieName || ''}</title>
+        <meta charSet='utf-8'/>
+      </Helmet>
+
       <div style={{ display: 'flex', flexDirection: 'row', marginBottom: 20, marginTop: 20 }} >
         {mobile.innerWidth < 1000 ? (
           <>

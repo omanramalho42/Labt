@@ -195,7 +195,7 @@ const Header = () => {
                   className='flex w-full h-full' 
                   style={{ 
                     maxWidth: 600,
-                    width: mobile.innerWidth < 1000 ? 320 : '90%' 
+                    width: mobile.innerWidth < 1000 ? 320 : '70%' 
                   }} 
                 />
               </span>
@@ -207,7 +207,7 @@ const Header = () => {
           <div className="hidden md:float-right md:contents items-center" style={{ fontFamily: 'Arlita' }}>
             <a
               href='/' 
-              className='md:float-right flex items-center mt-2 text-black dark:text-white font-semibold cursor-pointer xl:text-4xl lg:text-2xl md:text-xl'
+              className='md:float-right flex items-center mt-2 text-black dark:text-white font-semibold cursor-pointer xl:text-3xl lg:text-2xl md:text-xl'
             >
               labT
             </a>
@@ -215,7 +215,7 @@ const Header = () => {
             {headerNav.map((i, idx) => (
               <Fragment key={`${i.slug}-${idx}`}>
                 <Link href={`/category/${i.slug}`}>
-                  <span className="flex items-center md:float-right mt-2 align-middle text-black lowercase dark:text-white font-semibold cursor-pointer xl:text-4xl lg:text-2xl md:text-xl">
+                  <span className="flex items-center md:float-right mt-2 align-middle text-black lowercase dark:text-white font-semibold cursor-pointer xl:text-3xl lg:text-2xl md:text-xl">
                     { i.name }
                   </span>
                 </Link>
@@ -224,7 +224,7 @@ const Header = () => {
             ))}
             <a 
               href='/#banca'
-              className='md:float-right mt-2 disabled:opacity-25 text-black dark:text-white font-semibold cursor-pointer border-separate xl:text-4xl lg:text-2xl md:text-xl'
+              className='md:float-right mt-2 disabled:opacity-25 text-black dark:text-white font-semibold cursor-pointer border-separate xl:text-3xl lg:text-2xl md:text-xl'
             >
               banca
             </a>

@@ -151,7 +151,7 @@ const FeaturedMeet = () => {
             }, idx) => categorieName && !loading && (
               <div
                 key={`${Math.random() * 100}`} 
-                className='relative rounded-full mx-auto' 
+                className={`relative rounded-full mx-auto`} 
                 style={{
                   top: mobile.innerWidth < 1000 ? '-5.5em' : '-5em',
                   width: `${
@@ -171,18 +171,18 @@ const FeaturedMeet = () => {
                   boxShadow: '2px 3px 10px 1px rgba(0, 0, 0, 0.1)',
                   transition: '0.325s',
                   padding: mobile.innerWidth < 1000 ? '5px' : '10px',
-                  transform: 
-                    mobile.innerWidth < 1000 
-                    && categorieName === 'Estar' || categorieName === 'Bahia' 
-                    ? 'scale(1.2)' : 'none',
+                  // transform: 
+                  //   mobile.innerWidth < 1000 
+                  //   && categorieName === 'Estar' || categorieName === 'Bahia' 
+                  //   ? 'scale(1.2)' : 'none',
                   border: `${mobile.innerWidth < 1000 ? '6' : '3.5'}px solid 
                   ${categorieName === 'Salvador'
-                    ? '#2563EB'
+                    ? '#2f53a1'
                     : categorieName === 'Bahia'
                     ? '#DC2626' 
                     : categorieName === 'Ser'
-                    ? '#16A34A'
-                    : '#EAB308'
+                    ? '#3fbb5a'
+                    : '#d5b035'
                   }`,
                   gridColumnStart: 
                     categorieName === 'Estar' 
@@ -223,18 +223,17 @@ const FeaturedMeet = () => {
                       zIndex: 1,
                       backgroundColor: 
                         categorieName === 'Salvador'
-                        ? '#2563EB'
+                        ? '#2f53a1'
                         : categorieName === 'Bahia'
                         ? '#DC2626' 
                         : categorieName === 'Ser'
-                        ? '#16A34A'
-                        : '#EAB308',
+                        ? '#3fbb5a'
+                        : '#d5b035',
                     }}
                   >
                     <span
                       className={`tooltiptext ${categorieName} rendering ${mobile.innerWidth < 1000 && 'tooltiptext__mobile'}`} 
                       style={{
-                        zIndex: 9,
                         color: 'black',
                         fontWeight: 'bold',
                         left:
@@ -264,12 +263,12 @@ const FeaturedMeet = () => {
                           style={{
                             color: 
                               categorieName === 'Salvador' && mobile.innerWidth > 1000
-                              ? '#2563EB'
+                              ? '#2f53a1'
                               : categorieName === 'Bahia' && mobile.innerWidth > 1000
                               ? '#DC2626' 
                               : categorieName === 'Ser' && mobile.innerWidth > 1000
-                              ? '#16A34A'
-                              : mobile.innerWidth > 1000 && '#EAB308',    
+                              ? '#3fbb5a'
+                              : mobile.innerWidth > 1000 && '#d5b035',    
                           }}
                         > 
                           { categorieName }

@@ -58,10 +58,10 @@ const FeaturedLastPost = () => {
                 ${lastPost[0].categories[0].name.toString() === 'Bahia'
                   ? '#DC2626' 
                   : lastPost[0].categories[0].name.toString() === 'Salvador'
-                  ? '#2563EB'
+                  ? '#2f53a1'
                   : lastPost[0].categories[0].name.toString() === 'Ser'
-                  ? '#16A34A'
-                  : '#EAB308'  
+                  ? '#3fbb5a'
+                  : '#d5b035'  
                 }
               `
           }}
