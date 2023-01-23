@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import { useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 
 import Link from 'next/link'
 
@@ -15,13 +15,15 @@ import {
 
 import { 
   FeaturedPosts, 
-  FeaturedLastPost, 
   FeaturedMeet,
   FeaturedGallery,
-  FeaturedLastPostMobile
 } from '../sections'
 
+const FeaturedLastPost = lazy(() => import('../sections/FeaturedLastPost'));
+const FeaturedLastPostMobile = lazy(() => import('../sections/FeaturedLastPostMobile'));
+
 import { getPosts } from '../services'
+import Skeleton from 'react-loading-skeleton'
 
 const Home = () => {
   const [dark, setDark] = useState(false);
@@ -142,7 +144,9 @@ const Home = () => {
       <div>
         {mobile.innerWidth > 1000 ? (
           <div className='px-10 mb-4'>
-            <FeaturedLastPost />
+            <Suspense fallback={<Skeleton />}>
+              <FeaturedLastPost />
+            </Suspense>
           </div>
         ) : (
           <div>
@@ -164,7 +168,9 @@ const Home = () => {
                 </p>
               </Link>
             </div>
-            <FeaturedLastPostMobile />
+            <Suspense fallback={<Skeleton />}>
+              <FeaturedLastPostMobile />
+            </Suspense>
           </div>
         )}
         
