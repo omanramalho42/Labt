@@ -160,7 +160,7 @@ const Header = () => {
         <div className='flex-col items-center'>
           <input
             placeholder='Pesquisa'
-            className='absolute search mx-auto lg:p-4 sm:p-1 text-center'
+            className='absolute search mx-auto lg:p-2 sm:p-1 text-center'
             style={{ borderRadius: '25px', border: '1px solid #c9c9c9' }} 
             value={search} onChange={(event) => setSearch(event.target.value.toUpperCase())} 
           />
@@ -203,7 +203,7 @@ const Header = () => {
           </Link>
         </div>
         
-        <div className='w-full flex justify-between items-center'>
+        <div className='w-full flex justify-between items-center mt-3'>
           <div className="hidden md:float-right md:contents items-center" style={{ fontFamily: 'Arlita' }}>
             <a
               href='/' 

@@ -137,7 +137,7 @@ const Home = () => {
       <Head>
         <title>Laboratório Temp</title>
         <link rel="stylesheet" href="/icon.png" />
-        
+        <meta desc="Página inicial" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
@@ -155,7 +155,7 @@ const Home = () => {
               className='relative' 
               style={{ 
                 top: '-50px', 
-                left: mobile.innerWidth < 580 ? '38%' : '45%',
+                left: mobile.innerWidth < 600 ? '40%' : mobile.innerWidth > 1600 ? '35%' : '45%',
                 backgroundColor: '#000', 
                 width: '100px', 
                 padding: '10px', 
