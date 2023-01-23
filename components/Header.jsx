@@ -168,7 +168,8 @@ const Header = () => {
       )}
 
       <div 
-        className="grid grid-cols-2 space-x-16 items-center"
+        className="relative grid grid-cols-2 space-x-16 items-center"
+        style={{ left: -20 }}
       >
         <div className="md:float-left">
           <Link href="/">
@@ -197,9 +198,9 @@ const Header = () => {
                     maxWidth: 600,
                     minWidth: 100,
                     width: 
-                      mobile.innerWidth < 450 ? 300 
-                      : mobile.innerWidth <= 750 && mobile.innerWidth >= 420 
-                      ? 400 
+                      mobile.innerWidth < 400 ? 300 
+                      : mobile.innerWidth <= 750 && mobile.innerWidth >= 400 
+                      ? 380 
                       : mobile.innerWidth > 750 && mobile.innerWidth < 1400 
                       ? 370 
                       : '70%' 
