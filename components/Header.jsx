@@ -137,9 +137,9 @@ const Header = () => {
     <div className='mx-auto px-10 dark:bg-black pb-2'>
       {headerNav.map(({ name, slug }, idx) => (
         <div key={`${slug}-${idx}`}>
-          <Link href={`/category/${slug}`}>
+          <a href={`/category/${slug}`} className="relative z-10 cursor-pointer">
             <span className={
-              `md: float-right mr-1 rounded-b-sm 
+              `md: float-right mr-1 z-10 rounded-b-sm 
               ${name === 'Estar' 
               ? 'bg-yellow-500'
               : name === 'Salvador'
@@ -152,7 +152,7 @@ const Header = () => {
               } w-6 h-8 p-1`}
             >
             </span>
-          </Link>
+          </a>
         </div>
       ))}
 
@@ -160,7 +160,7 @@ const Header = () => {
         <div className='flex-col items-center'>
           <input
             placeholder='Pesquisa'
-            className='absolute search mx-auto lg:p-2 sm:p-1 text-center'
+            className='absolute search mx-auto lg:p-2 sm:p-1 text-center z-10'
             style={{ borderRadius: '25px', border: '1px solid #c9c9c9' }} 
             value={search} onChange={(event) => setSearch(event.target.value.toUpperCase())} 
           />
@@ -168,8 +168,7 @@ const Header = () => {
       )}
 
       <div 
-        className="relative grid grid-cols-2 space-x-16 items-center"
-        style={{ left: -20 }}
+        className="grid grid-cols-2 space-x-16 items-center"
       >
         <div className="md:float-left">
           <Link href="/">
@@ -189,21 +188,15 @@ const Header = () => {
                 }
               }}
             >
-              <span className='cursor-pointer font-bold text-4xl text-black'>
+              <span className='relative' style={{ cursor: 'pointer' }}>
                 <img 
                   src='/logo.png' 
                   alt="logo labtempo" 
-                  className='flex w-full h-full' 
-                  style={{ 
+                  className='flex w-full h-full z-10' 
+                  style={{
                     maxWidth: 600,
-                    minWidth: 100,
-                    width: 
-                      mobile.innerWidth < 400 ? 300 
-                      : mobile.innerWidth <= 750 && mobile.innerWidth >= 400 
-                      ? 380 
-                      : mobile.innerWidth > 750 && mobile.innerWidth < 1400 
-                      ? 370 
-                      : '70%' 
+                    minWidth: 400,
+                    zIndex: -1
                   }} 
                 />
               </span>
@@ -211,7 +204,7 @@ const Header = () => {
           </Link>
         </div>
         
-        <div className='w-full flex justify-between items-center mt-3'>
+        <div className='relative w-full flex justify-between items-center mt-3' style={{ right: mobile.innerWidth <= 800 ? 14 : 0 }}>
           <div className="hidden md:float-right md:contents items-center" style={{ fontFamily: 'Arlita' }}>
             <a
               href='/' 

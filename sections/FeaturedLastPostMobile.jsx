@@ -91,6 +91,7 @@ const FeaturedLastPost = () => {
               style={{ justifyContent: 'flex-end' }}
             >
               <Link
+                className='z-10'
                 href={`post/${lastPost[0].slug}`}
               >
                 <p

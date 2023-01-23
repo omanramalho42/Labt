@@ -125,8 +125,8 @@ const PostDetail = ({ post }) => {
               className='absolute' 
               style={{ 
                 zIndex: 2,
-                top: '185px', 
-                left: mobile.innerWidth < 580 ? '38%' : '45%', 
+                top: '25%', 
+                left: mobile.innerWidth < 600 ? '40%' : mobile.innerWidth > 1600 ? '35%' : '45%',
                 backgroundColor: '#000', 
                 width: '100px', 
                 padding: '10px', 
@@ -134,7 +134,7 @@ const PostDetail = ({ post }) => {
                 backgroundColor: color,
               }}
             >
-              <Link href="/">
+              <Link href={`/post/${post.slug}`}>
                 <p 
                   style={{ 
                     color: '#000',
@@ -187,8 +187,8 @@ const PostDetail = ({ post }) => {
           background: mobile.innerWidth < 1000 && `linear-gradient(
             to top,
             white 0%,
-            white 95%,
-            ${color} 95%,
+            white 92%,
+            ${color} 92%,
             ${color} 100%
           )`,
         }} 

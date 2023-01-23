@@ -52,7 +52,7 @@ const PostDetails = ({ post }) => {
       <Helmet>
         <title>Postagem: {post.title || ''}</title>
         <meta charSet='utf-8'/>
-        {/* <meta desc={post} /> */}
+        <meta desc={post.title} />
       </Helmet>
       <div className="mx-auto mb-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">

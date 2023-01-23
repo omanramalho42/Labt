@@ -96,8 +96,8 @@ const CategoryPost = ({ posts }) => {
               className='absolute' 
               style={{ 
                 zIndex: 2,
-                top: '185px', 
-                left: mobile.innerWidth < 580 ? '38%' : '45%', 
+                top: '24%', 
+                left: mobile.innerWidth < 600 ? '40%' : mobile.innerWidth > 1600 ? '35%' : '45%',
                 backgroundColor: '#000', 
                 width: '100px', 
                 padding: '10px', 
