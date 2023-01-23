@@ -83,17 +83,19 @@ const Footer = () => {
     }
   },[]);
 
+  useEffect(() => { console.log(search,'search')},[search]);
+
   return (
     <footer className="text-center text-black mt-14">
 
       <div className='flex flex-col'>
         {mobile.innerWidth < 1000 && (
-          <div className='flex-col text-center'>
+          <div className='flex-col text-center z-10'>
             <input
               placeholder='Pesquisa'
               className='search'
               style={{ borderRadius: '25px', border: '1px solid #c9c9c9' }} 
-              value={search} 
+              value={search || ''} 
               onChange={
                 (event) => setSearch(event.target.value.toUpperCase())
               } 
