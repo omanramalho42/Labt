@@ -155,7 +155,7 @@ const Home = () => {
               className='relative' 
               style={{ 
                 top: '-50px', 
-                left: mobile.innerWidth < 600 ? '40%' : mobile.innerWidth > 1600 ? '35%' : '45%',
+                left: mobile.innerWidth < 600 ? '37%' : mobile.innerWidth > 1600 ? '35%' : '45%',
                 backgroundColor: '#000', 
                 width: '100px', 
                 padding: '10px', 

@@ -195,7 +195,7 @@ const Header = () => {
                   className='flex w-full h-full z-10' 
                   style={{
                     maxWidth: 600,
-                    minWidth: 400,
+                    minWidth: 300,
                     zIndex: -1
                   }} 
                 />
