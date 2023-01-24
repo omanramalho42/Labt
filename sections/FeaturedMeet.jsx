@@ -171,10 +171,10 @@ const FeaturedMeet = () => {
                   boxShadow: '2px 3px 10px 1px rgba(0, 0, 0, 0.1)',
                   transition: '0.325s',
                   padding: mobile.innerWidth < 1000 ? '5px' : '10px',
-                  transform: 
-                    mobile.innerWidth < 1000 
-                    && categorieName === 'Estar' || categorieName === 'Bahia' 
-                    ? 'scale(1.2)' : 'none',
+                  // transform: 
+                  //   mobile.innerWidth < 1000 
+                  //   && categorieName === 'Estar' || categorieName === 'Bahia' 
+                  //   ? 'scale(1.2)' : 'none',
                   border: `${mobile.innerWidth < 1000 ? '6' : '3.5'}px solid 
                   ${categorieName === 'Salvador'
                     ? '#2f53a1'
