@@ -39,7 +39,7 @@ body {
     position: fixed;
     left: 0;
     top: 0;
-    // z-index: -1;
+
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -98,7 +98,7 @@ a {
 
 /* Tooltip text */
 .tooltip .tooltiptext {
-  // z-index: 2 !important;
+  position: absolute;
   visibility: hidden;
 
   box-sizing: border-box;
@@ -113,7 +113,6 @@ a {
   width: 175px;
   text-align: left;
 
-  position: absolute;
 }
 
 .tooltiptext__mobile {
@@ -123,7 +122,6 @@ a {
   position: fixed;
 
   z-index: 1 !important;
-  // transform: scale(1.02);
 
   padding-bottom: 20px !important;
   padding-top: 20px !important;
@@ -495,4 +493,34 @@ a {
     top: 2.5em;
     padding: 1px;
   }
+}
+
+.tag {
+  // top: 12em;
+  // transition: 0.325s;
+
+  // left: 10em;
+
+  // @media only screen and (max-width: 1000px) {
+  //   top: 13.5em;
+  //   left: 28em;
+  // }
+  // @media only screen and (max-width: 800px) {
+  //   top: 9em;
+  //   left: 12.6em;
+  // }
+  // @media only screen and (max-width: 800px) {
+  //   top: 9.8em;
+  //   left: 12.6em;
+  // }
+  // @media only screen and (max-width: 600px) {
+  //   top: 9.8em;
+  //   left: 10.6em;
+  // }
+  // @media only screen and (max-width: 500px) {
+  //   left: 12.6em;
+  // }
+  // @media only screen and (max-width: 400px) {
+  //   left: 8.6em;
+  // }
 }

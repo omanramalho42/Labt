@@ -125,8 +125,15 @@ const PostDetail = ({ post }) => {
               className='absolute' 
               style={{ 
                 zIndex: 2,
-                top: '25%', 
-                left: mobile.innerWidth < 600 ? '37%' : mobile.innerWidth > 1600 ? '35%' : '45%',
+                top: '19%', 
+                left: 
+                  mobile.innerWidth < 450 
+                  ? '37%' 
+                  : mobile.innerWidth < 600 
+                  ? '40%' 
+                  : mobile.innerWidth > 1600 
+                  ? '35%' 
+                  : '45%',
                 backgroundColor: '#000', 
                 width: '100px', 
                 padding: '10px', 
@@ -187,8 +194,8 @@ const PostDetail = ({ post }) => {
           background: mobile.innerWidth < 1000 && `linear-gradient(
             to top,
             white 0%,
-            white 92%,
-            ${color} 92%,
+            white 94%,
+            ${color} 94%,
             ${color} 100%
           )`,
         }} 
