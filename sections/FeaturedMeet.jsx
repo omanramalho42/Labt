@@ -331,7 +331,6 @@ const FeaturedMeet = () => {
                   <a
                     onMouseEnter={() => setShow(true)}
                     id={`circle${idx}`}
-                    href={`/post/${slug}`}
                     className={`box rounded-full tooltip
                       ${categorieName === 'Ser' 
                       ? 'box1' 
@@ -354,7 +353,8 @@ const FeaturedMeet = () => {
                     }}
                   >
                     {show && (
-                      <span
+                      <a
+                        href={`/post/${slug}`}
                         className={`tooltiptext ${categorieName} ${show && 'visible'} rendering tooltiptext__mobile relative z-10`} 
                         style={{
                           color: 'black',
@@ -377,10 +377,10 @@ const FeaturedMeet = () => {
                             : categorieName === 'Ser'
                             ? '-2em'
                             : categorieName === 'Bahia'
-                            ? '0' : 0,
+                            ? '0' : 0
                         }}
                         >
-                          <button
+                          {/* <button
                             onClick={() => setShow(false)} 
                             className='effect'
                             style={{ 
@@ -395,7 +395,7 @@ const FeaturedMeet = () => {
                             }}
                           >
                             x
-                          </button>
+                          </button> */}
                           <p 
                             className={`font-medium tooltip__title`}
                           > 
@@ -406,7 +406,7 @@ const FeaturedMeet = () => {
                           >
                             { title  || 'dont avaliable'}
                           </p>
-                      </span>
+                      </a>
                     )}
                   </a>
                 </a>
