@@ -145,19 +145,23 @@ const Header = () => {
             style={{ zIndex: 1 }} 
             className="relative cursor-pointer nav__menus"
           >
-            <span className={
-              `md: float-right mr-1 rounded-b-sm 
-              ${name === 'Estar' 
-              ? 'bg-yellow-500'
-              : name === 'Salvador'
-              ? 'bg-blue-600'
-              : name === 'Bahia'
-              ?  'bg-red-600'
-              : name === 'Labt'
-              ?  'bg-black-500'
-              : 'bg-green-600'
-              } w-6 h-8 p-1`}
-              style={{ zIndex: 1 }}
+            <span 
+              className={
+              `md: float-right mr-1 rounded-b-sm  w-6 h-8 p-1`
+              }
+              style={{ 
+                zIndex: 1,
+                backgroundColor: `${name === 'Estar' 
+                ? '#d5b035'
+                : name === 'Salvador'
+                ? '#2f53a1'
+                : name === 'Bahia'
+                ?  '#DC2626'
+                : name === 'Labt'
+                ?  '#000'
+                : '#3fbb5a'
+                }`
+              }}
             >
             </span>
           </Link>
@@ -202,7 +206,7 @@ const Header = () => {
                   alt="logo labtempo" 
                   className='logo__header flex w-full h-full' 
                   style={{
-                    zIndex: -1
+                    zIndex: -1,
                   }} 
                 />
               </span>
