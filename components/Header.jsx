@@ -134,12 +134,12 @@ const Header = () => {
   }
 
   return (
-    <div className='mx-auto px-10 dark:bg-black pb-2'>
+    <div className='mx-auto px-10 dark:bg-black pb-2' style={{ zIndex: 1 }}>
       {headerNav.map(({ name, slug }, idx) => (
         <div key={`${slug}-${idx}`}>
-          <a href={`/category/${slug}`} className="relative z-10 cursor-pointer">
+          <a href={`/category/${slug}`} style={{ zIndex: 1 }} className="relative cursor-pointer">
             <span className={
-              `md: float-right mr-1 z-10 rounded-b-sm 
+              `md: float-right mr-1 rounded-b-sm 
               ${name === 'Estar' 
               ? 'bg-yellow-500'
               : name === 'Salvador'
@@ -169,7 +169,7 @@ const Header = () => {
       )}
 
       <div 
-        className="grid grid-cols-2 space-x-16 items-center"
+        className="grid grid-cols-2 space-x-16 items-center z-0"
       >
         <div className="md:float-left">
           <Link href="/">
