@@ -134,10 +134,14 @@ const Header = () => {
   }
 
   return (
-    <div className='mx-auto px-10 dark:bg-black pb-2' style={{ zIndex: 1 }}>
+    <div className='mx-auto px-10 dark:bg-black pb-2'>
       {headerNav.map(({ name, slug }, idx) => (
-        <div key={`${slug}-${idx}`}>
-          <a href={`/category/${slug}`} style={{ zIndex: 1 }} className="relative cursor-pointer">
+        <div key={`${slug}-${idx}`} style={{ zIndex: 1 }}>
+          <Link 
+            href={`/category/${slug}`} 
+            style={{ zIndex: 1 }} 
+            className="relative cursor-pointer"
+          >
             <span className={
               `md: float-right mr-1 rounded-b-sm 
               ${name === 'Estar' 
@@ -153,7 +157,7 @@ const Header = () => {
               style={{ zIndex: 1 }}
             >
             </span>
-          </a>
+          </Link>
         </div>
       ))}
 
@@ -193,7 +197,7 @@ const Header = () => {
                 <img 
                   src='/logo.png' 
                   alt="logo labtempo" 
-                  className={`logo__header flex w-full h-full ${mobile.innerWidth < 1000 && 'mt-10'}`} 
+                  className='logo__header flex w-full h-full' 
                   style={{
                     zIndex: -1
                   }} 
