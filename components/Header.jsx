@@ -193,7 +193,7 @@ const Header = () => {
                 <img 
                   src='/logo.png' 
                   alt="logo labtempo" 
-                  className='logo__header flex w-full h-full' 
+                  className={`logo__header flex w-full h-full ${mobile.innerWidth < 1000 && 'mt-10'}`} 
                   style={{
                     zIndex: -1
                   }} 
