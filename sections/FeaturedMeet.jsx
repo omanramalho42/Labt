@@ -381,7 +381,7 @@ const FeaturedMeet = () => {
                         }}
                         >
                           <button
-                            onClick={() => setShow(false)} 
+                            // onClick={() => setShow(false)} 
                             className='effect'
                             style={{ 
                               position: 'absolute', 
