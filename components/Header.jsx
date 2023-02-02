@@ -150,6 +150,7 @@ const Header = () => {
               ?  'bg-black-500'
               : 'bg-green-600'
               } w-6 h-8 p-1`}
+              style={{ zIndex: 1 }}
             >
             </span>
           </a>
