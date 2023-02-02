@@ -20,6 +20,8 @@ const FeaturedMeet = () => {
     circle.classList.remove('scalling');
   }
 
+  const [show, setShow] = useState(false);
+
   let categoriesMeet = [];
 
   useEffect(() => {
@@ -115,7 +117,7 @@ const FeaturedMeet = () => {
             padding: mobile.innerWidth < 1000 ? '0' : '10em',
             backgroundSize: 'contain',
             backgroundPosition: 'center',
-            backgroundPositionY:  mobile.innerWidth < 1000 ? '5%' : '50%'
+            backgroundPositionY:  mobile.innerWidth < 1000 ? '20%' : '50%'
           }}
         >
           <div 
@@ -148,7 +150,7 @@ const FeaturedMeet = () => {
               slug, 
               excerpt, 
               title 
-            }, idx) => categorieName && !loading && (
+            }, idx) => categorieName && !loading  && mobile.innerWidth > 1000 ? (
               <div
                 key={`${Math.random() * 100}`} 
                 className={`relative rounded-full mx-auto`} 
@@ -171,10 +173,7 @@ const FeaturedMeet = () => {
                   boxShadow: '2px 3px 10px 1px rgba(0, 0, 0, 0.1)',
                   transition: '0.325s',
                   padding: mobile.innerWidth < 1000 ? '5px' : '10px',
-                  transform: 
-                    mobile.innerWidth < 1000 
-                    && categorieName === 'Estar' || categorieName === 'Bahia' 
-                    ? 'scale(1.2)' : 'none',
+                  transformBox: 'content-box',
                   border: `${mobile.innerWidth < 1000 ? '6' : '3.5'}px solid 
                   ${categorieName === 'Salvador'
                     ? '#2f53a1'
@@ -232,7 +231,7 @@ const FeaturedMeet = () => {
                     }}
                   >
                     <span
-                      className={`tooltiptext ${categorieName} rendering ${mobile.innerWidth < 1000 && 'tooltiptext__mobile'}`} 
+                      className={`tooltiptext ${categorieName} rendering ${mobile.innerWidth < 1000 && 'tooltiptext__mobile relative z-10'}`} 
                       style={{
                         color: 'black',
                         fontWeight: 'bold',
@@ -282,6 +281,138 @@ const FeaturedMeet = () => {
                   </a>
                 </a>
               </div>
+            ) : mobile.innerWidth < 1000 && categorieName && !loading ? (
+              <div
+                key={`${Math.random() * 100}`} 
+                className={`relative rounded-full mx-auto`} 
+                style={{
+                  top: '-5.5em',
+                  width: `${
+                    categorieName === 'Estar' || categorieName === 'Bahia' ? '150px' : '120px'}`,
+                  height: `${
+                    categorieName === 'Estar' || categorieName === 'Bahia' ? '150px' : '120px'
+                  }`,
+                  boxShadow: '2px 3px 10px 1px rgba(0, 0, 0, 0.1)',
+                  transition: '0.325s',
+                  padding: '5px',
+                  transformBox: 'content-box',
+                  border: `6px solid
+                  ${categorieName === 'Salvador'
+                    ? '#2f53a1'
+                    : categorieName === 'Bahia'
+                    ? '#DC2626' 
+                    : categorieName === 'Ser'
+                    ? '#3fbb5a'
+                    : '#d5b035'
+                  }`,
+                  gridColumnStart: 
+                    categorieName === 'Estar' 
+                    ? 2 
+                    : categorieName === 'Salvador' 
+                    ? 3 
+                    : categorieName === 'Bahia'
+                    ? 2
+                    : 1
+                }}
+              >
+                <a
+                  href={`/post/${slug}`}
+                  onMouseEnter={() => insertEffect(idx)}
+                  onMouseLeave={() => removeEffect(idx)}
+                  className='w-full h-full tooltip' 
+                  style={{
+                    borderRadius: '50%',
+                    backgroundImage: `url(${lastPosts[idx].featuredImage || ''})`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: 'cover',
+                    cursor: 'pointer'
+                   }}
+                >
+                  <a
+                    onMouseEnter={() => setShow(true)}
+                    id={`circle${idx}`}
+                    href={`/post/${slug}`}
+                    className={`box rounded-full tooltip
+                      ${categorieName === 'Ser' 
+                      ? 'box1' 
+                      : categorieName === 'Salvador' 
+                      ? 'box2'  
+                      : categorieName === 'Bahia'
+                      ? 'box3'
+                      : 'box4'
+                    }`}
+                    style={{ 
+                      zIndex: 1,
+                      backgroundColor: 
+                        categorieName === 'Salvador'
+                        ? '#2f53a1'
+                        : categorieName === 'Bahia'
+                        ? '#DC2626' 
+                        : categorieName === 'Ser'
+                        ? '#3fbb5a'
+                        : '#d5b035',
+                    }}
+                  >
+                    {show && (
+                      <span
+                        className={`tooltiptext ${categorieName} ${show && 'visible'} rendering tooltiptext__mobile relative z-10`} 
+                        style={{
+                          color: 'black',
+                          fontWeight: 'bold',
+                          left:
+                            categorieName === 'Salvador'
+                            ? '4em'
+                            : categorieName === 'Estar'
+                            ? '-12em' 
+                            : categorieName === 'Ser'
+                            ? '-11em'
+                            : categorieName === 'Bahia' 
+                            ? '6em'
+                            : 0,
+                          top:
+                            categorieName === 'Salvador'
+                            ? '-2em'
+                            : categorieName === 'Estar'
+                            ? '-2em' 
+                            : categorieName === 'Ser'
+                            ? '-2em'
+                            : categorieName === 'Bahia'
+                            ? '0' : 0,
+                        }}
+                        >
+                          <button
+                            onClick={() => setShow(false)} 
+                            className='effect'
+                            style={{ 
+                              position: 'absolute', 
+                              zIndex: 1,
+                              backgroundColor: 'rgba(0,0,0,0.1)',
+                              padding: '5px',
+                              borderRadius: '15px',
+                              right: '10px', 
+                              top: '5px', 
+                              fontSize: '.9em'
+                            }}
+                          >
+                            x
+                          </button>
+                          <p 
+                            className={`font-medium tooltip__title`}
+                          > 
+                            { categorieName }
+                          </p>
+                          <p 
+                            className={'tooltip_excerpt'}
+                          >
+                            { title  || 'dont avaliable'}
+                          </p>
+                      </span>
+                    )}
+                  </a>
+                </a>
+              </div>
+            ) : (
+              <></>
             ))}
           </div>
         </div>

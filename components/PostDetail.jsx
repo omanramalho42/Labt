@@ -122,18 +122,18 @@ const PostDetail = ({ post }) => {
         {mobile.innerWidth < 1000 ? (
           <>
             <div 
-              className='absolute' 
+              className='absolute tag__post' 
               style={{ 
                 zIndex: 2,
-                top: '19%', 
-                left: 
-                  mobile.innerWidth < 450 
-                  ? '37%' 
-                  : mobile.innerWidth < 600 
-                  ? '40%' 
-                  : mobile.innerWidth > 1600 
-                  ? '35%' 
-                  : '45%',
+                // top: mobile.innerWidth >= 800 && mobile.innerWidth < 850 ? '22%' : mobile.innerWidth >= 850 ? '23%' : '21%',
+                // left: 
+                //   mobile.innerWidth < 450 
+                //   ? '37%' 
+                //   : mobile.innerWidth < 600 
+                //   ? '40%' 
+                //   : mobile.innerWidth > 1600 
+                //   ? '35%' 
+                //   : '45%',
                 backgroundColor: '#000', 
                 width: '100px', 
                 padding: '10px', 
@@ -194,8 +194,8 @@ const PostDetail = ({ post }) => {
           background: mobile.innerWidth < 1000 && `linear-gradient(
             to top,
             white 0%,
-            white 94%,
-            ${color} 94%,
+            white 95.3%,
+            ${color} 94.5%,
             ${color} 100%
           )`,
         }} 

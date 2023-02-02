@@ -112,7 +112,6 @@ a {
   border-radius: 6px;
   width: 175px;
   text-align: left;
-
 }
 
 .tooltiptext__mobile {
@@ -304,7 +303,7 @@ a {
   }
 
   @media only screen and (max-width: 1000px) {
-    top: 1.1em;
+    top: -1em;
     right: -5.2em;
 
     height: 50px !important;
@@ -316,6 +315,12 @@ a {
 
     height: 45px !important;
     width: 45px !important;
+  }
+}
+
+.effect {
+  &:hover {
+    transform: scale(1.2);
   }
 }
 
@@ -339,7 +344,7 @@ a {
     width: 45px !important;
   }
   @media only screen and (max-width: 800px) {
-    top: 5em;
+    top: 6em;
     right: 0.3em;
 
     height: 40px !important;
@@ -440,20 +445,16 @@ a {
 
 @keyframes slidein {
   from {
-    // transform: translateY(-100%);
     opacity: 0;
   }
 
   to {
-    // transform: translateY(0%);
     opacity: 1;
   }
 }
 .rendering {
   animation-duration: .75s;
   animation-name: slidein;
-  // animation-iteration-count: infinite;
-  // animation-direction: alternate;
 }
 
 .meet {
@@ -495,32 +496,71 @@ a {
   }
 }
 
-.tag {
-  // top: 12em;
-  // transition: 0.325s;
+.tag__post {
+  position: fixed;
 
-  // left: 10em;
+  top: 12.8em;
+  left: 35%;
 
-  // @media only screen and (max-width: 1000px) {
-  //   top: 13.5em;
-  //   left: 28em;
-  // }
-  // @media only screen and (max-width: 800px) {
-  //   top: 9em;
-  //   left: 12.6em;
-  // }
-  // @media only screen and (max-width: 800px) {
-  //   top: 9.8em;
-  //   left: 12.6em;
-  // }
-  // @media only screen and (max-width: 600px) {
-  //   top: 9.8em;
-  //   left: 10.6em;
-  // }
-  // @media only screen and (max-width: 500px) {
-  //   left: 12.6em;
-  // }
-  // @media only screen and (max-width: 400px) {
-  //   left: 8.6em;
-  // }
+  @media only screen and (max-width: 1000px) {
+    top: 14em;
+    left: 42%;
+  }
+  @media only screen and (max-width: 949px) {
+    top: 13.2em;
+    left: 44%;
+  }
+  @media only screen and (max-width: 920px) {
+    top: 12.8em;
+    left: 43%;
+  }
+  @media only screen and (max-width: 600px) {
+    left: 37%;
+  }
+  @media only screen and (max-width: 400px) {
+    top: 10.8em;
+    left: 36%;
+  }
+}
+
+.tag__categorie {
+  position: fixed;
+
+  top: 12.8em;
+  left: 35%;
+
+  font-size: 1em;
+
+  @media only screen and (max-width: 1000px) {
+    top: 13.1em;
+    left: 45%;
+  }
+  @media only screen and (max-width: 949px) {
+    top: 12.8em;
+  }
+  @media only screen and (max-width: 920px) {
+    top: 12em;
+  }
+  @media only screen and (max-width: 600px) {
+    left: 40%;
+  }
+  @media only screen and (max-width: 400px) {
+    top: 9.8em;
+    left: 37%;
+  }
+}
+
+.img {
+  @media only screen and (max-width: 1000px) {
+    border-radius: 45px;
+  }
+}
+
+.logo__header {
+  max-width: 600px;
+  min-width: 360px;
+
+  @media only screen and (max-width: 400px) {
+    min-width: 300px;
+  }
 }

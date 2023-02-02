@@ -192,10 +192,8 @@ const Header = () => {
                 <img 
                   src='/logo.png' 
                   alt="logo labtempo" 
-                  className='flex w-full h-full z-10' 
+                  className='logo__header flex w-full h-full z-10' 
                   style={{
-                    maxWidth: 600,
-                    minWidth: 300,
                     zIndex: -1
                   }} 
                 />
