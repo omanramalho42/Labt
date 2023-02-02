@@ -288,9 +288,9 @@ const FeaturedMeet = () => {
                 style={{
                   top: '-5.5em',
                   width: `${
-                    categorieName === 'Estar' || categorieName === 'Bahia' ? '150px' : '120px'}`,
+                    categorieName === 'Estar' || categorieName === 'Bahia' ? '140px' : '120px'}`,
                   height: `${
-                    categorieName === 'Estar' || categorieName === 'Bahia' ? '150px' : '120px'
+                    categorieName === 'Estar' || categorieName === 'Bahia' ? '140px' : '120px'
                   }`,
                   boxShadow: '2px 3px 10px 1px rgba(0, 0, 0, 0.1)',
                   transition: '0.325s',
@@ -381,7 +381,7 @@ const FeaturedMeet = () => {
                         }}
                         >
                           <button
-                            // onClick={() => setShow(false)} 
+                            onClick={() => setShow(false)} 
                             className='effect'
                             style={{ 
                               position: 'absolute', 
