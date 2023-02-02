@@ -136,7 +136,10 @@ const Header = () => {
 
   const router = useRouter();
   return (
-    <div className='mx-auto px-10 dark:bg-black pb-2'>
+    <div 
+      className='mx-auto px-10 dark:bg-black pb-2' 
+      style={{ transform: 'scale(1.01)'}}
+    >
       {headerNav.map(({ name, slug }, idx) => (
         <div key={`${slug}-${idx}`} style={{ zIndex: 1 }}>
           <Link 
