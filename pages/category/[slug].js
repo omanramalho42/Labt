@@ -96,26 +96,6 @@ const CategoryPost = ({ posts }) => {
               className='absolute tag__categorie' 
               style={{ 
                 zIndex: 2,
-                // top: 
-                //   mobile.innerWidth < 450
-                //   ? '17.5%'
-                //   : mobile.innerWidth < 800 
-                //   ? '19.5%'
-                //   : mobile.innerWidth >= 800 && mobile.innerWidth <= 830 
-                //   ? '18%'
-                //   : mobile.innerWidth > 830 && mobile.innerWidth < 880 
-                //   ? '21.5%'
-                //   : mobile.innerWidth > 880 && mobile.innerWidth < 920 
-                //   ? '21.5%'
-                //   : '26%',
-                // left: 
-                //   mobile.innerWidth < 450 
-                //   ? '37%' 
-                //   : mobile.innerWidth < 600 
-                //   ? '40%' 
-                //   : mobile.innerWidth > 1600 
-                //   ? '35%' 
-                //   : '45%',
                 backgroundColor: '#000', 
                 width: '100px', 
                 padding: '10px', 
