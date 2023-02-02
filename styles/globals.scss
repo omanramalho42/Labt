@@ -496,6 +496,13 @@ a {
   }
 }
 
+.nav__menus {
+  transition: 0.325s;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
 .tag__post {
   position: absolute;
 

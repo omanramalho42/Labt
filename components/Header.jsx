@@ -14,6 +14,7 @@ import { getCategories } from '../services'
 import { getPosts } from '../services/index'
 
 import Skeleton from 'react-loading-skeleton'
+import { useRouter } from 'next/router'
 
 const Header = () => {
   const [mobile, setMobile] = useState(0);  
@@ -133,14 +134,16 @@ const Header = () => {
     )
   }
 
+  const router = useRouter();
   return (
     <div className='mx-auto px-10 dark:bg-black pb-2'>
       {headerNav.map(({ name, slug }, idx) => (
         <div key={`${slug}-${idx}`} style={{ zIndex: 1 }}>
           <Link 
+            onClick={() => router.push(`/category/${slug}`)}
             href={`/category/${slug}`} 
             style={{ zIndex: 1 }} 
-            className="relative cursor-pointer"
+            className="relative cursor-pointer nav__menus"
           >
             <span className={
               `md: float-right mr-1 rounded-b-sm 
