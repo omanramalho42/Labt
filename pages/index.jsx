@@ -4,7 +4,9 @@ import { lazy, Suspense, useEffect, useState } from 'react'
 
 import Link from 'next/link'
 
-import { motion } from 'framer-motion'
+import CookieConsent, { Cookies, resetCookieConsentValue } from "react-cookie-consent"
+
+import { m, motion } from 'framer-motion'
 
 import { 
   PostCard, 
@@ -24,6 +26,7 @@ const FeaturedLastPostMobile = lazy(() => import('../sections/FeaturedLastPostMo
 
 import { getPosts } from '../services'
 import Skeleton from 'react-loading-skeleton'
+import { toast } from 'react-hot-toast'
 
 const Home = () => {
   const [dark, setDark] = useState(false);
@@ -134,6 +137,41 @@ const Home = () => {
    <motion.div
       className='mx-auto mb-8 dark:bg-black dark:text-white'
     >
+      <CookieConsent
+        location="bottom"
+        buttonText="Aceitar!"
+        cookieName="myAwesomeCookieName2"
+        style={{ background: "rgb(24, 24, 24)" }}
+        buttonStyle={{ 
+          color: "#454545", 
+          fontSize: "1em",
+          padding: '10px',
+          borderRadius: 5,
+          fontWeight: 600
+        }}
+        expires={150}
+        enableDeclineButton
+        declineButtonText="Recusar"
+        declineButtonStyle={{ 
+          padding: '10px', 
+          borderRadius: 5,
+          fontWeight: 600 
+        }}
+        onDecline={() => {
+          toast.error("Recusado!");
+        }}
+        onAccept={(acceptedByScrolling) => {
+          if (acceptedByScrolling) {
+            // triggered if user scrolls past threshold
+            toast.success("Cookies Aceitos com sucesso!");
+          } else {
+            toast.error("Cookies negados");
+          }
+        }}
+      >
+        Este site vai usar os cookies para melhorar a performance de usuabilidade do site.{" "}
+      </CookieConsent>
+
       <Head>
         <title>Laboratório Temp</title>
         <link rel="stylesheet" href="/icon.png" />
