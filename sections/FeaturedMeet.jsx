@@ -353,7 +353,7 @@ const FeaturedMeet = () => {
                         : '#d5b035',
                     }}
                   >
-                    {show && (
+                    {!show && (
                       <span
                         className={`tooltiptext ${categorieName} ${show && 'visible'} rendering tooltiptext__mobile relative z-10`} 
                         style={{
