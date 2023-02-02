@@ -169,7 +169,7 @@ const Header = () => {
       )}
 
       <div 
-        className="grid grid-cols-2 space-x-16 items-center z-0"
+        className="grid grid-cols-2 space-x-16 items-center"
       >
         <div className="md:float-left">
           <Link href="/">
@@ -193,7 +193,7 @@ const Header = () => {
                 <img 
                   src='/logo.png' 
                   alt="logo labtempo" 
-                  className='logo__header flex w-full h-full z-10' 
+                  className='logo__header flex w-full h-full' 
                   style={{
                     zIndex: -1
                   }} 
