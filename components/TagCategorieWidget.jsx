@@ -6,7 +6,7 @@ import React from "react"
 //   color: string;
 // }
 
-const TagCategorieWidget= ({ name, color, textColor = "#000" }) => {
+const TagCategorieWidget= ({ name, color, textColor = "#000" , post = 'false' }) => {
   return (
     <div className='w-full h-full flex'>
       <div 
@@ -14,7 +14,7 @@ const TagCategorieWidget= ({ name, color, textColor = "#000" }) => {
           `relative 
             ${name === 'Home' ? 'md:right-[-45%]' : 'md:right-[-43.5%]'} 
             transition-all sm:right-[-43%] 
-            ${name === 'Home' ? 'right-[-40%]' : 'right-[-38.5%]'} 
+            ${name === 'Home' ? 'right-[-40%]' : name !== 'Home' && !post ? 'right-[-38.5%]' : post? 'right-[-41%]' : 'right-[-38.5%]'} 
           `}  
         style={{ 
           zIndex: 2,
