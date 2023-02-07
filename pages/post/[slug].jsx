@@ -3,13 +3,8 @@ import { useRouter } from 'next/router'
 
 import { Helmet } from 'react-helmet'
 
-import { motion } from 'framer-motion'
-
 import { 
-  PostDetail, 
-  Categories, 
-  PostWidget, 
-  Author, 
+  PostDetail,
   Comments, 
   CommentsForm, 
   Loader, 
@@ -17,6 +12,7 @@ import {
 } from '../../components'
 
 import { getPosts, getPostDetails } from '../../services'
+
 import { AdjacentPosts } from '../../sections'
 
 const PostDetails = ({ post }) => {
@@ -43,12 +39,8 @@ const PostDetails = ({ post }) => {
     return <Loader />;
   }
 
-  useEffect(() => {
-    console.log(post);
-  },[post]);
-  
   return (
-    <motion.div>
+    <div>
       <Helmet>
         <title>Postagem: {post.title || ''}</title>
         <meta charSet='utf-8'/>
@@ -58,27 +50,19 @@ const PostDetails = ({ post }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-12">
             <PostDetail post={post} />
-            {/* <Author author={post.author} /> */}
             <CommentsForm slug={post.slug} color={color} />
             <Comments slug={post.slug} />
             <AdjacentPosts slug={post.slug} createdAt={post.createdAt} color={color} />
           </div>
-          <div className="col-span-1 lg:col-span-4">
-            <div className="relative lg:sticky top-8">
-              {/* <PostWidget slug={post.slug} categories={post.categories.map((category) => category.slug)} /> */}
-              {/* <Categories /> */}
-            </div>
-          </div>
         </div>
         <Footer />
       </div>
-    </motion.div>
+    </div>
   );
 };
 
 export default PostDetails;
 
-// Fetch data at build time
 export async function getStaticProps({ params }) {
   const data = await getPostDetails(params.slug);
   return {
@@ -88,8 +72,6 @@ export async function getStaticProps({ params }) {
   };
 }
 
-// Specify dynamic routes to pre-render pages based on data.
-// The HTML is generated at build time and will be reused on each request.
 export async function getStaticPaths() {
   const posts = await getPosts();
   return {

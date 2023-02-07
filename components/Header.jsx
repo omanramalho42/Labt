@@ -135,10 +135,10 @@ const Header = () => {
   }
 
   const router = useRouter();
+  
   return (
     <div 
-      className='mx-auto px-10 dark:bg-black pb-2' 
-      style={{ transform: 'scale(1.01)'}}
+      className={`mx-auto px-10 dark:bg-black pb-2`}
     >
       {headerNav.map(({ name, slug }, idx) => (
         <div key={`${slug}-${idx}`} style={{ zIndex: 1 }}>
@@ -175,7 +175,7 @@ const Header = () => {
         <div className='flex-col items-center'>
           <input
             placeholder='Pesquisa'
-            className='absolute search mx-auto lg:p-2 sm:p-1 text-center z-10'
+            className='absolute right-10 z-10 search mx-auto lg:p-2 xl:top-14 md:top-14 sm:p-1 text-center'
             style={{ borderRadius: '25px', border: '1px solid #c9c9c9' }} 
             value={search} onChange={(event) => setSearch(event.target.value.toUpperCase())} 
           />

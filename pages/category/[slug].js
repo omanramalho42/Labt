@@ -2,7 +2,6 @@ import React, { useEffect, useState, useMemo } from 'react'
 
 import { Helmet } from 'react-helmet'
 
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import { motion } from 'framer-motion'
@@ -10,7 +9,12 @@ import { motion } from 'framer-motion'
 import { Toaster, toast } from 'react-hot-toast'
 
 import { getCategories, getCategoryPost } from '../../services'
-import { PostCard, Categories, Loader, Footer } from '../../components'
+import { 
+  PostCard, 
+  Loader,
+  Footer, 
+  TagCategorieWidget 
+} from '../../components'
 
 const CategoryPost = ({ posts }) => {
   const router = useRouter();
@@ -89,40 +93,12 @@ const CategoryPost = ({ posts }) => {
         <meta charSet='utf-8'/>
       </Helmet>
 
-      <div style={{ display: 'flex', flexDirection: 'row', marginBottom: 20, marginTop: 20 }} >
+      <div className='flex mt-[20px] mb-[20px]'>
         {mobile.innerWidth < 1000 ? (
           <>
-            <div 
-              className='absolute tag__categorie' 
-              style={{ 
-                zIndex: 2,
-                backgroundColor: '#000', 
-                width: '100px', 
-                padding: '10px', 
-                borderRadius: '50%',
-                backgroundColor: color,
-              }}
-            >
-              <Link href="/">
-                <p style={{ 
-                    color: '#000',
-                    textTransform: 'lowercase', 
-                    textAlign: 'center',
-                    fontFamily: 'Arlita',
-                    letterSpacing: '1px'
-                  }}
-                >
-                  { posts[0].node.categories[0].name }
-                </p>
-              </Link>
-            </div>
-            <span 
-              className='relative mx-10' 
-              style={{ 
-                flex: 1, 
-                top: '-20px', 
-                borderBottom: `2px solid black` 
-              }} 
+            <TagCategorieWidget 
+              name={posts[0].node.categories[0].name} 
+              color={color}
             />
           </>
         ) : (

@@ -4,15 +4,12 @@ import { lazy, Suspense, useEffect, useState } from 'react'
 
 import Link from 'next/link'
 
-import CookieConsent, { Cookies, resetCookieConsentValue } from "react-cookie-consent"
+import CookieConsent from "react-cookie-consent"
 
-import { m, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 
-import { 
-  PostCard, 
-  PostWidget, 
-  Categories,
-  Footer
+import {
+  Footer, TagCategorieWidget
 } from '../components'
 
 import { 
@@ -173,7 +170,7 @@ const Home = () => {
       </CookieConsent>
 
       <Head>
-        <title>Laboratório Temp</title>
+        <title>Laboratório Tempo</title>
         <link rel="stylesheet" href="/icon.png" />
         <meta desc="Página inicial" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -188,30 +185,12 @@ const Home = () => {
           </div>
         ) : (
           <div>
-            <span className='mb-8 mx-10 mt-5' style={{ display: 'flex', borderBottom: '1px solid black' }} />
-            <div 
-              className='relative' 
-              style={{ 
-                top: '-50px', 
-                left: 
-                  mobile.innerWidth < 450 
-                  ? '37%' 
-                  : mobile.innerWidth < 600 
-                  ? '40%' 
-                  : mobile.innerWidth > 1600 
-                  ? '35%' 
-                  : '45%',
-                backgroundColor: '#000', 
-                width: '100px', 
-                padding: '10px', 
-                borderRadius: '50%' 
-              }}
-            >
-              <Link href="/">
-                <p style={{ color: '#FFF', textAlign: 'center' }}>
-                  home
-                </p>
-              </Link>
+            <div className='my-2 mb-6'>
+              <TagCategorieWidget 
+                name="Home" 
+                color={"#000"}
+                textColor="#FFF"
+              />
             </div>
             <Suspense fallback={<Skeleton />}>
               <FeaturedLastPostMobile />

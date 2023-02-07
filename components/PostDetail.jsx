@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import Link from 'next/link'
+
+import { motion, useScroll } from 'framer-motion'
 
 import Skeleton from 'react-loading-skeleton'
 import ModalPhotos from './ModalPhotos'
+
+import { TagCategorieWidget } from '../components'
 
 const PostDetail = ({ post }) => {
 
@@ -109,8 +112,20 @@ const PostDetail = ({ post }) => {
     }
   }
 
+  const { scrollYProgress } = useScroll();
+
   return (
     <div className="bg-white rounded-lg pb-12 mt-3">   
+    
+      <motion.div
+        className='progress-bar z-20'
+        style={{ 
+          scaleX: scrollYProgress, 
+          backgroundColor: color,
+          transition: 'all' 
+        }}
+      />
+
       <div 
         style={{
           marginRight: '1em',
@@ -121,46 +136,9 @@ const PostDetail = ({ post }) => {
       >
         {mobile.innerWidth < 1000 ? (
           <>
-            <div 
-              className='absolute tag__post' 
-              style={{ 
-                zIndex: 2,
-                // top: mobile.innerWidth >= 800 && mobile.innerWidth < 850 ? '22%' : mobile.innerWidth >= 850 ? '23%' : '21%',
-                // left: 
-                //   mobile.innerWidth < 450 
-                //   ? '37%' 
-                //   : mobile.innerWidth < 600 
-                //   ? '40%' 
-                //   : mobile.innerWidth > 1600 
-                //   ? '35%' 
-                //   : '45%',
-                backgroundColor: '#000', 
-                width: '100px', 
-                padding: '10px', 
-                borderRadius: '50%',
-                backgroundColor: color,
-              }}
-            >
-              <Link href={`/post/${post.slug}`}>
-                <p 
-                  style={{ 
-                    color: '#000',
-                    textTransform: 'lowercase', 
-                    textAlign: 'center',
-                    fontFamily: 'Arlita',
-                    letterSpacing: '1px'
-                  }}
-                >
-                  { post.categories[0].name }
-                </p>
-              </Link>
-            </div>
-            <span 
-              className='relative mx-10' 
-              style={{ 
-                flex: 1,  
-                borderBottom: `2px solid black` 
-              }} 
+            <TagCategorieWidget 
+              name={ post.categories[0].name } 
+              color={color}
             />
           </>
         ) : (
@@ -225,7 +203,6 @@ const PostDetail = ({ post }) => {
           </div>
 
           <div className='lg:px-16'>
-            
             {post.content.raw.children.map((typeObj, index) => {
               const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
 
