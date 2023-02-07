@@ -99,7 +99,7 @@ const PostDetail = ({ post }) => {
       case 'image':
         return (
           <img
-            className='mx-auto rounded-md my-5'
+            className='mx-auto rounded-2xl my-5 sm:my-3'
             key={index}
             alt={obj.title}
             height={obj.height}
@@ -186,7 +186,7 @@ const PostDetail = ({ post }) => {
           </h1>
           
           <div className='flex lg:px-10 items-center mb-4 lg:mb-0 w-full lg:w-auto mr-8'>          
-            <p className='inline w-60 text-gray-600 text-lg border-t-2 mb-8' 
+            <p className='inline w-60 text-gray-600 text-lg border-t-2 mb-8 sm:mb-5 font-light' 
               style={{ 
                 borderColor: 
                 `${post.categories[0].name === 'Salvador' 
