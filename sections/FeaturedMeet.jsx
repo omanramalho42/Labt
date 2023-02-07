@@ -112,7 +112,7 @@ const FeaturedMeet = () => {
           style={{
             transition: '0.325s',
             objectFit: 'contain',
-            backgroundImage: `url(${'/sectionmeet.png'})`,
+            backgroundImage: `url(${'/bgmeet.png'})`,
             backgroundRepeat: 'no-repeat',
             padding: mobile.innerWidth < 1000 ? '0' : '10em',
             backgroundSize: 'contain',

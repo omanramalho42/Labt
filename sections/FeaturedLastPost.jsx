@@ -94,11 +94,10 @@ const FeaturedLastPost = () => {
               style={{ position: 'absolute', left: '40px' }}
             >
               <p 
+                className='text-black dark:text-white text-3xl'
                 style={{ 
                   fontFamily: 'Luam-Light',
                   fontWeight: 300,
-                  fontSize: '1.2em', 
-                  color: '#000000',
                   marginTop: '1em'
                 }}
               >

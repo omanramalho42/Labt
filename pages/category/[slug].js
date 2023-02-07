@@ -8,6 +8,8 @@ import { motion } from 'framer-motion'
 
 import { Toaster, toast } from 'react-hot-toast'
 
+import useDarkSide from '../../hooks/useDarkSide'
+
 import { getCategories, getCategoryPost } from '../../services'
 import { 
   PostCard, 
@@ -15,6 +17,8 @@ import {
   Footer, 
   TagCategorieWidget 
 } from '../../components'
+
+import { container, item } from '../../tools/effect'
 
 const CategoryPost = ({ posts }) => {
   const router = useRouter();
@@ -75,72 +79,90 @@ const CategoryPost = ({ posts }) => {
     }
   },[posts]);
 
+	const [colorTheme] = useDarkSide();
+
   return (
-    <motion.div
-      className="mx-auto px-10"
-      style={{ 
-        background: mobile.innerWidth < 1000 && `linear-gradient(
-          to bottom,
-          white 0%,
-          white 15%,
-          ${color} 15%,
-          ${color} 100%
-        )`
-      }}
-    >
-      <Helmet>
-        <title>Categorias: {categorieName || ''}</title>
-        <meta charSet='utf-8'/>
-      </Helmet>
+    <div className='flex-1 dark:bg-black bg-white'>
+      <motion.div
+        className="mx-auto px-10 border-t-2 dark:border-black border-white"
+        style={{ 
+          background: mobile.innerWidth < 1000 && `linear-gradient(
+            to bottom,
+            transparent 0%,
+            transparent 15%,
+            ${color} 15%,
+            ${color} 100%
+          )`
+        }}
+      >
+        <Helmet>
+          <title>Categorias: {categorieName || ''}</title>
+          <meta charSet='utf-8'/>
+        </Helmet>
 
-      <div className='flex mt-[20px] mb-[20px]'>
-        {mobile.innerWidth < 1000 ? (
-          <>
-            <TagCategorieWidget 
-              name={posts[0].node.categories[0].name} 
-              color={color}
-            />
-          </>
-        ) : (
-        <>
-          <span 
-            className='text-3xl mr-4 font-medium uppercase'
-            style={{
-              color: color,
-              fontFamily: 'Luam-Regular'       
-            }}
-          >
-            {posts[0].node.categories[0].name}
-          </span>
+        <div className='flex mt-[20px] mb-[20px]'>
+          {mobile.innerWidth < 1000 ? (
+            <>
+              <TagCategorieWidget 
+                name={posts[0].node.categories[0].name} 
+                color={color}
+              />
+            </>
+            ) : (
+            <>
+              <span 
+                className='text-3xl mr-4 font-medium uppercase'
+                style={{
+                  color: color,
+                  fontFamily: 'Luam-Regular'       
+                }}
+              >
+                {posts[0].node.categories[0].name}
+              </span>
 
-            <div 
-              className='flex-1 rounded-md mb-8 p-1'
-              style={{
-                margin: 'auto',
-                backgroundColor: color
-              }}
-            />
-          </>
+              <div 
+                className='flex-1 rounded-md mb-8 p-1'
+                style={{
+                  margin: 'auto',
+                  backgroundColor: color
+                }}
+              />
+            </>
           )}
-      </div>
-    
-      <Toaster 
-        position='top-center'
-        reverseOrder={false}
-      />
+        </div>
+      
+        <Toaster 
+          position='top-center'
+          reverseOrder={false}
+        />
 
-      <div className="grid grid-cols-1 lg:grid-cols-9 gap-12">
-        {posts.map((post, index) => (
-          <div className="col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-3" key={index}>
-            <a href={`/post/${post.node.slug}`}>
-              <PostCard key={index} post={post.node} />
-            </a>
-          </div>
-        ))}
-      </div>
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-9 gap-12"
+          variants={container}
+          initial="hidden"
+          animate="visible"
+        >
+          {posts.map((post, index) => (
+            <div 
+              className="col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-3" 
+              key={index}
+            >
+              <motion.a
+                href={`/post/${post.node.slug}`}              
+                variants={item}
+              >
+                <PostCard 
+                  key={index} 
+                  post={post.node} 
+                />
+              </motion.a>
+            </div>
+          ))}
+        </motion.div>
 
-      <Footer />
-    </motion.div>
+        <Footer />
+      </motion.div>
+    </div>
   );
 };
 export default CategoryPost;

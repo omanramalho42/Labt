@@ -481,31 +481,22 @@ a {
   transform-origin: 0%;
 }
 
-.tag__post {
-  position: absolute;
-
-  top: 12.8em;
-  left: 35%;
-
-  @media only screen and (max-width: 1000px) {
-    top: 14em;
-    left: 42%;
-  }
-  @media only screen and (max-width: 949px) {
-    top: 13.2em;
-    left: 44%;
-  }
-  @media only screen and (max-width: 920px) {
-    top: 12.8em;
-    left: 43%;
-  }
-  @media only screen and (max-width: 600px) {
-    left: 37%;
-  }
+.tag {
+  @media only screen and (max-width: 500px) {
+    right: -35%;
+  }  
   @media only screen and (max-width: 400px) {
-    top: 10.8em;
-    left: 36%;
-  }
+    right: -33%;
+  }  
+}
+
+.tag__post {
+  @media only screen and (max-width: 500px) {
+    right: -35%;
+  }  
+  @media only screen and (max-width: 400px) {
+    right: -36%;
+  }  
 }
 
 .img {
@@ -522,3 +513,4 @@ a {
     min-width: 300px;
   }
 }
+

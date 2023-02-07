@@ -1,35 +1,29 @@
 import Link from "next/link";
 import React from "react"
 
-// interface TagCategorieWidgetProps {
-//   name: string;
-//   color: string;
-// }
-
-const TagCategorieWidget= ({ name, color, textColor = "#000" , post = 'false' }) => {
+const TagCategorieWidget= ({ name, color, textColor = "#000" , post = 'false', className }) => {
   return (
-    <div className='w-full h-full flex'>
+    <div className='w-full mb-6 h-full flex'>
       <div 
         className={
-          `relative 
-            ${name === 'Home' ? 'md:right-[-45%]' : 'md:right-[-43.5%]'} 
-            transition-all sm:right-[-43%] 
-            ${name === 'Home' ? 'right-[-40%]' : name !== 'Home' && !post ? 'right-[-38.5%]' : post? 'right-[-41%]' : 'right-[-38.5%]'} 
-          `}  
+        `dark:bg-white ${className && className} relative tag
+          ${name === 'Home' ? 'md:right-[-45%]' : 'md:right-[-43.5%]'} 
+          transition-all sm:right-[-43%] 
+          ${name === 'Home' ? 'right-[-40%]' : name !== 'Home' && !post ? 'right-[-38.5%]' : post? 'right-[-41%]' : 'right-[-38.5%]'} 
+        `}  
         style={{ 
-          zIndex: 2,
-          backgroundColor: '#000', 
-          width: '100px', 
-          padding: '10px', 
-          borderRadius: '50%',
-          //@ts-ignore
+          zIndex: 2, 
           backgroundColor: color,
+          width: '100px', 
+          padding: '10px',
+          borderRadius: '50%',
         }}
       >
         <Link href="/">
-          <p style={{ 
+          <p
+            className={`dark:text-[#000] text-[${textColor}] lowercase`} 
+            style={{
               color: textColor,
-              textTransform: 'lowercase', 
               textAlign: 'center',
               fontFamily: 'Arlita',
               letterSpacing: '1px'
@@ -40,12 +34,10 @@ const TagCategorieWidget= ({ name, color, textColor = "#000" , post = 'false' })
         </Link>
       </div>
       <span 
-        className='relative' 
+        className='flex-1 relative border-b-2 border-b-black dark:border-b-white' 
         style={{ 
-          flex: 1, 
           top: '-20px',
           right: '3.2em',
-          borderBottom: `2px solid black` 
         }} 
       />
     </div>

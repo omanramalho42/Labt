@@ -91,11 +91,11 @@ const PostDetail = ({ post }) => {
 
     switch (type) {
       case 'heading-three':
-        return <h3 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{ item }</React.Fragment>)}</h3>;
+        return <h3 key={index} className="text-xl dark:text-white font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{ item }</React.Fragment>)}</h3>;
       case 'paragraph':
-        return <p key={index} className="mb-8 tracking-widest" style={{ lineHeight: '1.6em'}}>{modifiedText.map((item, i) => <React.Fragment key={i}>{ item }</React.Fragment>)}</p>;
+        return <p key={index} className="mb-8 tracking-widest dark:text-white" style={{ lineHeight: '1.6em'}}>{modifiedText.map((item, i) => <React.Fragment key={i}>{ item }</React.Fragment>)}</p>;
       case 'heading-four':
-        return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{ item }</React.Fragment>)}</h4>;
+        return <h4 key={index} className="text-md font-semibold dark:text-white mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{ item }</React.Fragment>)}</h4>;
       case 'image':
         return (
           <img
@@ -115,7 +115,7 @@ const PostDetail = ({ post }) => {
   const { scrollYProgress } = useScroll();
 
   return (
-    <div className="bg-white rounded-lg pb-12 mt-3">   
+    <div className="bg-white dark:bg-black rounded-lg pb-12 mt-3">   
     
       <motion.div
         className='progress-bar z-20'
@@ -126,7 +126,7 @@ const PostDetail = ({ post }) => {
         }}
       />
 
-      <div 
+      <div
         style={{
           marginRight: '1em',
           display: 'flex', 
@@ -136,7 +136,8 @@ const PostDetail = ({ post }) => {
       >
         {mobile.innerWidth < 1000 ? (
           <>
-            <TagCategorieWidget 
+            <TagCategorieWidget
+              className="tag__post" 
               name={ post.categories[0].name } 
               color={color}
               post={true}
@@ -153,7 +154,7 @@ const PostDetail = ({ post }) => {
               }}
             />
             <span 
-                className='text-4xl ml-4 font-medium uppercase'
+                className='text-4xl ml-4 dark:text-white font-medium uppercase'
                 style={{
                   color: color,
                   fontFamily: 'Luam-Light',
@@ -169,7 +170,6 @@ const PostDetail = ({ post }) => {
 
       <div
         style={{ 
-          padding: '10px 0',
           background: mobile.innerWidth < 1000 && `linear-gradient(
             to top,
             white 0%,
@@ -180,14 +180,14 @@ const PostDetail = ({ post }) => {
         }} 
       >
         <div 
-          className="px-4 lg:px-0" 
+          className="px-4 lg:px-0 dark:bg-black" 
         > 
-          <h1 className="lg:px-10 mb-2 text-5xl font-semibold" style={{ fontFamily: 'Arlita' }}> 
+          <h1 className="lg:px-10 mb-2 text-5xl font-semibold dark:text-white" style={{ fontFamily: 'Arlita' }}> 
             { post.title || <Skeleton />} 
           </h1>
           
           <div className='flex lg:px-10 items-center mb-4 lg:mb-0 w-full lg:w-auto mr-8'>          
-            <p className='inline w-60 text-gray-400 text-lg border-t-2 xl:mb-5 font-light' 
+            <p className='inline w-60 text-gray-400 text-lg border-t-2 xl:mb-5 dark:text-white font-light' 
               style={{ 
                 borderColor: 
                 `${post.categories[0].name === 'Salvador' 
@@ -198,7 +198,8 @@ const PostDetail = ({ post }) => {
                 ?  '#3fbb5a'
                 : '#d5b035'
                 }` 
-              }}>
+              }}
+            >
               { post.author.name || <Skeleton count={1} /> } 
             </p>
           </div>
@@ -212,12 +213,16 @@ const PostDetail = ({ post }) => {
 
             <ModalPhotos post={post.carousel} />
 
-            <div className='flex flex-col font-bold' style={{ marginTop: '50px' }}>
+            <div className='flex flex-col dark:text-white font-bold mt-[50px]'>
               <h5 style={{ fontFamily: 'gotham-bold' }}>
                 •Compartilhe
               </h5>     
               <div className='flex row'>
-                <a href="https://www.facebook.com/profile.php?id=100088693333749" type="button" className="rounded-full border-2 text-center border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+                <a 
+                  href="https://www.facebook.com/profile.php?id=100088693333749" 
+                  type="button" 
+                  className="rounded-full border-2 text-center dark:border-white dark:text-white border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1"
+                >
                   <svg aria-hidden="true"
                     focusable="false"
                     data-prefix="fab"
@@ -234,7 +239,7 @@ const PostDetail = ({ post }) => {
                   </svg>
                 </a>
 
-                <a href="www.instagram.com/labtempo" type="button" className="rounded-full border-2 text-center border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+                <a href="www.instagram.com/labtempo" type="button" className="rounded-full border-2 text-center dark:border-white dark:text-white border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                   <svg aria-hidden="true"
                     focusable="false"
                     data-prefix="fab"
@@ -251,7 +256,7 @@ const PostDetail = ({ post }) => {
                   </svg>
                 </a>
 
-                <a href="#!" type="button" className="rounded-full border-2 text-center border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+                <a href="#!" type="button" className="rounded-full border-2 text-center dark:border-white dark:text-white border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                 <svg 
                   className="w-4 h-full mx-auto" 
                   xmlns="http://www.w3.org/2000/svg"

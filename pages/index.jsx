@@ -1,8 +1,10 @@
 import Head from 'next/head'
+import Image from 'next/image'
+
+import twitterLogo from '../public/twitter.png'
 
 import { lazy, Suspense, useEffect, useState } from 'react'
 
-import Link from 'next/link'
 
 import CookieConsent from "react-cookie-consent"
 
@@ -26,32 +28,6 @@ import Skeleton from 'react-loading-skeleton'
 import { toast } from 'react-hot-toast'
 
 const Home = () => {
-  const [dark, setDark] = useState(false);
-  useEffect(() => {
-    try {
-      if(localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark')
-      } else {
-        document.documentElement.classList.remove('dark')
-      }
-  
-      // Whenever the user explicitly chooses light mode
-      localStorage.theme = 'light'
-  
-      // Whenever the user explicitly chooses dark mode
-      localStorage.theme = 'dark'
-  
-      // Whenever the user explicitly chooses to respect the OS preference
-      localStorage.removeItem('theme');
-    } catch (error) {
-      throw error;
-    } finally { }
-
-    return () => {
-      setDark(true);
-    }
-  },[]);
-  
   const [posts, setPosts] = useState(null);
   const [search, setSearch] = useState('');
   const [filterPost, setFilteredPost] = useState([{}]);
@@ -129,6 +105,8 @@ const Home = () => {
       });
     }
   },[]);
+
+	const [colorTheme] = useDarkSide();
   
   return (
    <motion.div
@@ -185,16 +163,14 @@ const Home = () => {
           </div>
         ) : (
           <div>
-            <div className='my-2 mb-6'>
-              <TagCategorieWidget 
-                name="Home" 
-                color={"#000"}
-                textColor="#FFF"
-              />
-            </div>
+            <TagCategorieWidget 
+              name="Home" 
+              color={colorTheme === 'dark' ? "#fff" : '#000'}
+            />
+            
             <Suspense fallback={<Skeleton />}>
               <FeaturedLastPostMobile />
-            </Suspense>
+            </Suspense> 
           </div>
         )}
         

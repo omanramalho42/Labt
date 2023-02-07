@@ -4,17 +4,21 @@ import React, {
   Fragment 
 } from 'react'
 
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { motion } from 'framer-motion'
 
 import PostCard from './PostCard'
+import Switcher from './Switcher'
 
 import { getCategories } from '../services'
 import { getPosts } from '../services/index'
 
 import Skeleton from 'react-loading-skeleton'
 import { useRouter } from 'next/router'
+
+import { container, item } from '../tools/effect'
 
 const Header = () => {
   const [mobile, setMobile] = useState(0);  
@@ -57,7 +61,6 @@ const Header = () => {
       });
     }
   },[]);
-
 
   const autoFetchDataPosts = async () => {
     let success = false;
@@ -138,48 +141,63 @@ const Header = () => {
   
   return (
     <div 
-      className={`mx-auto px-10 dark:bg-black pb-2`}
+      className={`mx-auto px-10 bg-transparent dark:bg-black pb-2`}
     >
-      {headerNav.map(({ name, slug }, idx) => (
-        <div key={`${slug}-${idx}`} style={{ zIndex: 1 }}>
-          <Link 
-            onClick={() => router.push(`/category/${slug}`)}
-            href={`/category/${slug}`} 
-            style={{ zIndex: 1 }} 
-            className="relative cursor-pointer nav__menus"
-          >
-            <span 
-              className={
-              `md: float-right mr-1 rounded-b-sm  w-6 h-8 p-1`
-              }
-              style={{ 
-                zIndex: 1,
-                backgroundColor: `${name === 'Estar' 
-                ? '#d5b035'
-                : name === 'Salvador'
-                ? '#2f53a1'
-                : name === 'Bahia'
-                ?  '#DC2626'
-                : name === 'Labt'
-                ?  '#000'
-                : '#3fbb5a'
-                }`
-              }}
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="visible"
+      >
+        {headerNav.map(({ name, slug }, idx) => (
+          <div key={`${slug}-${idx}`} style={{ zIndex: 1 }}>
+            <Link 
+              onClick={() => router.push(`/category/${slug}`)}
+              href={`/category/${slug}`} 
+              style={{ zIndex: 1 }} 
+              className="relative cursor-pointer nav__menus"
             >
-            </span>
-          </Link>
-        </div>
-      ))}
+              <motion.span
+              variants={item} 
+                className={
+                `md: float-right mr-1 rounded-b-sm w-6 h-8 p-1 z-10`
+                }
+                style={{ 
+                  backgroundColor: `${name === 'Estar' 
+                  ? '#d5b035'
+                  : name === 'Salvador'
+                  ? '#2f53a1'
+                  : name === 'Bahia'
+                  ?  '#DC2626'
+                  : name === 'Labt'
+                  ?  '#000'
+                  : '#3fbb5a'
+                  }`
+                }}
+              />
+            </Link>
+          </div>
+        ))}
+      </motion.div>
+
+      <div className='absolute top-2'>
+        <Switcher />
+      </div>
 
       { mobile.innerWidth > 1000 && (
-        <div className='flex-col items-center'>
-          <input
+        <motion.div 
+          className='flex-col items-center'
+          variants={container}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.input
             placeholder='Pesquisa'
-            className='absolute right-10 z-10 search mx-auto lg:p-2 xl:top-14 md:top-14 sm:p-1 text-center'
+            variants={item}
+            className='absolute right-10 dark:bg-[#121212] z-10 search mx-auto lg:p-2 xl:top-14 md:top-14 sm:p-1 text-center'
             style={{ borderRadius: '25px', border: '1px solid #c9c9c9' }} 
             value={search} onChange={(event) => setSearch(event.target.value.toUpperCase())} 
           />
-        </div>
+        </motion.div>
       )}
 
       <div 
@@ -188,6 +206,7 @@ const Header = () => {
         <div className="md:float-left">
           <Link href="/">
             <motion.div
+              className='dark:my-2 transition-all'
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{
@@ -203,46 +222,57 @@ const Header = () => {
                 }
               }}
             >
-              <span className='relative' style={{ cursor: 'pointer' }}>
-                <img 
-                  src='/logo.png' 
-                  alt="logo labtempo" 
-                  className='logo__header flex w-full h-full' 
-                  style={{
-                    zIndex: -1,
-                  }} 
-                />
-              </span>
+              <Image 
+                src='/logo.png' 
+                width={600}
+                height={600}
+                alt="logo labtempo" 
+                className='logo__header dark:text-white transition-all cursor-pointer dark:rounded-full dark:bg-[#121212] flex w-full h-full' 
+                style={{
+                  zIndex: -1,
+                }} 
+              />
             </motion.div>
           </Link>
         </div>
         
         <div className='relative w-full flex justify-between items-center mt-3' style={{ right: mobile.innerWidth <= 800 ? 14 : 0 }}>
-          <div className="hidden md:float-right md:contents items-center" style={{ fontFamily: 'Arlita' }}>
-            <a
+          <motion.div 
+            className="hidden md:float-right md:contents items-center" 
+            style={{ fontFamily: 'Arlita' }}
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.a
+              variants={item}
               href='/' 
               className='md:float-right flex items-center mt-2 text-black dark:text-white font-semibold cursor-pointer xl:text-3xl lg:text-2xl md:text-xl'
             >
               labT
-            </a>
+            </motion.a>
             <div style={{ borderRight: '2px solid black', height: '20px' }} className="mt-2 mx-2 h-full" />
             {headerNav.map((i, idx) => (
               <Fragment key={`${i.slug}-${idx}`}>
                 <Link href={`/category/${i.slug}`}>
-                  <span className="flex items-center md:float-right mt-2 align-middle text-black lowercase dark:text-white font-semibold cursor-pointer xl:text-3xl lg:text-2xl md:text-xl">
+                  <motion.span 
+                    className="flex items-center md:float-right mt-2 align-middle text-black lowercase dark:text-white font-semibold cursor-pointer xl:text-3xl lg:text-2xl md:text-xl"
+                    variants={item}
+                  >
                     { i.name }
-                  </span>
+                  </motion.span>
                 </Link>
                 <div style={{ borderRight: '2px solid black', height: '20px' }} className="mt-2 mx-2 h-full" />
               </Fragment>
             ))}
-            <a 
+            <motion.a
+              variants={item} 
               href='/#banca'
               className='md:float-right mt-2 disabled:opacity-25 text-black dark:text-white font-semibold cursor-pointer border-separate xl:text-3xl lg:text-2xl md:text-xl'
             >
               banca
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
         </div>
       
       </div>

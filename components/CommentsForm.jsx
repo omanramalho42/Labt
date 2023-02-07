@@ -96,43 +96,41 @@ const CommentsForm = ({ slug, color }) => {
   }
 
   return (
-    <div className="bg-white rounded-lg lg:px-16 p-6 pb-12 mb-8">
-      <h3 className="text-4xl font-bold" style={{ fontFamily: 'gotham-bold' }}>
+    <div className="flex-col bg-white dark:bg-[#121212] rounded-lg lg:px-16 p-6 pb-12 mb-8">
+      <h3 className="text-4xl font-bold dark:text-white" style={{ fontFamily: 'gotham-bold' }}>
         Deixe um comentário
       </h3>
-      <p className='font-medium'>O seu endereço de e-mail não será publicado</p>
-      <p className='font-medium'>Campos obrigatórios serão marcados com *</p>
+      <p className='font-medium dark:text-white'>O seu endereço de e-mail não será publicado</p>
+      <p className='font-medium dark:text-white'>Campos obrigatórios serão marcados com *</p>
       {!load ? (
         <>
           <div className="grid grid-cols-1 gap-4 mb-4 mt-4">
             <textarea 
               value={formData.comment || ''} 
               onChange={onInputChange} 
-              className="p-4 outline-none w-full h-60 focus:ring-2 focus:ring-gray-200 border border-black placeholder:text-black" 
+              className="p-4 outline-none w-full dark:bg-[#202020] dark:placeholder:text-white dark:text-white h-60 focus:ring-2 focus:ring-gray-200 border border-black z-10 placeholder:text-black" 
               name="comment"
               placeholder="Comentário" 
             />
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
-            <input type="text" value={formData.name} onChange={onInputChange} className="py-2 px-4 outline-none w-full focus:ring-2 focus:ring-gray-200 border border-black placeholder:text-black" placeholder="Nome *" name="name" />
-            <input type="email" value={formData.email} onChange={onInputChange} className="py-2 px-4 outline-none w-full focus:ring-2 focus:ring-gray-200 border border-black placeholder:text-black" placeholder="Email *" name="email" />
-          </div>
-          {/* <div className="grid grid-cols-1 gap-4 mb-4">
-            <div>
-              <input 
-                checked={formData.storeData} 
-                onChange={onInputChange} 
-                type="checkbox" 
-                id="storeData" 
-                name="storeData" 
-                value="true" 
-              />
-              <label className="text-gray-500 cursor-pointer ml-2" htmlFor="storeData"> 
-                Salve meu nome, email no navegador para um próximo comentário.
-              </label>
-            </div>
-          </div> */}
-          
+            <input 
+              type="text" 
+              value={formData.name} 
+              onChange={onInputChange} 
+              className="py-2 z-10 px-4 dark:bg-[#202020] dark:placeholder:text-white outline-none w-full focus:ring-2 focus:ring-gray-200 border border-black placeholder:text-black" 
+              placeholder="Nome *" 
+              name="name" 
+            />
+            <input 
+              type="email" 
+              value={formData.email} 
+              onChange={onInputChange} 
+              className="py-2 z-10 dark:bg-[#202020] dark:placeholder:text-white px-4 outline-none w-full focus:ring-2 focus:ring-gray-200 border border-black placeholder:text-black" 
+              placeholder="Email *" 
+              name="email" 
+            />
+          </div>        
           <Toaster position='top-center' />
           {error && <p className="text-xs text-red-500">
             Todos os campos são obrigatórios
@@ -141,11 +139,9 @@ const CommentsForm = ({ slug, color }) => {
             <button 
               type="button" 
               onClick={handlePostSubmission} 
-              className="text-sm uppercase text-white text-center px-8 py-1 cursor-pointer"
+              className="text-sm uppercase z-10 text-white text-center px-8 py-1 cursor-pointer"
               style={{
                 backgroundColor: color,
-                // height: '50px',
-                // width: '200px'
               }}
             >
               <p style={{ width: '100px' }}>
@@ -153,9 +149,6 @@ const CommentsForm = ({ slug, color }) => {
               </p>
             </button>
           </div>
-          {/* {showSuccessMessage && <span className="display-block text-xl float-right font-semibold mt-3 text-green-500">
-            O comentário foi submetido a análise.
-          </span>} */}
         </>
       ) : (
         <>
