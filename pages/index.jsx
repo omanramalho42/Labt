@@ -1,10 +1,6 @@
 import Head from 'next/head'
-import Image from 'next/image'
-
-import twitterLogo from '../public/twitter.png'
 
 import { lazy, Suspense, useEffect, useState } from 'react'
-
 
 import CookieConsent from "react-cookie-consent"
 
@@ -24,8 +20,12 @@ const FeaturedLastPost = lazy(() => import('../sections/FeaturedLastPost'));
 const FeaturedLastPostMobile = lazy(() => import('../sections/FeaturedLastPostMobile'));
 
 import { getPosts } from '../services'
+
 import Skeleton from 'react-loading-skeleton'
+
 import { toast } from 'react-hot-toast'
+
+import useDarkSide from '../hooks/useDarkSide'
 
 const Home = () => {
   const [posts, setPosts] = useState(null);
