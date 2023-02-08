@@ -149,17 +149,16 @@ const Header = () => {
         animate="visible"
       >
         {headerNav.map(({ name, slug }, idx) => (
-          <div key={`${slug}-${idx}`} style={{ zIndex: 1 }}>
+          <div key={`${slug}-${idx}`}>
             <Link 
               onClick={() => router.push(`/category/${slug}`)}
-              href={`/category/${slug}`} 
-              style={{ zIndex: 1 }} 
+              href={`/category/${slug}`}
               className="relative cursor-pointer nav__menus"
             >
               <motion.span
-              variants={item} 
+                variants={item} 
                 className={
-                `md: float-right mr-1 rounded-b-sm w-6 h-8 p-1 z-10`
+                `md: float-right mr-1 rounded-b-sm w-6 h-8 p-1`
                 }
                 style={{ 
                   backgroundColor: `${name === 'Estar' 
@@ -179,7 +178,7 @@ const Header = () => {
         ))}
       </motion.div>
 
-      <div className='absolute top-2'>
+      <div className='absolute top-1 z-20'>
         <Switcher />
       </div>
 
@@ -203,38 +202,36 @@ const Header = () => {
       <div 
         className="grid grid-cols-2 space-x-16 items-center"
       >
-        <div className="md:float-left">
-          <Link href="/">
-            <motion.div
-              className='dark:my-2 transition-all'
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                default: {
-                  duration: 0.3,
-                  ease: [0, 0.71, 0.2, 1.01]
-                },
-                scale: {
-                  type: "spring",
-                  damping: 5,
-                  stiffness: 100,
-                  restDelta: 0.001
-                }
-              }}
-            >
-              <Image 
-                src='/logo.png' 
-                width={600}
-                height={600}
-                alt="logo labtempo" 
-                className='logo__header dark:text-white transition-all cursor-pointer dark:rounded-full dark:bg-[#121212] flex w-full h-full' 
-                style={{
-                  zIndex: -1,
-                }} 
-              />
-            </motion.div>
-          </Link>
-        </div>
+        <Link 
+          className="md:float-left md:mt-0 mt-10 relative right-6 cursor-pointer z-10 rounded-full"
+          href={"/"}
+        >
+          <motion.div
+            className='dark:my-2 transition-all'
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              default: {
+                duration: 0.3,
+                ease: [0, 0.71, 0.2, 1.01]
+              },
+              scale: {
+                type: "spring",
+                damping: 5,
+                stiffness: 100,
+                restDelta: 0.001
+              }
+            }}
+          >
+            <Image 
+              src='/logo.png' 
+              width={600}
+              height={600}
+              alt="logo labtempo" 
+              className='logo__header dark:text-white transition-all dark:rounded-full dark:bg-[#121212] flex w-full h-full' 
+            />
+          </motion.div>
+        </Link>
         
         <div className='relative w-full flex justify-between items-center mt-3' style={{ right: mobile.innerWidth <= 800 ? 14 : 0 }}>
           <motion.div 

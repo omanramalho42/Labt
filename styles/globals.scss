@@ -482,8 +482,14 @@ a {
 }
 
 .tag {
+  @media only screen and (max-width: 700px) {
+    right: -40%;
+  }  
+  @media only screen and (max-width: 600px) {
+    right: -38.5%;
+  }  
   @media only screen and (max-width: 500px) {
-    right: -35%;
+    right: -36%;
   }  
   @media only screen and (max-width: 400px) {
     right: -33%;
@@ -492,7 +498,16 @@ a {
 
 .tag__post {
   @media only screen and (max-width: 500px) {
-    right: -35%;
+    right: -38%;
+  }  
+  @media only screen and (max-width: 400px) {
+    right: -36%;
+  }  
+}
+
+.tag__home {
+  @media only screen and (max-width: 500px) {
+    right: -39%;
   }  
   @media only screen and (max-width: 400px) {
     right: -36%;
@@ -510,6 +525,7 @@ a {
   min-width: 360px;
 
   @media only screen and (max-width: 400px) {
+    
     min-width: 300px;
   }
 }

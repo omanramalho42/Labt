@@ -106,6 +106,7 @@ const CategoryPost = ({ posts }) => {
               <TagCategorieWidget 
                 name={posts[0].node.categories[0].name} 
                 color={color}
+                className='tag'
               />
             </>
             ) : (

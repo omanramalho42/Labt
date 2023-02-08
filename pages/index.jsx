@@ -164,8 +164,9 @@ const Home = () => {
         ) : (
           <div>
             <TagCategorieWidget 
-              name="Home" 
+              name="Home"
               color={colorTheme === 'dark' ? "#fff" : '#000'}
+              className="tag__home"
             />
             
             <Suspense fallback={<Skeleton />}>
