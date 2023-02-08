@@ -144,43 +144,46 @@ const Header = () => {
       className={`mx-auto px-10 bg-transparent dark:bg-black pb-2`}
     >
       <motion.div
+        className='flex items-center justify-between'
         variants={container}
         initial="hidden"
         animate="visible"
       >
-        {headerNav.map(({ name, slug }, idx) => (
-          <div key={`${slug}-${idx}`}>
-            <Link 
-              onClick={() => router.push(`/category/${slug}`)}
-              href={`/category/${slug}`}
-              className="relative cursor-pointer z-30 nav__menus"
-            >
-              <motion.span
-                variants={item} 
-                className={
-                `md: float-right mr-1 rounded-b-sm w-6 h-8 p-1`
-                }
-                style={{ 
-                  backgroundColor: `${name === 'Estar' 
-                  ? '#d5b035'
-                  : name === 'Salvador'
-                  ? '#2f53a1'
-                  : name === 'Bahia'
-                  ?  '#DC2626'
-                  : name === 'Labt'
-                  ?  '#000'
-                  : '#3fbb5a'
-                  }`
-                }}
-              />
-            </Link>
-          </div>
-        ))}
+        <div className='justify-start z-20 relative top-2'>
+          <Switcher />
+        </div>
+        <div className='flex row'>
+          {headerNav.map(({ name, slug }, idx) => (
+            <div key={`${slug}-${idx}`} className="z-20">
+              <Link 
+                onClick={() => router.push(`/category/${slug}`)}
+                href={`/category/${slug}`}
+                className="cursor-pointer nav__menus"
+              >
+                <motion.span
+                  variants={item} 
+                  className={
+                  `md: float-right mr-1 rounded-b-sm w-6 h-8 p-1`
+                  }
+                  style={{ 
+                    backgroundColor: `${name === 'Estar' 
+                    ? '#d5b035'
+                    : name === 'Salvador'
+                    ? '#2f53a1'
+                    : name === 'Bahia'
+                    ?  '#DC2626'
+                    : name === 'Labt'
+                    ?  '#000'
+                    : '#3fbb5a'
+                    }`
+                  }}
+                />
+              </Link>
+            </div>
+          ))}
+        </div>
       </motion.div>
 
-      <div className='absolute top-1 z-20'>
-        <Switcher />
-      </div>
 
       { mobile.innerWidth > 1000 && (
         <motion.div 
