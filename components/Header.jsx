@@ -153,7 +153,7 @@ const Header = () => {
             <Link 
               onClick={() => router.push(`/category/${slug}`)}
               href={`/category/${slug}`}
-              className="relative cursor-pointer nav__menus"
+              className="relative cursor-pointer z-30 nav__menus"
             >
               <motion.span
                 variants={item} 
@@ -228,7 +228,7 @@ const Header = () => {
               width={600}
               height={600}
               alt="logo labtempo" 
-              className='logo__header dark:text-white transition-all dark:rounded-full dark:bg-[#121212] flex w-full h-full' 
+              className='logo__header dark:text-white transition-all dark:rounded-full dark:bg-[#303030] flex w-full h-full' 
             />
           </motion.div>
         </Link>
