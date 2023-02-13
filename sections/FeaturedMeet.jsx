@@ -128,7 +128,12 @@ const FeaturedMeet = () => {
               className='text-4xl uppercase font-bold text-center'
               style={{ 
                 // fontFamily: 'Luam-Regular',
-                letterSpacing: mobile.innerWidth < 600 ? '20px' : '40px', 
+                letterSpacing: 
+                  mobile.innerWidth < 600 && mobile.innerWidth <= 800 
+                  ? '20px' 
+                  : mobile.innerWidth > 800 && mobile.innerWidth <= 1200 
+                  ? '30px'
+                  : '40px', 
                 zIndex: 21,
                 marginBottom: '.6em'
               }}
