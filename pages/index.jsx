@@ -181,7 +181,7 @@ const Home = () => {
         </div>
       </Fragment>
       
-      <div
+      {/* <div
         style={{ 
           position: 'relative',
           marginBottom: '20%', 
@@ -191,7 +191,7 @@ const Home = () => {
         id="banca"
       >
         <FeaturedGallery />
-      </div>
+      </div> */}
 
       <div className='fixed-bottom'>
         <Footer />
