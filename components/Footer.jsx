@@ -91,7 +91,7 @@ const Footer = () => {
           <div className='flex-col text-center z-10'>
             <input
               placeholder='Pesquisa'
-              className='search'
+              className='search p-2'
               style={{ borderRadius: '25px', border: '1px solid #c9c9c9' }} 
               value={search || ''} 
               onChange={
