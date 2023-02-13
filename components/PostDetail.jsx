@@ -165,8 +165,8 @@ const PostDetail = ({ post }) => {
           background: mobile.innerWidth < 1000 && `linear-gradient(
             to top,
             white 0%,
-            white 93.5%,
-            ${color} 93.5%,
+            white 94.5%,
+            ${color} 94.5%,
             ${color} 100%
           )`,
         }} 
