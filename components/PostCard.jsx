@@ -10,7 +10,7 @@ const PostCard = ({ post }) => {
           alt={post.title}
           className="object-top absolute h-80 w-full object-cover shadow-lg rounded-t-lg lg:rounded-xl"
         />
-        <div className='overlay'>
+        <div className='overlay rounded-xl'>
           <p className='text'>
             { post.title || '' }
           </p>

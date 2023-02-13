@@ -138,7 +138,7 @@ const CategoryPost = ({ posts }) => {
         />
 
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-9 gap-12 sm:mx-0 mx-[2.5rem]"
+          className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-9 gap-12 sm:mx-0 mx-[2.5rem] mb-10"
           variants={container}
           initial="hidden"
           animate="visible"

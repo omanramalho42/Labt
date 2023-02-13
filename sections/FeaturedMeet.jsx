@@ -130,7 +130,7 @@ const FeaturedMeet = () => {
                 // fontFamily: 'Luam-Regular',
                 letterSpacing: 
                   mobile.innerWidth <= 800 
-                  ? '20px' 
+                  ? '10px' 
                   : mobile.innerWidth > 800 && mobile.innerWidth <= 1200 
                   ? '30px'
                   : '40px', 
