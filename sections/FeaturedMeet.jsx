@@ -129,7 +129,7 @@ const FeaturedMeet = () => {
               style={{ 
                 // fontFamily: 'Luam-Regular',
                 letterSpacing: 
-                  mobile.innerWidth < 600 && mobile.innerWidth <= 800 
+                  mobile.innerWidth <= 800 
                   ? '20px' 
                   : mobile.innerWidth > 800 && mobile.innerWidth <= 1200 
                   ? '30px'
