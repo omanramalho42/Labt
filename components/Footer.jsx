@@ -84,7 +84,7 @@ const Footer = () => {
   },[]);
 
   return (
-    <footer className="text-center text-black dark:text-white mt-14">
+    <footer className="text-center text-black dark:text-white">
 
       <div className='flex flex-col'>
         {mobile.innerWidth < 1000 && (
