@@ -178,7 +178,7 @@ const Header = () => {
           ))}
         </motion.div>
 
-        <div className='absolute top-1'>
+        <div className='absolute top-1 right-[50%] z-10'>
           <Switcher />
         </div>
       </div>
@@ -204,11 +204,11 @@ const Header = () => {
         className="grid grid-cols-2 space-x-16 items-center"
       >
         <Link 
-          className="md:float-left md:mt-0 mt-10 relative right-6 cursor-pointer z-10 rounded-full"
+          className="flex w-full sm:col-span-1 col-span-2 justify-center md:float-left md:mt-0 mt-10 right-6 cursor-pointer z-10 rounded-full"
           href={"/"}
         >
           <motion.div
-            className='dark:my-2 transition-all'
+            className='relative left-14 sm:left-0 dark:my-2 transition-all'
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{

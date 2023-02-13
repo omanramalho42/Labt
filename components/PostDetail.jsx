@@ -99,7 +99,8 @@ const PostDetail = ({ post }) => {
       case 'image':
         return (
           <img
-            className='mx-auto rounded-3xl xl:my-5'
+            className='mx-auto xl:my-5'
+            style={{ borderRadius: '33px' }}
             key={index}
             alt={obj.title}
             height={obj.height}
@@ -126,25 +127,16 @@ const PostDetail = ({ post }) => {
         }}
       />
 
-      <div
-        style={{
-          marginRight: '1em',
-          display: 'flex', 
-          flexDirection: 'row', 
-          marginBottom: '3em'
-        }}
-      >
+      <div>
         {mobile.innerWidth < 1000 ? (
           <>
             <TagCategorieWidget
-              className="tag__post" 
               name={ post.categories[0].name } 
               color={color}
-              post={true}
             />
           </>
         ) : (
-          <>
+          <div className='flex row mr-3'>
             <div 
               className='flex-1 mb-8 p-1'
               style={{
@@ -163,7 +155,7 @@ const PostDetail = ({ post }) => {
               >
               { post.categories[0].name || <Skeleton count={1} /> } 
             </span>
-          </>
+          </div>
         )}
         
       </div>
@@ -173,14 +165,14 @@ const PostDetail = ({ post }) => {
           background: mobile.innerWidth < 1000 && `linear-gradient(
             to top,
             white 0%,
-            white 95.3%,
-            ${color} 94.5%,
+            white 93.5%,
+            ${color} 93.5%,
             ${color} 100%
           )`,
         }} 
       >
         <div 
-          className="px-4 lg:px-0 dark:bg-black" 
+          className="px-6 lg:px-0 py-4 dark:bg-black" 
         > 
           <h1 className="lg:px-10 mb-2 text-5xl font-semibold dark:text-white" style={{ fontFamily: 'Arlita' }}> 
             { post.title || <Skeleton />} 

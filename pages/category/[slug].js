@@ -84,13 +84,13 @@ const CategoryPost = ({ posts }) => {
   return (
     <div className='flex-1 dark:bg-black bg-white'>
       <motion.div
-        className="mx-auto px-10 border-t-2 dark:border-black border-white"
+        className="mx-auto px-5 border-t-2 dark:border-black border-white"
         style={{ 
           background: mobile.innerWidth < 1000 && `linear-gradient(
             to bottom,
             transparent 0%,
-            transparent 15%,
-            ${color} 15%,
+            transparent 27%,
+            ${color} 27%,
             ${color} 100%
           )`
         }}
@@ -100,17 +100,17 @@ const CategoryPost = ({ posts }) => {
           <meta charSet='utf-8'/>
         </Helmet>
 
-        <div className='flex mt-[20px] mb-[20px]'>
+        <div className=''>
           {mobile.innerWidth < 1000 ? (
             <>
               <TagCategorieWidget 
                 name={posts[0].node.categories[0].name} 
                 color={color}
-                className='tag'
+                // className='tag'
               />
             </>
             ) : (
-            <>
+            <div className='flex row mb-10'>
               <span 
                 className='text-3xl mr-4 font-medium uppercase'
                 style={{
@@ -128,7 +128,7 @@ const CategoryPost = ({ posts }) => {
                   backgroundColor: color
                 }}
               />
-            </>
+            </div>
           )}
         </div>
       
@@ -138,7 +138,7 @@ const CategoryPost = ({ posts }) => {
         />
 
         <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-9 gap-12"
+          className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-9 gap-12 sm:mx-0 mx-[2.5rem]"
           variants={container}
           initial="hidden"
           animate="visible"

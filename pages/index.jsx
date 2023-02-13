@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import { lazy, Suspense, useEffect, useState } from 'react'
+import { Fragment, lazy, Suspense, useEffect, useState } from 'react'
 
 import CookieConsent from "react-cookie-consent"
 
@@ -154,7 +154,7 @@ const Home = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <div>
+      <Fragment>
         {mobile.innerWidth > 1000 ? (
           <div className='px-10 mb-4'>
             <Suspense fallback={<Skeleton />}>
@@ -162,17 +162,12 @@ const Home = () => {
             </Suspense>
           </div>
         ) : (
-          <div>
-            <TagCategorieWidget 
-              name="Home"
-              color={colorTheme === 'dark' ? "#fff" : '#000'}
-              className="tag__home"
-            />
-            
+          <Fragment>
+            <TagCategorieWidget name="Home" />
             <Suspense fallback={<Skeleton />}>
               <FeaturedLastPostMobile />
             </Suspense> 
-          </div>
+          </Fragment>
         )}
         
         <div className='px-8 mb-4'>
@@ -184,7 +179,7 @@ const Home = () => {
         >
           <FeaturedMeet />
         </div>
-      </div>
+      </Fragment>
       
       <div
         style={{ 

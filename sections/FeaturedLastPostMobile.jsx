@@ -46,7 +46,8 @@ const FeaturedLastPost = () => {
             <img
               src={lastPost[0].featuredImage.url || ''} 
               alt="imagem do último post" 
-              className='w-full h-full'
+              className='w-full'
+              style={{ minHeight: '300px' }}
             />
           </figure>
         </div>
@@ -55,15 +56,15 @@ const FeaturedLastPost = () => {
           className='px-4'
           style={{
             backgroundColor: `
-                ${lastPost[0].categories[0].name.toString() === 'Bahia'
-                  ? '#DC2626' 
-                  : lastPost[0].categories[0].name.toString() === 'Salvador'
-                  ? '#2f53a1'
-                  : lastPost[0].categories[0].name.toString() === 'Ser'
-                  ? '#3fbb5a'
-                  : '#d5b035'  
-                }
-              `
+              ${lastPost[0].categories[0].name.toString() === 'Bahia'
+                ? '#DC2626' 
+                : lastPost[0].categories[0].name.toString() === 'Salvador'
+                ? '#2f53a1'
+                : lastPost[0].categories[0].name.toString() === 'Ser'
+                ? '#3fbb5a'
+                : '#d5b035'  
+              }
+            `
           }}
         >
           <span 
