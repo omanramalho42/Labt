@@ -389,6 +389,12 @@ a {
   opacity: 0.75;
 }
 
+@layer components {
+  .carousel-item {
+    @apply absolute h-full w-full cursor-pointer overflow-hidden rounded-3xl drop-shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-700;
+  }
+}
+
 .text {
   color: white;
   font-size: 25px;
@@ -528,5 +534,45 @@ a {
     
     min-width: 300px;
   }
+}
+
+.carousel-btn-switch-card {
+  // @apply absolute z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border-2 border-[#302e30] bg-[#181818] text-2xl opacity-75 transition duration-100 hover:opacity-100 md:h-12 md:w-12;
+}
+
+.carousel-btn-switch-card-left {
+//  @apply right-1/2 top-1/2 transalte-x-[-200px] translate-y-[-50%] transform sm:trnaslate-x-[-250px] md:translate-x-[-300px] lg:translate-x-[-350px]; 
+}
+
+.carousel-btn-switch-card-right {
+  // @apply left-1/2 top-1/2 transalte-x-[200px] translate-y-[-50%] transform sm:trnaslate-x-[250px] md:translate-x-[300px] lg:translate-x-[350px]; 
+}
+
+.carousel-container {
+  position: relative;
+  width: auto;
+  height: 32rem;
+
+  perspective: 450px;
+  transform-style: preserve-3d;
+}
+
+.carousel-item {
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+
+  width: auto;
+  height: auto;
+  
+  cursor: pointer;
+
+  overflow-x: hidden;
+  border-radius: 25px;
+
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+
+  transition: all 0.325s;
 }
 
