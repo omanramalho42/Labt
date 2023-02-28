@@ -24,10 +24,14 @@ const responsive = {
   },
 };
 
-const CarouselIndicator = ({activeIndex, length, maxIndicatorVisible = 5, setActiveIndex}) => {
-  
-  const [maxIndicator, setMaxIndicator] = useState(0); 
+const CarouselIndicator = ({
+  activeIndex, 
+  length, 
+  maxIndicatorVisible = 5, 
+  setActiveIndex
+}) => {
 
+  const [maxIndicator, setMaxIndicator] = useState(0);
     useEffect(() => {
       setMaxIndicator(
         length > maxIndicatorVisible 
@@ -38,7 +42,7 @@ const CarouselIndicator = ({activeIndex, length, maxIndicatorVisible = 5, setAct
 
   return (
     <div className='absolute left-1/2 bottom-4 flex h-5 w-24 translate-x-1/2 transform items-center justify-center space-x-1 md:bottom-10 z-10'>
-      { Array.from(Array(5), (_, index) => {
+      { Array.from(Array(maxIndicator), (_, index) => {
         return (
           <div 
             key={index} 

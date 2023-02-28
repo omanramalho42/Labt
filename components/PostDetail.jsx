@@ -203,9 +203,12 @@ const PostDetail = ({ post }) => {
               return getContentFragment(index, children, typeObj, typeObj.type);
             })}
 
-            <ModalPhotos 
-              post={post.carousel} 
-            />
+            {post?.carousel.length > 0 && (
+              <ModalPhotos 
+                post={post.carousel} 
+              />
+            )}
+
 
             <div className='flex flex-col dark:text-white font-bold mt-[50px]'>
               <h5 style={{ fontFamily: 'gotham-bold' }}>
