@@ -1,6 +1,7 @@
-import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react'
+
 import Skeleton from 'react-loading-skeleton'
+
 import { getLastestPostsCategorie } from '../services'
 
 const FeaturedMeet = () => {

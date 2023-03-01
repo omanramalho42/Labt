@@ -31,6 +31,11 @@ const FeaturedPosts = () => {
   const [featuredPosts, setFeaturedPosts] = useState([]);
   const [dataLoaded, setDataLoaded] = useState(false);
 
+  const [banners] = useState([
+    { image: '/banner1.jpg', title: 'Banner 1', descritpion: '' },
+    { image: '/banner2.jpg', title: 'Banner 2', descritpion: '' },
+  ]);
+
   useEffect(() => {
     getFeaturedPosts().then((result) => {
       setFeaturedPosts(result);
@@ -61,12 +66,13 @@ const FeaturedPosts = () => {
       <Carousel 
         infinite
         autoPlay
+        transitionDuration={2000}
         customLeftArrow={customLeftArrow} 
         customRightArrow={customRightArrow} 
         responsive={responsive} 
         itemClass="px-2"
       >
-        {dataLoaded && featuredPosts.map((post, index) => (
+        {dataLoaded && banners.map((post, index) => (
           <FeaturedPostCard key={index} post={post} />
         ))}
       </Carousel>

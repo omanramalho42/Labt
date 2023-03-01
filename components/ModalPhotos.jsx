@@ -1,9 +1,12 @@
 
 // import { motion } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
+
 import Carousel from 'react-multi-carousel'
+import ReactFullscreenSlideshow from 'react-fullscreen-slideshow'
 
 import { IoIosArrowBack } from 'react-icons/io'
+
 
 const responsive = {
   superLargeDesktop: {
@@ -135,7 +138,7 @@ const ModalPhotos = ({ post }) => {
   }
 
   return (
-    <div className='flex items-center justify-center py-20 overflow-x-hidden'>
+    <div className='flex-1 flex items-center justify-center py-20 overflow-x-hidden overflow-y-hidden'>
       <div 
         className='relative h-32 w-3/6 sm:h-40 md:h-56'
         style={{
@@ -143,72 +146,65 @@ const ModalPhotos = ({ post }) => {
           transformStyle: 'preserve-3d'
         }}
       >
-        {activeIndex > 0 && (
-          <button
-            onClick={() => 
-              setActiveIndex((value) => value > 0 ? --value : value )
-            } 
-            className='absolute top-1/2 right-full z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border-2 border-[#F9F9F9] bg-[#F9F9F9] text-2xl opacity-75 transition duration-100 hover:opacity-100 md:h-12 md:w-12'>
-            <IoIosArrowBack />
-          </button>
+        {!openModal && (
+          <>
+            {activeIndex > 0 && !openModal && (
+              <button
+                onClick={() => 
+                  setActiveIndex((value) => value > 0 ? --value : value )
+                } 
+                className='absolute top-1/2 right-full z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border-2 border-[#F9F9F9] bg-[#F9F9F9] text-2xl opacity-75 transition duration-100 hover:opacity-100 md:h-12 md:w-12'>
+                <IoIosArrowBack />
+              </button>
+            )}
+
+            {post.map((i ,idx ) => !openModal && (
+              <CarouselItem 
+                index={idx} 
+                key={idx}
+                handleSetOpenModal={handleSetOpenModal}
+                activeIndex={activeIndex}
+                post={i} 
+              />
+            ))}
+
+            {activeIndex < post.length-1 && !openModal && (
+              <button 
+                onClick={() => 
+                  setActiveIndex((value) => value < post.length ? ++value : value )
+                }
+                className='absolute top-1/2 left-full z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border-2 border-[#F9F9F9] bg-[#F9F9F9] text-2xl opacity-75 transition duration-100 hover:opacity-100 md:h-12 md:w-12'
+                style={{
+                  transform: 'rotate(180deg)',
+                }}
+              >
+                <IoIosArrowBack />
+              </button>
+            )}
+
+            <div className='flex items-center justify-center relative right-20'>
+              <div className='absolute sm:top-52 top-44 md:top-72 z-20'>
+                <CarouselIndicator 
+                  activeIndex={activeIndex}
+                  length={post.length}
+                  setActiveIndex={(index) => {
+                    setActiveIndex(index)
+                  }}
+                />
+              </div>
+            </div>
+          </>
         )}
+     </div>
 
-        {post.map((i ,idx ) => (
-          <CarouselItem 
-            index={idx} 
-            key={idx}
-            handleSetOpenModal={handleSetOpenModal}
-            activeIndex={activeIndex}
-            post={i} 
-          />
-        ))}
-
-        {activeIndex < post.length-1 && (
-          <button 
-            onClick={() => 
-              setActiveIndex((value) => value < post.length ? ++value : value )
-            }
-            className='absolute top-1/2 left-full z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border-2 border-[#F9F9F9] bg-[#F9F9F9] text-2xl opacity-75 transition duration-100 hover:opacity-100 md:h-12 md:w-12'
-            style={{
-              transform: 'rotate(180deg)',
-            }}
-          >
-            <IoIosArrowBack />
-          </button>
-        )}
-
-        <div className='flex items-center justify-center relative right-20'>
-          <div className='absolute sm:top-52 top-44 md:top-72 z-20'>
-            <CarouselIndicator 
-              activeIndex={activeIndex}
-              length={post.length}
-              setActiveIndex={(index) => {
-                setActiveIndex(index)
-              }}
-            />
-          </div>
-        </div>
-
-        {openModal && (
-          <div
-            className='z-20'
-            style={{ 
-              position: 'fixed',
-              left: 0,
-              top: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: 'rgba(0,0,0,0.5)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-          >
-            <div className='rendering modal relative w-full h-full'>
-              <div className=''>
+     {openModal && (
+        <div
+          className='z-20 w-full h-full flex items-center justify-center relative xl:top-56'
+        >
+          <div className='rendering modal relative w-full h-full'>
+            <div className='flex-1'>
               <span 
-                className='relative text-white text-3xl cursor-pointer px-2 text-center z-30' 
-                style={{ top: '1.7em', left: '1em', zIndex: 100000000, borderRadius: '50%', backgroundColor: 'rgba(0,0,0,0.7)' }}
+                className='relative text-white text-3xl cursor-pointer px-2 text-center top-[1.7em] left-[1em] z-40 rounded-full bg-[rgba(0,0,0,0.7)]' 
                 onClick={() => {
                   setOpenModal(false), 
                   setImageSort([])
@@ -227,17 +223,16 @@ const ModalPhotos = ({ post }) => {
                       ref={ref}
                       key={idx}
                       alt="imagem carousel"
-                      className="w-full drop-shadow-lg max-h-[600px]"
+                      className="drop-shadow-lg h-full w-full z-30"
                       src={i.url}
                     />
                   ))}
                 </Carousel>
               )}
-              </div>
             </div>
           </div>
-        )}
-     </div>
+        </div>
+      )}
   </div>
   )
 }
