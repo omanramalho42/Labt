@@ -174,12 +174,12 @@ const PostDetail = ({ post }) => {
         <div 
           className="px-6 lg:px-0 py-4 dark:bg-black" 
         > 
-          <h1 className="lg:px-10 mb-2 text-5xl font-semibold dark:text-white" style={{ fontFamily: 'Arlita' }}> 
+          <h1 className="lg:px-10 mb-2 md:text-5xl text-4xl font-semibold dark:text-white" style={{ fontFamily: 'Arlita' }}> 
             { post.title || <Skeleton />} 
           </h1>
           
           <div className='flex lg:px-10 items-center mb-4 lg:mb-0 w-full lg:w-auto mr-8'>          
-            <p className='inline w-60 text-gray-400 text-lg border-t-2 xl:mb-5 dark:text-white font-light' 
+            <p className='inline w-60 text-white md:text-gray-400 text-lg border-t-2 xl:mb-5 dark:text-white font-light' 
               style={{ 
                 borderColor: 
                 `${post.categories[0].name === 'Salvador' 
