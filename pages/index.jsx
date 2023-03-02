@@ -191,7 +191,7 @@ const Home = () => {
         <FeaturedGallery />
       </div> */}
 
-      <div className='fixed-bottom md:mt-32'>
+      <div className='fixed-bottom z-30 md:mt-32'>
         <Footer />
       </div>
       
