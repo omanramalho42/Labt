@@ -18,9 +18,9 @@ const FeaturedPostCard = ({ post }) => {
   }, []);  
 
   return (
-    <div className="relative h-[18.5em]">
+    <div className="relative h-72">
       <div 
-        className="absolute bg-center rounded-3xl bg-no-repeat bg-cover shadow-md inline-block w-full h-full" 
+        className="absolute bg-center lg:rounded-3xl bg-no-repeat bg-cover shadow-md inline-block w-full h-full" 
         style={{ 
           // backgroundImage: `url('${post.featuredImage.url}')`,
           backgroundImage: `url(${post.image})`,
