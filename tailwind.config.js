@@ -7,7 +7,12 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'meet': "url('/bgmeet.png')",
+        'dark-meet': "url('/darkAspiral.png')",
+      }
+    },
   },
   plugins: [],
 }

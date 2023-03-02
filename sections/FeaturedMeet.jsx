@@ -1,8 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Skeleton from 'react-loading-skeleton'
 
 import { getLastestPostsCategorie } from '../services'
+
+import { useSelector, useDispatch } from 'react-redux'
+import { dark, light } from '../slices/ThemeSlice'
 
 const FeaturedMeet = () => {
   const [latestPostCategories, setLatestPostCategories] = useState();
@@ -97,12 +100,8 @@ const FeaturedMeet = () => {
     }
   },[]);
 
-  const [ios, setIos] = useState(false);
-  useEffect(() => {
-    return () => {
-      navigator.userAgent.includes("IOS" || "Safari") && setIos(true);
-    }
-  },[]);
+  const { theme } = 
+    useSelector((state) => state.theme);
 
   if(lastPosts.length > 0) {
     return (
@@ -113,7 +112,9 @@ const FeaturedMeet = () => {
           style={{
             transition: '0.325s',
             objectFit: 'contain',
-            backgroundImage: `url(${'/bgmeet.png'})`,
+            backgroundImage: theme === 'dark' 
+              ? `url(${'/bgmeet.png'})`
+              : `url(${'/darkAspiral.png'})`, 
             backgroundRepeat: 'no-repeat',
             padding: mobile.innerWidth < 1000 ? '0' : '10em',
             backgroundSize: 'contain',

@@ -43,7 +43,7 @@ const FeaturedLastPost = () => {
       >
         <div>
           <span 
-            className='text-5xl font-light uppercase'
+            className='text-4xl font-light uppercase'
             style={{ 
               fontFamily: 'Luam-Light',
               fontWeight: 300,

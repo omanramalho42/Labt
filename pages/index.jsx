@@ -105,8 +105,6 @@ const Home = () => {
       });
     }
   },[]);
-
-	const [colorTheme] = useDarkSide();
   
   return (
    <motion.div

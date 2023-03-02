@@ -1,8 +1,10 @@
 import React, { 
   useState, 
-  useEffect, 
+  useEffect,
   Fragment 
 } from 'react'
+
+import { useSelector } from 'react-redux'
 
 import Image from 'next/image'
 import Link from 'next/link'
@@ -16,7 +18,6 @@ import { getCategories } from '../services'
 import { getPosts } from '../services/index'
 
 import Skeleton from 'react-loading-skeleton'
-import { useRouter } from 'next/router'
 
 import { container, item } from '../tools/effect'
 
@@ -120,6 +121,9 @@ const Header = () => {
     }
   },[]);
 
+  const { theme } = 
+    useSelector((state) => state.theme);
+
   if(load) {
     return (
       <div className="mx-auto mb-12 container dark:bg-black dark:text-white">
@@ -136,8 +140,6 @@ const Header = () => {
       </div>
     )
   }
-
-  const router = useRouter();
   
   return (
     <div 
@@ -224,13 +226,23 @@ const Header = () => {
               }
             }}
           >
-            <Image 
-              src='/logo.png' 
-              width={600}
-              height={600}
-              alt="logo labtempo" 
-              className='logo__header dark:text-white transition-all dark:rounded-full dark:bg-[#303030] flex w-full h-full' 
-            />
+            {theme === 'dark' ? (
+              <Image 
+                src={'/logo.png'} 
+                width={600}
+                height={600}
+                alt="logo labtempo" 
+                className='logo__header dark:text-white transition-all flex w-full h-full' 
+              />
+            ) : (
+              <Image 
+                src={'/dark_logo.png'} 
+                width={600}
+                height={600}
+                alt="logo labtempo" 
+                className='logo__header dark:text-white transition-all flex w-full h-full' 
+              />
+            )}
           </motion.div>
         </Link>
         
