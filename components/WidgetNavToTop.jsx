@@ -26,7 +26,7 @@ const WidgetNavToTop = () => {
         <HiArrowCircleUp 
           size={52} 
           onClick={handleGoTop} 
-          className="cursor-pointer z-10 arrow__top" 
+          className="cursor-pointer dark:text-white text-black z-10 arrow__top" 
         />
       )}
     </div>
