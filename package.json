@@ -8,6 +8,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
     "@types/react-helmet": "^6.1.6",
+    "@vercel/analytics": "^0.1.11",
     "axios": "^1.2.0",
     "framer-motion": "^7.6.6",
     "graphql": "^16.6.0",

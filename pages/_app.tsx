@@ -1,6 +1,8 @@
 import '../styles/globals.scss'
 import '../styles/normalize.css'
-// import '../styles/reset.css'
+
+import { Analytics } from '@vercel/analytics/react'
+
 import { store } from '../app/store'
 import { Provider } from 'react-redux'
 
@@ -14,6 +16,7 @@ import { AnimatePresence } from 'framer-motion'
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
+      <Analytics />
       <HelmetProvider>
         <AnimatePresence>
           <Layout>
