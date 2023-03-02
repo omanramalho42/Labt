@@ -19,40 +19,16 @@ const FeaturedPostCard = ({ post }) => {
 
   return (
     <div className="relative h-72">
-      <div 
-        className="absolute bg-center lg:rounded-3xl bg-no-repeat bg-cover shadow-md inline-block w-full h-full" 
+      {/* <div 
+        className="absolute bg-center lg:rounded-3xl bg-no-repeat bg-cover object-cover shadow-md inline-block w-full h-full" 
         style={{ 
           // backgroundImage: `url('${post.featuredImage.url}')`,
           backgroundImage: `url(${post.image})`,
           backgroundSize: 'cover',
         }} 
-      />
+      /> */}
+      <img src={post.image} className="w-full h-full object-contain" />
       <div className="absolute rounded-3xl bg-center w-full h-full" />
-
-      {/* <div className="flex flex-col rounded-3xl p-4 items-center justify-center absolute w-full h-full">
-        <p className="text-white mb-4 text-shadow font-semibold text-xs">
-          {moment(post.createdAt).format('MMM DD, YYYY')}
-        </p>
-        <p className="text-white mb-4 text-shadow font-semibold text-2xl text-center">
-          {post.title}
-        </p>
-        <div className="flex items-center absolute bottom-5 w-full justify-center">
-          <Image
-            unoptimized
-            alt={post.author.name}
-            height="30"
-            width="30"
-            className="align-middle drop-shadow-lg rounded-full"
-            src={post.author.photo.url}
-          />
-          <p className="inline align-middle text-white text-shadow ml-2 font-medium">
-            {post.author.name}
-          </p>
-        </div>
-      </div>
-      <Link href={`/post/${post.slug}`}>
-        <span className="cursor-pointer absolute w-full h-full" />
-      </Link> */}
     </div>
   )
 };
