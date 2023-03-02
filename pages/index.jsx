@@ -168,7 +168,7 @@ const Home = () => {
           </Fragment>
         )}
         
-        <div className='px-0 lg:px-8 mb-4'>
+        <div className='px-0 mb-0 lg:px-8 lg:mb-4'>
           <FeaturedPosts />
         </div>
         

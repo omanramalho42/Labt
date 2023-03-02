@@ -18,7 +18,7 @@ const FeaturedPostCard = ({ post }) => {
   }, []);  
 
   return (
-    <div className="relative h-72">
+    <div className="relative h-auto">
       {/* <div 
         className="absolute bg-center lg:rounded-3xl bg-no-repeat bg-cover object-cover shadow-md inline-block w-full h-full" 
         style={{ 
