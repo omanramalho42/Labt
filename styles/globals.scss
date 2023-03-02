@@ -464,8 +464,11 @@ a {
 }
 
 .meet {
-  @media only screen and (min-width: 1200px) {
-    margin-bottom: -12% !important;
+  @media only screen and (max-width: 1000px) {
+    background-position-y: -1em !important;
+  }
+  @media only screen and (max-width: 800px) {
+    background-position-y: 20% !important;
   }
 }
 

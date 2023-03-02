@@ -21,12 +21,12 @@ const WidgetNavToTop = () => {
   }
 
   return (
-    <div className='fixed bottom-40 left-[49%]'>
+    <div className='flex-1 flex justify-center items-center'>
       {showBtn && (
         <HiArrowCircleUp 
           size={52} 
           onClick={handleGoTop} 
-          className="cursor-pointer dark:text-white text-black z-10 arrow__top" 
+          className="cursor-pointer relative md:top-[-20px] top-[-30px] dark:text-white text-black z-10 arrow__top" 
         />
       )}
     </div>

@@ -106,9 +106,10 @@ const FeaturedMeet = () => {
   if(lastPosts.length > 0) {
     return (
       <div 
-        className='meet flex flex-col items-center mx-auto w-full h-full'
+        className='flex flex-col items-center mx-auto w-full h-full'
       >
         <div
+          className='meet'
           style={{
             transition: '0.325s',
             objectFit: 'contain',
@@ -116,7 +117,7 @@ const FeaturedMeet = () => {
               ? `url(${'/bgmeet.png'})`
               : `url(${'/darkAspiral.png'})`, 
             backgroundRepeat: 'no-repeat',
-            padding: mobile.innerWidth < 1000 ? '0' : '10em',
+            padding: mobile.innerWidth < 1000 ? '0' : '5em 0',
             backgroundSize: 'contain',
             backgroundPosition: 'center',
             backgroundPositionY:  mobile.innerWidth < 1000 ? '20%' : '50%'
