@@ -240,7 +240,6 @@ const FeaturedMeet = () => {
                     <span
                       className={`tooltiptext ${categorieName} rendering ${mobile.innerWidth < 1000 && 'tooltiptext__mobile relative z-10'}`} 
                       style={{
-                        color: 'black',
                         fontWeight: 'bold',
                         left:
                           categorieName === 'Salvador'
@@ -280,7 +279,7 @@ const FeaturedMeet = () => {
                           { categorieName }
                         </p>
                         <p 
-                          className={`${mobile.innerWidth < 1000 && 'tooltip_excerpt'}`}
+                          className={`text-black dark:text-white ${mobile.innerWidth < 1000 && 'tooltip_excerpt'}`}
                         >
                           { title  || 'dont avaliable'}
                         </p>
@@ -409,7 +408,7 @@ const FeaturedMeet = () => {
                             { categorieName }
                           </p>
                           <p 
-                            className={'tooltip_excerpt'}
+                            className={'text-black dark:text-white tooltip_excerpt'}
                           >
                             { title  || 'dont avaliable'}
                           </p>
