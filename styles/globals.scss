@@ -476,6 +476,63 @@ a {
   }
 }
 
+/* Animation Keyframes*/
+@keyframes looping {
+  0% { transform: rotate(90deg); }
+  50% { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@-moz-keyframes looping {
+  0% { transform: rotate(90deg); }
+  50% { transform: rotate(180deg); }
+}
+
+@-webkit-keyframes looping {
+  0% { transform: rotate(90deg); }
+  50% { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@-o-keyframes looping {
+  0% { transform: rotate(90deg); }
+  50% { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spinner {
+  -webkit-transform: rotate(360deg);
+  -webkit-transition-duration: 1s;
+  -webkit-transition-delay: now;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation: looping 6s 15s infinite;
+}
+
+@keyframes movebtn {
+  0%{
+    transform: translateY(0px);
+  }
+  25%{
+    transform: translateY(20px);
+  }
+  50%{
+    transform: translateY(0px);
+  }
+  75%{
+    transform: translateY(-20px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
+
+.arrow__top {
+  animation: movebtn 3s ease-in-out infinite;
+  transition: all .5s ease-in-out;
+}
+
+
 .progress-bar {
   position: fixed;
   z-index: 2;

@@ -134,13 +134,13 @@ const Footer = () => {
           <a 
             href="https://www.facebook.com/profile.php?id=100088693333749" 
             type="button" 
-            className="rounded-full cursor-pointer z-10  border-2 dark:border-white dark:text-white border-black text-black leading-normal text-center uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1"
+            className="rounded-full dark:hover:border-blue-700 hover:border-blue-700 cursor-pointer z-10  border-2 dark:border-white dark:text-white border-black text-black leading-normal text-center uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1"
           >
             <svg aria-hidden="true"
               focusable="false"
               data-prefix="fab"
               data-icon="facebook-f"
-              className="w-2 h-full mx-auto"
+              className="w-2 h-full mx-auto hover:scale-90 transition-all"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 320 512"
@@ -152,12 +152,12 @@ const Footer = () => {
             </svg>
           </a>
 
-          <a href="www.instagram.com/labtempo" type="button" className="cursor-pointer rounded-full dark:border-white z-10  dark:text-white border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+          <a href="www.instagram.com/labtempo" type="button" className="cursor-pointer rounded-full dark:hover:border-purple-700 hover:border-purple-700 dark:border-white z-10  dark:text-white border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
             <svg aria-hidden="true"
               focusable="false"
               data-prefix="fab"
               data-icon="instagram"
-              className="w-3 h-full mx-auto"
+              className="w-3 h-full mx-auto hover:scale-90 transition-all"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 448 512"
@@ -169,10 +169,10 @@ const Footer = () => {
             </svg>
           </a>
 
-          <a href="https://www.youtube.com/channel/UCB4cQUJz7NK3k5D_yGux1Pw" type="button" className="cursor-pointer z-10 rounded-full dark:border-white dark:text-white border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+          <a href="https://www.youtube.com/channel/UCB4cQUJz7NK3k5D_yGux1Pw" type="button" className="cursor-pointer z-10 rounded-full dark:hover:border-red-700 hover:border-red-700 dark:border-white dark:text-white border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
-            className="w-4 h-full mx-auto"
+            className="w-4 h-full mx-auto hover:scale-90 transition-all"
             viewBox="0 0 16 16"
           > 
             <path

@@ -1,0 +1,36 @@
+import React, { useState, useEffect } from 'react'
+import { HiArrowCircleUp } from 'react-icons/hi'
+
+const WidgetNavToTop = () => {
+  const [showBtn, setShowBtn] = useState(false);
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 400) {
+        setShowBtn(true);
+      } else {
+        setShowBtn(false);
+      }
+    })
+  },[]);
+
+  const handleGoTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
+
+  return (
+    <div className='fixed bottom-40 left-[49%]'>
+      {showBtn && (
+        <HiArrowCircleUp 
+          size={52} 
+          onClick={handleGoTop} 
+          className="cursor-pointer z-10 arrow__top" 
+        />
+      )}
+    </div>
+  )
+}
+
+export default WidgetNavToTop

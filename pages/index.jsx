@@ -7,7 +7,7 @@ import CookieConsent from "react-cookie-consent"
 import { motion } from 'framer-motion'
 
 import {
-  Footer, TagCategorieWidget
+  Footer, TagCategorieWidget, WidgetNavToTop
 } from '../components'
 
 import { 
@@ -178,7 +178,7 @@ const Home = () => {
           <FeaturedMeet />
         </div>
       </Fragment>
-      
+    
       {/* <div
         style={{ 
           position: 'relative',
@@ -190,6 +190,8 @@ const Home = () => {
       >
         <FeaturedGallery />
       </div> */}
+
+      <WidgetNavToTop />
 
       <div className='fixed-bottom z-30 md:mt-32'>
         <Footer />

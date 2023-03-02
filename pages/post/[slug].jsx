@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
+
 import { useRouter } from 'next/router'
 
 import { Helmet } from 'react-helmet'
+
+import { HiArrowCircleUp } from 'react-icons/hi'
 
 import { 
   PostDetail,
@@ -14,11 +17,12 @@ import {
 import { getPosts, getPostDetails } from '../../services'
 
 import { AdjacentPosts } from '../../sections'
+import WidgetNavToTop from '../../components/WidgetNavToTop'
 
 const PostDetails = ({ post }) => {
   const router = useRouter();
-  
-  const [color,setColor] = useState('');
+  const [color, setColor] = useState('');
+ 
   useEffect(() => {
     if(post.categories[0].name === 'Bahia') {
       setColor('#DC2626');
@@ -55,6 +59,9 @@ const PostDetails = ({ post }) => {
             <AdjacentPosts slug={post.slug} createdAt={post.createdAt} color={color} />
           </div>
         </div>
+        
+        <WidgetNavToTop />
+
         <Footer />
       </div>
     </div>

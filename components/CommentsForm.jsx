@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react'
+
+import { AiOutlineLoading } from 'react-icons/ai'
+
 import Skeleton from 'react-loading-skeleton'
 import { toast, Toaster } from 'react-hot-toast'
 import { submitComment } from '../services'
+import { IoMdAddCircleOutline } from 'react-icons/io';
 
 const CommentsForm = ({ slug, color }) => {
   const[load, setLoad] = useState(false)
@@ -9,6 +13,8 @@ const CommentsForm = ({ slug, color }) => {
   const [localStorage, setLocalStorage] = useState(null)
   const [showSuccessMessage, setShowSuccessMessage] = useState(false)
   const [formData, setFormData] = useState({ name: null, email: null, comment: null, storeData: false })
+
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setLocalStorage(window.localStorage);
@@ -43,6 +49,7 @@ const CommentsForm = ({ slug, color }) => {
 
   const handlePostSubmission = () => {
     setLoad(true);
+    setLoading(true);
     
     const { name, email, comment, storeData } = formData;
     if (!name || !email || !comment) {
@@ -85,6 +92,7 @@ const CommentsForm = ({ slug, color }) => {
             setTimeout(() => {
               setShowSuccessMessage(false);
               toast.success("Seu comentário foi submetido a análise");
+              setLoading(false);
             }, 3000);
           }
         }).catch((error) => console.log(error));
@@ -94,6 +102,8 @@ const CommentsForm = ({ slug, color }) => {
       setLoad(false);
     }
   }
+
+  useEffect(() => { console.log('laod', loading) },[loading])
 
   return (
     <div className="flex-col bg-white dark:bg-[#121212] rounded-lg lg:px-16 p-6 pb-12 mb-8">
@@ -118,7 +128,7 @@ const CommentsForm = ({ slug, color }) => {
               type="text" 
               value={formData.name} 
               onChange={onInputChange} 
-              className="py-2 z-10 px-4 dark:bg-[#202020] dark:placeholder:text-white outline-none w-full focus:ring-2 focus:ring-gray-200 border border-black placeholder:text-black" 
+              className="py-2 z-10 px-4 dark:bg-[#202020] dark:text-white dark:placeholder:text-white outline-none w-full focus:ring-2 focus:ring-gray-200 border border-black placeholder:text-black" 
               placeholder="Nome *" 
               name="name" 
             />
@@ -126,7 +136,7 @@ const CommentsForm = ({ slug, color }) => {
               type="email" 
               value={formData.email} 
               onChange={onInputChange} 
-              className="py-2 z-10 dark:bg-[#202020] dark:placeholder:text-white px-4 outline-none w-full focus:ring-2 focus:ring-gray-200 border border-black placeholder:text-black" 
+              className="py-2 z-10 dark:bg-[#202020] dark:text-white dark:placeholder:text-white px-4 outline-none w-full focus:ring-2 focus:ring-gray-200 border border-black placeholder:text-black" 
               placeholder="Email *" 
               name="email" 
             />
@@ -138,15 +148,24 @@ const CommentsForm = ({ slug, color }) => {
           <div className="flex mt-8 justify-end">
             <button 
               type="button" 
-              onClick={handlePostSubmission} 
+              onClick={!loading ? handlePostSubmission : () => {}} 
               className="text-sm uppercase z-10 text-white text-center px-8 py-1 cursor-pointer"
               style={{
                 backgroundColor: color,
+                opacity: loading ? '75%' : '100%'
               }}
             >
-              <p style={{ width: '100px' }}>
-                Publicar Comentário
-              </p>
+              {loading ? (
+                <div className='flex w-[100px] h-[40px] justify-center items-center'>
+                  <p className='spinner'>
+                    <AiOutlineLoading size={26} />
+                  </p>
+                </div>
+              ) : (
+                <p style={{ width: '100px' }}>
+                  Publicar Comentário
+                </p>
+              )}
             </button>
           </div>
         </>
