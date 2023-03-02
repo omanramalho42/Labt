@@ -408,7 +408,7 @@ const FeaturedMeet = () => {
                             { categorieName }
                           </p>
                           <p 
-                            className={'text-black dark:text-white tooltip_excerpt'}
+                            className={'tooltip_excerpt'}
                           >
                             { title  || 'dont avaliable'}
                           </p>
