@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import moment from 'moment'
-
-import Image from 'next/image'
-import Link from 'next/link'
-
 import Skeleton from 'react-loading-skeleton'
 
-const FeaturedPostCard = ({ post }) => {
+const FeaturedPostCard = ({ post, mobile = false }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -15,19 +10,15 @@ const FeaturedPostCard = ({ post }) => {
         setLoading(false) 
       }, 500);
     }
-  }, []);  
+  }, []);
+
+  if(!loading) {
+    <Skeleton height={200} className='flex-1 w-full mx-10' />
+  }
 
   return (
     <div className="relative h-auto">
-      {/* <div 
-        className="absolute bg-center lg:rounded-3xl bg-no-repeat bg-cover object-cover shadow-md inline-block w-full h-full" 
-        style={{ 
-          // backgroundImage: `url('${post.featuredImage.url}')`,
-          backgroundImage: `url(${post.image})`,
-          backgroundSize: 'cover',
-        }} 
-      /> */}
-      <img src={post.image} className="w-full h-full object-contain" />
+      <img src={post.image} className={`${mobile ? 'rotate-[-90deg] h-[450px] md:h-[700px] w-full object-contain' : 'rotate-0 w-full h-full object-contain'}`} />
       <div className="absolute rounded-3xl bg-center w-full h-full" />
     </div>
   )

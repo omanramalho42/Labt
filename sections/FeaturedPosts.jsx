@@ -61,6 +61,38 @@ const FeaturedPosts = () => {
     </div>
   );
 
+  const getWindowSize = () => {
+    const { innerWidth, innerHeight } = window;
+    return { innerHeight, innerWidth };
+  }
+
+  const [mobile, setMobile] = useState(0);  
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setMobile(getWindowSize());
+    }
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    }
+  },[]);
+
+  useEffect(() => {
+    if(document.documentElement.clientWidth !== undefined ) {
+      setMobile({ innerWidth: 
+        document.documentElement.clientWidth
+      });
+    }
+  },[]);
+  
+  const [mobileBanners, setMobileBanners] = useState([
+    { image: '/bannerMob1.png', title: 'Banner 1', descritpion: '' },
+    { image: '/bannerMob2.png', title: 'Banner 2', descritpion: '' },
+  ]);
+  
   return (
     <div className="rounded-3xl" style={{ marginBottom: '8em' }}>
       <Carousel 
@@ -72,8 +104,17 @@ const FeaturedPosts = () => {
         responsive={responsive} 
         itemClass="px-2"
       >
-        {dataLoaded && banners.map((post, index) => (
-          <FeaturedPostCard key={index} post={post} />
+        {dataLoaded && mobile.innerWidth > 1000 ? banners.map((post, index) => (
+          <FeaturedPostCard 
+            key={index} 
+            post={post} 
+          />
+        )) : dataLoaded && mobile.innerWidth < 1000 && mobileBanners.map((i, idx) => (
+          <FeaturedPostCard 
+            key={idx} 
+            post={i}
+            mobile 
+          />
         ))}
       </Carousel>
     </div>
