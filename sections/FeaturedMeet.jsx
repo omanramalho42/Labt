@@ -7,6 +7,140 @@ import { getLastestPostsCategorie } from '../services'
 import { useSelector, useDispatch } from 'react-redux'
 import { dark, light } from '../slices/ThemeSlice'
 
+const widgetMeet = () => {
+  return (
+    <div
+      key={`${Math.random() * 100}`} 
+      className={`relative rounded-full mx-auto`} 
+      style={{
+        top: mobile.innerWidth < 1000 ? '-5.5em' : '-5em',
+        width: `${
+          mobile.innerWidth < 1000 
+          ? '120px'
+          : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
+          ? '180px' 
+          : categorieName === 'Estar' || categorieName === 'Bahia' ? '310px' : '250px'
+        }`,
+        height: `${
+          mobile.innerWidth < 1000 
+          ? '120px' 
+          : mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
+          ? '180px' 
+          : categorieName === 'Estar' || categorieName === 'Bahia' ? '310px' : '250px'
+        }`,
+        boxShadow: '2px 3px 10px 1px rgba(0, 0, 0, 0.1)',
+        transition: '0.325s',
+        padding: mobile.innerWidth < 1000 ? '5px' : '10px',
+        transformBox: 'content-box',
+        border: `${mobile.innerWidth < 1000 ? '6' : '3.5'}px solid 
+        ${categorieName === 'Salvador'
+          ? '#2f53a1'
+          : categorieName === 'Bahia'
+          ? '#DC2626' 
+          : categorieName === 'Ser'
+          ? '#3fbb5a'
+          : '#d5b035'
+        }`,
+        gridColumnStart: 
+          categorieName === 'Estar' 
+          ? 2 
+          : categorieName === 'Salvador' 
+          ? 3 
+          : categorieName === 'Bahia'
+          ? 2
+          : 1
+      }}
+    >
+      <a
+        href={`/post/${slug}`}
+        onMouseEnter={() => insertEffect(idx)}
+        onMouseLeave={() => removeEffect(idx)}
+        className='w-full h-full tooltip' 
+        style={{
+          borderRadius: '50%',
+          backgroundImage: `url(${lastPosts[idx].featuredImage || ''})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          cursor: 'pointer'
+        }}
+      >
+        <a
+          id={`circle${idx}`}
+          href={`/post/${slug}`}
+          className={`box rounded-full tooltip
+            ${categorieName === 'Ser' 
+            ? 'box1' 
+            : categorieName === 'Salvador' 
+            ? 'box2'  
+            : categorieName === 'Bahia'
+            ? 'box3'
+            : 'box4'
+          }`}
+          style={{ 
+            zIndex: 1,
+            backgroundColor: 
+              categorieName === 'Salvador'
+              ? '#2f53a1'
+              : categorieName === 'Bahia'
+              ? '#DC2626' 
+              : categorieName === 'Ser'
+              ? '#3fbb5a'
+              : '#d5b035',
+          }}
+        >
+          <span
+            className={`tooltiptext ${categorieName} rendering ${mobile.innerWidth < 1000 && 'tooltiptext__mobile relative z-10'}`} 
+            style={{
+              fontWeight: 'bold',
+              left:
+                categorieName === 'Salvador'
+                ? '4em'
+                : categorieName === 'Estar'
+                ? '-12em' 
+                : categorieName === 'Ser'
+                ? '-11em'
+                : categorieName === 'Bahia' 
+                ? '6em'
+                : 0,
+              top:
+                categorieName === 'Salvador'
+                ? '-2em'
+                : categorieName === 'Estar'
+                ? '-2em' 
+                : categorieName === 'Ser'
+                ? '-2em'
+                : categorieName === 'Bahia'
+                ? '0' : 0,
+            }}
+            >
+              {/* {mobile.innerWidth < 1000 && ( <span style={{ position: 'absolute', right: '20px', top: '5px', fontSize: '.9em'}}>x</span> ) } */}
+              <p 
+                className={`font-medium ${mobile.innerWidth < 1000 && 'tooltip__title'}`}
+                style={{
+                  color: 
+                    categorieName === 'Salvador' && mobile.innerWidth > 1000
+                    ? '#2f53a1'
+                    : categorieName === 'Bahia' && mobile.innerWidth > 1000
+                    ? '#DC2626' 
+                    : categorieName === 'Ser' && mobile.innerWidth > 1000
+                    ? '#3fbb5a'
+                    : mobile.innerWidth > 1000 && '#d5b035',    
+                }}
+              > 
+                { categorieName }
+              </p>
+              <p 
+                className={`text-black dark:text-white ${mobile.innerWidth < 1000 && 'tooltip_excerpt'}`}
+              >
+                { title  || 'dont avaliable'}
+              </p>
+          </span>
+        </a>
+      </a>
+    </div>
+  )
+}
+
 const FeaturedMeet = () => {
   const [latestPostCategories, setLatestPostCategories] = useState();
   const [lastPosts, setLastPosts] = useState([]);
@@ -153,7 +287,7 @@ const FeaturedMeet = () => {
             />
           </div>
           <div className="grid">
-            {lastPosts.map(({ 
+            {lastPosts.sort((a, b) => a-b).map(({ 
               categorieName, 
               slug, 
               excerpt, 
