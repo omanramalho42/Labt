@@ -18,7 +18,7 @@ const FeaturedPostCard = ({ post, mobile = false }) => {
 
   return (
     <div className="relative h-auto">
-      <img src={post.image} className={`${mobile ? 'rotate-[-90deg] h-[450px] md:h-[700px] w-full object-contain' : 'rotate-0 w-full h-full object-contain'}`} />
+      <img src={post.image} className={`${mobile ? 'rotate-[-90deg] h-[400px] md:h-[700px] w-full object-contain' : 'rotate-0 w-full h-full object-contain'}`} />
       <div className="absolute rounded-3xl bg-center w-full h-full" />
     </div>
   )
