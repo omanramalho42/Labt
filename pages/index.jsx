@@ -2,6 +2,8 @@ import Head from 'next/head'
 
 import { Fragment, lazy, Suspense, useEffect, useState } from 'react'
 
+import { getCategories } from '../services'
+
 import CookieConsent from "react-cookie-consent"
 
 import { motion } from 'framer-motion'
@@ -27,7 +29,11 @@ import { toast } from 'react-hot-toast'
 
 import useDarkSide from '../hooks/useDarkSide'
 
-const Home = () => {
+const Home = (context) => {
+  // if(context) {
+  //   console.log(context,'props index');
+  // }
+
   const [posts, setPosts] = useState(null);
   const [search, setSearch] = useState('');
   const [filterPost, setFilteredPost] = useState([{}]);
@@ -147,7 +153,7 @@ const Home = () => {
 
       <Head>
         <title>Laboratório Tempo</title>
-        <link rel="stylesheet" href="/icon.png" />
+        <link rel="stylesheet" href="/logo.png" />
         <meta desc="Página inicial" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
@@ -168,12 +174,12 @@ const Home = () => {
           </Fragment>
         )}
         
-        <div className='px-0 mb-0 lg:px-8 lg:mb-4'>
+        <div className={`px-0 mb-0 lg:px-8 lg:mb-4 relative ${mobile.innerWidth < 1000 ? 'top-[-60px]' : 'top-0' }`}>
           <FeaturedPosts />
         </div>
         
         <div 
-          className='relative'
+          className={`relative ${mobile.innerWidth < 1000 ? 'top-[-120px]' : 'top-0' }`}
         >
           <FeaturedMeet />
         </div>
@@ -193,7 +199,7 @@ const Home = () => {
 
       <WidgetNavToTop />
 
-      <div className='fixed-bottom z-30 md:mt-32'>
+      <div className={`relative z-30 ${mobile.innerWidth < 1000 ? 'top-[-60px]' : 'top-0' }`}>
         <Footer />
       </div>
       
@@ -201,11 +207,17 @@ const Home = () => {
   )
 }
 
-export const getStaticProps =  async () => {
+export const getServerSideProps =  async () => {
   const posts = (await getPosts()) || [];
+  let categories = await getCategories()
+    .then((newCategories) => newCategories)
+    .catch(( [] ));
 
   return {
-    props: { posts }
+    props: { 
+      posts, 
+      categories 
+    }
   }
 }
 

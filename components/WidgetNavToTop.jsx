@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { HiArrowCircleUp } from 'react-icons/hi'
 
-const WidgetNavToTop = () => {
+const WidgetNavToTop = (home = false) => {
   const [showBtn, setShowBtn] = useState(false);
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -26,7 +26,7 @@ const WidgetNavToTop = () => {
         <HiArrowCircleUp 
           size={52} 
           onClick={handleGoTop} 
-          className="cursor-pointer relative md:top-[-20px] top-[-30px] dark:text-white text-black z-10 arrow__top" 
+          className={`cursor-pointer relative ${home ? 'top-[-120px] md:top-[-100px]' : 'top-[-30px] md:top-[-20px]'} dark:text-white text-black z-10 arrow__top`}
         />
       )}
     </div>

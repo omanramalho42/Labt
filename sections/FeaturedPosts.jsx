@@ -97,7 +97,7 @@ const FeaturedPosts = () => {
     <div className="rounded-3xl" style={{ marginBottom: '8em' }}>
       <Carousel 
         infinite
-        autoPlay
+        // autoPlay
         transitionDuration={2000}
         customLeftArrow={customLeftArrow} 
         customRightArrow={customRightArrow} 

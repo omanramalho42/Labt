@@ -152,7 +152,7 @@ const Footer = () => {
             </svg>
           </a>
 
-          <a href="www.instagram.com/labtempo" type="button" className="cursor-pointer rounded-full dark:hover:border-purple-700 hover:border-purple-700 dark:border-white z-10  dark:text-white border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+          <a href="https://www.instagram.com/labtempo" type="button" className="cursor-pointer rounded-full dark:hover:border-purple-700 hover:border-purple-700 dark:border-white z-10  dark:text-white border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
             <svg aria-hidden="true"
               focusable="false"
               data-prefix="fab"

@@ -133,7 +133,7 @@ a {
 .Salvador {
   @media only screen and (max-width: 1000px) {
     top: -2em !important;
-    left: -280px !important;
+    left: 30px !important;
 
     background-color: #2f53a1;
     color: #FFF;
@@ -146,8 +146,8 @@ a {
 
 .Bahia {
   @media only screen and (max-width: 1000px) {
-    top: 5em !important;
-    left: -155px !important;
+    top: -2.5em !important;
+    left: -205px !important;
 
     background-color: #DC2626;
     color: #FFF;
@@ -160,8 +160,8 @@ a {
 
 .Ser {
   @media only screen and (max-width: 1000px) {
-    top: -6.5em !important;
-    left: 40px !important;
+    top: 6em !important;
+    left: -75px !important;
 
     background-color: #3fbb5a;
     color: #FFF;
@@ -171,6 +171,24 @@ a {
     font-size: 1em !important; 
   }
 }
+
+.Estar {
+  @media only screen and (max-width: 1000px) {
+    top: -10em !important;
+    left: -75px !important;
+
+    background-color: #d5b035;
+
+    height: 160px;
+
+    color: #FFF;
+    box-shadow: 0 3px 12px 6px rgba(0,0,0,0.3);
+
+    font-size: .9em !important;
+    text-transform: uppercase;
+  }
+}
+
 
 .tooltip__title {
   font-size: 6em;
@@ -196,23 +214,6 @@ a {
   color: #FFF !important;
   
   font-size: 1em !important;
-}
-
-.Estar {
-  @media only screen and (max-width: 1000px) {
-    top: -15em !important;
-    left: -75px !important;
-
-    background-color: #d5b035;
-
-    height: 160px;
-
-    color: #FFF;
-    box-shadow: 0 3px 12px 6px rgba(0,0,0,0.3);
-
-    font-size: .9em !important;
-    text-transform: uppercase;
-  }
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
@@ -458,6 +459,7 @@ a {
     opacity: 1;
   }
 }
+
 .rendering {
   animation-duration: .75s;
   animation-name: slidein;

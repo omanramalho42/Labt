@@ -152,7 +152,7 @@ const Header = () => {
           animate="visible"
           className='relative z-10'
         >
-          {headerNav.map(({ name, slug }, idx) => (
+          {[headerNav[1],headerNav[2],headerNav[3],headerNav[0]].map(({ name, slug }, idx) => (
             <Link 
               href={`/category/${slug}`}
               key={`${slug}-${idx}`} 
@@ -309,5 +309,4 @@ const Header = () => {
     </div>
   )
 }
-
 export default Header
