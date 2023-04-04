@@ -214,7 +214,14 @@ const FeaturedMeet = () => {
                   className='w-full h-full tooltip' 
                   style={{
                     borderRadius: '50%',
-                    backgroundImage: `url(${lastPosts[idx].featuredImage || ''})`,
+                    backgroundImage: 
+                      categorieName === 'Ser' 
+                      ? `url(${lastPosts[1].featuredImage})`
+                      : categorieName === 'Salvador'
+                      ? `url(${lastPosts[2].featuredImage})`
+                      : categorieName === 'Bahia'
+                      ? `url(${lastPosts[0].featuredImage})`
+                      : `url(${lastPosts[3].featuredImage}`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
                     cursor: 'pointer'
@@ -335,7 +342,14 @@ const FeaturedMeet = () => {
                   className='w-full h-full tooltip' 
                   style={{
                     borderRadius: '50%',
-                    backgroundImage: `url(${lastPosts[idx].featuredImage || ''})`,
+                    backgroundImage:
+                      categorieName === 'Ser' 
+                      ? `url(${lastPosts[1].featuredImage})`
+                      : categorieName === 'Salvador'
+                      ? `url(${lastPosts[2].featuredImage})`
+                      : categorieName === 'Bahia'
+                      ? `url(${lastPosts[0].featuredImage})`
+                      : `url(${lastPosts[3].featuredImage}`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
                     cursor: 'pointer'
