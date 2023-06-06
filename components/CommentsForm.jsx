@@ -126,7 +126,7 @@ const CommentsForm = ({ slug, color }) => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
             <input 
               type="text" 
-              value={formData.name} 
+              value={formData.name || ""} 
               onChange={onInputChange} 
               className="py-2 z-10 px-4 dark:bg-[#202020] dark:text-white dark:placeholder:text-white outline-none w-full focus:ring-2 focus:ring-gray-200 border border-black placeholder:text-black" 
               placeholder="Nome *" 
@@ -134,7 +134,7 @@ const CommentsForm = ({ slug, color }) => {
             />
             <input 
               type="email" 
-              value={formData.email} 
+              value={formData.email || ""} 
               onChange={onInputChange} 
               className="py-2 z-10 dark:bg-[#202020] dark:text-white dark:placeholder:text-white px-4 outline-none w-full focus:ring-2 focus:ring-gray-200 border border-black placeholder:text-black" 
               placeholder="Email *" 

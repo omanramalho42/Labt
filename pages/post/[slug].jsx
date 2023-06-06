@@ -72,10 +72,12 @@ export default PostDetails;
 
 export async function getStaticProps({ params }) {
   const data = await getPostDetails(params.slug);
+
   return {
     props: {
       post: data,
     },
+    revalidate: 3600,
   };
 }
 

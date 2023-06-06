@@ -207,7 +207,7 @@ const Home = (context) => {
   )
 }
 
-export const getServerSideProps =  async () => {
+export const getStaticProps =  async () => {
   const posts = (await getPosts()) || [];
   let categories = await getCategories()
     .then((newCategories) => newCategories)
@@ -217,7 +217,8 @@ export const getServerSideProps =  async () => {
     props: { 
       posts, 
       categories 
-    }
+    },
+    revalidate: 3600
   }
 }
 
