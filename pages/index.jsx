@@ -30,9 +30,6 @@ import { toast } from 'react-hot-toast'
 import useDarkSide from '../hooks/useDarkSide'
 
 const Home = (context) => {
-  // if(context) {
-  //   console.log(context,'props index');
-  // }
 
   const [posts, setPosts] = useState(null);
   const [search, setSearch] = useState('');
@@ -218,7 +215,7 @@ export const getStaticProps =  async () => {
       posts, 
       categories 
     },
-    revalidate: 3600
+    revalidate: 1800
   }
 }
 

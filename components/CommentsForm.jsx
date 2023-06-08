@@ -103,8 +103,6 @@ const CommentsForm = ({ slug, color }) => {
     }
   }
 
-  useEffect(() => { console.log('laod', loading) },[loading])
-
   return (
     <div className="flex-col bg-white dark:bg-[#121212] rounded-lg lg:px-16 p-6 pb-12 mb-8">
       <h3 className="text-4xl font-bold dark:text-white" style={{ fontFamily: 'gotham-bold' }}>

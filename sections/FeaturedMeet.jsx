@@ -105,14 +105,6 @@ const FeaturedMeet = () => {
   const { theme } = 
     useSelector((state) => state.theme);
 
-
-  useEffect(() => {
-    if(lastPosts) {
-      console.log([lastPosts[1],lastPosts[2],lastPosts[0],lastPosts[3]],'sorted');
-      console.log(lastPosts,'not sorted');
-    }
-  },[lastPosts]);
-
   if(lastPosts.length > 0) {
     return (
       <div 
