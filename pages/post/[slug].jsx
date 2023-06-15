@@ -50,6 +50,7 @@ const PostDetails = ({ post }) => {
         <meta charSet='utf-8'/>
         <meta desc={post.title} />
       </Helmet>
+      
       <div className="mx-auto mb-8 dark:bg-black">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-12">
@@ -60,7 +61,7 @@ const PostDetails = ({ post }) => {
           </div>
         </div>
         
-        <WidgetNavToTop />
+        {/* <WidgetNavToTop /> */}
 
         <Footer />
       </div>

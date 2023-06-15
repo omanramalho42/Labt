@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
+import image from '../public/darkAspiral.png'
 import { motion, useScroll } from 'framer-motion'
 
 import Skeleton from 'react-loading-skeleton'
@@ -8,21 +9,28 @@ import ModalPhotos from './ModalPhotos'
 import { TagCategorieWidget } from '../components'
 import Link from 'next/link'
 
+
 const PostDetail = ({ post }) => {
 
   const [color,setColor] = useState('');
+  const [bg, setBg] = useState('');
+
   useEffect(() => {
     if(post.categories[0].name === 'Bahia') {
       setColor('#DC2626');
+      setBg('/bgred.png');
       return;
     } else if(post.categories[0].name === 'Salvador') {
       setColor('#2f53a1');
+      setBg('/bgblue.png');
       return;
     } else if (post.categories[0].name === 'Ser') {
       setColor('#3fbb5a');
+      setBg('/bggreen.png');
       return;
     } else  {
       setColor('#d5b035');
+      setBg('/bgyellow.png');
       return;
     }
   },[post]);
@@ -128,7 +136,7 @@ const PostDetail = ({ post }) => {
         }}
       />
 
-      <div>
+      <div className=''>
         {mobile.innerWidth < 1000 ? (
           <>
             <TagCategorieWidget
@@ -137,7 +145,7 @@ const PostDetail = ({ post }) => {
             />
           </>
         ) : (
-          <div className='flex row mr-3'>
+          <div  className='flex row mr-3'>
             <div 
               className='flex-1 mb-8 p-1'
               style={{
@@ -158,24 +166,21 @@ const PostDetail = ({ post }) => {
             </span>
           </div>
         )}
-        
       </div>
-
       <div
         style={{ 
-          background: mobile.innerWidth < 1000 && `linear-gradient(
-            to top,
-            white 0%,
-            white 94.5%,
-            ${color} 94.5%,
-            ${color} 100%
-          )`,
+          backgroundImage: mobile.innerWidth < 1000 &&  `url(${bg})`, 
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'contain',
+          backgroundPosition: 'center',
+          backgroundPositionY: '-20px'
         }} 
       >
         <div 
           className="px-6 lg:px-0 py-4 dark:bg-black" 
         > 
-          <h1 className="lg:px-10 mb-2 md:text-5xl text-4xl font-semibold dark:text-white" style={{ fontFamily: 'Arlita' }}> 
+          <h1 
+            className="lg:px-10 mb-2 md:text-5xl text-4xl font-semibold dark:text-white" style={{ fontFamily: 'Arlita' }}> 
             { post.title || <Skeleton />} 
           </h1>
           
@@ -183,14 +188,7 @@ const PostDetail = ({ post }) => {
             <p className='inline w-60 text-white md:text-gray-400 text-lg border-t-2 xl:mb-5 dark:text-white font-light' 
               style={{ 
                 borderColor: 
-                `${post.categories[0].name === 'Salvador' 
-                ? '#2f53a1'
-                :  post.categories[0].name === 'Bahia'
-                ? '#DC2626'
-                : post.categories[0].name === 'Ser'
-                ?  '#3fbb5a'
-                : '#d5b035'
-                }` 
+                color
               }}
             >
               { post.author.name || <Skeleton count={1} /> } 
@@ -209,7 +207,6 @@ const PostDetail = ({ post }) => {
                 post={post.carousel} 
               />
             )}
-
 
             <div className='flex flex-col dark:text-white font-bold mt-[50px]'>
               <h5 style={{ fontFamily: 'gotham-bold' }}>
