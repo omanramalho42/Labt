@@ -194,7 +194,7 @@ const Home = (context) => {
         <FeaturedGallery />
       </div> */}
 
-      <WidgetNavToTop />
+      {/* <WidgetNavToTop /> */}
 
       <div className={`relative z-30 ${mobile.innerWidth < 1000 ? 'top-[-60px]' : 'top-0' }`}>
         <Footer />
