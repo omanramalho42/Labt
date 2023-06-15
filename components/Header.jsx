@@ -147,9 +147,9 @@ const Header = () => {
     >
       <div className='flex-wrap'>
         <motion.div
-          variants={container}
-          initial="hidden"
-          animate="visible"
+          // variants={container}
+          // initial="hidden"
+          // animate="visible"
           className='relative z-10'
         >
           {[headerNav[1],headerNav[2],headerNav[3],headerNav[0]].map(({ name, slug }, idx) => (
@@ -159,7 +159,7 @@ const Header = () => {
               className="cursor-pointer z-10"
             >
               <motion.span
-                variants={item} 
+                // variants={item} 
                 className={
                 `md: float-right mr-1 rounded-b-sm w-6 h-8 p-1`
                 }
@@ -211,20 +211,20 @@ const Header = () => {
         >
           <motion.div
             className='relative left-14 sm:left-0 dark:my-2 transition-all'
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              default: {
-                duration: 0.3,
-                ease: [0, 0.71, 0.2, 1.01]
-              },
-              scale: {
-                type: "spring",
-                damping: 5,
-                stiffness: 100,
-                restDelta: 0.001
-              }
-            }}
+            // initial={{ opacity: 0, scale: 0.5 }}
+            // animate={{ opacity: 1, scale: 1 }}
+            // transition={{
+            //   default: {
+            //     duration: 0.3,
+            //     ease: [0, 0.71, 0.2, 1.01]
+            //   },
+            //   scale: {
+            //     type: "spring",
+            //     damping: 5,
+            //     stiffness: 100,
+            //     restDelta: 0.001
+            //   }
+            // }}
           >
             {theme === 'dark' ? (
               <Image 
@@ -250,12 +250,12 @@ const Header = () => {
           <motion.div 
             className="hidden md:float-right md:contents items-center" 
             style={{ fontFamily: 'Arlita' }}
-            variants={container}
-            initial="hidden"
-            animate="visible"
+            // variants={container}
+            // initial="hidden"
+            // animate="visible"
           >
             <motion.a
-              variants={item}
+              // variants={item}
               href='/' 
               className='md:float-right flex items-center mt-2 text-black dark:text-white font-semibold cursor-pointer xl:text-3xl lg:text-2xl md:text-xl'
             >
@@ -267,7 +267,7 @@ const Header = () => {
                 <Link href={`/category/${i.slug}`}>
                   <motion.span 
                     className="flex items-center md:float-right mt-2 align-middle text-black lowercase dark:text-white font-semibold cursor-pointer xl:text-3xl lg:text-2xl md:text-xl"
-                    variants={item}
+                    // variants={item}
                   >
                     { i.name }
                   </motion.span>
@@ -276,7 +276,7 @@ const Header = () => {
               </Fragment>
             ))}
             <motion.a
-              variants={item} 
+              // variants={item} 
               href='/#banca'
               className='md:float-right mt-2 disabled:opacity-25 text-black dark:text-white font-semibold cursor-pointer border-separate xl:text-3xl lg:text-2xl md:text-xl'
             >
@@ -291,10 +291,10 @@ const Header = () => {
         <div className='grid grid-cols-1 lg:grid-cols-9 gap-12 pb-16 mt-4'>
           {filterPost.obj?.map((i, idx) => (
             <motion.div
-              initial={{ width: 0 }} 
-              animate={{ width: '100%', margin: '10px' }} 
-              transition={{ duration: .75, ease: "easeOut" }}
-              exit={{ x: '100%', transition: { duration: 0.1 } }}
+              // initial={{ width: 0 }} 
+              // animate={{ width: '100%', margin: '10px' }} 
+              // transition={{ duration: .75, ease: "easeOut" }}
+              // exit={{ x: '100%', transition: { duration: 0.1 } }}
               className="col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-3"
               key={idx}
             >
