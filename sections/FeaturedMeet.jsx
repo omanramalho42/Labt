@@ -109,6 +109,9 @@ const FeaturedMeet = () => {
     return (
       <div 
         className='flex flex-col items-center mx-auto w-full h-full'
+        style={{ 
+          transition: 'scale(-1.1)' 
+        }}
       >
         <div
           className='meet'
@@ -165,7 +168,13 @@ const FeaturedMeet = () => {
                 key={`${Math.random() * 100}`} 
                 className={`relative rounded-full mx-auto`} 
                 style={{
-                  top: '-5em',
+                  top: categorieName === 'Ser' ? '-2em' : categorieName === 'Estar' ? '-8em' :'-5em',
+                  left: `${
+                    categorieName === 'Salvador' && '50px'
+                  }`,
+                  right: `${
+                    categorieName === 'Bahia' && '50px'
+                  }`,
                   width: `${
                     mobile.innerWidth < 1200 && mobile.innerWidth > 1000 
                     ? '180px' 
@@ -176,6 +185,7 @@ const FeaturedMeet = () => {
                     ? '180px' 
                     : categorieName === 'Estar' || categorieName === 'Ser' ? '310px' : '250px'
                   }`,
+                  transform: 'scale(0.75)',
                   boxShadow: '2px 3px 10px 1px rgba(0, 0, 0, 0.1)',
                   transition: '0.325s',
                   padding: '10px',
@@ -216,7 +226,7 @@ const FeaturedMeet = () => {
                       : `url(${lastPosts[3].featuredImage}`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
-                    cursor: 'pointer'
+                    cursor: 'pointer',
                    }}
                 >
                   <a
@@ -240,7 +250,7 @@ const FeaturedMeet = () => {
                         ? '#DC2626' 
                         : categorieName === 'Ser'
                         ? '#3fbb5a'
-                        : '#d5b035',
+                        : '#d5b035'
                     }}
                   >
                     <span
