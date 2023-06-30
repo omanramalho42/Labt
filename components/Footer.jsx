@@ -126,7 +126,7 @@ const Footer = () => {
           <h3 className='font-bold text-3xl uppercase'>
             Contato
           </h3>
-          <p>escrevapara@labtempo.com.br</p>
+          <p>emaildolaboratoriot@gmail.com</p>
           <p>+55 (71) 9.9262.4841</p>
         </div>
 
