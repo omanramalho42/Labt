@@ -109,7 +109,7 @@ const PostDetail = ({ post }) => {
         return (
           <img
             className='mx-auto xl:my-5'
-            style={{ borderRadius: '33px' }}
+            style={{ borderRadius: '33px', maxHeight: '90vh' }}
             key={index}
             alt={obj.title}
             height={obj.height}
