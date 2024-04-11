@@ -11,7 +11,6 @@ import Link from 'next/link'
 
 
 const PostDetail = ({ post }) => {
-
   const [color,setColor] = useState('');
   const [bg, setBg] = useState('');
 
@@ -83,7 +82,7 @@ const PostDetail = ({ post }) => {
 
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
-
+    
     if (obj) {
       if (obj.bold) {
         modifiedText = (<b key={index}>{text}</b>);
@@ -96,20 +95,52 @@ const PostDetail = ({ post }) => {
       if (obj.underline) {
         modifiedText = (<u key={index}>{text}</u>);
       }
+
+      if (obj.href) {
+        modifiedText = (
+          <Link 
+            alt={obj.title} 
+            className='z-[20] relative cursor-pointer font-bold hover:text-blue-300 transition-all' 
+            target='_blank' 
+            key={index} 
+            href={obj.href}
+          >
+            { obj.title }
+          </Link>
+        );
+      }
     }
 
     switch (type) {
       case 'heading-three':
         return <h3 key={index} className="text-xl dark:text-white font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{ item }</React.Fragment>)}</h3>;
       case 'paragraph':
-        return <p key={index} className="mb-8 tracking-widest dark:text-white" style={{ lineHeight: '1.6em'}}>{modifiedText.map((item, i) => <React.Fragment key={i}>{ item }</React.Fragment>)}</p>;
+        return (
+          <p 
+            key={index} 
+            className="mb-8 tracking-widest dark:text-white" 
+            style={{ 
+              lineHeight: '1.6em'
+            }}
+          >
+            {modifiedText.map((item, i) => 
+              <React.Fragment key={i}>
+                { item }
+              </React.Fragment>
+            )}
+          </p>
+        );
       case 'heading-four':
         return <h4 key={index} className="text-md font-semibold dark:text-white mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{ item }</React.Fragment>)}</h4>;
       case 'image':
         return (
           <img
             className='mx-auto xl:my-5'
-            style={{ borderRadius: '33px', maxHeight: '90vh', objectFit: 'cover' }}
+            style={{ 
+              borderRadius: '33px', 
+              maxHeight: '90vh', 
+              objectFit: 'cover' 
+            }}
             key={index}
             alt={obj.title}
             height={obj.height}
