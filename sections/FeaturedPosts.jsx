@@ -32,8 +32,8 @@ const FeaturedPosts = () => {
   const [dataLoaded, setDataLoaded] = useState(false);
 
   const [banners] = useState([
-    { image: '/banner1.jpg', title: 'Banner 1', descritpion: '' },
-    { image: '/banner2.jpg', title: 'Banner 2', descritpion: '' },
+    { image: '/banner3.jpg', title: 'Banner 1', descritpion: '' },
+    { image: '/banner1.jpg', title: 'Banner 2', descritpion: '' },
   ]);
 
   useEffect(() => {
