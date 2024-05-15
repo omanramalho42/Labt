@@ -90,7 +90,7 @@ const FeaturedPosts = () => {
   
   const [mobileBanners, setMobileBanners] = useState([
     { image: '/bannerMob1.png', title: 'Banner 1', descritpion: '' },
-    { image: '/bannerMob2.png', title: 'Banner 2', descritpion: '' },
+    { image: '/bannerMob3.png', title: 'Banner 2', descritpion: '' },
   ]);
   
   return (
