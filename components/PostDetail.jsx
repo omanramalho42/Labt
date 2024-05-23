@@ -290,7 +290,7 @@ const PostDetail = ({ post }) => {
                 </Link>
 
                 <Link 
-                  href={`https://api.whatsapp.com/send?phone=5571992624841&text=https://www.labtempo.com/${post.slug}`} 
+                  href={`https://api.whatsapp.com/send?text=https://www.labtempo.com/${post.slug}`} 
                   type="button"
                   target="_blank" 
                   data-action="share/whatsapp/share"
