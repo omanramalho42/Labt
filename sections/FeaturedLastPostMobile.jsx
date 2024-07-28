@@ -46,7 +46,7 @@ const FeaturedLastPost = () => {
             <img
               src={lastPost[0].featuredImage.url || ''} 
               alt="imagem do último post" 
-              className='w-full'
+              className='w-full object-cover'
               style={{ minHeight: '300px' }}
             />
           </figure>
