@@ -37,7 +37,7 @@ const Home = (context) => {
 
   const autoFetchDataPosts = async () => {
     let success = false;
-    
+    console.log("passei aqui");
     try {
       await getPosts()
         .then((res) => { 

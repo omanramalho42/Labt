@@ -204,14 +204,15 @@ const PostDetail = ({ post }) => {
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'contain',
           backgroundPosition: 'center',
-          backgroundPositionY: '-20px'
+          backgroundPositionY: '-20px',
+          backgroundSize: "100% 310px, cover",
         }} 
       >
         <div 
           className="px-6 lg:px-0 py-4 dark:bg-black" 
         > 
           <h1 
-            className="lg:px-10 mb-2 md:text-5xl text-4xl font-semibold dark:text-white" style={{ fontFamily: 'Arlita' }}> 
+            className="lg:px-10 mb-2 md:text-5xl text-3xl line-height-2 font-semibold dark:text-white" style={{ fontFamily: 'Arlita' }}> 
             { post.title || <Skeleton />} 
           </h1>
           

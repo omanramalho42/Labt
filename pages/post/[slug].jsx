@@ -24,13 +24,13 @@ const PostDetails = ({ post }) => {
   const [color, setColor] = useState('');
  
   useEffect(() => {
-    if(post.categories[0].name === 'Bahia') {
+    if(post?.categories[0].name === 'Bahia') {
       setColor('#DC2626');
       return;
-    } else if(post.categories[0].name === 'Salvador') {
+    } else if(post?.categories[0].name === 'Salvador') {
       setColor('#2f53a1');
       return;
-    } else if (post.categories[0].name === 'Ser') {
+    } else if (post?.categories[0].name === 'Ser') {
       setColor('#3fbb5a');
       return;
     } else  {
