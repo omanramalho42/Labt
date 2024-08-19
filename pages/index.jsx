@@ -215,7 +215,7 @@ export const getStaticProps =  async () => {
       posts, 
       categories 
     },
-    revalidate: 1800
+    revalidate: 150
   }
 }
 
